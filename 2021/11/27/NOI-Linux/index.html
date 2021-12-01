@@ -28,7 +28,7 @@
 <meta property="og:description" content="关于 NOI Linux 的一些个人配置和使用技巧（掺杂了 Windows 下环境变量的设置之类的东西）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-27T14:43:12.000Z">
-<meta property="article:modified_time" content="2021-11-28T14:35:15.529Z">
+<meta property="article:modified_time" content="2021-12-01T15:44:24.347Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="NOI-Linux">
 <meta property="article:tag" content="VScode">
@@ -138,7 +138,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -151,6 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">0x01 基础使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-VSCode-%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">2.</span> <span class="nav-text">0x02 VSCode 的使用技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-gdb-%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">0x03 gdb 的相关使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-Windows-%E4%B8%8B%E5%AE%9E%E7%8E%B0%E6%8C%87%E4%BB%A4%E7%BC%96%E8%AF%91%EF%BC%88%E4%B8%BB%E8%A6%81%E6%98%AF%E4%B8%BA%E4%BA%86%E9%80%82%E5%BA%94-Windows-%E4%B8%8B%E7%9A%84-VSC-%E7%BC%96%E7%A8%8B%E5%B9%B6%E4%B8%94%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8%E5%85%B6%E6%8F%92%E4%BB%B6%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">0x04 Windows 下实现指令编译（主要是为了适应 Windows 下的 VSC 编程并且避免使用其插件）</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,18 +166,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -246,7 +247,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-28 22:35:15" itemprop="dateModified" datetime="2021-11-28T22:35:15+08:00">2021-11-28</time>
+        <time title="修改时间：2021-12-01 23:44:24" itemprop="dateModified" datetime="2021-12-01T23:44:24+08:00">2021-12-01</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -269,38 +270,41 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Ctrl+Alt+T 召唤终端。</p>
-<p>新建文件的指令是 touch+文件名 。</p>
-<p>现在给一些在英文环境下使用 VSC 的指北。</p>
+        <h1 id="0x01-基础使用"><a href="#0x01-基础使用" class="headerlink" title="0x01 基础使用"></a>0x01 基础使用</h1><p><code>Ctrl+Alt+T</code> 召唤终端。</p>
+<p>新建文件的指令是 <code>touch+文件名</code> 。</p>
+<h1 id="0x02-VSCode-的使用技巧"><a href="#0x02-VSCode-的使用技巧" class="headerlink" title="0x02 VSCode 的使用技巧"></a>0x02 VSCode 的使用技巧</h1><p>现在给一些在英文环境下使用 VSC 的指北。</p>
 <p>左下角有一个设置按钮，点开，第二行的 Settings。</p>
 <p>然后点第一行 Text Editor，再点第三行 Font，选择 Font Size，选择至合适大小（这里在 Windows 下 30 比较合适）。</p>
 <p>然后是 Text Editor 下倒数第三行的 Minimap，Maxcolumn 调整为 240（差不多罢），然后下面的 Scale 调整为 3。</p>
 <p>大概可以了，在 NOI Linux 的环境下应该可以较为正常的使用了。</p>
-<p>然后再补充一些指令，以及 gdb 的使用。</p>
-<p>time ./code 可以在运行的同时显示运行所需的时间。</p>
+<p>然后 VSC 里撤销是 <code>Ctrl+Z</code>，恢复上一步操作是 <code>Ctrl+Shift+Z</code>。</p>
+<p>VSCode 里 <code>shift+&#123;</code> 可以把选中的内容套上大括号，小括号同理，方括号不行。</p>
+<p><code>Ctrl+&#123;</code> 可以减去区域的整体缩进，<code>Ctrl+&#125;</code> 可以增加区域的整体缩进。</p>
+<p>在底边栏中可以调整缩进是空格还是真的缩进。</p>
+<h1 id="0x03-gdb-的相关使用"><a href="#0x03-gdb-的相关使用" class="headerlink" title="0x03 gdb 的相关使用"></a>0x03 gdb 的相关使用</h1><p>然后再补充一些指令，以及 gdb 的使用。</p>
+<p><code>time ./code</code> 可以在运行的同时显示运行所需的时间。</p>
 <p>gdb 最强大的地方在于可以快速找到段错误（除 0，数组越界，爆栈等），我们可以直接在 gdb 下运行，然后就可以直接给你返回出错的地方。</p>
 <p>然后还有一些它的调试功能。</p>
 <p>在编译时使用该指令：</p>
-<p>g++ -g code.cpp -o code -Wall</p>
+<p><code>g++ -g code.cpp -o code -Wall</code></p>
 <p>然后我们在调试的时候这样：</p>
-<p>gdb code</p>
+<p><code>gdb code</code></p>
 <p>这样我们就能进入 gdb 的调试。</p>
-<p>r 可以直接运行。如果想要干大事，可以 start，从 main 函数的第一行开始执行，然后不断地 n （执行下一行）即可。disp ans 可以一直显示 ans 的值，方便调试。</p>
-<p>b 可以设置断点，还有一些附加比如：</p>
-<p>b 34 if i==4</p>
+<p><code>r</code> 可以直接运行。如果想要干大事，可以 <code>start</code>，从 main 函数的第一行开始执行，然后不断地 <code>n</code> （执行下一行）即可。<code>disp ans</code> 可以一直显示 ans 的值，方便调试。</p>
+<p><code>b</code> 可以设置断点，还有一些附加比如：</p>
+<p><code>b 34 if i==4</code></p>
 <p>在 i==4 的时候断点才会起作用。</p>
-<p>d 可以删除所有断点。</p>
-<p>当然有的时候也需要在调试时使用 s，表示执行时进入函数内部，看内部的使用。</p>
-<p>u 会执行当前行直到当前行对应的循环结束。</p>
-<p>finish 运行到当前函数结束，如果有返回值，会输出返回值。</p>
-<p>return 强行 return，可以返回指定的值。</p>
-<p>p x=4，将此时的 x 赋值 4。</p>
-<p>l 可以显示代码。l,r 显示区间代码，l 显示 l 附近的 10 行代码。</p>
-<p>VSCode 里 shift+{ 可以把选中的内容套上大括号，小括号同理，方括号不行。</p>
-<p>Ctrl+{ 可以减去区域的整体缩进，Ctrl+} 可以增加区域的整体缩进。</p>
-<p>在底边栏中可以调整缩进是空格还是真的缩进。</p>
-<p>一些比较神奇的东西。。。在 Windows 下装 MinGW 其实完全不需要重新下载，只要找到 Dev-Cpp 的路径，然后把里面 MinGW 的 bin 路径赋值到系统变量 path 里就完事了。。。弄了半天。。。</p>
-<p>然后 VSC 里撤销是 Ctrl+Z，恢复上一步操作是 Ctrl+Shift+Z。</p>
+<p><code>d</code> 可以删除所有断点。</p>
+<p>当然有的时候也需要在调试时使用 <code>s</code>，表示执行时进入函数内部，看内部的使用。</p>
+<p><code>u</code> 会执行当前行直到当前行对应的循环结束。</p>
+<p><code>finish</code> 运行到当前函数结束，如果有返回值，会输出返回值。</p>
+<p><code>return</code> 强行 return，可以返回指定的值。</p>
+<p><code>p x=4</code>，将此时的 x 赋值 4。</p>
+<p><code>l</code> 可以显示代码。<code>l,r</code> 显示区间代码，<code>l</code> 显示 l 附近的 10 行代码。</p>
+<h1 id="0x04-Windows-下实现指令编译（主要是为了适应-Windows-下的-VSC-编程并且避免使用其插件）"><a href="#0x04-Windows-下实现指令编译（主要是为了适应-Windows-下的-VSC-编程并且避免使用其插件）" class="headerlink" title="0x04 Windows 下实现指令编译（主要是为了适应 Windows 下的 VSC 编程并且避免使用其插件）"></a>0x04 Windows 下实现指令编译（主要是为了适应 Windows 下的 VSC 编程并且避免使用其插件）</h1><p>一些比较神奇的东西。。。在 Windows 下装 MinGW 其实完全不需要重新下载，只要找到 Dev-Cpp 的路径，然后把里面 MinGW 的 bin 路径赋值到系统变量 path 里就完事了。。。弄了半天。。。</p>
+<p>学校 hwc 机房里的 MinGW 居然是 1999 年的令我大为震撼，这时指令只可以使用 <code>gcc</code>。</p>
+<p>然后 Win7 的路径修改还和 Win10 不太相同，其实就是多一个 <code>;</code> 隔开每一条路径而已。</p>
+<p>另外，一定注意编译的路径是英文的，千万不能有中文符号，否则编译一次真的可以爽上一年。</p>
 
     </div>
 
@@ -318,6 +322,15 @@
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/01/P5522/" rel="next" title="P5522">
+                  P5522 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -363,6 +376,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

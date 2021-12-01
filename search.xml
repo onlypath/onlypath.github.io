@@ -3,38 +3,41 @@
   <entry>
     <title>NOI_Linux</title>
     <url>/2021/11/27/NOI-Linux/</url>
-    <content><![CDATA[<p>Ctrl+Alt+T 召唤终端。</p>
-<p>新建文件的指令是 touch+文件名 。</p>
-<p>现在给一些在英文环境下使用 VSC 的指北。</p>
+    <content><![CDATA[<h1 id="0x01-基础使用"><a href="#0x01-基础使用" class="headerlink" title="0x01 基础使用"></a>0x01 基础使用</h1><p><code>Ctrl+Alt+T</code> 召唤终端。</p>
+<p>新建文件的指令是 <code>touch+文件名</code> 。</p>
+<h1 id="0x02-VSCode-的使用技巧"><a href="#0x02-VSCode-的使用技巧" class="headerlink" title="0x02 VSCode 的使用技巧"></a>0x02 VSCode 的使用技巧</h1><p>现在给一些在英文环境下使用 VSC 的指北。</p>
 <p>左下角有一个设置按钮，点开，第二行的 Settings。</p>
 <p>然后点第一行 Text Editor，再点第三行 Font，选择 Font Size，选择至合适大小（这里在 Windows 下 30 比较合适）。</p>
 <p>然后是 Text Editor 下倒数第三行的 Minimap，Maxcolumn 调整为 240（差不多罢），然后下面的 Scale 调整为 3。</p>
 <p>大概可以了，在 NOI Linux 的环境下应该可以较为正常的使用了。</p>
-<p>然后再补充一些指令，以及 gdb 的使用。</p>
-<p>time ./code 可以在运行的同时显示运行所需的时间。</p>
+<p>然后 VSC 里撤销是 <code>Ctrl+Z</code>，恢复上一步操作是 <code>Ctrl+Shift+Z</code>。</p>
+<p>VSCode 里 <code>shift+&#123;</code> 可以把选中的内容套上大括号，小括号同理，方括号不行。</p>
+<p><code>Ctrl+&#123;</code> 可以减去区域的整体缩进，<code>Ctrl+&#125;</code> 可以增加区域的整体缩进。</p>
+<p>在底边栏中可以调整缩进是空格还是真的缩进。</p>
+<h1 id="0x03-gdb-的相关使用"><a href="#0x03-gdb-的相关使用" class="headerlink" title="0x03 gdb 的相关使用"></a>0x03 gdb 的相关使用</h1><p>然后再补充一些指令，以及 gdb 的使用。</p>
+<p><code>time ./code</code> 可以在运行的同时显示运行所需的时间。</p>
 <p>gdb 最强大的地方在于可以快速找到段错误（除 0，数组越界，爆栈等），我们可以直接在 gdb 下运行，然后就可以直接给你返回出错的地方。</p>
 <p>然后还有一些它的调试功能。</p>
 <p>在编译时使用该指令：</p>
-<p>g++ -g code.cpp -o code -Wall</p>
+<p><code>g++ -g code.cpp -o code -Wall</code></p>
 <p>然后我们在调试的时候这样：</p>
-<p>gdb code</p>
+<p><code>gdb code</code></p>
 <p>这样我们就能进入 gdb 的调试。</p>
-<p>r 可以直接运行。如果想要干大事，可以 start，从 main 函数的第一行开始执行，然后不断地 n （执行下一行）即可。disp ans 可以一直显示 ans 的值，方便调试。</p>
-<p>b 可以设置断点，还有一些附加比如：</p>
-<p>b 34 if i==4</p>
+<p><code>r</code> 可以直接运行。如果想要干大事，可以 <code>start</code>，从 main 函数的第一行开始执行，然后不断地 <code>n</code> （执行下一行）即可。<code>disp ans</code> 可以一直显示 ans 的值，方便调试。</p>
+<p><code>b</code> 可以设置断点，还有一些附加比如：</p>
+<p><code>b 34 if i==4</code></p>
 <p>在 i==4 的时候断点才会起作用。</p>
-<p>d 可以删除所有断点。</p>
-<p>当然有的时候也需要在调试时使用 s，表示执行时进入函数内部，看内部的使用。</p>
-<p>u 会执行当前行直到当前行对应的循环结束。</p>
-<p>finish 运行到当前函数结束，如果有返回值，会输出返回值。</p>
-<p>return 强行 return，可以返回指定的值。</p>
-<p>p x=4，将此时的 x 赋值 4。</p>
-<p>l 可以显示代码。l,r 显示区间代码，l 显示 l 附近的 10 行代码。</p>
-<p>VSCode 里 shift+{ 可以把选中的内容套上大括号，小括号同理，方括号不行。</p>
-<p>Ctrl+{ 可以减去区域的整体缩进，Ctrl+} 可以增加区域的整体缩进。</p>
-<p>在底边栏中可以调整缩进是空格还是真的缩进。</p>
-<p>一些比较神奇的东西。。。在 Windows 下装 MinGW 其实完全不需要重新下载，只要找到 Dev-Cpp 的路径，然后把里面 MinGW 的 bin 路径赋值到系统变量 path 里就完事了。。。弄了半天。。。</p>
-<p>然后 VSC 里撤销是 Ctrl+Z，恢复上一步操作是 Ctrl+Shift+Z。</p>
+<p><code>d</code> 可以删除所有断点。</p>
+<p>当然有的时候也需要在调试时使用 <code>s</code>，表示执行时进入函数内部，看内部的使用。</p>
+<p><code>u</code> 会执行当前行直到当前行对应的循环结束。</p>
+<p><code>finish</code> 运行到当前函数结束，如果有返回值，会输出返回值。</p>
+<p><code>return</code> 强行 return，可以返回指定的值。</p>
+<p><code>p x=4</code>，将此时的 x 赋值 4。</p>
+<p><code>l</code> 可以显示代码。<code>l,r</code> 显示区间代码，<code>l</code> 显示 l 附近的 10 行代码。</p>
+<h1 id="0x04-Windows-下实现指令编译（主要是为了适应-Windows-下的-VSC-编程并且避免使用其插件）"><a href="#0x04-Windows-下实现指令编译（主要是为了适应-Windows-下的-VSC-编程并且避免使用其插件）" class="headerlink" title="0x04 Windows 下实现指令编译（主要是为了适应 Windows 下的 VSC 编程并且避免使用其插件）"></a>0x04 Windows 下实现指令编译（主要是为了适应 Windows 下的 VSC 编程并且避免使用其插件）</h1><p>一些比较神奇的东西。。。在 Windows 下装 MinGW 其实完全不需要重新下载，只要找到 Dev-Cpp 的路径，然后把里面 MinGW 的 bin 路径赋值到系统变量 path 里就完事了。。。弄了半天。。。</p>
+<p>学校 hwc 机房里的 MinGW 居然是 1999 年的令我大为震撼，这时指令只可以使用 <code>gcc</code>。</p>
+<p>然后 Win7 的路径修改还和 Win10 不太相同，其实就是多一个 <code>;</code> 隔开每一条路径而已。</p>
+<p>另外，一定注意编译的路径是英文的，千万不能有中文符号，否则编译一次真的可以爽上一年。</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -44,6 +47,34 @@
         <tag>VScode</tag>
         <tag>gdb</tag>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P5522</title>
+    <url>/2021/12/01/P5522/</url>
+    <content><![CDATA[<p>[yLOI2019] 棠梨煎雪</p>
+<p>写了一个树状数组，然后被卡常了。</p>
+<p>事实上要写一个状压。</p>
+<p>然后我们可以存储两个状态 $a_i$ 和 $b_i$。</p>
+<p>$a_i$ 的每一位表示这个串的这一位为 0 还是 1，其中为 <code>?</code> 的位为 0。</p>
+<p>然后 $b_i$ 的每一位表示这个串的这一位是否为 <code>?</code>。</p>
+<p>然后就可以瞎搞了。</p>
+<p>其实这个 <code>?</code> 位，在某次查询中，一个位上的 <code>?</code> 只能全取 0 或全取 1，那么我们想办法实现这个。</p>
+<p>于是乎，$a_i\operatorname{xor} b_i$ 就可以让这些位全取 1，$a_i$ 本身就可以让这些位全取 0。</p>
+<p>显然前一种值维护区间或，后一种值维护区间与，再多维护一个 $b_i$ 的区间与即可。</p>
+<p>线段树维护就好了。</p>
+<p>最后看每一位，如果该位不能全 1 并且该位不能全 0 这个区间就是不合法的，否则合法，我们利用 $b_i$ 的区间与看这一位是否都是问号，如果是，使答案乘 2。</p>
+<p>时间复杂度 $O(q(n+\log m))$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">30</span>,M=<span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">ll n,m,q,pos,l,r,op,ans;</span><br><span class="line"></span><br><span class="line">ll a[M],b[M];</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> s[N+<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sgt</span>&#123;</span></span><br><span class="line">	ll l,r,dat0,dat1,dat2;</span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> l(x) tree[x].l</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> r(x) tree[x].r</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> dat0(x) tree[x].dat0</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> dat1(x) tree[x].dat1</span></span><br><span class="line">	<span class="meta">#<span class="meta-keyword">define</span> dat2(x) tree[x].dat2</span></span><br><span class="line">&#125;tree[M*<span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(ll p,ll l,ll r)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">l</span>(p)=l;<span class="built_in">r</span>(p)=r;</span><br><span class="line">	<span class="keyword">if</span>(l==r) &#123;</span><br><span class="line">		<span class="built_in">dat0</span>(p)=a[l];<span class="built_in">dat1</span>(p)=a[l]^b[l];</span><br><span class="line">		<span class="built_in">dat2</span>(p)=b[l];</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	ll mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">build</span>(p&lt;&lt;<span class="number">1</span>,l,mid);<span class="built_in">build</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,mid+<span class="number">1</span>,r);</span><br><span class="line">	<span class="built_in">dat0</span>(p)=<span class="built_in">dat0</span>(p&lt;&lt;<span class="number">1</span>)|<span class="built_in">dat0</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">dat1</span>(p)=<span class="built_in">dat1</span>(p&lt;&lt;<span class="number">1</span>)&amp;<span class="built_in">dat1</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">dat2</span>(p)=<span class="built_in">dat2</span>(p&lt;&lt;<span class="number">1</span>)&amp;<span class="built_in">dat2</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">sgt <span class="title">ask</span><span class="params">(ll p,ll l,ll r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">l</span>(p)&gt;=l&amp;&amp;<span class="built_in">r</span>(p)&lt;=r) &#123;</span><br><span class="line">		<span class="keyword">return</span> tree[p];</span><br><span class="line">	&#125;</span><br><span class="line">	ll mid=(<span class="built_in">l</span>(p)+<span class="built_in">r</span>(p))&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(l&gt;mid) <span class="keyword">return</span> <span class="built_in">ask</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,l,r);</span><br><span class="line">	<span class="keyword">if</span>(r&lt;=mid) <span class="keyword">return</span> <span class="built_in">ask</span>(p&lt;&lt;<span class="number">1</span>,l,r);</span><br><span class="line">	sgt tmpl=<span class="built_in">ask</span>(p&lt;&lt;<span class="number">1</span>,l,r),tmpr=<span class="built_in">ask</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,l,r),res;</span><br><span class="line">	res.dat0=tmpl.dat0|tmpr.dat0;</span><br><span class="line">	res.dat1=tmpl.dat1&amp;tmpr.dat1;</span><br><span class="line">	res.dat2=tmpl.dat2&amp;tmpr.dat2;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">modify</span><span class="params">(ll p,ll x,ll ka,ll kb)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">l</span>(p)==<span class="built_in">r</span>(p)) &#123;</span><br><span class="line">		<span class="built_in">dat0</span>(p)=ka;<span class="built_in">dat1</span>(p)=ka^kb;</span><br><span class="line">		<span class="built_in">dat2</span>(p)=kb;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	ll mid=(<span class="built_in">l</span>(p)+<span class="built_in">r</span>(p))&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(x&lt;=mid) <span class="built_in">modify</span>(p&lt;&lt;<span class="number">1</span>,x,ka,kb);</span><br><span class="line">	<span class="keyword">if</span>(x&gt;mid) <span class="built_in">modify</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,x,ka,kb);</span><br><span class="line">	<span class="built_in">dat0</span>(p)=<span class="built_in">dat0</span>(p&lt;&lt;<span class="number">1</span>)|<span class="built_in">dat0</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">dat1</span>(p)=<span class="built_in">dat1</span>(p&lt;&lt;<span class="number">1</span>)&amp;<span class="built_in">dat1</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">dat2</span>(p)=<span class="built_in">dat2</span>(p&lt;&lt;<span class="number">1</span>)&amp;<span class="built_in">dat2</span>(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">	<span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">		<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();q=<span class="built_in">read</span>();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=m;i++) &#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,s+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=n;j++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">&#x27;0&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">&#x27;1&#x27;</span>) &#123;</span><br><span class="line">				a[i]|=(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>));</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(s[j]==<span class="string">&#x27;?&#x27;</span>) &#123;</span><br><span class="line">				b[i]|=(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">build</span>(<span class="number">1</span>,<span class="number">1</span>,m);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(q--) &#123;</span><br><span class="line">		op=<span class="built_in">read</span>();</span><br><span class="line">		<span class="keyword">if</span>(op==<span class="number">0</span>) &#123;</span><br><span class="line">			l=<span class="built_in">read</span>();r=<span class="built_in">read</span>();</span><br><span class="line">			sgt tmp=<span class="built_in">ask</span>(<span class="number">1</span>,l,r);</span><br><span class="line">			ll sum=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(((tmp.dat0&gt;&gt;(i<span class="number">-1</span>))&amp;<span class="number">1</span>)&amp;&amp;(!((tmp.dat1&gt;&gt;(i<span class="number">-1</span>))&amp;<span class="number">1</span>))) &#123;</span><br><span class="line">					sum=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>((tmp.dat2&gt;&gt;(i<span class="number">-1</span>))&amp;<span class="number">1</span>) sum&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			ans=ans^sum;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(op==<span class="number">1</span>) &#123;</span><br><span class="line">			pos=<span class="built_in">read</span>();</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,s+<span class="number">1</span>);</span><br><span class="line">			ll tmpa=<span class="number">0</span>,tmpb=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(s[i]==<span class="string">&#x27;0&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">				<span class="keyword">if</span>(s[i]==<span class="string">&#x27;1&#x27;</span>) &#123;tmpa|=(<span class="number">1</span>&lt;&lt;(i<span class="number">-1</span>));&#125;</span><br><span class="line">				<span class="keyword">if</span>(s[i]==<span class="string">&#x27;?&#x27;</span>) &#123;tmpb|=(<span class="number">1</span>&lt;&lt;(i<span class="number">-1</span>));&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">modify</span>(<span class="number">1</span>,pos,tmpa,tmpb);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">write</span>(ans);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>杂题</category>
+      </categories>
+      <tags>
+        <tag>线段树</tag>
+        <tag>位运算</tag>
+        <tag>状态压缩</tag>
       </tags>
   </entry>
 </search>
