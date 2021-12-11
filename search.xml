@@ -449,4 +449,263 @@
         <tag>数论</tag>
       </tags>
   </entry>
+  <entry>
+    <title>EssayAD20211211</title>
+    <url>/2021/12/11/EssayAD20211211/</url>
+    <content><![CDATA[<p>2020 年初。</p>
+<p>那个时候发生了很多事。</p>
+<p>第一次开始认真学 OI（虽然也没什么长进），第一次写影评（写得很烂），第一次抄完了《读者》卷尾的诗（大概是 13-15 年左右的了，整整抄了两个小本子，当时是为了练字，现在看来那个字怎么能写这么难看。。。），第一次看 Key 社的三部:《Clannad》、《Kanon》、《Air》，第一次玩 Gal，第一次体会到“屏幕里的人笑着笑着，屏幕外的人就哭了”是什么感觉（《Steins;Gate 0》Re-awake）……</p>
+<p>那时候感觉自己还是个单纯到不能再单纯的少年，看什么都很理想化。</p>
+<p>虽然从精神压力和生活上来说确实很理想化。</p>
+<p>复学回来之后，初中的文化课尚可应付，似乎突击了一波开学考勉强蹭到了不错的位置，物理还顺便考了年级第一。</p>
+<p>于是又开始学 OI 什么的。记得当时还很喜欢物理，那个学期还抽时间自学了初三的物理书，拿了一本启东中学初中物理竞赛之类的诡异书目散做了一些题目。</p>
+<p>半个学期左右过去，没有什么阻碍地进入了学科走班。暑假的时候又刷了些 OI，但我很快被 8 月份的走班课程弄死了。</p>
+<p>记得当时是我第一次体会到作业还能有凌晨 1 点前写不完的。拼命熬了一个多月之后觉得实在撑不下去，于是又跑去搞 OI（准备 11 月份的 J）。结果开学到 J 结束的一段时间里养成了作业摆烂的习惯，实在被逼到走投无路就熬夜大补。不过后来还算补救了回来，但熬夜的习惯撑到上学期结束就撑不下去了。想起当时老丁还经常挖苦我，说我效率低下（虽然是事实）。</p>
+<p>寒假的时候几乎是每天都严格按照时间表行动，基本和上课时没有区别，结果寒假没有休息好，下学期一开学一个多月，我的作业基本就开始摆烂，再到了一模过后，甚至还有几次在家睡觉旷大课的神奇经历。不过好在基本都是复习课了，倒也对自己没什么影响，不过倒引来了老丁新的挖苦和讽刺。。。</p>
+<p>后来的中考倒是云淡风轻，虽然嘴上说着上小庙中学什么的，其实当时也没有想过一中以外的学校。</p>
+<p>只不过，当我回过头来看的时候，发现走班真的让我失去了很多。突然发现自己对物理再没什么兴趣了，发现自己变得喜欢摆烂了，发现自己把时间白白浪费在初三机械重复的做题而没有提前学习新知识，发现自己丢失了最宝贵的一段初三训练 OI 的时间……</p>
+<p>来到暑假，又陷入了新的轮回。</p>
+<p>被一中的老师坑害了一个月去上了预科（结果是什么也没学到，还耽误了学 OI 的时间）。</p>
+<p>暑假基本是每天都在刷题，可最后累积下来，中考结束到开学我的题量只增加了 190 道左右。从量上讲大概还是作业写不完的那一类人。</p>
+<p>初赛小做了一些准备，最后考场上的 The method of four Russians 只做对 5 道，解码基本摆烂，拿了 78pts 这个中不溜秋的成绩。</p>
+<p>没想到的是，到 CSP 之前，whk 的压力空前巨大。于是我选择半烂 whk，每节晚自习跑去做题，但可惜时间有限，不仅题没做多少，还天天被班主任拉去做思想教育，感觉到又被深深鄙视。</p>
+<p>最后 CSP 考得奇烂，我的 T1 是一个混着暴力和三分的神奇程序，T2 本能做出来结果惨淡爆零，T3 只能用最后 10min 写下暴力（然后在收卷的时候大概发现了这道题比 T2 好调还好想），T4 无奈摆烂。最后 T1 喜提 65pts（搞笑的是这部分分是三分拿到的，我的暴力写挂了），T2 显然爆零，T3 喜提暴力分，甚至没有混到一等。顿时感觉崩溃，因为从题目难度的角度来说至少能拿 300pts。。。</p>
+<p>于是被班主任予以了更深层次的鄙视。本来想申请 CSP 之后大停课的，最后迫于这个破分数张不开口。想来自己的惨淡并非没有来头。。。</p>
+<p>结果就是，到 NOIP 之前我压根学不下去 whk，只得在最后一周申请了停课。最终结果就是双烂。</p>
+<p>回来之后班主任基本把我当作废人。我大概也是不想管了。</p>
+<p>记得当时申请停课的时候班主任一脸“你菜成这样停个屁”的神色，问我搞 OI 的目标是什么，我大概支吾了一句“进省队，然后最好能拿到银牌吧”。他冷笑了一声，弄得我浑身不舒服（现在想来大概是被深深嘲笑了），然后他答应我停课了。</p>
+<p>停课一周并没有把状态调整回来，反倒是考前出了点意外，被迫转坐高铁弄得我心情很差。想来自己实在太容易被这些琐事困扰，结果自己心态爆炸。</p>
+<p>最后 NOIP 依旧没有吸取教训，死磕 T2 数小时之后，仅剩的 1 个多小时时间没有去考虑 T3 的暴力，而是花了大概 5 分钟丢了个贪心走人，T4 再次摆烂。最终结果就是喜提 T2 暴力垫底分，成为垫底人。</p>
+<p>结果回来之后我的心态彻底就炸裂了。感觉人完蛋了。</p>
+<p>最后放弃了熬夜补 whk 的想法。因为觉得不值得。</p>
+<p>看到其他人基本都还好好活着，才发觉自己早已经死了。</p>
+<p>不过是自作自受罢了。</p>
+]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AD20211212</title>
+    <url>/2021/12/11/EssayAD20211212/</url>
+    <content><![CDATA[<pre><code>リズと青い鳥，あなたを永遠に好きになりたいです。
+</code></pre>
+<p>想来自己最初邂逅《莉兹与青鸟》，大概要到 2020 年的 12 月份了。</p>
+<p>近乎是第一眼就喜欢上了这部作品。</p>
+<p>看完之后我的头像就换成了伞木希美的那张“昂首雀过图”。（原因是当时的希美正在做数论）</p>
+<p>记得当时看着 唯风Wephon 老师的青鸟解读，反复翻阅和观看之后越来越觉得神妙。当时甚至还把这个故事写成了作文，语文老师似乎评价还不错，为此还修改了好几次（最重要的是我的中考作文就是把这篇作文改编后直接套上的，想来大概为此多扣了不少分吧）。</p>
+<p>后来尝试从几个不同的角度分析了这部作品，但因为最后的成品都不太满意，所以还是封在了博客里。</p>
+<p>感觉自己正在 Enjoying 这部作品，来来回回又翻阅了许多解读的资料、赏析、MAD/AMV 等等。大概形成了自己的一种认知观念。</p>
+<p>暑假的时候，找到了改编《莉兹与青鸟》的一篇英语读后续写，心血来潮抄了下来，顺便当作练字，似乎还在不经意间积累了一些词汇。</p>
+<p>难以言喻的喜爱。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/qfzctlt7.png"></p>
+<p>偶尔喜欢作一些奇怪的东西，比如：</p>
+<pre><code>Obliviousness
+I&#39;m waiting
+a girl tenderly smiling,
+in the endless night
+behind the starry city lights.
+    ——  AD20210928 初稿
+        AD20211004 一改
+</code></pre>
+<p>还比如：</p>
+<pre><code>我登上了山峰，只为看这城市的风景。
+不因为什么别的理由，只因这里无人问津。
+深邃的夜空中，还能看见星星。
+不过归程中的我，仍踽踽独行。
+    ——  与众不同，为何偏要是孤独的远行？
+        ——  AD20211006
+</code></pre>
+<p>最喜欢的曲子是《reflexion,allegretto,you》，上传了《Easter Egg》。其次大概才是第三乐章。感觉非常震撼人心。</p>
+<p>一度有着隐居宇治的愿望。</p>
+<p>虽然圈子很小，但是大家都是很不错的人。</p>
+<p>尝试与某些大佬交流的时候也收获了不少。</p>
+<p>喜欢这份静谧的美好。我是这样想的。</p>
+<p>不过后来人就越来越少了。因为各种各样的原因。最后等到唯风老师也离开的时候，我才恍然发现，自己早已是孤身一人了。</p>
+<p>我突然反应过来，2018 年，早已经是三、四年前了。</p>
+<pre><code>曲终人散尽，
+回首只孤影。
+笛声悠扬在，
+故人却无音。
+</code></pre>
+<p>难以释然罢。</p>
+<p>但我仍然喜欢着这份美好。</p>
+<p>即便所有的美好终将逝去。</p>
+<p>$\Large\color{CornflowerBlue}神明啊，为什么要教会我打开鸟笼的方法？$</p>
+<p>$\color{CadetBlue}あぁ、神様、どうして私にカゴの開け方を教えたのですか？$</p>
+<p>$–Liz\space und\space ein\space Blauer\space Vogel$</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/5zr0t73b.png"></p>
+]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EssayAD20211213</title>
+    <url>/2021/12/11/EssayAD20211213/</url>
+    <content><![CDATA[<p>一些无聊时所作的文字。</p>
+<hr>
+<pre><code>流雲，
+    碎月。
+蝉鸣，
+    夏鄉。
+笛声，
+    静夜。
+晚風，
+    微凉。
+</code></pre>
+<p>大概是看完《夢想夏鄉4》的时候写的。</p>
+<hr>
+<pre><code>西行望，寺宇旁，幽幽芬芳，子在何方？
+</code></pre>
+<p>无意中看到的，于是尝试对出下一句。</p>
+<pre><code>东风拂，谷阁处，弥弥霡霂，生愿逢汝。
+</code></pre>
+<p>大概考虑的就是西对东，望对拂，寺宇旁对谷阁处，幽幽芬芳对弥弥霡霂（前两个字是叠字，后面两个字有相同的偏旁），子在何方对生愿逢汝（觉得对的最不好的一句）。并且保证押 <code>u</code> 的韵，与上面押 <code>ang</code> 的韵相对。而且把东这一句放在上面的话整体都是仄起平收的。然后大概也使两个句子有一定的故事性。</p>
+<p>可惜的是东风谷弥生是个二创角色。如果用早苗的话我真的不会对。</p>
+<hr>
+<pre><code>为何天空如此湛蓝？
+</code></pre>
+<p>很有感觉的一句话。</p>
+<hr>
+<pre><code>春之风花，夏之流云，秋之夜月，冬之初雪。
+    ——  美しきもの
+</code></pre>
+<p>抄的歌词。</p>
+<hr>
+<pre><code>はらはらはら はらはらはら 静かに舞い上がれ
+翩翩跹跹 袅袅娜娜 沉静飞舞吧
+はらはらはら はらはらはら 零れ落ちる雫
+星星点点 影影绰绰 泪珠悄然滑落
+はらはらはら はらはらはら 気高く舞い上がれ
+悠悠滔滔 浩浩荡荡 傲然飞舞吧
+はらはらはら はらはらはら 羽根傷んでゆく
+庸庸碌碌 惝惝恍恍 双翅伤痕累累
+はらはらはら はらはらはら 儚く舞い上がれ
+婆婆娑娑 零零落落 飞舞至终吧
+    ——  摘自《melt in the sky》翻译
+</code></pre>
+<p>觉得这个很强大。《声声慢》里曾有一句“寻寻觅觅冷冷清清凄凄惨惨戚戚”。上课的时候想到了这个翻译，尝试去对这个句子但是不会（问题在于我想不到类似于“凄凄惨惨戚戚”这种存在读音相同、含义相近且为仄声的两个字）。</p>
+<hr>
+<pre><code>Ref:rain
+</code></pre>
+<p>这个是 Aimer 的一首歌的歌名。感觉妙不可言。</p>
+<hr>
+<pre><code>笛声与夜，青羽和你。
+</code></pre>
+<p>感觉不太好。</p>
+<hr>
+<pre><code>花开堪折无需折，静赏花开春自来。
+</code></pre>
+<p>我在某篇作文里写的题记。感觉不太好。</p>
+<hr>
+<pre><code>花未眠
+    一花一世界，一树一菩提。
+</code></pre>
+<p>在听 whk 讲座的时候随手记下来的（现在才发现这个人居然名字缩写这么的文化课）。</p>
+<hr>
+<pre><code>抬眼，满目潇濏雨。
+回首，尽是艳阳春。
+</code></pre>
+<p>无聊的时候把二模的某篇作文标题对了一个上联。</p>
+<hr>
+<pre><code>王来允许，王来背负，王来定义这个世界。
+</code></pre>
+<p>lmz 二模 rk1 后有感（当时感觉实在太生草就记了下来）。</p>
+<hr>
+<pre><code>By making it a song,
+Can I keep the memory?
+I just came to love it now.
+</code></pre>
+<p>以及</p>
+<pre><code>Fell asleep in a shelter,
+Made out of old junk.
+</code></pre>
+<p>还有</p>
+<pre><code>How would I sing?
+</code></pre>
+<p>然后</p>
+<pre><code>In the afternoon sunlight,
+Chocolates melting in my pocket.
+</code></pre>
+<p>都是《Songbirds》的歌词。这几句尤为喜爱。</p>
+<hr>
+<pre><code>Can you feel my,Can you feel my,Can you feel my tears?
+They won&#39;t dry.
+</code></pre>
+<p>《The Loneliest girl》中最喜欢的一句歌词。虽然我不看《卡罗尔与星期二》。</p>
+<p>知道这首歌是因为唯风老师的一个 AMV。</p>
+<hr>
+<pre><code>&quot;Time&quot; is so sad and fleeting
+Can&#39;t be controlled,like a river,never stops
+&quot;Space&quot; is emptiness dark and so cold
+Can you define it&#39;s presence, does it exist?
+We drift through the heavens 果てない想い
+Filled with the love from up above
+He guides my travels せまる刻限
+Shed a tear and leap to a new world
+A drop in the darkness 小さな命
+Unique and precious forever
+Bittersweet memories 夢幻の刹那
+Make this moment last,last forever
+We drift through the heavens 果てない想い
+Filled with the love from up above
+He guides my travels せまる刻限
+Shed a tear and leap to a new world
+    ——  《GATE OF STEINER》
+</code></pre>
+<p>《Steins;gate》中最喜欢的一首歌。歌词非常值得品味。</p>
+<hr>
+<pre><code>When I look down from the starry, I will never touch the sky.
+</code></pre>
+<p>好像是我写的？</p>
+<hr>
+<pre><code>Unknown melody
+created the scenes of unknown hearts.
+Unknown tears
+were sheded for unknown ones.
+
+All the future I see
+is a lie,
+which is tender
+and hides my sorrow
+in silence.
+</code></pre>
+<p>不知道什么时候写的了。感觉好像还行。</p>
+<p>好像那个时候在听《Brave Song》。</p>
+<hr>
+<pre><code>恍恍六载成过往，此间却难忘。
+</code></pre>
+<p>听《南山南》的时候写的。</p>
+<hr>
+<pre><code>I have ever been silent and and stop in front of my afraidness.
+But I finally decided to walk ahead and sing the life as the brightest light.
+</code></pre>
+<p>听《海の見える街》时写的。</p>
+<hr>
+<pre><code>你看见了海的街道吗？
+你看，它在那月华下的波光上
+极尽繁华，却终为幻梦
+极尽明亮，却终归飘渺
+极尽向往，却终化释然
+</code></pre>
+<p>同样是听《海の見える街》时写的。</p>
+<hr>
+<pre><code>天高云阔，风雨如歌。
+</code></pre>
+<p>非常喜欢的一句歌词翻译。</p>
+]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
 </search>
