@@ -1048,6 +1048,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>似乎中午在机房推式子推错了（找机会擦掉）。</p>
 <p>当然不是什么很难的东西。</p>
 <p>但是不要取笑 QAQ。</p>
+<p>关于二项式定理：</p>
+<p>fcy 又让我看到了新的结论，关于杨辉三角，实际上每一条平行的斜线，对应了 $k$ 次的前缀和（实际上这个结论很显然，因为本身杨辉三角就是下项等于上两项之和）。</p>
+<p>我们知道对应 $k$ 次前缀和的 OGF 必然是 $F(x)=\dfrac{1}{(1-x)^k}$，可以反推过来这个 OGF 的一般形式是一个二项式系数展开。而这个展开是对应每一条斜线的，非常自然的就有 $F(x)=\sum_{n\ge 0}\dbinom{n+k-1}{n}x^n$。</p>
 ]]></content>
       <categories>
         <category>杂题</category>
