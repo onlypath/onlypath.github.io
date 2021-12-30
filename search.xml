@@ -747,6 +747,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>倍增</tag>
+        <tag>易错点</tag>
       </tags>
   </entry>
   <entry>
@@ -1131,6 +1132,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>段错误的寻找方法。虽然在 <a href="https://onlypath.github.io/2021/11/27/NOI-Linux/">这里</a> 曾经提过一嘴。使用 gdb 寻找段错误可以有效的提高效率。</p>
 </li>
+<li><p>传入 <code>double</code> 类型参数，但是函数内部的类型是 <code>ll</code> 的时候是不会报错的。还有 <code>bool</code> 之类也是同理。所以这个一定要谨防。</p>
+</li>
 </ol>
 <h1 id="B-其他"><a href="#B-其他" class="headerlink" title="B.其他"></a>B.其他</h1><ol>
 <li><p>无向图存边要开两倍。离散化数组要开多倍。</p>
@@ -1138,6 +1141,12 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>数组有时候要适量开大防止 RE。但是同时一定要谨防爆内存。这个东西往往最考验经验和心态。。。</p>
 </li>
 <li><p>调试时候的 <code>printf</code> 语句尽量换行，防止误删源代码。</p>
+</li>
+<li><p>断环为链有时候要开 3 倍而非 2 倍。比如说 <a href="https://onlypath.github.io/2021/12/16/P4155/">这个题</a>。</p>
+</li>
+<li><p>慎用 memset 清零，可能会复杂度爆炸。</p>
+</li>
+<li><p>图论建模的时候加入了源点，那么时刻注意此时的点数为 $n+1$。</p>
 </li>
 </ol>
 ]]></content>
