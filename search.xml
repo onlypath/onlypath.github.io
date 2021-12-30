@@ -1118,4 +1118,73 @@ But I finally decided to walk ahead and sing the life as the brightest light.
         <tag>NTT</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Errorprone</title>
+    <url>/2021/12/30/Errorprone/</url>
+    <content><![CDATA[<h1 id="A-编译器类"><a href="#A-编译器类" class="headerlink" title="A.编译器类"></a>A.编译器类</h1><ol>
+<li><p>一个 fcy 曾经提供的。宏定义谨慎使用。</p>
+<p> 举个例子，我们有一个 <code>#define max(a,b) a&gt;b?a:b</code>，这个东西其实非常危险。因为这句宏定义里的每一个所需值都会<strong>调用后再处理</strong>。比如说我们有一个函数 <code>f(n)</code>，它的复杂度是 $O(2^n)$ 的。如果说调用 <code>max(f(n),f(n-1))</code> 的话，上面的函数实际上会执行四次。</p>
+</li>
+<li><p>如果全篇都用的是 <code>long long</code>，并且使用了一些常数，建议使用 <code>1ll</code> 参与运算。因为 <code>1</code> 默认是一个 <code>int</code> 类型的东西，很容易溢出。</p>
+</li>
+<li><p><code>next</code> 这个东西在一些新版本的编译器中无法通过编译。谨慎使用。</p>
+</li>
+<li><p>段错误的寻找方法。虽然在 <a href="https://onlypath.github.io/2021/11/27/NOI-Linux/">这里</a> 曾经提过一嘴。使用 gdb 寻找段错误可以有效的提高效率。</p>
+</li>
+</ol>
+<h1 id="B-其他"><a href="#B-其他" class="headerlink" title="B.其他"></a>B.其他</h1><ol>
+<li><p>无向图存边要开两倍。离散化数组要开多倍。</p>
+</li>
+<li><p>数组有时候要适量开大防止 RE。但是同时一定要谨防爆内存。这个东西往往最考验经验和心态。。。</p>
+</li>
+<li><p>调试时候的 <code>printf</code> 语句尽量换行，防止误删源代码。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>易错点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kachangjiqiao</title>
+    <url>/2021/12/30/ConstantSkill/</url>
+    <content><![CDATA[<ol>
+<li><p>函数传参 <code>&amp;</code>。</p>
+</li>
+<li><p>把多维数组中较小维前置。</p>
+</li>
+<li><p>可以换循环顺序/循环展开。</p>
+</li>
+<li><p>把数据结构写成 class。应该还需要使用类的内联函数才能发挥真正作用。</p>
+</li>
+<li><p>在多次取模的情况下可以先判断数的大小是否超过模数再决定是否取模，以减少取模次数。</p>
+</li>
+<li><p>在不必要的时候把 <code>long long</code> 换成 <code>int</code> 会得到显著的常数提升。</p>
+</li>
+<li><p>即便是现行 C++ 版本，内联函数 <code>inline</code> 仍然有着加速的作用。没有加速作用的是 <code>register</code>，望周知。</p>
+</li>
+<li><p>一个显然的加速，就是自造运算。有如下的一些方法（虽然看起来很扯拐）：</p>
+<ul>
+<li><p><code>i=-i</code> 可以换成 <code>i=~i+1</code> 或 <code>i=(i^-1)+1</code>。</p>
+</li>
+<li><p>如果取模 $2^k$，可以把 <code>ans%=mo</code> 换成 <code>ans=ans&amp;(mo-1)</code>。</p>
+</li>
+<li><p>判断奇偶，使用 <code>i&amp;1</code>。</p>
+</li>
+<li><p>自己写一个 <code>abs</code>，比如 <code>i=x&lt;0?-x:x</code>。注意宏定义的使用。</p>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>卡常</tag>
+      </tags>
+  </entry>
 </search>
