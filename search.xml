@@ -977,11 +977,34 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>若 $j=\lfloor \dfrac{n}{\lfloor \frac{n}{i}\rfloor}\rfloor$，则 $j$ 是满足 $\lfloor\dfrac{n}{j}\rfloor\ge \lfloor \dfrac{n}{i}\rfloor$ 的最大值。</p>
 <p>更进一步地，我们可以知道 $\lfloor \dfrac{n}{j}\rfloor=\lfloor\dfrac{n}{i}\rfloor$（根据最大性，实在看不出来就反证，其实挺显然的）。</p>
 <p>更进一步地，我们可以知道 $k=j+1$ 是满足 $\lfloor \dfrac{n}{k}\rfloor&lt;\lfloor \dfrac{n}{i}\rfloor$ 的最小值。</p>
+<p><strong>重要结论</strong>：</p>
 <p>所以根据这个结论我们得到一个区间 $[i,j]$ 内的函数值都是相同的，同理 $[j+1,\lfloor\dfrac{n}{\lfloor\frac{n}{j+1}\rfloor}\rfloor]$ 内的函数值也都是相同的，以此类推。</p>
+<p><strong>上面的解释记不记住都无所谓，这个结论一定牢记。</strong></p>
 <p>于是时间复杂度与这样区间的数量有关，根据上面结论我们可以知道是 $O(\sqrt n)$ 的。</p>
 <p>但我还是不会证。</p>
 <p>有大神能救救孩子吗？</p>
 <p>找到了一个 <a href="https://www.cnblogs.com/pks-t/p/9212764.html">证明</a>（在第五个），可惜还没时间看（怎么写这么长？）。</p>
+<p>然后发现 <a href="https://oi-wiki.org/math/number-theory/sqrt-decomposition/">OI wiki</a> 上的证明更为强大。</p>
+<p>引理 1：</p>
+<p>$$\lfloor\dfrac{a}{bc}\rfloor=\lfloor\dfrac{\lfloor\dfrac{a}{b}\rfloor}{c}\rfloor$$</p>
+<p>证明：</p>
+<p>易知 $\dfrac{a}{b}=\lfloor\dfrac{a}{b}\rfloor+r$，$(0\le r&lt;1)$。</p>
+<p>代入左边，原式等于 $\lfloor\dfrac{\lfloor\dfrac{a}{b}\rfloor}{c}+\dfrac{r}{c}\rfloor$。</p>
+<p>很显然 $r$ 与 $\lfloor\dfrac{a}{b}\rfloor\bmod c$ 的和一定 $&lt;c$。</p>
+<p>所以原等式成立。</p>
+<p>引理 2：</p>
+<p>$$\forall n \in \mathbb{N}<em>+,\operatorname{card}({\lfloor\dfrac{n}{d}\rfloor\mid d\in \mathbb{N}</em>+,d\le n})\le \lfloor2\sqrt{n}\rfloor$$</p>
+<p>证明：</p>
+<p>对于 $d\le \lfloor\sqrt{n}\rfloor$，$\lfloor\dfrac{n}{d}\rfloor$ 有 $\sqrt{n}$ 种取值；</p>
+<p>对于 $d&gt;\lfloor\sqrt{n}\rfloor$，很显然 $\lfloor\dfrac{n}{d}\rfloor\le \lfloor\sqrt{n}\rfloor$，于是也只有 $\lfloor\sqrt{n}\rfloor$ 种取值。</p>
+<p>证毕了。</p>
+<p>现在开始推广基本的数论分块。</p>
+<p>要求：</p>
+<p>$$\sum_{i=1}^n f(i)\lfloor\dfrac{n}{i}\rfloor$$</p>
+<p>先将 $f(i)$ 的前缀和记作 $s(i)=\sum_{j=1}^i f(i)$。</p>
+<p>每次将数值相同的块合并起来乘上这一段的和即可。</p>
+<p>下面将数论分块拓展到多维。</p>
+<p>其实就是把边界换一下，取个 $\min$ 即可。然后这东西显然还是 $O(k\sqrt{n})$ 的（其中 $k$ 是维数）。</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">ll T,n,ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">	<span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">	<span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;</span><br><span class="line">		<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">		<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	T=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(T--) &#123;</span><br><span class="line">		n=<span class="built_in">read</span>();ans=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=n;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">			j=n/(n/i);ans+=(j-i+<span class="number">1</span>)*(n/i);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">writeln</span>(ans);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -1528,16 +1551,16 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>进阶数据结构</p>
 <ul>
 <li>可并堆<ul>
-<li>左偏树</li>
+<li>左偏树 <a href="https://www.luogu.com.cn/blog/154279/p3377-post">P3377</a></li>
 </ul>
 </li>
 <li>平衡树<ul>
-<li>Splay</li>
-<li>Treap</li>
+<li>Splay <a href="https://onlypath.github.io/2021/12/13/P6136/?highlight=6136">P6136</a></li>
+<li>FHQ-Treap</li>
 </ul>
 </li>
 <li>可持久化数据结构<ul>
-<li>可持久化线段树与主席树（可持久化权值线段树）</li>
+<li>可持久化线段树与主席树（可持久化权值线段树）<a href="https://www.luogu.com.cn/blog/154279/p3834-post">P3834</a></li>
 <li>可持久化Trie</li>
 <li>可持久化可并堆（左偏树）</li>
 <li>可持久化平衡树</li>
@@ -1550,7 +1573,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 </li>
 <li>动态树<ul>
-<li>LCT</li>
+<li>LCT <a href="https://onlypath.github.io/2022/01/24/P3690/?highlight=lct">P3390</a></li>
 </ul>
 </li>
 </ul>
@@ -1558,7 +1581,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>根号算法</p>
 <ul>
 <li>分块</li>
-<li>数论分块</li>
+<li>数论分块 <a href="https://onlypath.github.io/2021/12/13/UVA11526/">UVA11526</a> <a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a></li>
 <li>操作分块</li>
 <li>根号分治</li>
 <li>根号重构</li>
@@ -1575,8 +1598,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>一些技巧</p>
 <ul>
-<li>动态开点线段树</li>
-<li>李超线段树</li>
+<li>动态开点线段树 <a href="https://onlypath.github.io/2022/01/25/CF803G/">CF803G</a> <a href="https://www.luogu.com.cn/blog/154279/p3960-post">P3960</a></li>
+<li>李超线段树 <a href="https://onlypath.github.io/2022/01/24/P4097/">P4097</a></li>
 <li>珂朵莉树</li>
 </ul>
 </li>
@@ -1586,14 +1609,14 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>裴蜀定理、欧几里得算法</li>
 <li>莫比乌斯反演</li>
-<li>中国剩余定理</li>
-<li>Lucas 定理</li>
+<li>中国剩余定理 <a href="https://www.luogu.com.cn/blog/154279/p1495-post">P1495</a></li>
+<li>Lucas 定理 <a href="https://www.luogu.com.cn/blog/154279/p3807-post">P3807</a></li>
 <li>欧拉定理<ul>
 <li>费马小定理</li>
 <li>乘法逆元 $O(\log p)$</li>
 </ul>
 </li>
-<li>线性求逆元</li>
+<li>线性求逆元 <a href="https://www.luogu.com.cn/blog/154279/p3811-post">P3811</a></li>
 <li>Miller-Rabin</li>
 <li>Pollard’s rho</li>
 <li>BSGS</li>
@@ -1624,7 +1647,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>多项式求逆</li>
 </ul>
 </li>
-<li>高斯消元</li>
+<li>高斯消元 <a href="https://www.luogu.com.cn/blog/154279/p4035-post">P4035</a></li>
 <li>线性基</li>
 </ul>
 </li>
@@ -1652,14 +1675,14 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>割边，割点</li>
 <li>e-DCC（无向图边双连通分量）</li>
 <li>v-DCC（无向图点双连通分量）</li>
-<li>SCC（有向图强连通分量）</li>
+<li>SCC（有向图强连通分量） <a href="https://www.luogu.com.cn/blog/154279/p3387-post">P3387</a></li>
 <li>2-SAT</li>
 <li>圆方树</li>
 </ul>
 </li>
 <li><p>二分图</p>
 <ul>
-<li>二分图最大匹配<ul>
+<li>二分图最大匹配 <a href="https://www.luogu.com.cn/blog/154279/p3386-post">P3386</a><ul>
 <li>增广路算法</li>
 <li>最大流建模</li>
 </ul>
@@ -1690,15 +1713,15 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>最短路</p>
 <ul>
-<li>负环</li>
-<li>差分约束</li>
+<li>负环 <a href="https://www.luogu.com.cn/blog/154279/p3385-post">P3385</a></li>
+<li>差分约束 <a href="https://www.luogu.com.cn/blog/154279/p1993-post">P1993</a></li>
 <li>k 短路</li>
 <li>最短路建模</li>
 </ul>
 </li>
 <li><p>网络流</p>
 <ul>
-<li>最大流，最小割，费用流</li>
+<li>最大流 <a href="https://www.luogu.com.cn/blog/154279/p3376-post">P3376</a>，最小割，费用流 <a href="https://www.luogu.com.cn/blog/154279/p3381-post">P3381</a></li>
 <li>上下界网络流</li>
 <li>最大权闭合子图</li>
 <li>平面图最小割</li>
@@ -1804,12 +1827,12 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>Trie</p>
 </li>
-<li><p>KMP</p>
+<li><p>KMP <a href="https://www.luogu.com.cn/blog/154279/p3375-post">P3375</a></p>
 <ul>
-<li>Ex KMP</li>
+<li>Ex KMP <a href="https://www.luogu.com.cn/blog/154279/p5410-post">P5410</a></li>
 </ul>
 </li>
-<li><p>AC 自动机</p>
+<li><p>AC 自动机 <a href="https://www.luogu.com.cn/blog/154279/p3808-post">P3808</a></p>
 </li>
 <li><p>后缀数组</p>
 </li>
@@ -1837,24 +1860,24 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 </li>
 <li>树上剖分类<ul>
-<li>树链剖分</li>
-<li>启发式合并</li>
-<li>长链剖分</li>
+<li>树链剖分 <a href="https://www.luogu.com.cn/blog/154279/p3384-post">P3384</a></li>
+<li>启发式合并 <a href="https://onlypath.github.io/2022/01/21/CF741D/">CF741D</a></li>
+<li>长链剖分 <a href="https://onlypath.github.io/2022/01/22/CF1009F/">CF1009F</a></li>
 </ul>
 </li>
 <li>倍增类<ul>
 <li>倍增法求 LCA</li>
 <li>倍增答案</li>
-<li>环上倍增</li>
+<li>环上倍增 <a href="https://onlypath.github.io/2021/12/16/P4155/">P4155</a></li>
 </ul>
 </li>
 <li>骗分类<ul>
-<li>模拟退火</li>
+<li>模拟退火 <a href="https://onlypath.github.io/2021/12/14/P3959/">P3959</a></li>
 <li>随机化技巧</li>
 </ul>
 </li>
 <li>理论基础类<ul>
-<li>时间复杂度分析（主定理）</li>
+<li>时间复杂度分析（主定理） <a href="https://www.luogu.com.cn/blog/154279/master-theorem-yu-shi-jian-fu-za-du-fen-xi">Master Theorem</a></li>
 </ul>
 </li>
 <li>技术类<ul>
@@ -1874,9 +1897,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 </li>
 <li>对拍</li>
-<li>卡常</li>
+<li>卡常 <a href="https://onlypath.github.io/2021/12/30/ConstantSkill/">Constant Skill</a></li>
 <li>GDB</li>
-<li>Linux 使用</li>
+<li>Linux 使用 <a href="https://onlypath.github.io/2021/11/27/NOI-Linux/">NOI Linux</a></li>
 </ul>
 </li>
 </ul>
@@ -2093,6 +2116,60 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>动态开点线段树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P2522</title>
+    <url>/2022/01/27/P2522/</url>
+    <content><![CDATA[<p>[HAOI2011]Problem b</p>
+<p>和那个 <a href="https://www.luogu.com.cn/problem/P3455">P3455</a> 实际上是一样的。</p>
+<p>我们设：</p>
+<p>$$F(a,b)=\sum_{d=1}\mu(d)\lfloor\dfrac{a}{kd}\rfloor\lfloor\dfrac{b}{kd}\rfloor$$</p>
+<p>那么就有关于 <del>封安保</del> $F(a,b)$ 的一个容斥。</p>
+<p>我们的答案就是：</p>
+<p>$$F(b,d)-F(b,c-1)-F(a-1,d)+F(a-1,c-1)$$</p>
+<p>没了。</p>
+<p>时间复杂度 $O(n+t\sqrt{n})$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">5e4</span>;</span><br><span class="line"></span><br><span class="line">ll n,a,b,c,d,k,ans,cnt;</span><br><span class="line"></span><br><span class="line">ll mu[N+<span class="number">5</span>],prime[N+<span class="number">5</span>],s[N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> f[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  mu[<span class="number">1</span>]=<span class="number">1</span>;f[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=N;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prime[j]*i&lt;=N;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;mu[i*prime[j]]=<span class="number">0</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">      mu[i*prime[j]]=-mu[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=N;i++) &#123;s[i]=s[i<span class="number">-1</span>]+mu[i];&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">F</span><span class="params">(ll a,ll b)</span> </span>&#123;</span><br><span class="line">  ll res=<span class="number">0</span>,tmp1=a/k,tmp2=b/k;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=tmp1&amp;&amp;i&lt;=tmp2;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=<span class="built_in">min</span>(tmp1/(tmp1/i),tmp2/(tmp2/i));</span><br><span class="line">    res+=(s[j]-s[i<span class="number">-1</span>])*(tmp1/i)*(tmp2/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(n--) &#123;</span><br><span class="line">    a=<span class="built_in">read</span>();b=<span class="built_in">read</span>();c=<span class="built_in">read</span>();d=<span class="built_in">read</span>();k=<span class="built_in">read</span>();</span><br><span class="line">    ans=<span class="built_in">F</span>(b,d)-<span class="built_in">F</span>(b,c<span class="number">-1</span>)-<span class="built_in">F</span>(a<span class="number">-1</span>,d)+<span class="built_in">F</span>(a<span class="number">-1</span>,c<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">writeln</span>(ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>容斥</tag>
+        <tag>数论分块</tag>
+        <tag>莫比乌斯反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P3455</title>
+    <url>/2022/01/27/P3455/</url>
+    <content><![CDATA[<p>[POI2007]ZAP-Queries</p>
+<p>首先我们知道求的东西是：</p>
+<p>$$\sum_{i=1}^a\sum_{j=1}^b[\gcd(i,j)=k]$$</p>
+<p>可以化为：</p>
+<p>$$\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}[\gcd(i,j)=1]$$</p>
+<p>这个东西显然可以莫比乌斯反演：</p>
+<p>$$\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}\sum_{d\mid \gcd(i,j)}\mu(d)$$</p>
+<p>然后交换求和顺序：</p>
+<p>$$\sum_{d=1}\mu(d)\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}[d\mid \gcd(i,j)]$$</p>
+<p>显然这个式子就等价于：</p>
+<p>$$\sum_{d=1}\mu(d)\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}[d\mid i]\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}[d\mid j]$$</p>
+<p>又因为有：</p>
+<p>$$\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}[d\mid i]=\lfloor\dfrac{a}{kd}\rfloor$$</p>
+<p>上式可化为：</p>
+<p>$$\sum_{d=1}\mu(d)\lfloor\dfrac{a}{kd}\rfloor\lfloor\dfrac{b}{kd}\rfloor$$</p>
+<p>然后就是个二维数论分块。</p>
+<p>注意不要过度使用除法，好像小卡常数。。。</p>
+<p>时间复杂度 $O(n+t\sqrt{n})$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">5e4</span>;</span><br><span class="line"></span><br><span class="line">ll n,a,b,k,ans,cnt;</span><br><span class="line"></span><br><span class="line">ll mu[N+<span class="number">5</span>],s[N+<span class="number">5</span>],prime[N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> f[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  mu[<span class="number">1</span>]=<span class="number">1</span>;f[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=N;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prime[j]*i&lt;=N;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;mu[i*prime[j]]=<span class="number">0</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">      mu[i*prime[j]]=-mu[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=N;i++) &#123;s[i]=s[i<span class="number">-1</span>]+mu[i];&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(n--) &#123;</span><br><span class="line">    a=<span class="built_in">read</span>();b=<span class="built_in">read</span>();k=<span class="built_in">read</span>();ans=<span class="number">0</span>;</span><br><span class="line">    ll tmp1=a/k,tmp2=b/k;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=tmp1&amp;&amp;i&lt;=tmp2;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">      j=<span class="built_in">min</span>(tmp1/(tmp1/i),tmp2/(tmp2/i));</span><br><span class="line">      ans+=(s[j]-s[i<span class="number">-1</span>])*(tmp1/i)*(tmp2/i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">writeln</span>(ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>数论分块</tag>
+        <tag>莫比乌斯反演</tag>
       </tags>
   </entry>
 </search>
