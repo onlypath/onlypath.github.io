@@ -993,7 +993,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>很显然 $r$ 与 $\lfloor\dfrac{a}{b}\rfloor\bmod c$ 的和一定 $&lt;c$。</p>
 <p>所以原等式成立。</p>
 <p>引理 2：</p>
-<p>$$\forall n \in \mathbb{N}<em>+,\operatorname{card}({\lfloor\dfrac{n}{d}\rfloor\mid d\in \mathbb{N}</em>+,d\le n})\le \lfloor2\sqrt{n}\rfloor$$</p>
+<p>$$\forall n \in N^*,\operatorname{card}({\lfloor\dfrac{n}{d}\rfloor\mid d\in N^*,d\le n})\le \lfloor2\sqrt{n}\rfloor$$</p>
 <p>证明：</p>
 <p>对于 $d\le \lfloor\sqrt{n}\rfloor$，$\lfloor\dfrac{n}{d}\rfloor$ 有 $\sqrt{n}$ 种取值；</p>
 <p>对于 $d&gt;\lfloor\sqrt{n}\rfloor$，很显然 $\lfloor\dfrac{n}{d}\rfloor\le \lfloor\sqrt{n}\rfloor$，于是也只有 $\lfloor\sqrt{n}\rfloor$ 种取值。</p>
@@ -1562,13 +1562,13 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>可持久化数据结构<ul>
 <li>可持久化线段树与主席树（可持久化权值线段树）<a href="https://www.luogu.com.cn/blog/154279/p3834-post">P3834</a></li>
 <li>可持久化Trie</li>
-<li>可持久化可并堆（左偏树）</li>
-<li>可持久化平衡树</li>
+<li>*可持久化可并堆（左偏树）</li>
+<li>可持久化平衡树（FHQ-Treap）</li>
 </ul>
 </li>
 <li>树套树<ul>
 <li>线段树套线段树</li>
-<li>线段树（一般是权值）套平衡树</li>
+<li>线段树套平衡树</li>
 <li>树状数组套主席树</li>
 </ul>
 </li>
@@ -1581,7 +1581,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>根号算法</p>
 <ul>
 <li>分块</li>
-<li>数论分块 <a href="https://onlypath.github.io/2021/12/13/UVA11526/">UVA11526</a> <a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a></li>
 <li>操作分块</li>
 <li>根号分治</li>
 <li>根号重构</li>
@@ -1608,7 +1607,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>数论</p>
 <ul>
 <li>裴蜀定理、欧几里得算法</li>
-<li>莫比乌斯反演</li>
 <li>中国剩余定理 <a href="https://www.luogu.com.cn/blog/154279/p1495-post">P1495</a></li>
 <li>Lucas 定理 <a href="https://www.luogu.com.cn/blog/154279/p3807-post">P3807</a></li>
 <li>欧拉定理<ul>
@@ -1620,10 +1618,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>Miller-Rabin</li>
 <li>Pollard’s rho</li>
 <li>BSGS</li>
-<li>原根</li>
-<li>数论分块</li>
-<li>二次剩余</li>
+<li>指数与原根</li>
+<li>数论分块 <a href="https://onlypath.github.io/2021/12/13/UVA11526/">UVA11526</a> <a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a></li>
+<li>狄利克雷卷积与莫比乌斯反演</li>
 <li>杜教筛</li>
+<li>二次剩余</li>
 </ul>
 </li>
 <li><p>组合计数</p>
@@ -1632,10 +1631,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>斯特林数</li>
 <li>容斥原理</li>
 <li>生成函数<ul>
+<li>OGF，EGF，DGF</li>
 <li>多元生成函数</li>
 </ul>
 </li>
-<li>伯努利数</li>
+<li>*伯努利数</li>
 </ul>
 </li>
 <li><p>代数</p>
@@ -1750,13 +1750,13 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <h1 id="四、动态规划"><a href="#四、动态规划" class="headerlink" title="四、动态规划"></a>四、动态规划</h1><ol>
 <li><p>线性 DP</p>
 <ul>
-<li>分组 DP</li>
-<li>背包</li>
+<li>分组 DP <a href="https://www.luogu.com.cn/blog/154279/p3188-post">P3188</a></li>
+<li>背包 <a href="https://www.luogu.com.cn/problem/P5289">P5289</a></li>
 </ul>
 </li>
-<li><p>区间 DP</p>
+<li><p>区间 DP <a href="https://www.luogu.com.cn/blog/154279/p5336-post">P5336</a></p>
 </li>
-<li><p>概率期望 DP</p>
+<li><p>概率期望 DP <a href="https://www.luogu.com.cn/blog/154279/p6835-post">P6835</a></p>
 </li>
 <li><p>树形 DP</p>
 </li>
@@ -1766,9 +1766,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>数据结构优化 DP</p>
 <ul>
-<li>线性数据结构优化</li>
-<li>线段树优化</li>
-<li>可并堆优化</li>
+<li>线性数据结构优化 <a href="https://www.luogu.com.cn/blog/154279/p2254-post">P2254</a></li>
+<li>线段树优化 <a href="https://www.luogu.com.cn/blog/154279/p6647-post">P6647</a></li>
+<li>可并堆优化 <a href="https://www.luogu.com.cn/blog/154279/p1552-post">P1552</a></li>
 <li>分治优化</li>
 </ul>
 </li>
@@ -2169,6 +2169,76 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>数论分块</tag>
+        <tag>莫比乌斯反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mobius_and_Dirichlet</title>
+    <url>/2022/01/28/Mobius-and-Dirichlet/</url>
+    <content><![CDATA[<p>Orz _rqy , An_account , negiizhao.</p>
+<p>我们先定义数论函数：定义域为正整数，值域为一个数集的函数。</p>
+<p>定义两个数论函数的狄利克雷卷积：</p>
+<ul>
+<li>若 $t=f*g$，则 $t(n)=\sum_{i\mid n}f(i)g(\dfrac{n}{i})$。</li>
+</ul>
+<p>我还是决定咕掉一些东西。。。</p>
+<p>所以直接上一些好用的结论：</p>
+<p>$$[n=1]=\sum_{d\mid n}\mu(d)$$</p>
+<p>这个东西实际上就是：</p>
+<p>$$\varepsilon=1*\mu$$</p>
+<p>还有：</p>
+<p>$$\operatorname{id}=1*\varphi$$</p>
+<p>就是熟悉的：</p>
+<p>$$n=\sum_{d\mid n}\varphi(d)$$</p>
+<p>当然以上式子的逆也要记一下：</p>
+<p>$$\operatorname{id}*\mu=\varphi$$</p>
+<p>以及一个：</p>
+<p>$$\sigma_0(xy)=\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)=1]$$</p>
+<p>其他的大量结论需要一定的题目积累。。。</p>
+<p>通过线性筛求积性函数，一般有两种方法：</p>
+<ol>
+<li><p>分类讨论这个东西：</p>
+<ul>
+<li>$f(1)=1$。</li>
+<li>$n\in P,f(n)$，这里 $P$ 指质数集 <del>并不知道初等数论中那个炫酷的符号是怎么打出来的</del>。</li>
+<li>$p\mid n,p^2 \nmid n,f(n)=f(\dfrac{n}{p})f(p)$</li>
+<li>$p\mid n,p^2\mid n,f(n)$，这里一般需要一些奇技淫巧去分析。</li>
+<li>经典的例子有一般的 $\mu$ 和 $\varphi$ 的求法。</li>
+</ul>
+</li>
+<li><p>先算出 $f$ 在素数幂的取值，对于每个 $n$ 求出其最小质因数 $p_k$ 及 其次数 $c_k$，直接 $f(n)=f(p_k^{c_k})f(\dfrac{n}{p_k^{c_k}})$ 算就完了。这个次数可以递推求。当然素数幂处的取值也不一定很好求，反正不管怎样是要动脑子的。</p>
+</li>
+</ol>
+<p>推式子，我只会</p>
+<ol>
+<li><p>公式瞎套。</p>
+</li>
+<li><p>换序求和。</p>
+</li>
+<li><p>换元乱搞。</p>
+</li>
+<li><p>创造互质（构造一些类似 $[\gcd(x,y)=1]$ 的东西）。</p>
+</li>
+<li><p>函数积性。</p>
+</li>
+<li><p>函数求逆。</p>
+</li>
+<li><p>提项合并（一个套路性偏低的东西，比较需要脑子和眼力）。</p>
+</li>
+<li><p><del>当场躺平。</del></p>
+</li>
+</ol>
+<p>不怕出事可以从一些底层意义上面自己创造一些式子，这种事情一般就偏考验对底层知识的掌握和智商层面的东西。</p>
+<p>然后数论分块当然是必备技能了。</p>
+<p>杜教筛之类的东西不用说了。</p>
+<p>然后这类整除偏序的题目，主要还是看推式子的能力。当然有些时候还会结合一些算法的思想，比如那个完全平方数。</p>
+<p>综合性比较强的题目会是一个难点，当然前提是要会推式子，不然就算会其它考点似乎也用处不大。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
         <tag>莫比乌斯反演</tag>
       </tags>
   </entry>

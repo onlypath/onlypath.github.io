@@ -20,23 +20,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="onlypath">
-<meta property="og:url" content="git://onlypath.github.io/tags/长链剖分优化-DP/index.html">
+<meta name="description" content="莫比乌斯反演与狄利克雷卷积">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mobius_and_Dirichlet">
+<meta property="og:url" content="git://onlypath.github.io/2022/01/28/Mobius-and-Dirichlet/index.html">
 <meta property="og:site_name" content="onlypath">
+<meta property="og:description" content="莫比乌斯反演与狄利克雷卷积">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-28T14:47:28.000Z">
+<meta property="article:modified_time" content="2022-01-28T15:57:01.264Z">
 <meta property="article:author" content="onlypath">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="莫比乌斯反演">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="git://onlypath.github.io/tags/长链剖分优化-DP/">
+<link rel="canonical" href="git://onlypath.github.io/2022/01/28/Mobius-and-Dirichlet/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/长链剖分优化-DP/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/01/28/Mobius-and-Dirichlet/","path":"2022/01/28/Mobius-and-Dirichlet/","title":"Mobius_and_Dirichlet"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: 长链剖分优化 DP | onlypath</title>
+<title>Mobius_and_Dirichlet | onlypath</title>
   
 
 
@@ -196,70 +202,155 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">长链剖分优化 DP
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/01/28/Mobius-and-Dirichlet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mobius_and_Dirichlet
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-01-28 22:47:28 / 修改时间：23:57:01" itemprop="dateCreated datePublished" datetime="2022-01-28T22:47:28+08:00">2022-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">莫比乌斯反演与狄利克雷卷积</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Orz _rqy , An_account , negiizhao.</p>
+<p>我们先定义数论函数：定义域为正整数，值域为一个数集的函数。</p>
+<p>定义两个数论函数的狄利克雷卷积：</p>
+<ul>
+<li>若 $t=f*g$，则 $t(n)=\sum_{i\mid n}f(i)g(\dfrac{n}{i})$。</li>
+</ul>
+<p>我还是决定咕掉一些东西。。。</p>
+<p>所以直接上一些好用的结论：</p>
+<p>$$[n=1]=\sum_{d\mid n}\mu(d)$$</p>
+<p>这个东西实际上就是：</p>
+<p>$$\varepsilon=1*\mu$$</p>
+<p>还有：</p>
+<p>$$\operatorname{id}=1*\varphi$$</p>
+<p>就是熟悉的：</p>
+<p>$$n=\sum_{d\mid n}\varphi(d)$$</p>
+<p>当然以上式子的逆也要记一下：</p>
+<p>$$\operatorname{id}*\mu=\varphi$$</p>
+<p>以及一个：</p>
+<p>$$\sigma_0(xy)=\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)=1]$$</p>
+<p>其他的大量结论需要一定的题目积累。。。</p>
+<p>通过线性筛求积性函数，一般有两种方法：</p>
+<ol>
+<li><p>分类讨论这个东西：</p>
+<ul>
+<li>$f(1)=1$。</li>
+<li>$n\in P,f(n)$，这里 $P$ 指质数集 <del>并不知道初等数论中那个炫酷的符号是怎么打出来的</del>。</li>
+<li>$p\mid n,p^2 \nmid n,f(n)=f(\dfrac{n}{p})f(p)$</li>
+<li>$p\mid n,p^2\mid n,f(n)$，这里一般需要一些奇技淫巧去分析。</li>
+<li>经典的例子有一般的 $\mu$ 和 $\varphi$ 的求法。</li>
+</ul>
+</li>
+<li><p>先算出 $f$ 在素数幂的取值，对于每个 $n$ 求出其最小质因数 $p_k$ 及 其次数 $c_k$，直接 $f(n)=f(p_k^{c_k})f(\dfrac{n}{p_k^{c_k}})$ 算就完了。这个次数可以递推求。当然素数幂处的取值也不一定很好求，反正不管怎样是要动脑子的。</p>
+</li>
+</ol>
+<p>推式子，我只会</p>
+<ol>
+<li><p>公式瞎套。</p>
+</li>
+<li><p>换序求和。</p>
+</li>
+<li><p>换元乱搞。</p>
+</li>
+<li><p>创造互质（构造一些类似 $[\gcd(x,y)=1]$ 的东西）。</p>
+</li>
+<li><p>函数积性。</p>
+</li>
+<li><p>函数求逆。</p>
+</li>
+<li><p>提项合并（一个套路性偏低的东西，比较需要脑子和眼力）。</p>
+</li>
+<li><p><del>当场躺平。</del></p>
+</li>
+</ol>
+<p>不怕出事可以从一些底层意义上面自己创造一些式子，这种事情一般就偏考验对底层知识的掌握和智商层面的东西。</p>
+<p>然后数论分块当然是必备技能了。</p>
+<p>杜教筛之类的东西不用说了。</p>
+<p>然后这类整除偏序的题目，主要还是看推式子的能力。当然有些时候还会结合一些算法的思想，比如那个完全平方数。</p>
+<p>综合性比较强的题目会是一个难点，当然前提是要会推式子，不然就算会其它考点似乎也用处不大。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-23T11:27:22+08:00"
-              content="2022-01-23">
-          01-23
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/23/CF1499F/" itemprop="url">
-            <span itemprop="name">CF1499F</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+              <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/" rel="tag"># 莫比乌斯反演</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/27/P2522/" rel="prev" title="P2522">
+                  <i class="fa fa-chevron-left"></i> P2522
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-01-22T13:31:55+08:00"
-              content="2022-01-22">
-          01-22
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/22/CF1009F/" itemprop="url">
-            <span itemprop="name">CF1009F</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-    </div>
-  </div>
-  
-  
-  
+
 
 </div>
   </main>
