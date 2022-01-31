@@ -1979,7 +1979,19 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Asahana_Yuho</title>
     <url>/2022/01/24/Asahana-Yuho/</url>
-    <content><![CDATA[<p>数据结构题</p>
+    <content><![CDATA[<p>把原来放在 Luogu 博客的一些博文拿了过来。</p>
+<p>都是一些个人感觉有点意思的题。</p>
+<p>当然也有一些无聊题。。。</p>
+<p>笔记</p>
+<ol>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/master-theorem-yu-shi-jian-fu-za-du-fen-xi">Master Theorem与时间复杂度分析</a></p>
+<ul>
+<li>其实就是主定理推导，不过没有运用定积分这些不太初中的方法</li>
+<li>初中生应该就能看懂了吧？</li>
+</ul>
+</li>
+</ol>
+<p>数据结构题</p>
 <ol>
 <li><p><a href="https://www.luogu.com.cn/blog/154279/p7706-post">P7706</a> 「Wdsr-2.7」文文的摄影布置</p>
 <ul>
@@ -2003,6 +2015,48 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>类似的题 <a href="https://www.luogu.com.cn/blog/154279/p4145-post">P4145</a> 上帝造题的七分钟 2 / 花神游历各国，这里开根的次数是有限的</li>
 </ul>
 </li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p4137-post">P4137</a> Rmq Problem / mex</p>
+<ul>
+<li>线段树上二分</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5103-post">P5103</a> [JOI 2016 Final]断层</p>
+<ul>
+<li>nb 题</li>
+<li>一个基本的斜化直的思想</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p3253-post">P3253</a> [JLOI2013]删除物品</p>
+<ul>
+<li>一个两栈顶相接的思想（简化模拟）</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p4587-post">P4587</a> [FJOI2016]神秘数</p>
+<ul>
+<li>求 $\operatorname{mex}$ 就要往值域上考虑</li>
+<li>利用好指数级的增长性，不要怂</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p4216-post">P4216</a> [SCOI2015]情报传递</p>
+<ul>
+<li>复习（真的有点忘了）</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1972-post">P1972</a> [SDOI2009]HH的项链</p>
+<ul>
+<li>一个必须掌握的统计思想</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5677-post">P5677</a> [GZOI2017]配对统计</p>
+<ul>
+<li>奇妙的计数思想</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p4588-post">P4588</a> [TJOI2018]数学计算</p>
+<ul>
+<li>小思维题</li>
+</ul>
+</li>
 </ol>
 <p>图论题</p>
 <ol>
@@ -2016,6 +2070,17 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p><a href="https://www.luogu.com.cn/blog/154279/p6833-post">P6833</a> [Cnoi2020]雷雨</p>
 <ul>
 <li>最短路建模</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p6066-post">P6066</a> [USACO05JAN]Watchcow S</p>
+<ul>
+<li>无向图欧拉回路（带回走的）实际就是在有向图上跑 Hierholzer</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p3199-post">P3199</a> [HNOI2009]最小圈</p>
+<ul>
+<li>论文题</li>
+<li>有标准 $O(nm)$ 做法</li>
 </ul>
 </li>
 </ol>
@@ -2040,6 +2105,127 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>容斥 DP</li>
 <li>复习</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf11d">CF11D</a> A Simple Task</p>
+<ul>
+<li>状压 DP</li>
+<li>图上的一个小技巧</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2704-post">P2704</a> [NOI2001] 炮兵阵地</p>
+<ul>
+<li>状压 DP</li>
+<li>三进制状压</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5024-post">P5024</a> [NOIP2018 提高组] 保卫王国</p>
+<ul>
+<li>倍增优化 DP</li>
+<li>然而我写得很屑</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p3188-post">P3188</a> [HNOI2007]梦幻岛宝珠</p>
+<ul>
+<li>分组 DP</li>
+<li>状态合并</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p6647-post">P6647</a> [CCC 2019] Tourism</p>
+<ul>
+<li>数据结构优化 DP</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1950-post">P1950</a> 长方形</p>
+<ul>
+<li>线性结构优化 DP</li>
+<li>略带一点转化技巧</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2473-post">P2473</a> [SCOI2008] 奖励关</p>
+<ul>
+<li>期望 DP</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5369-post">P5369</a> [PKUSC2018]最大前缀和</p>
+<ul>
+<li>状压 DP</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p4163-post">P4163</a> [SCOI2007]排列</p>
+<ul>
+<li>套路状压 DP</li>
+<li>一类有关数字整除的 DP</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2607-post">P2607</a> [ZJOI2008]骑士</p>
+<ul>
+<li>基环树最大独立集</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1552-post">P1552</a> [APIO2012]派遣</p>
+<ul>
+<li>可并堆优化 DP</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1450-post">P1450</a> [HAOI2008]硬币购物</p>
+<ul>
+<li>完全背包容斥实现物品数较少的多重背包</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/problem/P3216">P3216</a> [HNOI2011]数学作业</p>
+<ul>
+<li>动态构造矩阵转移</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1081-post">P1081</a> [NOIP2012 提高组] 开车旅行</p>
+<ul>
+<li>倍增优化 DP</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/t189318-post">T189318</a> C. 数学题【NOIP 计划 · 模拟赛 #1】</p>
+<ul>
+<li>赛题</li>
+<li>一个 Trivial 的 DP 技巧？</li>
+</ul>
+</li>
+</ol>
+<p>字符串</p>
+<ol>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p7114-post">P7114</a> [NOIP2020] 字符串匹配</p>
+<ul>
+<li>ExKMP</li>
+<li>DP</li>
+<li>复习</li>
+</ul>
+</li>
+</ol>
+<p>贪心</p>
+<ol>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5665-post">P5665</a> [CSP-S2019] 划分</p>
+<ul>
+<li>比较难想</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf939e">CF939E</a> Maximize!</p>
+<ul>
+<li>不太显然的贪心</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p3574-post">P3574</a> [POI2014]FAR-FarmCraft</p>
+<ul>
+<li>比较神奇的贪心</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2168-post">P2168</a> [NOI2015] 荷马史诗</p>
+<ul>
+<li>Huffman 树类贪心</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1966-post">P1966</a> [NOIP2013 提高组] 火柴排队</p>
+<ul>
+<li>贪心小技巧</li>
+<li>一个有关逆序对的结论</li>
 </ul>
 </li>
 </ol>
@@ -2070,6 +2256,195 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>构造</li>
 <li>待定系数</li>
 <li>总之很神奇的小学奥数题</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p7077-post">P7077</a> [CSP-S2020] 函数调用</p>
+<ul>
+<li>神奇题</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5023-post">P5023</a> [NOIP2018 提高组] 填数游戏</p>
+<ul>
+<li>神奇题</li>
+<li>打表找规律</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2717-post">P2717</a> 寒假作业</p>
+<ul>
+<li>CDQ 分治</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf1148f">CF1148F</a> Foo Fighters</p>
+<ul>
+<li>神奇构造题</li>
+<li>按位考虑，消除后效性</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p7115-post">P7115</a> [NOIP2020] 移球游戏</p>
+<ul>
+<li>神奇构造题</li>
+<li>复习</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf1103c">CF1103C</a> Johnny Solving</p>
+<ul>
+<li>神奇构造题</li>
+<li>一般图构造常用技巧（生成树）</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf468c">CF468C</a> Hack it!</p>
+<ul>
+<li>神奇构造题</li>
+<li>消除后效性</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5441-post">P5411</a> 【XR-2】伤痕</p>
+<ul>
+<li><del>不可做构造题</del></li>
+<li>图上的构造：对称，等差，均摊，奇偶变换</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf1567c">CF1567C</a> Carrying Conundrum</p>
+<ul>
+<li>思维题</li>
+<li>转换视角，就是奇偶分开的加减法</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/at4142-post">AT4142</a> [ARC098B] Xor Sum 2</p>
+<ul>
+<li>小思维题</li>
+<li>对 xor 的理解</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/at5759-post">AT5759</a> ThREE</p>
+<ul>
+<li>构造题</li>
+<li>图上构造技巧：二分图染色</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p4219-post">P4219</a> [BJOI2014]大融合</p>
+<ul>
+<li>离线替代 LCT 的一类树剖方法</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1600-post">P1600</a> [NOIP2016 提高组] 天天爱跑步</p>
+<ul>
+<li>树上计数</li>
+<li>复习</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5553-post">P5553</a> 电学实验</p>
+<ul>
+<li>数学题</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf632d">CF632D</a> Longest Subsequence</p>
+<ul>
+<li>调和级数复杂度分析</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p4139-post">P4139</a> 上帝与集合的正确用法</p>
+<ul>
+<li>nb 题</li>
+<li>同样是化无限为有限</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2568-post">P2568</a> GCD</p>
+<ul>
+<li><del>不就是 YY 的 GCD 吗</del></li>
+<li>不用反演的知识解决</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1226-post">P1226</a> 【模板】快速幂||取余运算</p>
+<ul>
+<li>光速幂</li>
+<li>讲了一个适应更大幂运算的小技巧</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf582a">CF582A</a> GCD Table</p>
+<ul>
+<li>由大到小不断确定解的过程</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1168-post">P1168</a> 中位数</p>
+<ul>
+<li>中位数维护技巧</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p3166-post">P3166</a> [CQOI2014]数三角形</p>
+<ul>
+<li>组合计数题</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2746-post">P2746</a> [USACO5.3]校园网Network of Schools</p>
+<ul>
+<li>一个 DAG 式的环构造</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1318-post">P1318</a> 积水面积</p>
+<ul>
+<li>套路单调栈（复习）</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1429-post">P1429</a> 平面最近点对（加强版）</p>
+<ul>
+<li>分治统计</li>
+<li>当板子题</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/t189317-post">T189317</a> B. 有向图【NOIP 计划 · 模拟赛 #1】</p>
+<ul>
+<li>构造题</li>
+<li>图上构造技巧：度数奇偶讨论</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1197-post">P1197</a> [JSOI2008]星球大战</p>
+<ul>
+<li>逆向思维的一个小 Trick</li>
+<li>好像挺 Common 的</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/cf1438d">CF1438D</a> Powerful Ksenia</p>
+<ul>
+<li>构造题</li>
+<li>奇偶讨论的技巧</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p2680-post">P2680</a> [NOIP2015 提高组] 运输计划</p>
+<ul>
+<li>树上差分与二分</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/at4168-post">AT4168</a> [ARC100C] Or Plus Max</p>
+<ul>
+<li>nb 题？</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5666-post">P5666</a> [CSP-S2019] 树的重心</p>
+<ul>
+<li>重心相关性质</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p3629-post">P3629</a> [APIO2010]巡逻</p>
+<ul>
+<li>树的直径相关性质</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p1395-post">P1395</a> 会议</p>
+<ul>
+<li>很无聊的一个技巧</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p7073-post">P7073</a> [CSP-J2020] 表达式</p>
+<ul>
+<li>普及题</li>
+<li>很无聊的技巧但我当时没做出来</li>
+</ul>
+</li>
+<li><p><a href="https://www.luogu.com.cn/blog/154279/p5836-post">P5836</a> [USACO19DEC]Milk Visits S</p>
+<ul>
+<li>普及题</li>
+<li>一个巧妙的并查集思路</li>
 </ul>
 </li>
 </ol>
@@ -2240,6 +2615,92 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>数学</tag>
         <tag>莫比乌斯反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P4213</title>
+    <url>/2022/01/30/P4213/</url>
+    <content><![CDATA[<p>【模板】杜教筛（Sum）</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/z0ovbgl5.png"></p>
+<p>Orz _rqy。</p>
+<p>Orz Apia Du。</p>
+<p>不想改 <code>int</code>。。。所以我选择调整预处理的大小。</p>
+<p>效果拔群。</p>
+<p>这里简单把杜教筛的式子推一遍。</p>
+<p>已知函数 $f$ 和 $g$。我们要求的是 $S_f$。这里 $S_f(n)=\sum_{i=1}^{n}f(i)$。</p>
+<p>假设我们可以比较轻松地求出 $S_g$ 和 $S_{(f*g)}$ 及它们的前缀和。</p>
+<p>这里 $(f*g)(i)=\sum_{xy=i}f(x)g(y)$（好像看杜教筛的人不会有不知道的。。。）。</p>
+<p>先从 $f*g$ 的前缀和开始推导：</p>
+<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{i=1}^n\sum_{xy=i}f(x)g(y)$$</p>
+<p>然后把 $y$ 提前枚举：</p>
+<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{y=1}^ng(y)\sum_{xy\le n}f(x)$$</p>
+<p>实际上就是：</p>
+<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{y=1}^ng(y)\sum_{x=1}^{\lfloor\frac{n}{y}\rfloor}f(x)$$</p>
+<p>即：</p>
+<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{y=1}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
+<p>然后我们把右边除 $g(1)S_f(n)$ 的部分往另一边移：</p>
+<p>$$g(1)S_f(n)=\sum_{i=1}^n(f*g)(i)-\sum_{y=2}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
+<p>一般情况下我们找的 $g$ 是积性函数并且 $g(1)=1$，所以我们可以直接得到 $S_f(n)$ 的一个表达式。如果不是积性函数把 $g(1)$ 除过去就完了。</p>
+<p>然后我们显然得到了一个可以递推解决的东西，这个东西很像 DP，而且后面那一部分显然可以数论分块。</p>
+<p>所以我们可以采取类似 DP 的方式记忆化瞎搞。</p>
+<p>主定理计算这个复杂度似乎有一点点玄学。</p>
+<p>我们发现函数调用的 $\lfloor\dfrac{n}{y}\rfloor$（设为 $x$），分别是 $1,2,3,\cdots,\lfloor\sqrt{n}\rfloor$ 和 $\lfloor\dfrac{n}{1}\rfloor,\lfloor\dfrac{n}{2}\rfloor,\cdots,\lfloor\dfrac{n}{\sqrt{n}}\rfloor$。于是我们的复杂度就是求个和：</p>
+<p>$$O(\sum_{i=1}^{\sqrt{n}}\sqrt{i}+\sum_{i=1}^{\sqrt{n}}\sqrt{\lfloor\dfrac{n}{i}\rfloor})=O(\int_{1}^{\sqrt{n}}x^{\frac{1}{2}}\delta x+\int_{1}^{\sqrt{n}}\sqrt{\dfrac{n}{x}}\delta x)$$</p>
+<p>都是初等函数，直接积分：</p>
+<p>$$O(\dfrac{2}{3}n^{\frac{3}{4}}-\dfrac{2}{3}+2n^{\frac{3}{4}}-2n^{\frac{1}{2}})=O(n^{\frac{3}{4}})$$</p>
+<p>也就是说我们成功找到了低于线性的一种方法。</p>
+<p>但我们不能满足于此。</p>
+<p>发现这个东西我们可以先预处理出 $S_f$ 在 $1,2,\cdots,n^c$（$c&gt;\dfrac{1}{2}$，其实可以尽量大，这里只是图证明省事）的值，于是函数调用的 $x$ 就是 $\lfloor\dfrac{n}{1}\rfloor,\lfloor\dfrac{n}{2}\rfloor,\cdots,\lfloor\dfrac{n}{n^{1-c}}\rfloor$。</p>
+<p>我们再求一次和：</p>
+<p>$$O(n^c+\sum_{i=1}^{n^{1-c}}\sqrt{\lfloor\dfrac{n}{i}\rfloor})$$</p>
+<p>积分近似，就是：</p>
+<p>$$O(n^c+\int_{1}^{n^{1-c}}\sqrt{\dfrac{n}{x}}\delta x)=O(n^c+n^{1-\frac{1}{2}c})$$</p>
+<p>现在我们要求复杂度最小，所以 $c=\dfrac{2}{3}$。此时时间复杂度 $O(n^{\frac{2}{3}})$。</p>
+<p>现在我们开始着手考虑实现这个想法。</p>
+<p>首先这是个递归调用，还需要加记忆化。但是一个很烦人的问题就是这个记忆化的数组可能需要很大。</p>
+<p>一个比较 naive 的方法是用 STL map，开了 O2 跑得巨快。但可惜的是理论复杂度会多一个 $\log$。</p>
+<p>我们发现，其实真正调用的 $x$，都是一些形如 $\lfloor\dfrac{n}{y}\rfloor$ 的东西，我们已经预处理了 $y&gt;n^{1-c}=n^{\frac{1}{3}}$ 的情况，现在调用的全部都是 $y\le n^{\frac{1}{3}}$ 的情况，也就是说，理论上需要记忆化的数组量不会超过 $n^{\frac{1}{3}}$。</p>
+<p>让杜教筛复杂度能过的题目，其 $n$ 基本能满足 $n^{\frac{1}{3}}$ 个数组够开。</p>
+<p>所以我们把记忆化数组的下标设为 $y$ 即可。每次调用函数的时候我们找到满足 $x=\lfloor\dfrac{n}{y}\rfloor$ 的最大的 $y$。显然 $y=\lfloor\dfrac{n}{x}\rfloor$（数论分块的一个小结论）。返回函数值的时候记忆化在这个数组中即可。</p>
+<p>好了，讨论完杜教筛的一般套路，我们来看一看这道模板题的做法。</p>
+<p>首先先线性筛肯定是不用说了。我们直接看这个递归怎么做：</p>
+<ol>
+<li><p>对于求 $S_{\mu}$：</p>
+<ul>
+<li>我们显然知道一个 $1*\mu=\varepsilon$。</li>
+<li>那么设 $f=\mu$，$g=1$，就会有 $f*g=\varepsilon$。</li>
+<li>$1$ 和 $\varepsilon$ 的值及其前缀和是在是太好求了。</li>
+<li>于是很轻松的套上了杜教筛。</li>
+</ul>
+<p> 给出这一部分的代码：</p>
+ <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SMu</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SMu1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SMu2[tmp]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">      j=x/(x/i);SMu2[tmp]-=(<span class="keyword">long</span> <span class="keyword">long</span>)(j-i+<span class="number">1</span>)*<span class="built_in">SMu</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>对于求 $S_{\varphi}$：</p>
+<ul>
+<li>首先我们知道 $\varphi*1=\operatorname{id}$。</li>
+<li>我们设 $f=\varphi$，$g=1$，则 $f*g=\operatorname{id}$。</li>
+<li>$1$ 很好求，$\operatorname{id}$ 的值很好求，前缀和就是等差数列求和，也非常好求。</li>
+<li>于是也很轻松地套上了杜教筛。</li>
+</ul>
+<p> 给出这一部分的代码：</p>
+ <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SPhi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SPhi1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SPhi2[tmp]=(x+<span class="number">1</span>)*x/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">      j=x/(x/i);SPhi2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SPhi</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>好了我们做完了。</p>
+<p>那么肯定有人问如果题目没那么模板，$g$ 和 $f*g$ 不太能 $O(1)$ 求怎么办？</p>
+<p>提供两种方法：</p>
+<ol>
+<li><p>想办法用杜教筛先求出 $g$ 和 $f*g$ 的前缀和，然后再拿这个前缀和去求 $f$ 的前缀和。</p>
+</li>
+<li><p>如果说 $g$ 还算比较好求，$f*g$ 的求取只要在 $O(\sqrt{n})$ 内完成，不影响杜教筛的整体复杂度即可。</p>
+</li>
+</ol>
+<p>顺便提一嘴，这个题小卡常数，采用这种记忆化方法可以多预处理一些前缀和提高效率。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=(<span class="number">1ll</span>&lt;&lt;<span class="number">31</span>)<span class="number">-1</span>,M=<span class="number">2e6</span>,L=<span class="number">1.3e3</span>;</span><br><span class="line"></span><br><span class="line">ll T,n,cnt;</span><br><span class="line"></span><br><span class="line">ll phi[M+<span class="number">5</span>],mu[M+<span class="number">5</span>],SMu1[M+<span class="number">5</span>],SPhi1[M+<span class="number">5</span>],prime[M+<span class="number">5</span>];</span><br><span class="line">ll SMu2[L+<span class="number">5</span>],SPhi2[L+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[L+<span class="number">5</span>],f[M+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  mu[<span class="number">1</span>]=<span class="number">1</span>;phi[<span class="number">1</span>]=<span class="number">1</span>;f[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=M;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;mu[i]=<span class="number">-1</span>;phi[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prime[j]*i&lt;=M;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">        mu[i*prime[j]]=<span class="number">0</span>;phi[i*prime[j]]=phi[i]*prime[j];</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      mu[i*prime[j]]=-mu[i];phi[i*prime[j]]=phi[i]*(prime[j]<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=M;i++) &#123;</span><br><span class="line">    SMu1[i]=SMu1[i<span class="number">-1</span>]+mu[i];SPhi1[i]=SPhi1[i<span class="number">-1</span>]+phi[i];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SMu</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SMu1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SMu2[tmp]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);SMu2[tmp]-=(<span class="keyword">long</span> <span class="keyword">long</span>)(j-i+<span class="number">1</span>)*<span class="built_in">SMu</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SPhi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SPhi1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SPhi2[tmp]=(x+<span class="number">1</span>)*x/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);SPhi2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SPhi</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    n=<span class="built_in">read</span>();</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(vis));</span><br><span class="line">    <span class="built_in">write</span>(<span class="built_in">SPhi</span>(n));<span class="built_in">putchar</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(vis));</span><br><span class="line">    <span class="built_in">write</span>(<span class="built_in">SMu</span>(n));<span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>杜教筛</tag>
       </tags>
   </entry>
 </search>
