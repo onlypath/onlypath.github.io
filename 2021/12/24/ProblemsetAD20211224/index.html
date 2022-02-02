@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -50,7 +50,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -162,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -300,9 +304,9 @@
 <p>然后可以矩阵快速幂加速，时间复杂度 $O(\log n)$。</p>
 <p>T2 可以盲猜 $2^{-n}$。</p>
 <p>不会严谨证明。</p>
-<p>$n=1$ 就是数轴上的三个点，所以是 $\dfrac{1}{2}$。</p>
-<p>$n=2$ 可以手算得到 $\dfrac{1}{4}$。需要用到一些固定点技巧，不嫌麻烦可以直接暴力解析，不出意外可以做出来。</p>
-<p>$n=3$ 的话可以暴力做，比如说固定球中的一个三角形，然后选点，这个面积占球的面积的比即为概率。大概需要作曲面积分什么的，应该也能做出来。最后答案是 $\dfrac{1}{8}$。</p>
+<p>$n&#x3D;1$ 就是数轴上的三个点，所以是 $\dfrac{1}{2}$。</p>
+<p>$n&#x3D;2$ 可以手算得到 $\dfrac{1}{4}$。需要用到一些固定点技巧，不嫌麻烦可以直接暴力解析，不出意外可以做出来。</p>
+<p>$n&#x3D;3$ 的话可以暴力做，比如说固定球中的一个三角形，然后选点，这个面积占球的面积的比即为概率。大概需要作曲面积分什么的，应该也能做出来。最后答案是 $\dfrac{1}{8}$。</p>
 <p>规律性感觉挺强的，就是不会证。</p>
 <p>以上都是些口胡。</p>
 

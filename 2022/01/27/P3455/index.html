@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -277,19 +281,19 @@
     <div class="post-body" itemprop="articleBody">
         <p>[POI2007]ZAP-Queries</p>
 <p>首先我们知道求的东西是：</p>
-<p>$$\sum_{i=1}^a\sum_{j=1}^b[\gcd(i,j)=k]$$</p>
+<p>$$\sum_{i&#x3D;1}^a\sum_{j&#x3D;1}^b[\gcd(i,j)&#x3D;k]$$</p>
 <p>可以化为：</p>
-<p>$$\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}[\gcd(i,j)=1]$$</p>
+<p>$$\sum_{i&#x3D;1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j&#x3D;1}^{\lfloor\frac{b}{k}\rfloor}[\gcd(i,j)&#x3D;1]$$</p>
 <p>这个东西显然可以莫比乌斯反演：</p>
-<p>$$\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}\sum_{d\mid \gcd(i,j)}\mu(d)$$</p>
+<p>$$\sum_{i&#x3D;1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j&#x3D;1}^{\lfloor\frac{b}{k}\rfloor}\sum_{d\mid \gcd(i,j)}\mu(d)$$</p>
 <p>然后交换求和顺序：</p>
-<p>$$\sum_{d=1}\mu(d)\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}[d\mid \gcd(i,j)]$$</p>
+<p>$$\sum_{d&#x3D;1}\mu(d)\sum_{i&#x3D;1}^{\lfloor\frac{a}{k}\rfloor}\sum_{j&#x3D;1}^{\lfloor\frac{b}{k}\rfloor}[d\mid \gcd(i,j)]$$</p>
 <p>显然这个式子就等价于：</p>
-<p>$$\sum_{d=1}\mu(d)\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}[d\mid i]\sum_{j=1}^{\lfloor\frac{b}{k}\rfloor}[d\mid j]$$</p>
+<p>$$\sum_{d&#x3D;1}\mu(d)\sum_{i&#x3D;1}^{\lfloor\frac{a}{k}\rfloor}[d\mid i]\sum_{j&#x3D;1}^{\lfloor\frac{b}{k}\rfloor}[d\mid j]$$</p>
 <p>又因为有：</p>
-<p>$$\sum_{i=1}^{\lfloor\frac{a}{k}\rfloor}[d\mid i]=\lfloor\dfrac{a}{kd}\rfloor$$</p>
+<p>$$\sum_{i&#x3D;1}^{\lfloor\frac{a}{k}\rfloor}[d\mid i]&#x3D;\lfloor\dfrac{a}{kd}\rfloor$$</p>
 <p>上式可化为：</p>
-<p>$$\sum_{d=1}\mu(d)\lfloor\dfrac{a}{kd}\rfloor\lfloor\dfrac{b}{kd}\rfloor$$</p>
+<p>$$\sum_{d&#x3D;1}\mu(d)\lfloor\dfrac{a}{kd}\rfloor\lfloor\dfrac{b}{kd}\rfloor$$</p>
 <p>然后就是个二维数论分块。</p>
 <p>注意不要过度使用除法，好像小卡常数。。。</p>
 <p>时间复杂度 $O(n+t\sqrt{n})$。</p>

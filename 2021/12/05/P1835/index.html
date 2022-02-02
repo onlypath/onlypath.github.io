@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -50,7 +50,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -162,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -278,8 +282,8 @@
 <p>根号筛法。据说有低于线性的方法，但是我不会。</p>
 <p>我们筛出 $[1,\sqrt R]$ 之间的素数，用这些素数取筛除 $[L,R]$ 中的合数。</p>
 <p>为什么一定可以筛完？</p>
-<p>显然一个合数可以用 $x=ab$ 表示。</p>
-<p>那么不妨设 $a\le b$，那么就会有 $a^2\le ab=x$。即 $x$ 必有一个因子是 $\le \sqrt x$ 的。</p>
+<p>显然一个合数可以用 $x&#x3D;ab$ 表示。</p>
+<p>那么不妨设 $a\le b$，那么就会有 $a^2\le ab&#x3D;x$。即 $x$ 必有一个因子是 $\le \sqrt x$ 的。</p>
 <p>然后就是一般筛法什么的了。</p>
 <p>时间复杂度 $O(\sqrt R+\dfrac{\sqrt R}{\ln \sqrt R}\ln (R-L))$。</p>
 <p>代码：</p>

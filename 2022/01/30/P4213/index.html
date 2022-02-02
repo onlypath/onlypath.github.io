@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -52,7 +52,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -164,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -175,7 +179,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -283,62 +287,62 @@
 <p>不想改 <code>int</code>。。。所以我选择调整预处理的大小。</p>
 <p>效果拔群。</p>
 <p>这里简单把杜教筛的式子推一遍。</p>
-<p>已知函数 $f$ 和 $g$。我们要求的是 $S_f$。这里 $S_f(n)=\sum_{i=1}^{n}f(i)$。</p>
+<p>已知函数 $f$ 和 $g$。我们要求的是 $S_f$。这里 $S_f(n)&#x3D;\sum_{i&#x3D;1}^{n}f(i)$。</p>
 <p>假设我们可以比较轻松地求出 $S_g$ 和 $S_{(f*g)}$ 及它们的前缀和。</p>
-<p>这里 $(f*g)(i)=\sum_{xy=i}f(x)g(y)$（好像看杜教筛的人不会有不知道的。。。）。</p>
+<p>这里 $(f*g)(i)&#x3D;\sum_{xy&#x3D;i}f(x)g(y)$（好像看杜教筛的人不会有不知道的。。。）。</p>
 <p>先从 $f*g$ 的前缀和开始推导：</p>
-<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{i=1}^n\sum_{xy=i}f(x)g(y)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{i&#x3D;1}^n\sum_{xy&#x3D;i}f(x)g(y)$$</p>
 <p>然后把 $y$ 提前枚举：</p>
-<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{y=1}^ng(y)\sum_{xy\le n}f(x)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)\sum_{xy\le n}f(x)$$</p>
 <p>实际上就是：</p>
-<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{y=1}^ng(y)\sum_{x=1}^{\lfloor\frac{n}{y}\rfloor}f(x)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)\sum_{x&#x3D;1}^{\lfloor\frac{n}{y}\rfloor}f(x)$$</p>
 <p>即：</p>
-<p>$$\sum_{i=1}^n(f*g)(i)=\sum_{y=1}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
 <p>然后我们把右边除 $g(1)S_f(n)$ 的部分往另一边移：</p>
-<p>$$g(1)S_f(n)=\sum_{i=1}^n(f*g)(i)-\sum_{y=2}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
-<p>一般情况下我们找的 $g$ 是积性函数并且 $g(1)=1$，所以我们可以直接得到 $S_f(n)$ 的一个表达式。如果不是积性函数把 $g(1)$ 除过去就完了。</p>
+<p>$$g(1)S_f(n)&#x3D;\sum_{i&#x3D;1}^n(f*g)(i)-\sum_{y&#x3D;2}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
+<p>一般情况下我们找的 $g$ 是积性函数并且 $g(1)&#x3D;1$，所以我们可以直接得到 $S_f(n)$ 的一个表达式。如果不是积性函数把 $g(1)$ 除过去就完了。</p>
 <p>然后我们显然得到了一个可以递推解决的东西，这个东西很像 DP，而且后面那一部分显然可以数论分块。</p>
 <p>所以我们可以采取类似 DP 的方式记忆化瞎搞。</p>
 <p>主定理计算这个复杂度似乎有一点点玄学。</p>
 <p>我们发现函数调用的 $\lfloor\dfrac{n}{y}\rfloor$（设为 $x$），分别是 $1,2,3,\cdots,\lfloor\sqrt{n}\rfloor$ 和 $\lfloor\dfrac{n}{1}\rfloor,\lfloor\dfrac{n}{2}\rfloor,\cdots,\lfloor\dfrac{n}{\sqrt{n}}\rfloor$。于是我们的复杂度就是求个和：</p>
-<p>$$O(\sum_{i=1}^{\sqrt{n}}\sqrt{i}+\sum_{i=1}^{\sqrt{n}}\sqrt{\lfloor\dfrac{n}{i}\rfloor})=O(\int_{1}^{\sqrt{n}}x^{\frac{1}{2}}\delta x+\int_{1}^{\sqrt{n}}\sqrt{\dfrac{n}{x}}\delta x)$$</p>
+<p>$$O(\sum_{i&#x3D;1}^{\sqrt{n}}\sqrt{i}+\sum_{i&#x3D;1}^{\sqrt{n}}\sqrt{\lfloor\dfrac{n}{i}\rfloor})&#x3D;O(\int_{1}^{\sqrt{n}}x^{\frac{1}{2}}\delta x+\int_{1}^{\sqrt{n}}\sqrt{\dfrac{n}{x}}\delta x)$$</p>
 <p>都是初等函数，直接积分：</p>
-<p>$$O(\dfrac{2}{3}n^{\frac{3}{4}}-\dfrac{2}{3}+2n^{\frac{3}{4}}-2n^{\frac{1}{2}})=O(n^{\frac{3}{4}})$$</p>
+<p>$$O(\dfrac{2}{3}n^{\frac{3}{4}}-\dfrac{2}{3}+2n^{\frac{3}{4}}-2n^{\frac{1}{2}})&#x3D;O(n^{\frac{3}{4}})$$</p>
 <p>也就是说我们成功找到了低于线性的一种方法。</p>
 <p>但我们不能满足于此。</p>
 <p>发现这个东西我们可以先预处理出 $S_f$ 在 $1,2,\cdots,n^c$（$c&gt;\dfrac{1}{2}$，其实可以尽量大，这里只是图证明省事）的值，于是函数调用的 $x$ 就是 $\lfloor\dfrac{n}{1}\rfloor,\lfloor\dfrac{n}{2}\rfloor,\cdots,\lfloor\dfrac{n}{n^{1-c}}\rfloor$。</p>
 <p>我们再求一次和：</p>
-<p>$$O(n^c+\sum_{i=1}^{n^{1-c}}\sqrt{\lfloor\dfrac{n}{i}\rfloor})$$</p>
+<p>$$O(n^c+\sum_{i&#x3D;1}^{n^{1-c}}\sqrt{\lfloor\dfrac{n}{i}\rfloor})$$</p>
 <p>积分近似，就是：</p>
-<p>$$O(n^c+\int_{1}^{n^{1-c}}\sqrt{\dfrac{n}{x}}\delta x)=O(n^c+n^{1-\frac{1}{2}c})$$</p>
-<p>现在我们要求复杂度最小，所以 $c=\dfrac{2}{3}$。此时时间复杂度 $O(n^{\frac{2}{3}})$。</p>
+<p>$$O(n^c+\int_{1}^{n^{1-c}}\sqrt{\dfrac{n}{x}}\delta x)&#x3D;O(n^c+n^{1-\frac{1}{2}c})$$</p>
+<p>现在我们要求复杂度最小，所以 $c&#x3D;\dfrac{2}{3}$。此时时间复杂度 $O(n^{\frac{2}{3}})$。</p>
 <p>现在我们开始着手考虑实现这个想法。</p>
 <p>首先这是个递归调用，还需要加记忆化。但是一个很烦人的问题就是这个记忆化的数组可能需要很大。</p>
 <p>一个比较 naive 的方法是用 STL map，开了 O2 跑得巨快。但可惜的是理论复杂度会多一个 $\log$。</p>
-<p>我们发现，其实真正调用的 $x$，都是一些形如 $\lfloor\dfrac{n}{y}\rfloor$ 的东西，我们已经预处理了 $y&gt;n^{1-c}=n^{\frac{1}{3}}$ 的情况，现在调用的全部都是 $y\le n^{\frac{1}{3}}$ 的情况，也就是说，理论上需要记忆化的数组量不会超过 $n^{\frac{1}{3}}$。</p>
+<p>我们发现，其实真正调用的 $x$，都是一些形如 $\lfloor\dfrac{n}{y}\rfloor$ 的东西，我们已经预处理了 $y&gt;n^{1-c}&#x3D;n^{\frac{1}{3}}$ 的情况，现在调用的全部都是 $y\le n^{\frac{1}{3}}$ 的情况，也就是说，理论上需要记忆化的数组量不会超过 $n^{\frac{1}{3}}$。</p>
 <p>让杜教筛复杂度能过的题目，其 $n$ 基本能满足 $n^{\frac{1}{3}}$ 个数组够开。</p>
-<p>所以我们把记忆化数组的下标设为 $y$ 即可。每次调用函数的时候我们找到满足 $x=\lfloor\dfrac{n}{y}\rfloor$ 的最大的 $y$。显然 $y=\lfloor\dfrac{n}{x}\rfloor$（数论分块的一个小结论）。返回函数值的时候记忆化在这个数组中即可。</p>
+<p>所以我们把记忆化数组的下标设为 $y$ 即可。每次调用函数的时候我们找到满足 $x&#x3D;\lfloor\dfrac{n}{y}\rfloor$ 的最大的 $y$。显然 $y&#x3D;\lfloor\dfrac{n}{x}\rfloor$（数论分块的一个小结论）。返回函数值的时候记忆化在这个数组中即可。</p>
 <p>好了，讨论完杜教筛的一般套路，我们来看一看这道模板题的做法。</p>
 <p>首先先线性筛肯定是不用说了。我们直接看这个递归怎么做：</p>
 <ol>
 <li><p>对于求 $S_{\mu}$：</p>
 <ul>
-<li>我们显然知道一个 $1*\mu=\varepsilon$。</li>
-<li>那么设 $f=\mu$，$g=1$，就会有 $f*g=\varepsilon$。</li>
+<li>我们显然知道一个 $1*\mu&#x3D;\varepsilon$。</li>
+<li>那么设 $f&#x3D;\mu$，$g&#x3D;1$，就会有 $f*g&#x3D;\varepsilon$。</li>
 <li>$1$ 和 $\varepsilon$ 的值及其前缀和实在是太好求了。</li>
 <li>于是很轻松的套上了杜教筛。</li>
 </ul>
-<p> 给出这一部分的代码：</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SMu</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SMu1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SMu2[tmp]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">      j=x/(x/i);SMu2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SMu</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<p> 给出这一部分的代码：<br> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SMu</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SMu1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SMu2[tmp]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">      j=x/(x/i);SMu2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SMu</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
 <li><p>对于求 $S_{\varphi}$：</p>
 <ul>
-<li>首先我们知道 $\varphi*1=\operatorname{id}$。</li>
-<li>我们设 $f=\varphi$，$g=1$，则 $f*g=\operatorname{id}$。</li>
+<li>首先我们知道 $\varphi*1&#x3D;\operatorname{id}$。</li>
+<li>我们设 $f&#x3D;\varphi$，$g&#x3D;1$，则 $f*g&#x3D;\operatorname{id}$。</li>
 <li>$1$ 很好求，$\operatorname{id}$ 的值很好求，前缀和就是等差数列求和，也非常好求。</li>
 <li>于是也很轻松地套上了杜教筛。</li>
 </ul>
-<p> 给出这一部分的代码：</p>
- <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SPhi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SPhi1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SPhi2[tmp]=(x+<span class="number">1</span>)*x/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">      j=x/(x/i);SPhi2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SPhi</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<p> 给出这一部分的代码：<br> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SPhi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SPhi1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SPhi2[tmp]=(x+<span class="number">1</span>)*x/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">      j=x/(x/i);SPhi2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SPhi</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
 </ol>
 <p>好了我们做完了。</p>
 <p>那么肯定有人问如果题目没那么模板，$g$ 和 $f*g$ 不太能 $O(1)$ 求怎么办？</p>

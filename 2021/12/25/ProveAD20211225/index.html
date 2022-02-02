@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -282,23 +286,23 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>曾经问过 fcy 这样一个式子是怎么推的：</p>
-<p>$$F(x)=\sum_{n\ge 0}\dbinom{n+k-1}{n}x^n=\dfrac{1}{(1-x)^k}$$</p>
+<p>$$F(x)&#x3D;\sum_{n\ge 0}\dbinom{n+k-1}{n}x^n&#x3D;\dfrac{1}{(1-x)^k}$$</p>
 <p>fcy 大概认为是一个 $k$ 次前缀。</p>
 <p>虽然觉得很可做但是一番推导过后似乎没有结果。</p>
 <p>然后我们翻到了这样一个式子：</p>
-<p>$$\dbinom{n}{k}=(-1)^k\dbinom{k-n-1}{k}$$</p>
+<p>$$\dbinom{n}{k}&#x3D;(-1)^k\dbinom{k-n-1}{k}$$</p>
 <p>当然是广义的二项系数。</p>
 <p>然后发现有了神奇的反应：</p>
-<p>$$\begin{aligned}F(x)&amp;=\sum_{n\ge 0}(-1)^n\dbinom{-k}{n}x^n\&amp;=\sum_{n\ge 0}\dbinom{-k}{n}(-x)^n\end{aligned}$$</p>
+<p>$$\begin{aligned}F(x)&amp;&#x3D;\sum_{n\ge 0}(-1)^n\dbinom{-k}{n}x^n\&amp;&#x3D;\sum_{n\ge 0}\dbinom{-k}{n}(-x)^n\end{aligned}$$</p>
 <p>再根据广义二项式定理，这个东西就是：</p>
-<p>$$\begin{aligned}F(x)=(1-x)^{-k}\end{aligned}$$</p>
+<p>$$\begin{aligned}F(x)&#x3D;(1-x)^{-k}\end{aligned}$$</p>
 <p>证完了。</p>
 <p>似乎中午在机房推式子推错了（找机会擦掉）。</p>
 <p>当然不是什么很难的东西。</p>
 <p>但是不要取笑 QAQ。</p>
 <p>关于二项式定理：</p>
 <p>fcy 又让我看到了新的结论，关于杨辉三角，实际上每一条平行的斜线，对应了 $k$ 次的前缀和（实际上这个结论很显然，因为本身杨辉三角就是下项等于上两项之和）。</p>
-<p>我们知道对应 $k$ 次前缀和的 OGF 必然是 $F(x)=\dfrac{1}{(1-x)^k}$，可以反推过来这个 OGF 的一般形式是一个二项式系数展开。而这个展开是对应每一条斜线的，非常自然的就有 $F(x)=\sum_{n\ge 0}\dbinom{n+k-1}{n}x^n$。</p>
+<p>我们知道对应 $k$ 次前缀和的 OGF 必然是 $F(x)&#x3D;\dfrac{1}{(1-x)^k}$，可以反推过来这个 OGF 的一般形式是一个二项式系数展开。而这个展开是对应每一条斜线的，非常自然的就有 $F(x)&#x3D;\sum_{n\ge 0}\dbinom{n+k-1}{n}x^n$。</p>
 
     </div>
 

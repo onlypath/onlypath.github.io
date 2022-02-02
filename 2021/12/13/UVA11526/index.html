@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -286,16 +290,16 @@
 <p>然而我不会证。</p>
 <p>所以在没有任何想法基础的情况下这个结论包括即将讲的做法基本没有做出来的可能。</p>
 <p>先引出来一个结论：</p>
-<p>若 $j=\lfloor \dfrac{n}{i} \rfloor$，则 $j$ 是满足 $\lfloor \dfrac{n}{j}\rfloor \ge i$ 的最大值。</p>
+<p>若 $j&#x3D;\lfloor \dfrac{n}{i} \rfloor$，则 $j$ 是满足 $\lfloor \dfrac{n}{j}\rfloor \ge i$ 的最大值。</p>
 <p>我不会严谨证明，但是我可以给一个直观的理解。</p>
-<p>可以想象一个长度为 $n$ 的序列被长度为 $i$ 的序列逐个覆盖，最多覆盖 $j$ 个这样的序列就没法再覆盖了，因此必然就有长度为 $j$ 的序列在这个长度为 $n$ 的序列上可以覆盖 $i$ 段及以上（因为 $ij=ji$），至于能否再继续用长度为 $j$ 的序列覆盖剩余的段我们并不知道。</p>
+<p>可以想象一个长度为 $n$ 的序列被长度为 $i$ 的序列逐个覆盖，最多覆盖 $j$ 个这样的序列就没法再覆盖了，因此必然就有长度为 $j$ 的序列在这个长度为 $n$ 的序列上可以覆盖 $i$ 段及以上（因为 $ij&#x3D;ji$），至于能否再继续用长度为 $j$ 的序列覆盖剩余的段我们并不知道。</p>
 <p>因此我们会有 $\lfloor \dfrac{n}{j}\rfloor\ge i$。</p>
 <p>如何理解这个 $j$ 是最大的？</p>
 <p>比如说我们取一个稍大一点的值 $j+1$，根据我们上面的条件，显然 $i(j+1)&gt;n$，那用长度为 $j+1$ 的序列去覆盖这个长度为 $n$ 的序列必然是覆盖不到 $i$ 段的。</p>
 <p>然后我们就可以利用这个结论导出来另一个结论：</p>
-<p>若 $j=\lfloor \dfrac{n}{\lfloor \frac{n}{i}\rfloor}\rfloor$，则 $j$ 是满足 $\lfloor\dfrac{n}{j}\rfloor\ge \lfloor \dfrac{n}{i}\rfloor$ 的最大值。</p>
-<p>更进一步地，我们可以知道 $\lfloor \dfrac{n}{j}\rfloor=\lfloor\dfrac{n}{i}\rfloor$（根据最大性，实在看不出来就反证，其实挺显然的）。</p>
-<p>更进一步地，我们可以知道 $k=j+1$ 是满足 $\lfloor \dfrac{n}{k}\rfloor&lt;\lfloor \dfrac{n}{i}\rfloor$ 的最小值。</p>
+<p>若 $j&#x3D;\lfloor \dfrac{n}{\lfloor \frac{n}{i}\rfloor}\rfloor$，则 $j$ 是满足 $\lfloor\dfrac{n}{j}\rfloor\ge \lfloor \dfrac{n}{i}\rfloor$ 的最大值。</p>
+<p>更进一步地，我们可以知道 $\lfloor \dfrac{n}{j}\rfloor&#x3D;\lfloor\dfrac{n}{i}\rfloor$（根据最大性，实在看不出来就反证，其实挺显然的）。</p>
+<p>更进一步地，我们可以知道 $k&#x3D;j+1$ 是满足 $\lfloor \dfrac{n}{k}\rfloor&lt;\lfloor \dfrac{n}{i}\rfloor$ 的最小值。</p>
 <p><strong>重要结论</strong>：</p>
 <p>所以根据这个结论我们得到一个区间 $[i,j]$ 内的函数值都是相同的，同理 $[j+1,\lfloor\dfrac{n}{\lfloor\frac{n}{j+1}\rfloor}\rfloor]$ 内的函数值也都是相同的，以此类推。</p>
 <p><strong>上面的解释记不记住都无所谓，这个结论一定牢记。</strong></p>
@@ -305,9 +309,9 @@
 <p>找到了一个 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/pks-t/p/9212764.html">证明</a>（在第五个），可惜还没时间看（怎么写这么长？）。</p>
 <p>然后发现 <a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/sqrt-decomposition/">OI wiki</a> 上的证明更为强大。</p>
 <p>引理 1：</p>
-<p>$$\lfloor\dfrac{a}{bc}\rfloor=\lfloor\dfrac{\lfloor\dfrac{a}{b}\rfloor}{c}\rfloor$$</p>
+<p>$$\lfloor\dfrac{a}{bc}\rfloor&#x3D;\lfloor\dfrac{\lfloor\dfrac{a}{b}\rfloor}{c}\rfloor$$</p>
 <p>证明：</p>
-<p>易知 $\dfrac{a}{b}=\lfloor\dfrac{a}{b}\rfloor+r$，$(0\le r&lt;1)$。</p>
+<p>易知 $\dfrac{a}{b}&#x3D;\lfloor\dfrac{a}{b}\rfloor+r$，$(0\le r&lt;1)$。</p>
 <p>代入左边，原式等于 $\lfloor\dfrac{\lfloor\dfrac{a}{b}\rfloor}{c}+\dfrac{r}{c}\rfloor$。</p>
 <p>很显然 $r$ 与 $\lfloor\dfrac{a}{b}\rfloor\bmod c$ 的和一定 $&lt;c$。</p>
 <p>所以原等式成立。</p>
@@ -319,8 +323,8 @@
 <p>证毕了。</p>
 <p>现在开始推广基本的数论分块。</p>
 <p>要求：</p>
-<p>$$\sum_{i=1}^n f(i)\lfloor\dfrac{n}{i}\rfloor$$</p>
-<p>先将 $f(i)$ 的前缀和记作 $s(i)=\sum_{j=1}^i f(i)$。</p>
+<p>$$\sum_{i&#x3D;1}^n f(i)\lfloor\dfrac{n}{i}\rfloor$$</p>
+<p>先将 $f(i)$ 的前缀和记作 $s(i)&#x3D;\sum_{j&#x3D;1}^i f(i)$。</p>
 <p>每次将数值相同的块合并起来乘上这一段的和即可。</p>
 <p>下面将数论分块拓展到多维。</p>
 <p>其实就是把边界换一下，取个 $\min$ 即可。然后这东西显然还是 $O(k\sqrt{n})$ 的（其中 $k$ 是维数）。</p>

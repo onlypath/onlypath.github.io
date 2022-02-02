@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -278,15 +282,15 @@
         <p>方差</p>
 <p>想到了 NOIP2021 考场上的那道题。</p>
 <p>所以自然地想到让这个方差乘上 $n^2$，然后我们简化之后就可以得到：</p>
-<p>$$n^2s^2=n\sum_{i=1}^nA_i^2-(\sum_{i=1}^nA_i)^2$$</p>
+<p>$$n^2s^2&#x3D;n\sum_{i&#x3D;1}^nA_i^2-(\sum_{i&#x3D;1}^nA_i)^2$$</p>
 <p>于是我们的方差就是把左边的 $n^2$ 除过去。</p>
-<p>然后这样的话我们的序列就只需要维护两种和了，一种是 $\sum_{i=1}^nA_i$，另一种是 $\sum_{i=1}^nA_i^2$。</p>
+<p>然后这样的话我们的序列就只需要维护两种和了，一种是 $\sum_{i&#x3D;1}^nA_i$，另一种是 $\sum_{i&#x3D;1}^nA_i^2$。</p>
 <p>第一种值比较好维护，关键是如何维护第二种值。</p>
 <p>我们假设一段区间都加上了常数 $k$，那么这一段区间的第二种值的变化量就是：</p>
-<p>$$\Delta=\sum_{i=1}^n(A_i+k)^2-\sum_{i=1}^nA_i^2$$</p>
+<p>$$\Delta&#x3D;\sum_{i&#x3D;1}^n(A_i+k)^2-\sum_{i&#x3D;1}^nA_i^2$$</p>
 <p>化简之后得到：</p>
-<p>$$\Delta=nk^2+2k\sum_{i=1}^nA_i$$</p>
-<p>然后显然这个 $\sum_{i=1}^nA_i$ 我们可以直接用，所以直接更新。懒标记的下传也是同理。</p>
+<p>$$\Delta&#x3D;nk^2+2k\sum_{i&#x3D;1}^nA_i$$</p>
+<p>然后显然这个 $\sum_{i&#x3D;1}^nA_i$ 我们可以直接用，所以直接更新。懒标记的下传也是同理。</p>
 <p>最后这题解决了。</p>
 <p>然后时刻要注意线段树中的参数类型要写成 double。</p>
 <p>时间复杂度 $O((m+n)\log n)$。</p>

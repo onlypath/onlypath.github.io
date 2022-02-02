@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -52,7 +52,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -164,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -175,7 +179,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -281,13 +285,13 @@
 <p>还有这个题为什么要转化为组合数学的问题啊。。。</p>
 <p>完全可以直接无脑 DP 好不好。。。</p>
 <p>定义 $f(i,j,k)$ 表示前 $n$ 个位置恰用了 $i$ 个 0 和 $j$ 个 1。</p>
-<p>那么很显然 $f(i,j,k)=\sum_{p=0}^j\sum_{q=0}^kf(i-1,p,q)$。</p>
+<p>那么很显然 $f(i,j,k)&#x3D;\sum_{p&#x3D;0}^j\sum_{q&#x3D;0}^kf(i-1,p,q)$。</p>
 <p>很显然这个东西是可以用前缀和优化的。</p>
 <p>于是乎我们甚至连 $f(i,j,k)$ 都不需要了。</p>
-<p>直接根据 $c(i,j,k)=\sum_{p=0}^j\sum_{q=0}^kf(i,j,k)$ 来转移即可。</p>
-<p>就是 $c(i,j,k)=c(i,j-1,k)+c(i,j,k-1)-c(i,j-1,k-1)+c(i-1,j,k)$。</p>
-<p>最后的答案就是 $Ans=c(n,a,b)$。</p>
-<p>初始化 $\forall i\in[0,a],j\in[0,b]$，都有 $c(0,i,j)=1$。</p>
+<p>直接根据 $c(i,j,k)&#x3D;\sum_{p&#x3D;0}^j\sum_{q&#x3D;0}^kf(i,j,k)$ 来转移即可。</p>
+<p>就是 $c(i,j,k)&#x3D;c(i,j-1,k)+c(i,j,k-1)-c(i,j-1,k-1)+c(i-1,j,k)$。</p>
+<p>最后的答案就是 $Ans&#x3D;c(n,a,b)$。</p>
+<p>初始化 $\forall i\in[0,a],j\in[0,b]$，都有 $c(0,i,j)&#x3D;1$。</p>
 <p>时间复杂度 $O(nab)$。</p>
 <p>数组还可以用滚动数组优化。</p>
 <p>对于这种思路的递推来讲，这个多项式复杂度估计是下限了，除非有更强的递推方式优化到线性递推，然后再矩阵快速幂什么的，不过我不会。</p>

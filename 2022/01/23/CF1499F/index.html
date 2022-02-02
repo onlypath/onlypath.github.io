@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -52,7 +52,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -164,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -175,7 +179,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -284,11 +288,11 @@
 <ol>
 <li>不连上这个点与其儿子的边，则有转移：</li>
 </ol>
-<p>$$f(p,j)=f(p,j)\sum_{k=0}^K f(v,k)$$</p>
+<p>$$f(p,j)&#x3D;f(p,j)\sum_{k&#x3D;0}^K f(v,k)$$</p>
 <ol start="2">
 <li>连上这个点与其儿子的边，则有转移：</li>
 </ol>
-<p>$$f(p,\max{j,k+1})=f(p,\max{j,k+1})+f(p,j)\sum_{k=0}^{K-j-1}f(v,k)$$</p>
+<p>$$f(p,\max{j,k+1})&#x3D;f(p,\max{j,k+1})+f(p,j)\sum_{k&#x3D;0}^{K-j-1}f(v,k)$$</p>
 <p>上述的转移显然是独立出来的，而实际情况需要考虑其间的相互影响，所以用一个临时的变量 $g$ 存贮结果，在最后再传给 $f$。</p>
 <p>那么问题来了，这个转移的复杂度是 $O(nk^2)$ 的，怎么使用长链剖分优化？</p>
 <p>实际上，就是在满足题目计数的限制的同时，再满足长剖的计数限制。</p>

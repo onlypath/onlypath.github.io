@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,34 +283,34 @@
 <p>我们先定义数论函数：定义域为正整数，值域为一个数集的函数。</p>
 <p>定义两个数论函数的狄利克雷卷积：</p>
 <ul>
-<li>若 $t=f*g$，则 $t(n)=\sum_{i\mid n}f(i)g(\dfrac{n}{i})$。</li>
+<li>若 $t&#x3D;f*g$，则 $t(n)&#x3D;\sum_{i\mid n}f(i)g(\dfrac{n}{i})$。</li>
 </ul>
 <p>我还是决定咕掉一些东西。。。</p>
 <p>所以直接上一些好用的结论：</p>
-<p>$$[n=1]=\sum_{d\mid n}\mu(d)$$</p>
+<p>$$[n&#x3D;1]&#x3D;\sum_{d\mid n}\mu(d)$$</p>
 <p>这个东西实际上就是：</p>
-<p>$$\varepsilon=1*\mu$$</p>
+<p>$$\varepsilon&#x3D;1*\mu$$</p>
 <p>还有：</p>
-<p>$$\operatorname{id}=1*\varphi$$</p>
+<p>$$\operatorname{id}&#x3D;1*\varphi$$</p>
 <p>就是熟悉的：</p>
-<p>$$n=\sum_{d\mid n}\varphi(d)$$</p>
+<p>$$n&#x3D;\sum_{d\mid n}\varphi(d)$$</p>
 <p>当然以上式子的逆也要记一下：</p>
-<p>$$\operatorname{id}*\mu=\varphi$$</p>
+<p>$$\operatorname{id}*\mu&#x3D;\varphi$$</p>
 <p>以及一个：</p>
-<p>$$\sigma_0(xy)=\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)=1]$$</p>
+<p>$$\sigma_0(xy)&#x3D;\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)&#x3D;1]$$</p>
 <p>其他的大量结论需要一定的题目积累。。。</p>
 <p>通过线性筛求积性函数，一般有两种方法：</p>
 <ol>
 <li><p>分类讨论这个东西：</p>
 <ul>
-<li>$f(1)=1$。</li>
+<li>$f(1)&#x3D;1$。</li>
 <li>$n\in P,f(n)$，这里 $P$ 指质数集 <del>并不知道初等数论中那个炫酷的符号是怎么打出来的</del>。</li>
-<li>$p\mid n,p^2 \nmid n,f(n)=f(\dfrac{n}{p})f(p)$</li>
+<li>$p\mid n,p^2 \nmid n,f(n)&#x3D;f(\dfrac{n}{p})f(p)$</li>
 <li>$p\mid n,p^2\mid n,f(n)$，这里一般需要一些奇技淫巧去分析。</li>
 <li>经典的例子有一般的 $\mu$ 和 $\varphi$ 的求法。</li>
 </ul>
 </li>
-<li><p>先算出 $f$ 在素数幂的取值，对于每个 $n$ 求出其最小质因数 $p_k$ 及 其次数 $c_k$，直接 $f(n)=f(p_k^{c_k})f(\dfrac{n}{p_k^{c_k}})$ 算就完了。这个次数可以递推求。当然素数幂处的取值也不一定很好求，反正不管怎样是要动脑子的。</p>
+<li><p>先算出 $f$ 在素数幂的取值，对于每个 $n$ 求出其最小质因数 $p_k$ 及 其次数 $c_k$，直接 $f(n)&#x3D;f(p_k^{c_k})f(\dfrac{n}{p_k^{c_k}})$ 算就完了。这个次数可以递推求。当然素数幂处的取值也不一定很好求，反正不管怎样是要动脑子的。</p>
 </li>
 </ol>
 <p>推式子，我只会</p>
@@ -317,7 +321,7 @@
 </li>
 <li><p>换元乱搞。</p>
 </li>
-<li><p>创造互质（构造一些类似 $[\gcd(x,y)=1]$ 的东西）。</p>
+<li><p>创造互质（构造一些类似 $[\gcd(x,y)&#x3D;1]$ 的东西）。</p>
 </li>
 <li><p>函数积性。</p>
 </li>

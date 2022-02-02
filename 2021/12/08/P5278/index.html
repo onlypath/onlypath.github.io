@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -53,7 +53,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -165,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -176,7 +180,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -281,8 +285,8 @@
 <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3792">P3792</a> 的强化版。</p>
 <p>除了判断这个区间的数的最大值最小值满足条件，以及没有重复的数字，还要再弄一些条件才行。</p>
 <p>一个可行的方法是对序列差分并维护其绝对值，求出差分区间的 $\gcd$，设其为 $d$。</p>
-<p>如果说 $d=k$，可以证明其一定满足条件。反之可以证明一定不成立。</p>
-<p>于是 $d=k$ 是充要条件。</p>
+<p>如果说 $d&#x3D;k$，可以证明其一定满足条件。反之可以证明一定不成立。</p>
+<p>于是 $d&#x3D;k$ 是充要条件。</p>
 <p>那么还要判断特例（为此我与评测机进行了多次友好交流）。公差为 0 以及序列长度为 0 两种情况。</p>
 <p>时间复杂度 $O(m\log n\log a)$。</p>
 <p>注意卡常。</p>

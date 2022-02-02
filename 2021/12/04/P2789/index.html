@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -280,7 +284,7 @@
 <p>其实这个交点的情况和平行的线有关。</p>
 <p>如果说有 $m$ 组线，第 $i$ 组有 $a_i$ 条线，这 $a_i$ 条线相互平行。</p>
 <p>那么我们的答案非常好解决：</p>
-<p>$$Ans=\sum_{i=1}^ma_i(n-\sum_{j=1}^ia_j)$$</p>
+<p>$$Ans&#x3D;\sum_{i&#x3D;1}^ma_i(n-\sum_{j&#x3D;1}^ia_j)$$</p>
 <p>这个显然是可以 $O(n)$ 计算出来的。</p>
 <p>那么我们考虑如何枚举序列 ${a_m}$。</p>
 <p>比如说我们对于第 $i$ 条直线，我们可以考虑它放到前一组直线还是放到后一组直线。</p>
@@ -290,7 +294,7 @@
 <p>考虑到这个序列实际上是组合，我们可以尝试使 $a_i\ge a_{i-1}$ 来剪枝。</p>
 <p>然后更优的做法是 $O(n^4)$ 的魔幻 DP。</p>
 <p>我们定义 $f(i,j)$ 表示 $i$ 条线交出 $j$ 个交点是否有可能。</p>
-<p>那么我们可以有转移 $f(i,k+(i-j)*j)|=f(j,k)$。</p>
+<p>那么我们可以有转移 $f(i,k+(i-j)*j)|&#x3D;f(j,k)$。</p>
 <p>这里可以用 bitset 优化。</p>
 <p>但是据说还有复杂度更优的做法，但是我不会。</p>
 <p>代码：</p>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":false,"post_header":false,"post_body":false,"coll_header":false,"sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="【模板】多项式乘法（FFT）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P3803">
+<meta property="og:url" content="git://onlypath.github.io/2022/02/02/P3803/index.html">
+<meta property="og:site_name" content="onlypath&#39;s Blog">
+<meta property="og:description" content="【模板】多项式乘法（FFT）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/29643.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/50500.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/p4n086ob.png">
+<meta property="article:published_time" content="2022-02-02T10:26:41.000Z">
+<meta property="article:modified_time" content="2022-02-02T15:10:43.770Z">
+<meta property="article:author" content="onlypath">
+<meta property="article:tag" content="FFT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/pic/29643.png">
+
+
+<link rel="canonical" href="git://onlypath.github.io/2022/02/02/P3803/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/02/02/P3803/","path":"2022/02/02/P3803/","title":"P3803"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>P3803 | onlypath's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">onlypath's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blossom, Wind, & You.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%B6%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">零、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">一、概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">二、基本思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8D%95%E4%BD%8D%E6%A0%B9"><span class="nav-number">4.</span> <span class="nav-text">三、单位根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81DFT-%E4%B8%8E-IDFT"><span class="nav-number">5.</span> <span class="nav-text">四、DFT 与 IDFT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81Cooley-Tukey-%E7%AE%97%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">五、Cooley-Tukey 算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E9%80%92%E5%BD%92-FFT-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">7.</span> <span class="nav-text">六、递归 FFT 代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E9%9D%9E%E9%80%92%E5%BD%92-FFT-%E5%AE%9E%E7%8E%B0%E4%B8%8E%E4%BC%98%E5%8C%96"><span class="nav-number">8.</span> <span class="nav-text">七、非递归 FFT 实现与优化</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="onlypath"
+      src="/images/avator.jpg">
+  <p class="site-author-name" itemprop="name">onlypath</p>
+  <div class="site-description" itemprop="description">因为抛弃了世间所有的美好，才会比任何人都更加温柔。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/onlypath" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;onlypath" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2558992311@qq.com" title="E-Mail → mailto:2558992311@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/154279" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;154279" rel="noopener" target="_blank">Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/2558992311" title="QQ → 2558992311"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/02/02/P3803/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          P3803
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-02-02 18:26:41 / 修改时间：23:10:43" itemprop="dateCreated datePublished" datetime="2022-02-02T18:26:41+08:00">2022-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">模板</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">【模板】多项式乘法（FFT）</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>【模板】多项式乘法（FFT）</p>
+<h2 id="零、前言"><a href="#零、前言" class="headerlink" title="零、前言"></a>零、前言</h2><p>因为内容实在太多，不同部分字母表示的含义可能有所差别。</p>
+<p>虽然已经极力精简了语言。但这篇文章仍然达到了 15KB 的可怕大小。</p>
+<p>其中不免有疏漏之处，恳请来赏眼的巨佬能指出错误。</p>
+<p>本来我是不想给文章分章节标号的。但后来发现真的写得太长了。。。</p>
+<p><del>不知不觉写了 3 个多小时。</del></p>
+<p><del>估计这篇文章会被一大堆人 D。初中还不会 FFT 的我真的是屑。</del></p>
+<p><del>不要 D 我啊。</del></p>
+<hr>
+<h2 id="一、概论"><a href="#一、概论" class="headerlink" title="一、概论"></a>一、概论</h2><p>FFT（快速傅里叶离散变换）是一种可以快速实现 DFT 和 IDFT 的方法。FFT 可以快速计算加法卷积（$O(n\log n)$）。</p>
+<p>这个板子就是最简单的例子，我们所作的多项式乘法，就是加法卷积的一种。</p>
+<p>这题我们分为两个过程，DFT 和 IDFT。</p>
+<p>DFT（离散傅里叶变换）的作用就是将多项式的系数表达变为点值表达。</p>
+<p>IDFT（离散傅里叶变换的逆变换）的作用就是将多项式的点值表达变为系数表达。</p>
+<hr>
+<h2 id="二、基本思路"><a href="#二、基本思路" class="headerlink" title="二、基本思路"></a>二、基本思路</h2><p>至于我们为什么要转化为点值表达再转化为系数表达，是因为在点值表达下，我们可以更加快速地进行多项式乘法。</p>
+<p>一般的多项式乘法是将系数卷积，这个时间复杂度显然是 $O(nm)$ 的。</p>
+<p>一个显然的事实是 $n+1$ 个点可以唯一确定一个次数不超过 $n$ 的多项式。所以我们尝试用点值表达多项式。</p>
+<p>比如 $F(x)$ 过 $(x_0,F(x_0))$，$(x_1,F(x_1))$，$\cdots$，$(x_{n+m},F(x_{n+m}))$。我们用这 $n+m+1$ 个点确定了 $F(x)$ 这个多项式。</p>
+<p>同理可以用 $(x_0,G(x_0))$，$(x_1,G(x_1))$，$\cdots$，$(x_{n+m},G(x_{n+m}))$ 这 $n+m+1$ 个点来表示 $G(x)$ 这个多项式。</p>
+<p>我们分别找到了 $x_0,x_1,\cdots,x_{n+m}$ 上 $F(x)$ 和 $G(x)$ 的值，显然我们可以很轻松的求出 $F(x)G(x)$ 在这 $n+m+1$ 个点上的值。</p>
+<p>第一次听这个事实可能觉得有点奇怪，<del>很有可能是 whk 做多了导致的。</del></p>
+<p>这么说：$x_0$ 上 $F(x)G(x)$ 的值就是 $F(x_0)G(x_0)$，显然你知道 $F(x_0)$ 和 $G(x_0)$，然后你一乘就完了。</p>
+<p>就是这样。所以很显然，在知道 $F(x)$ 和 $G(x)$ 的点值表达之后，可以在 $O(n+m)$ 的时间求出 $F(x)G(x)$ 的点值表达。</p>
+<p>这样以来，我们的时间复杂度就取决于点值表达和系数表达来回转换的复杂度了。</p>
+<p>首先我们知道，想要系数表达 $\rightarrow$ 点值表达，这个点的 $x$ 在哪里取完全取决于我们。</p>
+<p>但是很容易知道，在系数表达 $\rightarrow$ 点值表达的过程中如果直接往这个 $n$ 次多项式里代入一般数值，并采取一般方法计算的话，复杂度仍然高达 $O(n^2)$。</p>
+<p>并且在点值表达 $\rightarrow$ 系数表达这个过程中，需要搞出 $n+m+1$ 个线性方程组成线性方程组，然后高斯消元的复杂度是 $O(n^3)$ 的，用不起。</p>
+<p>接下来我们需要解决点的就是如何加速这两个过程。</p>
+<hr>
+<h2 id="三、单位根"><a href="#三、单位根" class="headerlink" title="三、单位根"></a>三、单位根</h2><p>首先，我们要知道，直接代入一般数值是不行的。我们要代入一些更优（du）美（liu）的东西。</p>
+<p>比如说，我们可以考虑复数。当然一般的复数还不行，我们代入的是单位根。</p>
+<p>满足 $x^n-1&#x3D;0$ 的 $x$ 被称作 $n$ 次单位根。需要注意的是，这里的 $x$ 可以是复数，所以情况会比一般的复杂一些。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/pic/29643.png" alt="图 3.1"></p>
+<p><del>这个图是我直接窃来的。</del></p>
+<p>图中是一个复平面上的单位元。</p>
+<p>我们设 $\omega_n$ 表示 $n$ 次单位根。在复平面上，它正好代表了 $\overrightarrow{OA}$ 这个向量。它的数值就是 $\exp(i\dfrac{2\pi}{n})&#x3D;\cos{\dfrac{2\pi}{n}}+i\sin{\dfrac{2\pi}{n}}$。</p>
+<p>因为复数相乘在复平面上表现为向量的模长相乘，辅角相加。所以这里如果我们给 $\omega_n$ 取 $k$ 次幂的话，$\omega_n^k$ 就对应了复平面上一个辅角占 $\dfrac{k}{n}$ 圆、长度为 1 的向量。</p>
+<p>设 $n&#x3D;2m$，我们需要用到的性质是：</p>
+<ol>
+<li><p>$(\omega_n^k)^2&#x3D;\omega_m^k$。考虑占多少份单位圆就是显然的了。</p>
+</li>
+<li><p>$(\omega_n^{m+k})^2&#x3D;\omega_m^{m+k}&#x3D;\omega_m^m\omega_m^k&#x3D;\omega_m^k$。</p>
+</li>
+<li><p>$\omega_n^{m+k}&#x3D;\omega_n^m\omega_n^k&#x3D;-1\cdot\omega_n^k&#x3D;-\omega_n^k$。</p>
+</li>
+</ol>
+<hr>
+<h2 id="四、DFT-与-IDFT"><a href="#四、DFT-与-IDFT" class="headerlink" title="四、DFT 与 IDFT"></a>四、DFT 与 IDFT</h2><p>了解了单位根，现在我们来看一下 DFT 和 IDFT 是什么。</p>
+<p>接下来我们给出 DFT 的定义。</p>
+<p>设 $\mathbf{f}$ 是长度为 $n$ 的数列，$\forall k\in[0,n)$，令：</p>
+<p>$$\hat{f_k}&#x3D;\sum_{i&#x3D;0}^{n-1}f_i(\omega_n^k)^i$$</p>
+<p>则称 $\mathbf{\hat{f}}$ 为 $\mathbf{f}$ 的 DFT（离散傅里叶变换）。</p>
+<p>这里我们设 $\mathbf{f}$ 为多项式 $F(x)$ 的系数。那么 $\hat{f}_k$ 显然就是 $F(x)$ 在 $x&#x3D;\omega_n^k$ 处的点值表示。</p>
+<p>我们再给出 IDFT 的定义：</p>
+<p>设 $\mathbf{\hat{f}}$ 是长度为 $n$ 的数列，$\forall k\in[0,n)$，令：</p>
+<p>$$f_k&#x3D;\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f_i}(\omega_n^{-k})^i$$</p>
+<p>则称 $\mathbf{f}$ 是 $\mathbf{\hat{f}}$ 的 IDFT（离散傅里叶逆变换）。</p>
+<p>我毫无根据地给出了这个 IDFT 的定义，但实际上定义的这两个式子是等价的。</p>
+<p>下面我们给出关于这两个式子等价的推导。</p>
+<p>我们将 DFT 的定义式代入 IDFT 的定义式的右边：</p>
+<p>$$\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f_i}(\omega_n^{-k})^i&#x3D;\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\sum_{j&#x3D;0}^{n-1}f_j(\omega_n^i)^j(\omega_n^{-k})^i$$</p>
+<p>后面的是关于 $\omega_n$ 的次幂，我们可以把它们乘到一起：</p>
+<p>$$\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f_i}(\omega_n^{-k})^i&#x3D;\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\sum_{j&#x3D;0}^{n-1}f_j\omega_n^{(j-k)i}$$</p>
+<p>交换一下求和顺序：</p>
+<p>$$\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f_i}(\omega_n^{-k})^i&#x3D;\dfrac{1}{n}\sum_{j&#x3D;0}^{n-1}f_j\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}$$</p>
+<p>$k$ 是一个已知的数，$j$ 是我们枚举的数。</p>
+<p>分类讨论 $j$ 与 $k$ 的关系：</p>
+<ol>
+<li>当 $j&#x3D;k$ 的时候，有：</li>
+</ol>
+<p>$$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\sum_{i&#x3D;0}^{n-1}1&#x3D;n$$</p>
+<ol start="2">
+<li>当 $j\not&#x3D;k$ 的时候，有：</li>
+</ol>
+<p>$$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\sum_{i&#x3D;0}^{n-1}(\omega_n^{j-k})^i$$</p>
+<p>这是个等比数列求和，也就是：</p>
+<p>$$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\omega_n^{j-k}\dfrac{1-(\omega_n^{j-k})^n}{1-\omega_n^{j-k}}$$</p>
+<p>很显然 $(\omega_{n}^{j-k})^n&#x3D;(\omega_n^n)^{j-k}&#x3D;1$。所以：</p>
+<p>$$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\omega_n^{j-k}\dfrac{1-1}{1-\omega_n^{j-k}}&#x3D;0$$</p>
+<p>讨论完了，现在我们回顾上式：</p>
+<p>$$\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f_i}(\omega_n^{-k})^i&#x3D;\dfrac{1}{n}\sum_{j&#x3D;0}^{n-1}f_j\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}$$</p>
+<p>$\sum_{j&#x3D;0}^{n-1}f_j\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}$ 这个式子的右边在 $j$ 枚举到 $k$ 的时候是 $nf_j&#x3D;nf_k$，其余时候都是 $0$，那么它的值就是 $nk$。所以：</p>
+<p>$$\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f_i}(\omega_n^{-k})^i&#x3D;\dfrac{1}{n}nf_k&#x3D;f_k$$</p>
+<p>就是说，DFT 和 IDFT 的两个定义式是等价的。</p>
+<hr>
+<h2 id="五、Cooley-Tukey-算法"><a href="#五、Cooley-Tukey-算法" class="headerlink" title="五、Cooley-Tukey 算法"></a>五、Cooley-Tukey 算法</h2><p>知道了 DFT 和 IDFT，我们仍不能高效地实现 DFT 和 IDFT（$O(n^2)$）。</p>
+<p>接下来我们就要使用 Cooley-Tukey 算法优化。（具体关于这个名字可以看 <a target="_blank" rel="noopener" href="https://oi-wiki.org/math/poly/fft/#_1">这里</a>）</p>
+<p>Cooley-Tukey 算法的基本思想是分治。</p>
+<p>设 $n&#x3D;2m$。考虑将 $F(x)$ 的项按次数的奇偶分类。</p>
+<p>$$F(x)&#x3D;\sum_{i&#x3D;0}^{n-1}f_ix^i&#x3D;\sum_{i&#x3D;0}^{m-1}f_{2i}x^{2i}+\sum_{i&#x3D;0}^{m-1}f_{2i+1}x^{2i+1}&#x3D;\sum_{i&#x3D;0}^{m-1}f_{2i}x^{2i}+x\sum_{i&#x3D;0}^{m-1}f_{2i+1}x^{2i}$$</p>
+<p>这个结构很有意思。</p>
+<p>我们定义 $F_l(x)$（可以理解为 $F_{even}(x)$，表示系数的下标为偶数）和 $F_r(x)$（$F_{odd}$，奇数）：</p>
+<p>$$F_l(x)&#x3D;\sum_{i&#x3D;0}^{m-1}f_{2i}x^i$$</p>
+<p>$$F_r(x)&#x3D;\sum_{i&#x3D;0}^{m-1}f_{2i+1}x^i$$</p>
+<p>那么就会有：</p>
+<p>$$F(x)&#x3D;F_l(x^2)+xF_r(x^2)$$</p>
+<p>这就是我们分治的基础。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/pic/50500.png" alt="图 5.1"></p>
+<p><del>这张图也是窃来的。</del></p>
+<p>可以把每一个小方块理解为系数。连在一起的小方块就是这些系数组成的多项式，表示我们要对这个多项式进行 DFT。</p>
+<p>而接下来，就是算法的核心：蝴蝶操作。</p>
+<p>$\forall k\in[0,n)$，将 $\omega_n^k$ 和 $\omega_n^{m+k}$ 分别代入 $F(x)$。就有：</p>
+<p>$$F(\omega_n^k)&#x3D;F_l((\omega_n^k)^2)+\omega_n^kF_r((\omega_n^k)^2)&#x3D;F_l(\omega_m^k)+\omega_n^kF_r(\omega_m^k)$$</p>
+<p>$$F(\omega_n^{m+k})&#x3D;F_l((\omega_n^{m+k})^2)+\omega_n^{m+k}F_r((\omega_n^{m+k})^2)&#x3D;F_l(\omega_m^{k})-\omega_n^{k}F_r(\omega_m^{k})$$</p>
+<p>这两个推导分别用到了单位根的性质 1 和 2、3。</p>
+<p>现在，也就是说，如果我们知道了 $\forall k\in [0,m)$，$\omega_m^k$（共 $m$ 个）上 $F_l(x)$ 和 $F_r(x)$ 的取值，我们可以在 $O(n)$ 的时间得到 $F(x)$ 在 $\forall k\in[0,n)$，$\omega_n^k$（共 $n$ 个）上的取值。</p>
+<p>所以根据主定理：</p>
+<p>$$T(n)&#x3D;2T(\dfrac{n}{2})+\Theta(n)&#x3D;\Theta(n\log n)$$</p>
+<p>也就是我们再 $O(n\log n)$ 下求出了 $F(x)$ 在 $\omega_n^0,\omega_n^1,\cdots,\omega_n^{n-1}$ 共 $n$ 个点上的取值。</p>
+<p>换句话说，我们成功找到了 $F(x)$ 的点值表达，完成了 DFT。</p>
+<p>肯定有人会问 IDFT 怎么办。</p>
+<p>实际上和 DFT 几乎一模一样。</p>
+<p>我们根据 IDFT 的定义式：</p>
+<p>$$f_k&#x3D;\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f}_i(\omega_n^{-k})^i$$</p>
+<p>把刚才 DFT 求得的点值（也就是式子中的 $\hat{f}_i$）当作我们刚才过程中的系数，并且把代入的 $\omega_n^k$ 换为 $\omega_n^{-k}$。</p>
+<p>用刚才的 Cooley-Tukey 算法，我们就得到了所有的 $nf_k$。所以系数就是这些值乘上 $n^{-1}$ 即可。</p>
+<hr>
+<h2 id="六、递归-FFT-代码实现"><a href="#六、递归-FFT-代码实现" class="headerlink" title="六、递归 FFT 代码实现"></a>六、递归 FFT 代码实现</h2><p>我们手动把这个次数调成 2 的次幂，方便求解。因此这个数组的范围也要比题目要求的大一些。</p>
+<p>复数自己写结构体，就那几行。</p>
+<p>因为 DFT 和 IDFT 在递归过程中的差别就是代入单位根的次幂不同，所以我们直接写入一个函数。</p>
+<p>最后输出系数要 <code>f[i].x/n</code>，因为 C++ 默认这种式子换成整型都是下取整的，所以我们要手动实现四舍五入，加个 <code>0.5</code> 即可。</p>
+<p>代码（递归实现）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1.35e6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> Pi=<span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">ll n,m;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">CP</span>&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="title">CP</span><span class="params">(<span class="keyword">double</span> xx=<span class="number">0</span>,<span class="keyword">double</span> yy=<span class="number">0</span>)</span> </span>&#123;x=xx;y=yy;&#125;</span><br><span class="line">  <span class="keyword">double</span> x,y;</span><br><span class="line">  <span class="keyword">inline</span> CP <span class="keyword">operator</span>+(CP <span class="keyword">const</span> &amp;rhs)<span class="keyword">const</span>&#123;<span class="keyword">return</span>  <span class="built_in">CP</span>(x+rhs.x,y+rhs.y);&#125;</span><br><span class="line">  <span class="keyword">inline</span> CP <span class="keyword">operator</span>-(CP <span class="keyword">const</span> &amp;rhs)<span class="keyword">const</span>&#123;<span class="keyword">return</span> <span class="built_in">CP</span>(x-rhs.x,y-rhs.y);&#125;</span><br><span class="line">  <span class="keyword">inline</span> CP <span class="keyword">operator</span>*(CP <span class="keyword">const</span> &amp;rhs)<span class="keyword">const</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CP</span>(x*rhs.x-y*rhs.y,x*rhs.y+y*rhs.x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;f[N*<span class="number">2</span>+<span class="number">5</span>],p[N*<span class="number">2</span>+<span class="number">5</span>],tmp[N*<span class="number">2</span>+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">FFT</span><span class="params">(CP *f,ll len,<span class="keyword">bool</span> type)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(len==<span class="number">1</span>) <span class="keyword">return</span>;</span><br><span class="line">  CP *fl=f,*fr=f+len/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll k=<span class="number">0</span>;k&lt;len;k++) tmp[k]=f[k];</span><br><span class="line">  <span class="keyword">for</span>(ll k=<span class="number">0</span>;k&lt;len/<span class="number">2</span>;k++) &#123;fl[k]=tmp[k&lt;&lt;<span class="number">1</span>];fr[k]=tmp[k&lt;&lt;<span class="number">1</span>|<span class="number">1</span>];&#125;</span><br><span class="line">  <span class="built_in">FFT</span>(fl,len/<span class="number">2</span>,type);<span class="built_in">FFT</span>(fr,len/<span class="number">2</span>,type);</span><br><span class="line">  <span class="function">CP <span class="title">tG</span><span class="params">(cos(<span class="number">2</span>*Pi/len),(type?<span class="number">-1</span>:<span class="number">1</span>)*sin(<span class="number">2</span>*Pi/len))</span>,<span class="title">buf</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">  <span class="keyword">for</span>(ll k=<span class="number">0</span>;k&lt;len/<span class="number">2</span>;k++,buf=buf*tG) &#123;</span><br><span class="line">    tmp[k]=fl[k]+buf*fr[k];tmp[k+len/<span class="number">2</span>]=fl[k]-buf*fr[k];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll k=<span class="number">0</span>;k&lt;len;k++) f[k]=tmp[k];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=n;i++) f[i].x=<span class="built_in">read</span>();</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=m;i++) p[i].x=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(m+=n,n=<span class="number">1</span>;n&lt;=m;n&lt;&lt;=<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">FFT</span>(f,n,<span class="number">0</span>);<span class="built_in">FFT</span>(p,n,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) f[i]=f[i]*p[i];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">FFT</span>(f,n,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=m;i++) &#123;<span class="built_in">write</span>(f[i].x/n+<span class="number">0.5</span>);<span class="built_in">putchar</span>(<span class="string">&#x27; &#x27;</span>);&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="七、非递归-FFT-实现与优化"><a href="#七、非递归-FFT-实现与优化" class="headerlink" title="七、非递归 FFT 实现与优化"></a>七、非递归 FFT 实现与优化</h2><p>显然现在洛谷的机子跑得比较快，这份代码已经可以通过了。</p>
+<p>但是，递归的写法有较大的常数，并且码量稍长，我们来考虑一种非递归的写法优化。</p>
+<p>这种写法需要用到位逆序置换。</p>
+<p>我们设 $\operatorname{rev}(x)$ 表示 $x$ 翻转其二进制位所得到的的数。</p>
+<p>再令：</p>
+<p>$$f_i’&#x3D;f_{\operatorname{rev}(i)}$$</p>
+<p>则每次对 $\mathbf{f}$ 进行蝴蝶操作（分奇偶）变成了对 $\mathbf{f’}$ 上相邻两个序列的操作。</p>
+<p>把 $\mathbf{f}$ 转化为 $\mathbf{f’}$ 的过程称为位逆序置换。</p>
+<p>可以看下面这个图来理解这个东西。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/p4n086ob.png" alt="图 7.1"></p>
+<p><del>还是窃来的。</del></p>
+<p>上面的二进制数表示都是正常的。</p>
+<p>你发现分奇偶实际上就是按二进制数从低到高，是 0 的分为一类，是 1 的分为另一类。</p>
+<p>那如果把这个二进制数反过来，就是按二进制数从高到低分了。</p>
+<p>从高到低分，等于按大小来分。</p>
+<p>那现在问题是，如何利用这个来非递归实现 FFT。</p>
+<p>枚举处理问题的层数。先将最底层的子问题全部解决，然后再枚举上一层，再解决。</p>
+<p>还有个问题是 $\operatorname{rev}(i)$ 的求法。</p>
+<p>其实可以用一个简单的递推解决。</p>
+<p>代码（非递归实现）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1.35e6</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> Pi=<span class="built_in">acos</span>(<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">ll n,m;</span><br><span class="line">ll rev[N*<span class="number">2</span>+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">CP</span>&#123;</span></span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="title">CP</span><span class="params">(<span class="keyword">double</span> xx=<span class="number">0</span>,<span class="keyword">double</span> yy=<span class="number">0</span>)</span> </span>&#123;x=xx;y=yy;&#125;</span><br><span class="line">  <span class="keyword">double</span> x,y;</span><br><span class="line">  <span class="keyword">inline</span> CP <span class="keyword">operator</span>+(CP <span class="keyword">const</span> &amp;rhs)<span class="keyword">const</span>&#123;<span class="keyword">return</span>  <span class="built_in">CP</span>(x+rhs.x,y+rhs.y);&#125;</span><br><span class="line">  <span class="keyword">inline</span> CP <span class="keyword">operator</span>-(CP <span class="keyword">const</span> &amp;rhs)<span class="keyword">const</span>&#123;<span class="keyword">return</span> <span class="built_in">CP</span>(x-rhs.x,y-rhs.y);&#125;</span><br><span class="line">  <span class="keyword">inline</span> CP <span class="keyword">operator</span>*(CP <span class="keyword">const</span> &amp;rhs)<span class="keyword">const</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CP</span>(x*rhs.x-y*rhs.y,x*rhs.y+y*rhs.x);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;f[N*<span class="number">2</span>+<span class="number">5</span>],p[N*<span class="number">2</span>+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">FFT</span><span class="params">(CP *f,<span class="keyword">bool</span> type)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) <span class="keyword">if</span>(i&lt;rev[i]) <span class="built_in">swap</span>(f[i],f[rev[i]]);</span><br><span class="line">  <span class="keyword">for</span>(ll p=<span class="number">2</span>;p&lt;=n;p&lt;&lt;=<span class="number">1</span>) &#123;</span><br><span class="line">    ll len=p&gt;&gt;<span class="number">1</span>;<span class="function">CP <span class="title">tG</span><span class="params">(cos(<span class="number">2</span>*Pi/p),(type?<span class="number">-1</span>:<span class="number">1</span>)*sin(<span class="number">2</span>*Pi/p))</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(ll k=<span class="number">0</span>;k&lt;n;k+=p) &#123;</span><br><span class="line">      <span class="function">CP <span class="title">buf</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">      <span class="keyword">for</span>(ll l=k;l&lt;k+len;l++,buf=buf*tG) &#123;</span><br><span class="line">        CP t=buf*f[len+l];f[len+l]=f[l]-t;f[l]=f[l]+t;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=n;i++) f[i].x=<span class="built_in">read</span>();</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=m;i++) p[i].x=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(m+=n,n=<span class="number">1</span>;n&lt;=m;n&lt;&lt;=<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) rev[i]=(rev[i&gt;&gt;<span class="number">1</span>]&gt;&gt;<span class="number">1</span>)|((i&amp;<span class="number">1</span>)?(n&gt;&gt;<span class="number">1</span>):<span class="number">0</span>);</span><br><span class="line">  <span class="built_in">FFT</span>(f,<span class="number">0</span>);<span class="built_in">FFT</span>(p,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) f[i]=f[i]*p[i];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">FFT</span>(f,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=m;i++) &#123;<span class="built_in">write</span>(f[i].x/n+<span class="number">0.5</span>);<span class="built_in">putchar</span>(<span class="string">&#x27; &#x27;</span>);&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/FFT/" rel="tag"># FFT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/01/EssayAD20220201/" rel="prev" title="EssayAD20220201">
+                  <i class="fa fa-chevron-left"></i> EssayAD20220201
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-feather-alt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">onlypath</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"94a3ed5ff2c693d588d9e92b90fd1a60"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

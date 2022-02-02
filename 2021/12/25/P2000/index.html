@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -281,25 +285,25 @@
 <p>但是要写高精度，在学校里还是算了。</p>
 <p>只讲一下思路。</p>
 <p>根据题目所给的十个限制，我们其实可以列出十个生成函数：</p>
-<p>$F_1(x)=\sum_{n\ge 0}x^{6n}=\dfrac{1}{1-x^6}$</p>
-<p>$F_2(x)=\sum_{n=0}^9x^n=\dfrac{1-x^{10}}{1-x}$</p>
-<p>$F_3(x)=\sum_{n=0}^5x^n=\dfrac{1-x^6}{1-x}$</p>
-<p>$F_4(x)=\sum_{n\ge 0}x^{4n}=\dfrac{1}{1-x^4}$</p>
-<p>$F_5(x)=\sum_{n=0}^7x^n=\dfrac{1-x^8}{1-x}$</p>
-<p>$G_1(x)=\sum_{n\ge 0}x^{2n}=\dfrac{1}{1-x^2}$</p>
-<p>$G_2(x)=\sum_{n=0}^1x^n=\dfrac{1-x^2}{1-x}$</p>
-<p>$G_3(x)=\sum_{n\ge0}x^{8n}=\dfrac{1}{1-x^8}$</p>
-<p>$G_4(x)=\sum_{n\ge 0}x^{10n}=\dfrac{1}{1-x^{10}}$</p>
-<p>$G_5(x)=\sum_{n=0}^3x^n=\dfrac{1-x^4}{1-x}$</p>
+<p>$F_1(x)&#x3D;\sum_{n\ge 0}x^{6n}&#x3D;\dfrac{1}{1-x^6}$</p>
+<p>$F_2(x)&#x3D;\sum_{n&#x3D;0}^9x^n&#x3D;\dfrac{1-x^{10}}{1-x}$</p>
+<p>$F_3(x)&#x3D;\sum_{n&#x3D;0}^5x^n&#x3D;\dfrac{1-x^6}{1-x}$</p>
+<p>$F_4(x)&#x3D;\sum_{n\ge 0}x^{4n}&#x3D;\dfrac{1}{1-x^4}$</p>
+<p>$F_5(x)&#x3D;\sum_{n&#x3D;0}^7x^n&#x3D;\dfrac{1-x^8}{1-x}$</p>
+<p>$G_1(x)&#x3D;\sum_{n\ge 0}x^{2n}&#x3D;\dfrac{1}{1-x^2}$</p>
+<p>$G_2(x)&#x3D;\sum_{n&#x3D;0}^1x^n&#x3D;\dfrac{1-x^2}{1-x}$</p>
+<p>$G_3(x)&#x3D;\sum_{n\ge0}x^{8n}&#x3D;\dfrac{1}{1-x^8}$</p>
+<p>$G_4(x)&#x3D;\sum_{n\ge 0}x^{10n}&#x3D;\dfrac{1}{1-x^{10}}$</p>
+<p>$G_5(x)&#x3D;\sum_{n&#x3D;0}^3x^n&#x3D;\dfrac{1-x^4}{1-x}$</p>
 <p>然后这个题的组合意义是什么？</p>
 <p>用 $n$ 块且满足条件，显然把 10 个生成函数乘起来，对于次数为 $n$ 的项的系数就是答案（实质就是背包，不如说背包的实质其实是生成函数的卷积）。</p>
 <p>不多做解释。</p>
 <p>然后我们发现这个题最后乘下来的答案非常漂亮：</p>
-<p>$H(x)=\dfrac{1}{(1-x)^5}$</p>
+<p>$H(x)&#x3D;\dfrac{1}{(1-x)^5}$</p>
 <p>这玩意是什么？</p>
 <p>熟悉的人一眼就可以看出来，不做赘述。</p>
-<p>$H(x)=\sum_{n\ge 0}\dbinom{n+4}{n}x^n$</p>
-<p>第 $n$ 项的系数就是 $\dbinom{n+4}{n}=\dfrac{(n+1)(n+2)(n+3)(n+4)}{24}$，就是答案。</p>
+<p>$H(x)&#x3D;\sum_{n\ge 0}\dbinom{n+4}{n}x^n$</p>
+<p>第 $n$ 项的系数就是 $\dbinom{n+4}{n}&#x3D;\dfrac{(n+1)(n+2)(n+3)(n+4)}{24}$，就是答案。</p>
 <p>但是这个题要高精度。</p>
 
     </div>

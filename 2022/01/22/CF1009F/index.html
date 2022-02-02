@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -284,9 +288,9 @@
 <p>但我们这题显然不是利用这个性质。</p>
 <p>我们有一个最简单的 DP。</p>
 <p>定义 $f(p,j)$ 表示离节点 $p$ 距离为 $j$ 的节点个数，则有：</p>
-<p>$$f(p,j)=\sum_{v}f(v,j-1)$$</p>
+<p>$$f(p,j)&#x3D;\sum_{v}f(v,j-1)$$</p>
 <p>特别的，我们有初始化：</p>
-<p>$$f(p,0)=1$$</p>
+<p>$$f(p,0)&#x3D;1$$</p>
 <p>即距离为 $0$ 的节点只有 $p$ 自己。</p>
 <p>我们发现这个转移的瓶颈在于每个节点都要 $O(n)$ 的合并。</p>
 <p>然后我们就想到一个偷懒的方法，那就是根本不去合并，而是把长儿子的答案直接存在自己的答案里，然后把非长儿子的信息暴力合并进来。</p>

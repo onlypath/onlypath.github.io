@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -278,7 +282,7 @@
         <p>[CQOI2007]余数求和</p>
 <p>这题是整除分块的一个应用。</p>
 <p>可以直接推导：</p>
-<p>$$\begin{aligned}Ans&amp;=\sum_{i=1}^n(k\bmod i)\&amp;=\sum_{i=1}^n(k-i\lfloor\dfrac{n}{i}\rfloor)\&amp;=\sum_{i=1}^nk-\sum_{i=1}^n(i\lfloor\dfrac{n}{i}\rfloor)\end{aligned}$$</p>
+<p>$$\begin{aligned}Ans&amp;&#x3D;\sum_{i&#x3D;1}^n(k\bmod i)\&amp;&#x3D;\sum_{i&#x3D;1}^n(k-i\lfloor\dfrac{n}{i}\rfloor)\&amp;&#x3D;\sum_{i&#x3D;1}^nk-\sum_{i&#x3D;1}^n(i\lfloor\dfrac{n}{i}\rfloor)\end{aligned}$$</p>
 <p>到这里就差不多了。</p>
 <p>我们发现仍然可以把这个东西分块来计算，仍旧是块内的数字都相等，只不过我们要统计的块长会更长，因为需要作一个等差数列求和。</p>
 <p>另外，一定要注意这里后面的求和中不要越界，$n$ 与 $k$ 都是其影响因素。</p>

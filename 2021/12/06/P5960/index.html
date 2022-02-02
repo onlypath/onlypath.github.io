@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
@@ -51,7 +51,11 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -163,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">52</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -281,8 +285,8 @@
 <p>最后是否有解就是在询问整个差分约束系统是否有负环。</p>
 <p>求解的话，很显然如果说 ${a_1,\cdots ,a_n}$ 是一组解，那么必然有 ${a_1+\Delta,\cdots ,a_n+\Delta}$ 也是一组解。</p>
 <p>所以我们干脆求出非正数解。</p>
-<p>那么就有这样一组差分约束：$x_i-x_{n+1}\le 0$，其中 $x_{n+1}=0$。</p>
-<p>就是建 $n$ 条从 $n+1$ 指向各个点的有向边，边权为 0，并且 $dis_{n+1}=0$ 就可以了。</p>
+<p>那么就有这样一组差分约束：$x_i-x_{n+1}\le 0$，其中 $x_{n+1}&#x3D;0$。</p>
+<p>就是建 $n$ 条从 $n+1$ 指向各个点的有向边，边权为 0，并且 $dis_{n+1}&#x3D;0$ 就可以了。</p>
 <p>时间复杂度 $O(nm)$。</p>
 <p>注意在增加源点 $n+1$ 之后我们的点数变成了 $n+1$，判断负环的时候不要写错。</p>
 <p>代码：</p>
