@@ -1328,8 +1328,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>BSGS</li>
 <li>指数与原根</li>
 <li>数论分块 <a href="https://onlypath.github.io/2021/12/13/UVA11526/">UVA11526</a> <a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a></li>
-<li>狄利克雷卷积与莫比乌斯反演</li>
-<li>杜教筛</li>
+<li>狄利克雷卷积与莫比乌斯反演 <a href="https://onlypath.github.io/2022/01/28/Mobius-and-Dirichlet/">自己写的一点东西</a></li>
+<li>杜教筛 <a href="https://onlypath.github.io/2022/01/30/P4213/">P4213</a></li>
 <li>二次剩余</li>
 </ul>
 </li>
@@ -1349,10 +1349,10 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>代数</p>
 <ul>
 <li>多项式算法<ul>
-<li>拉格朗日插值</li>
-<li>FFT，NTT</li>
+<li>拉格朗日插值 <a href="https://onlypath.github.io/2022/02/03/P4781/">P4781</a></li>
+<li>FFT，NTT <a href="https://onlypath.github.io/2022/02/02/P3803/">P3803</a></li>
 <li>FMT，FWT</li>
-<li>多项式求逆</li>
+<li>多项式求逆 <a href="https://onlypath.github.io/2022/02/03/P4238/">P4238</a></li>
 </ul>
 </li>
 <li>高斯消元 <a href="https://www.luogu.com.cn/blog/154279/p4035-post">P4035</a></li>
@@ -2956,8 +2956,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>P4781</title>
     <url>/2022/02/03/P4781/</url>
     <content><![CDATA[<p>【模板】拉格朗日插值</p>
-<p>OI wiki 那个 CRT 来推导模意义下的 Lagrange Intepolation 是个什么玩意。。。</p>
-<p>CRT 的前提条件是多个模数两两互质。。。不然的话这个构造不一定成立的。。。</p>
 <p>实际上拉格朗日插值是一种构造，所以我们先从构造的第一步开始。</p>
 <p>我们构造 $f_i(x)$ 使得：</p>
 <p>$$\begin{cases}f_i(x_i)&#x3D;y_i \\ f_i(x_j)&#x3D;0 &amp; j \not&#x3D;i\end{cases}$$</p>
@@ -2976,6 +2974,30 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$f(x)&#x3D;\sum_{i&#x3D;1}^ny_i\prod_{j\not&#x3D;i}\dfrac{x-x_j}{x_i-x_j}$$</p>
 <p>我们就得到了拉格朗日插值的式子。</p>
 <p>这个题就不用怎么变形了，直接 $O(n^2\log mo)$ 就能过了。</p>
+<p>关于 CRT 的推导，我们所有的同余关系都是建立在多项式上的。</p>
+<p>需要摒除传统的数字观念来看多项式的同余。</p>
+<p>下面基本是复读 OI wiki 的证明。</p>
+<p>因为：</p>
+<p>$$f(x)-f(a)&#x3D;(f_0-f_0)+f_1(x-a)+f_2(x^2-a^2)+\cdots+f_n(x^n-a^n)$$</p>
+<p>所以 $f(x)-f(a)$ 必然有因式 $x-a$（可以对这个东西做多项式除法）。</p>
+<p>然后我们就能得到：</p>
+<p>$$f(x)-f(a)\equiv 0\pmod{x-a}$$</p>
+<p>其实就是：</p>
+<p>$$f(x)\equiv f(a)\pmod{x-a}$$</p>
+<p>然后我们 $a$ 取遍 $x_i$ 组成线性方程组：</p>
+<p>$$\begin{cases}f(x)\equiv f(x_1)\equiv y_1\pmod{(x-x_1)} \\ f(x)\equiv f(x_2)\equiv y_2 \pmod{(x-x_2)} \\ \cdots \\ f(x)\equiv f(x_n)\equiv y_n\pmod{(x-x_n)}\end{cases}$$</p>
+<p>你会发现 $x-x_i$ 在多项式的意义下是两两互质的。</p>
+<p>所以可以在多项式的意义下使用中国剩余定理。</p>
+<p>于是我们就有了：</p>
+<p>$$m&#x3D;\prod_{i&#x3D;1}^n(x-x_i)$$</p>
+<p>$$M_i&#x3D;\dfrac{m}{x-x_i}&#x3D;\prod_{j\not&#x3D;i}(x-x_j)$$</p>
+<p>$$t_i&#x3D;M_i^{-1}&#x3D;\prod_{j\not&#x3D;i}\dfrac{1}{x-x_j}$$</p>
+<p>显然这里的 $t_i$ 形式不太好，我们根据它是在 $\pmod{(x-x_i)}$ 下 $M_i$ 的逆元来对它进行变换。</p>
+<p>模意义下 $x-x_j$ 与 $x-x_j-(x-x_i)$ 是相同的，所以直接换掉：</p>
+<p>$$t_i&#x3D;\prod_{j\not&#x3D;i}\dfrac{1}{x_i-x_j}$$</p>
+<p>于是我们的解就是：</p>
+<p>$$f(x)&#x3D;\sum_{i&#x3D;1}^ny_iM_it_i&#x3D;\sum_{i&#x3D;1}^n y_i\prod_{j\not&#x3D;i}\dfrac{x-x_j}{x_i-x_j}$$</p>
+<p>这个推导是多项式模意义下的。但反正也是适用的。</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">2e3</span>,mo=<span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line">ll n,k,ans;</span><br><span class="line"></span><br><span class="line">ll x[N+<span class="number">5</span>],y[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">qpow</span><span class="params">(ll b,ll p)</span> </span>&#123;</span><br><span class="line">  ll res=<span class="number">1</span>;<span class="keyword">while</span>(p)&#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) res=res*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">inv</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">qpow</span>(x,mo<span class="number">-2</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();k=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;x[i]=<span class="built_in">read</span>();y[i]=<span class="built_in">read</span>();&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    ll tmp=y[i];</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=n;j++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(i==j) <span class="keyword">continue</span>;</span><br><span class="line">      tmp=tmp*((k-x[j]+mo)%mo)%mo;</span><br><span class="line">      tmp=tmp*<span class="built_in">inv</span>((x[i]-x[j]+mo)%mo)%mo;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=(ans+tmp)%mo;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -2983,6 +3005,21 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>拉格朗日插值</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unit_Root_Inversion</title>
+    <url>/2022/02/03/Unit-Root-Inversion/</url>
+    <content><![CDATA[<p>论文爷似乎不太认可这个名称？</p>
+<p>先丢几个式子算了。</p>
+<p>$$[n|a]&#x3D;\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\omega_n^{ak}$$</p>
+<p>$$[a\equiv b\pmod n]&#x3D;\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\omega_n^{(a-b)k}$$</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
       </tags>
   </entry>
 </search>
