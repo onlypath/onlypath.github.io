@@ -14,6 +14,26 @@
 <p>消散了，我往日忆中的浮光，</p>
 <p>与那雨中的惆怅。</p>
 <p>（仿《雨巷》戴望舒）</p>
+<p>似乎是无聊时编出来的一个故事。</p>
+<p>在雨天的校园里，喜欢着数学的他，与喜欢着长笛的学姐相遇了。</p>
+<p>就像在灰色的天空中点上一抹青伞的明亮，他原本黑白的生活，被逐渐染上不同的颜色。</p>
+<p>他原本以为这样的生活，能一直到这四年的结尾，甚至更远，甚至永远。</p>
+<p>可是，学业的压力、父母的压迫、生活的困顿，看似坚强开朗的学姐，慢慢露出了倦色。</p>
+<p>他去看了学姐的第一场竞演，却没想到，这也是她的最后一场竞演。</p>
+<p>之后，那只银亮亮的长笛，被学姐亲手卖掉了。</p>
+<p>学姐最后没能保研，她的大学生活也平淡地结束了。</p>
+<p>她走了，坐上那列通往家乡的火车，一声不响地走了。</p>
+<p>当他慌忙追赶到车站时，只发现座位上留下的那把青伞。</p>
+<p>就像他们第一次相见的那个雨天，灰的车站里，只有那抹青的明亮，与青的哀伤。</p>
+<p>为什么没能把她留下，为什么没能早点看出她的伪装，为什么，眼睁睁地看着她烧毁自己的梦想？</p>
+<p>他的泪竟簌簌的落了下来，怎么擦也擦不干，这才恍然发现，他的心，早已经是空的了。</p>
+<p>再也联系不上学姐了。</p>
+<p>后记？</p>
+<p>或许你的身边也有许多这样的人。</p>
+<p>他们热爱着自己的梦想，他们向往着幸福的生活，他们付出着百倍于他人的努力。</p>
+<p>然而，或是他人的鄙夷，或是规则的不公，他们终究因种种原因而被压倒。</p>
+<p>毕竟，并非每个人，都能活得像热血漫画的主人公。</p>
+<p>所以，请给身边的这些普通人，多一点希望，多一点认同，多一点，让他们追逐梦想的权利。</p>
 ]]></content>
       <categories>
         <category>杂记</category>
@@ -3300,6 +3320,45 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>数论</tag>
         <tag>二分答案</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P4980</title>
+    <url>/2022/02/07/P4980/</url>
+    <content><![CDATA[<p>【模板】Pólya 定理</p>
+<p>非常抱歉，群论的笔记全都记在笔记本上了。。。</p>
+<p>所以只给定理加这题怎么做。</p>
+<p>定理内容：</p>
+<p>设有 $n$ 个元素，每个元素有 $m$ 种染色方法。设 $G$ 是 $n$ 个元素的置换群，则染色的总方案数为：</p>
+<p>$$\dfrac{1}{|G|}\sum_{p\in G}T(p)$$</p>
+<p>其中 $T(p)$ 表示在置换 $p$ 下，不动的染色方案数。</p>
+<p>关于 $T(p)$ 的求法，设 $d(p)$ 为循环的个数，因为每个循环中必须染上同一种颜色，且不同的循环之间没有影响，所以我们能得到 $T(p)&#x3D;m^{d(p)}$。</p>
+<p>然后我们回到这个题目，我们的置换群可以这样表示：</p>
+<p>$$\begin{pmatrix} 1 &amp; 2 &amp; \cdots &amp; n-i &amp; n-i+1 &amp; \cdots &amp;n\\ 1+i &amp; 2+i &amp; \cdots &amp; n&amp; 1 &amp; \cdots &amp; i\end{pmatrix}i\in [0,n)$$</p>
+<p>显然置换群的大小 $|G|&#x3D;n$。</p>
+<p>然后我们得到式子：</p>
+<p>$$\dfrac{1}{n}\sum_{i&#x3D;1}^{n}n^{d(p_i)}$$</p>
+<p>关于这个环的数量，暴力的话可以对每个置换建个图再跑个 SCC 什么的，复杂度就是 $O(n^2)$。</p>
+<p>但显然不可以这么做。</p>
+<p>我们仔细观察一波，比如打表手推眼瞪之类的方法，发现这里的 $d(p_i)&#x3D;\gcd(n,i)$。</p>
+<p>至于为什么，你发现环上跳 $i$ 步一直跳，跳回原点的步数就是 $\operatorname{lcm}(i,n)$，就是 $\dfrac{n}{\gcd(n,i)}$，而这是对于每个环来说的大小。所以环的个数自然就是 $\gcd(n,i)$。</p>
+<p>然后就是那什么：</p>
+<p>$$Ans&#x3D;\dfrac{1}{n}\sum_{i&#x3D;1}^{n}n^{\gcd(n,i)}$$</p>
+<p>嗯？数论题的味道？开推：</p>
+<p>$$\begin{aligned}&#x3D;&amp; \dfrac{1}{n}\sum_{i&#x3D;1}^{n}\sum_{d\mid n}n^{d}[\gcd(n,i)&#x3D;d]\\ &#x3D; &amp; \dfrac{1}{n}\sum_{d\mid n}\sum_{i&#x3D;1}^{\frac{n}{d}}n^d[\gcd(n,i)&#x3D;1]\\ &#x3D;&amp; \dfrac{1}{n}\sum_{d\mid n}n^d\sum_{i&#x3D;1}^{\frac{n}{d}}[\gcd(n,i)&#x3D;1]\end{aligned}$$</p>
+<p>$\sum_{i&#x3D;1}^{\frac{n}{d}}[\gcd(n,i)&#x3D;1]$ 是啥，是 $\varphi(\dfrac{n}{d})$ 啊。</p>
+<p>然后不就是：</p>
+<p>$$\begin{aligned}&#x3D;&amp; \dfrac{1}{n}\sum_{d\mid n}\varphi(\dfrac{n}{d})n^d\end{aligned}$$</p>
+<p>不会化了。</p>
+<p>所以直接躺平，大力求解 $\varphi$，最后时间复杂度大概是 $O(T\sqrt{n}(\sqrt{n}+\ln n))$，好像这个复杂度比较出事，但实际上远远跑不到，很轻松就过掉了。</p>
+<p>如果想要变快，可以记忆化 $\varphi$。什么，不知道这么大怎么记忆化？<code>map</code> 或者 Hash 随便挑一个用就完了，然后复杂度就对了。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll mo=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">ll T,n,ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">qpow</span><span class="params">(ll b,ll p)</span> </span>&#123;</span><br><span class="line">  ll res=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) res=res*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">phi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  ll res=x;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i*i&lt;=x;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(x%i==<span class="number">0</span>) &#123;</span><br><span class="line">      res=res/i*(i<span class="number">-1</span>);<span class="keyword">while</span>(x%i==<span class="number">0</span>) x/=i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;<span class="number">1</span>) res=res/x*(x<span class="number">-1</span>);<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    n=<span class="built_in">read</span>();ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i*i&lt;=n;i++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(n%i==<span class="number">0</span>) &#123;</span><br><span class="line">        ans=(ans+<span class="built_in">phi</span>(i)*<span class="built_in">qpow</span>(n,n/i)%mo)%mo;</span><br><span class="line">        <span class="keyword">if</span>(i*i!=n) ans=(ans+<span class="built_in">phi</span>(n/i)*<span class="built_in">qpow</span>(n,i)%mo)%mo;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ans=ans*<span class="built_in">qpow</span>(n,mo<span class="number">-2</span>)%mo;</span><br><span class="line">    <span class="built_in">writeln</span>(ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>Polya 定理</tag>
       </tags>
   </entry>
 </search>
