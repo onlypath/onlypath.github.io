@@ -1239,7 +1239,17 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>EssayAD20220211</title>
     <url>/2022/02/11/EssayAD20220211/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<pre><code>花开花落，逝者流转。
+    阴晴圆缺，不得求全。
+羽展惊鸿，曲终未散
+    残梦方醒，此夜难眠。
+</code></pre>
+<p>$\mathscr{Hope}\space \mathscr{that}\space \mathscr{distant}\space \mathscr{song}\space \mathscr{of}\space \mathscr{spring}$</p>
+<p>$\mathscr{will}\space \mathscr{finally}\space \mathscr{arrive}.$</p>
+<hr>
+<p>下辈子请让我做一个平凡幸福的女孩子吧。。。</p>
+<p>我也不知道为什么会有这种奇怪的想法。。。</p>
+]]></content>
       <categories>
         <category>杂记</category>
       </categories>
@@ -3665,6 +3675,25 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CF1542C</title>
+    <url>/2022/02/11/CF1542C/</url>
+    <content><![CDATA[<p>Strange Function</p>
+<p>我怎么这么菜。。。</p>
+<p>想到用 $\operatorname{lcm}$ 就可以了。</p>
+<p>因为对于 $f(x)&#x3D;k$ 的 $x$ 的个数就是：</p>
+<p>$$\lfloor\dfrac{n}{\operatorname{lcm}(1,2,\cdots,k-1)}\rfloor-\lfloor\dfrac{n}{\operatorname{lcm}(1,2,\cdots,k)}\rfloor$$</p>
+<p>然后就没了。。。</p>
+<p>很显然 $k$ 不会太大。。。就算拿素数去乘到 41 也早就超过 $10^{16}$。。。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e2</span>,mo=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"></span><br><span class="line">ll T,n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span> </span>&#123;<span class="keyword">return</span> b==<span class="number">0</span>?a:<span class="built_in">gcd</span>(b,a%b);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">lcm</span><span class="params">(ll a,ll b)</span> </span>&#123;<span class="keyword">return</span> a/<span class="built_in">gcd</span>(a,b)*b;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    n=<span class="built_in">read</span>();</span><br><span class="line">    ll ans=<span class="number">0</span>,tmp=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=<span class="number">41</span>;i++) &#123;</span><br><span class="line">      ans=(ans+n/tmp*i)%mo;</span><br><span class="line">      tmp=<span class="built_in">lcm</span>(tmp,i);</span><br><span class="line">      ans=(ans-n/tmp*i+mo)%mo;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">writeln</span>(ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>杂题</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
       </tags>
   </entry>
 </search>
