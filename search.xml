@@ -3747,6 +3747,32 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <url>/2022/02/12/EssayAD20220212/</url>
     <content><![CDATA[<p>近日一直在思考一个问题。</p>
 <p>那就是，努力，到底有没有意义，有什么意义。</p>
+<hr>
+<p>这里是 $AD20220223$。</p>
+<p>我得到了一个很奇怪的结论。</p>
+<p>那就是，努力大部分情况下，都是有意义的。</p>
+<p>但是，也会有毫无意义的情况。</p>
+<p>我唯一能想到的，就是冈崎朋也。。。</p>
+<p>因为那种情况下的努力，真的只会让自己更加绝望。。。</p>
+<p>然而实际上在故事里，朋也是直接猝死了的。。。</p>
+<p>说明这种悲痛，真的是常人无法承受的。。。</p>
+<p>可毕竟那是个故事。</p>
+<p>想发生在现实里，有这样一个悲惨的人生，恐怕挺难做到。。。</p>
+<p>可正如坂上智代曾经说过的话：“堕落是不需要理由的，但不堕落一定有它的原因。”</p>
+<p>有时候，人们往往不会因为努力有没有意义而去选择努力或堕落。</p>
+<p>所以，努力虽然在大部分时候都有着意义。</p>
+<p>但这些意义在没有理由去认为它有意义的人的面前，实际上仍然没有什么意义。。。</p>
+<p>我后来慢慢也发现了。</p>
+<hr>
+<p>吾尝终日而思矣，可终日不解惑也。我每天都在思考着这些奇怪问题，可终日不得解决。自己也看上去浪费了大量的时间，无果之后顿感痛心不已。</p>
+<p>其实这种问题，越是思考，越是想不清楚。</p>
+<p>因为从一开始，自己的思想就不是“空”了。</p>
+<p>从思考这个问题开始，就已经注定了这个问题是思考不出结果的。</p>
+<p>自己一路在人潮中随波逐流，在内卷的压力下无力地挣扎。</p>
+<p>直到感到疲软之后才恍然想起，自己早已经忘记自己了。</p>
+<p>自身的一切行动在自己看来，都失去了意义，失去了存在的价值。</p>
+<p>人生活得不明不白，走得不清不楚，再麻木不仁地死去。这样的人生，真的是我想要的吗？真的，是我需要的吗？</p>
+<p>于是，我便想再活得快乐一些、再活得明白一些、再活得像自己一些。</p>
 ]]></content>
       <categories>
         <category>杂记</category>
@@ -3834,6 +3860,58 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>最短路</tag>
         <tag>最小割</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>EssayAD20220223</title>
+    <url>/2022/02/23/EssayAD20220223/</url>
+    <content><![CDATA[<p>“空”？</p>
+<p>不知道是在哪一瞬间，我突然就明白了一些：意义与无意义是相同的，虚与实是相同的，存在与不存在也是相同的。</p>
+<p>那一瞬间就有了一种轻飘飘的感觉，如醍醐灌顶一般。</p>
+<p>不管是眼前实际存在的事物，亦或是这些不可视的概念、思想、灵魂、情感，它们的本质都是相同的，那就是——空。</p>
+<p>空，是一切的根源，是一切的本质。</p>
+<p>有语云：一生二、二生三、三生万物。</p>
+<p>而我认为，不仅如此：万物归三、三归二、二归一。</p>
+<p>宇宙原本是空，它是一切，但它什么也不是。</p>
+<p>于是宇宙在变化之中不变、在存在之中不存、在诞生之中毁灭、在疯狂之中宁静、在光明之中黑暗、在根源之中成空。</p>
+<p>于是我也成了空，我是宇宙、是微尘、是时间，又或者，是我自己。</p>
+<p>正因为空包含这一切的矛盾与重合，空才成为了空啊。</p>
+<p>只不过，当我明白了这一切时才发现：明白一切，正如同一切也不明白。</p>
+<p>哈哈，原来我一凡夫俗子，终难悟道啊。</p>
+]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P3809</title>
+    <url>/2022/02/23/P3809/</url>
+    <content><![CDATA[<p>【模板】后缀排序</p>
+<p>哈哈，机房最菜实锤啦。</p>
+<p>时间不够了，在机房随便写了一下。。。</p>
+<p>就是求字符串后缀数组的模板。</p>
+<p>采用倍增法求后缀数组。</p>
+<p>首先我们有一个长度为 1 的后缀前缀的排序。</p>
+<p>然后我们将长度翻倍，将后面一半的后缀前缀作为第二关键字，前面一半的后缀前缀作为第一关键字，排序就可以得到新的后缀数组。</p>
+<p>然后我们采取基数排序的方法，优化每次排序的复杂度。</p>
+<p>最后时间复杂度就是 $O(n\log n)$ 的。</p>
+<p>然后这个东西显然常数巨大。</p>
+<p>所以需要一些卡常。</p>
+<p>首先将第二关键字排序的结果直接转移。</p>
+<p>然后记录一个 $p$ 把需要计数排序的值域缩小。</p>
+<p>还有几个可能优化效率不是那么高的。</p>
+<p>比如可以用一个 $cmp$ 函数使最后比较时访问的不连续内存减少，还可以在值域为 $[1,n]$ 的时候直接退出（因为每个排名都是唯一的）。</p>
+<p>这样就可以过了。。。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e6</span>;</span><br><span class="line"></span><br><span class="line">ll n,m;</span><br><span class="line">ll sa[N+<span class="number">5</span>],rk[N*<span class="number">2</span>+<span class="number">5</span>],oldrk[N*<span class="number">2</span>+<span class="number">5</span>],id[N+<span class="number">5</span>],cnt[N+<span class="number">5</span>],px[N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">char</span> s[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(ll x,ll y,ll w)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> oldrk[x]==oldrk[y]&amp;&amp;oldrk[x+w]==oldrk[y+w];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,s+<span class="number">1</span>);n=<span class="built_in">strlen</span>(s+<span class="number">1</span>);m=<span class="built_in">max</span>(n,<span class="number">300ll</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) ++cnt[rk[i]=s[i]];</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=m;i++) cnt[i]+=cnt[i<span class="number">-1</span>];</span><br><span class="line">  <span class="keyword">for</span>(ll i=n;i&gt;=<span class="number">1</span>;i--) sa[cnt[rk[i]]--]=i;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(ll w=<span class="number">1</span>,p=<span class="number">0</span>;;w&lt;&lt;=<span class="number">1</span>,m=p) &#123;</span><br><span class="line">    p=<span class="number">0</span>;<span class="keyword">for</span>(ll i=n;i&gt;n-w;i--) id[++p]=i;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;<span class="keyword">if</span>(sa[i]&gt;w) id[++p]=sa[i]-w;&#125;</span><br><span class="line">    <span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(cnt));</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) ++cnt[px[i]=rk[id[i]]];</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=m;i++) cnt[i]+=cnt[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">for</span>(ll i=n;i&gt;=<span class="number">1</span>;i--) sa[cnt[px[i]]--]=id[i];</span><br><span class="line">    <span class="built_in">memcpy</span>(oldrk,rk,<span class="built_in"><span class="keyword">sizeof</span></span>(rk));</span><br><span class="line">    p=<span class="number">0</span>;<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;rk[sa[i]]=<span class="built_in">cmp</span>(sa[i],sa[i<span class="number">-1</span>],w)?p:++p;&#125;</span><br><span class="line">    <span class="keyword">if</span>(p==n) &#123;<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) sa[rk[i]]=i;<span class="keyword">break</span>;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;<span class="built_in">write</span>(sa[i]);<span class="built_in">putchar</span>(<span class="string">&#x27; &#x27;</span>);&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>后缀数组</tag>
       </tags>
   </entry>
 </search>
