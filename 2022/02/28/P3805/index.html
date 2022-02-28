@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":false,"post_header":false,"post_body":false,"coll_header":false,"sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="【模板】manacher 算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P3805">
+<meta property="og:url" content="git://onlypath.github.io/2022/02/28/P3805/index.html">
+<meta property="og:site_name" content="onlypath&#39;s Blog">
+<meta property="og:description" content="【模板】manacher 算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-28T14:45:08.000Z">
+<meta property="article:modified_time" content="2022-02-28T14:46:01.219Z">
+<meta property="article:author" content="onlypath">
+<meta property="article:tag" content="Manacher">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="git://onlypath.github.io/2022/02/28/P3805/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/02/28/P3805/","path":"2022/02/28/P3805/","title":"P3805"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>P3805 | onlypath's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">onlypath's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blossom, Wind, & You.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="onlypath"
+      src="/images/avator.jpg">
+  <p class="site-author-name" itemprop="name">onlypath</p>
+  <div class="site-description" itemprop="description">因为抛弃了世间所有的美好，才会比任何人都更加温柔。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/onlypath" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;onlypath" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2558992311@qq.com" title="E-Mail → mailto:2558992311@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/154279" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;154279" rel="noopener" target="_blank">Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/2558992311" title="QQ → 2558992311"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/02/28/P3805/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          P3805
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-02-28 22:45:08 / 修改时间：22:46:01" itemprop="dateCreated datePublished" datetime="2022-02-28T22:45:08+08:00">2022-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">模板</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">【模板】manacher 算法</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>【模板】manacher 算法</p>
+<p>按 Jwz 大巨佬的讲法，Manacher 的实质就是暴力优化。</p>
+<p>然而 Jwz 只用了 $10^{-114514}$ 秒就学会了，<del>我学了 114514 年还没有学会。</del></p>
+<p>首先我们压缩一下回文的性质和信息。</p>
+<p>定义一个 $d(i)$ 表示以第 $i$ 个位置为中心的一个回文串，它的长度的一半是多少。</p>
+<p>比如说 $\texttt{jwzakioi}$ 这个字符串，第 6 个字符是 $\texttt{o}$，则有 $d(6)&#x3D;2$。因为这个回文串是 $\texttt{ioi}$，$\texttt{o}$ 的左边有 1 个字符，加上它自己就是 2 了。</p>
+<p>显然上面这个例子只针对回文串长度为奇数的情况，偶数的情况还需要分开讨论。</p>
+<p>但有一种方法可以让我们不分开讨论：</p>
+<p>我们尝试修改字符串，在字符的空隙之中加入字符串中不可能出现的字符，比如说 <code>#</code>，于是上述字符串变成了 <code>#j#w#z#a#k#i#o#i#</code>。（因为这里 $\LaTeX$ 不支持在 texttt 里使用 <code>#</code> 所以换了一种方式）</p>
+<p>然后按照奇数的方法求就不用再讨论了。</p>
+<p>现在我们开始着手考虑 $d(i)$ 怎么求。</p>
+<p>我们从前往后处理，现在我们假设处理出来一个 $s’$ 是一个我们已经知道的回文串，并且它所处区间为 $[l,r]$，并且它最靠右边（具体的说就是它的 $r$ 是前面所有我们已知的回文串中最大的一个）。</p>
+<p>假如说我们处理到对称中心 $i$。</p>
+<p>为了优化暴力，我们考虑提前确定 $d(i)$ 的下界。可以分类来玩：</p>
+<ol>
+<li><p>假如说 $i\notin[l,r]$，我们也没法怎么确定，那么我们只能确定 $d(i)$ 的下限是 1。</p>
+</li>
+<li><p>假如说 $i\in[l,r]$，我们可以假设 $[l,r]$ 的对称中心为 $k$，则 $i$ 关于 $k$ 的一个对称位置 $j&#x3D;l+r-i$。显然 $d(j)$ 与 $d(i)$ 在区间 $[l,r]$ 内有重合，那这一部分的回文可以直接送给 $d(i)$ 作为其下限。</p>
+</li>
+</ol>
+<p>关于第二种情况，<del>具体可以看 <a target="_blank" rel="noopener" href="https://oi-wiki.org/string/manacher/#manacher">OI wiki</a> 上的解释</del>，如果你能看懂，下面例子可以跳过，看不懂的话我可以举几个具体一点的例子。</p>
+<p>对于字符串 $\texttt{tclctatclcx}$，假如说我们处理到最后一个 $\texttt{l}$，设这个位置是 $i$，那么第一个 $\texttt{l}$ 的位置就是我上文所述的 $j$。那么我们有 $d(j)&#x3D;3$，而其与 $d(i)$ 的重合部分只有在 $[l,r]$ 之内的，即在回文串 $\texttt{clctatclc}$ 之内的部分，即回文串 $\texttt{clc}$，那么我们就确定了 $d(i)$ 的下限是 2。</p>
+<p>对于字符串 $\texttt{xclctatclct}$，假如说我们处理到最后一个 $l$，设这个位置是 $\texttt{i}$。那么第一个 $\texttt{l}$ 的位置就是我们所说的 $j$。显然我们已经知道了 $d(j)&#x3D;2$，按照上述的规则对称过来，$d(i)$ 的下限也是 2。 </p>
+<p>然而在 $\texttt{xclctatclct}$ 这个例子当中，我们很明显可以看出 $d(i)&#x3D;3$，也就是这个具体值还需要扩展。怎么扩展呢？暴力扩展就完了！</p>
+<p>容易想到 $i\notin[l,r]$ 的情况我们也需要暴力扩展，就不举例子了。</p>
+<p>于是我们就有了这一段代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(ll i=<span class="number">0</span>,l=<span class="number">0</span>,r=<span class="number">-1</span>;i&lt;m;i++) &#123;</span><br><span class="line">  ll k=(i&gt;r)?<span class="number">1</span>:<span class="built_in">min</span>(d[l+r-i],r-i+<span class="number">1</span>);</span><br><span class="line">  <span class="comment">//k 表示目前可以确认的最大的 d[i] 的值 </span></span><br><span class="line">  <span class="comment">//如果说 i 的位置在 (l,r) 之外的话，</span></span><br><span class="line">  <span class="comment">//显然我们最多可以确认 d[i]=1；</span></span><br><span class="line">  <span class="comment">//否则的话，我们可以利用对称性从前面来确定一个较大的值，</span></span><br><span class="line">  <span class="comment">//并与边界的限制取最小值（即取重合部分）。</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="number">0</span>&lt;=i-k&amp;&amp;i+k&lt;m&amp;&amp;s[i-k]==s[i+k]) &#123;k++;&#125;</span><br><span class="line">  <span class="comment">//暴力在边界外扩展，最终确定 k 的值 </span></span><br><span class="line">  d[i]=k--;</span><br><span class="line">  <span class="keyword">if</span>(i+k&gt;r) &#123;l=i-k;r=i+k;&#125;</span><br><span class="line">  <span class="comment">//如果这个回文串更靠右，更新 (l,r) 的范围 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>去掉注释只有 6 行，<del>所以真的挺简单的</del>。</p>
+<p>那么直觉上不容易感觉这个复杂度能过。</p>
+<p>下面我们给一个根据程序的简短证明。</p>
+<p>首先，我们的边界扩展中，假设一次边界扩展的长度是 $\Delta l$，意味着我们需要付出 $\Theta(\Delta l)$ 的复杂度来暴力扩展一个有下界的回文串。然而边界扩展的长度总和 $\sum \Delta l&#x3D;n$，最后暴力扩展的总复杂度就是 $\Theta(\sum\Delta l)&#x3D;\Theta(n)$。</p>
+<p>加上那些比较 Trivial 的 $O(n)$ 操作，最后的复杂度仍然是 $O(n)$，这个我就不多说了吧？</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1.1e7</span>;</span><br><span class="line"></span><br><span class="line">ll n,m,ans;</span><br><span class="line">ll d[N*<span class="number">2</span>+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">char</span> a[N+<span class="number">5</span>],s[N*<span class="number">2</span>+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch=<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,a);n=<span class="built_in">strlen</span>(a);</span><br><span class="line">  s[<span class="number">0</span>]=<span class="string">&#x27;#&#x27;</span>;<span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) &#123;s[i*<span class="number">2</span>+<span class="number">1</span>]=a[i];s[i*<span class="number">2</span>+<span class="number">2</span>]=<span class="string">&#x27;#&#x27;</span>;&#125;</span><br><span class="line">  m=n*<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>,l=<span class="number">0</span>,r=<span class="number">-1</span>;i&lt;m;i++) &#123;</span><br><span class="line">    ll k=(i&gt;r)?<span class="number">1</span>:<span class="built_in">min</span>(d[l+r-i],r-i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">0</span>&lt;=i-k&amp;&amp;i+k&lt;m&amp;&amp;s[i-k]==s[i+k]) &#123;k++;&#125;</span><br><span class="line">    d[i]=k--;</span><br><span class="line">    <span class="keyword">if</span>(i+k&gt;r) &#123;l=i-k;r=i+k;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;m;i++) &#123;ans=<span class="built_in">max</span>(ans,d[i]<span class="number">-1</span>);&#125;</span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Manacher/" rel="tag"># Manacher</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/25/P5357/" rel="prev" title="P5357">
+                  <i class="fa fa-chevron-left"></i> P5357
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-feather-alt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">onlypath</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"9706e7405d106f4753d473a4daa46cb4"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
