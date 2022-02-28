@@ -2022,7 +2022,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>我们来研究这个比较怪异的卷积，看一看能不能杜教筛一类，先设：</p>
 <p>$$f&#x3D;(\mathbf{id}^2\cdot \mu)*\mathbf{id}$$</p>
 <p>然后我们取 $g&#x3D;\mathbf{id}^2$，然后卷上去：</p>
-<p>$$\begin{aligned}(f * g)(n)&#x3D;&amp; (\mathbf{id}^2\cdot \mu) * \mathbf{id} * \mathbf{id}^2 (n)\\ &#x3D;&amp; ((\mathbf{id}^2\cdot \mu) * \mathbf{id}^2 * \mathbf{id})(n)\\ &#x3D;&amp; \sum_{d\mid n}((\mathbf{id}^2\cdot \mu) * \mathbf{id}^2)(d)\dfrac{n}{d}\\ &#x3D;&amp; \sum_{d\mid n}\sum_{k\mid d}k^2\mu(k)(\dfrac{d}{k})^2\dfrac{n}{d}\\ &#x3D;&amp; n\sum_{d\mid n}d\sum_{k\mid d}\mu(k)\\ &#x3D;&amp; n\sum_{d\mid n}d[d&#x3D;1] \\ &#x3D;&amp; n&#x3D;\mathbf{id}(n)\end{aligned}$$</p>
+<p>$$\begin{aligned}(f * g)(n)&#x3D;&amp; ((\mathbf{id}^2\cdot \mu) * \mathbf{id} * \mathbf{id}^2 )(n)\\ &#x3D;&amp; ((\mathbf{id}^2\cdot \mu) * \mathbf{id}^2 * \mathbf{id})(n)\\ &#x3D;&amp; \sum_{d\mid n}((\mathbf{id}^2\cdot \mu) * \mathbf{id}^2)(d)\dfrac{n}{d}\\ &#x3D;&amp; \sum_{d\mid n}\sum_{k\mid d}k^2\mu(k)(\dfrac{d}{k})^2\dfrac{n}{d}\\ &#x3D;&amp; n\sum_{d\mid n}d\sum_{k\mid d}\mu(k)\\ &#x3D;&amp; n\sum_{d\mid n}d[d&#x3D;1] \\ &#x3D;&amp; n&#x3D;\mathbf{id}(n)\end{aligned}$$</p>
 <p>这就非常 nb 了，意味着我们有一个：</p>
 <p>$$(\mathbf{id}^2\cdot \mu)* \mathbf{id} * \mathbf{id^2}&#x3D;\mathbf{id}$$</p>
 <p>那么 $g$ 和 $f*g$ 的前缀和都非常好求。$g$ 的前缀和随便给一下：</p>
@@ -2031,7 +2031,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>时间复杂度 $O(n^{\frac{2}{3}})$。</p>
 <p>杜教筛不熟的我可以写个式子：</p>
 <p>$$g(1)S_f(n)&#x3D;\sum_{i&#x3D;1}^n(f*g)(i)-\sum_{y&#x3D;2}^{n}g(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
-<p>然后这里的记忆化讲实话确实难搞，所以我直接躺平，用 Hash 随便取个质数模一下就完了。然后这里我取的模数是 $786433$。</p>
+<p>然后这里的记忆化讲实话确实难搞，所以我直接躺平，用 Hash 随便取个质数模一下就完了。然后这里我取的模数是 $786433$。当然用 map 也是可以的。</p>
 <p>因为 $2$ 和 $6$ 都是与 $20101009$ 互质的，所以直接求个逆元。</p>
 <p>然而因为我预处理直接躺平，所以最后跑得不如一开始提出的线性算法。</p>
 <p>代码（杜教筛 $O(n^{\frac{2}{3}})$）：</p>
@@ -2352,13 +2352,14 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>P3327</title>
     <url>/2022/02/06/P3327/</url>
     <content><![CDATA[<p>[SDOI2015]约数个数和</p>
+<p>好像被反映跳步了。。。实际上只跳了一丢丢，还是补上算了。。。</p>
 <p>首先知道结论：</p>
 <p>$$\sigma_0(ij)&#x3D;\sum_{x\mid i}\sum_{y\mid j}[\gcd(x,y)&#x3D;1]$$</p>
 <p>我来解释一下这个东西。</p>
 <p>对于某一个素数 $p$ 是 $ij$ 的因子，我们的 $p$ 的次数是 $k_1+k_2+1$，其中 $k_1$ 是 $i$ 中 $p$ 的次数，$k_2$ 是 $j$ 中 $p$ 的次数。</p>
 <p>显然我们 $p$ 的可能取值只有 $k_1+k_2+1$ 种，所以我们按如上要求正好能不重复的统计这些可能。</p>
 <p>然后我们就可以套路推了。</p>
-<p>$$\begin{aligned}&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}\sum_{x\mid i}\sum_{y\mid j}[\gcd(x,y)&#x3D;1]\\&#x3D;&amp; \sum_{x&#x3D;1}^{n}\sum_{y&#x3D;1}^{m}\sum_{i&#x3D;1}^{\lfloor\frac{n}{x}\rfloor}\sum_{j&#x3D;1}^{\lfloor\frac{m}{y}\rfloor}\sum_{d\mid \gcd(x,y)}\mu(d)\\ &#x3D;&amp; \sum_{x&#x3D;1}^{n}\sum_{y&#x3D;1}^{m}\sum_{d\mid \gcd(x,y)}\mu(d)\lfloor\dfrac{n}{x}\rfloor\lfloor\dfrac{m}{y}\rfloor\\ &#x3D;&amp; \sum_{d&#x3D;1}^{n}\mu(d)\sum_{x&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}\sum_{y&#x3D;1}^{\lfloor\frac{m}{d}\rfloor}\lfloor\dfrac{n}{xd}\rfloor\lfloor\dfrac{m}{yd}\rfloor\\&#x3D;&amp; \sum_{d&#x3D;1}^{n}\mu(d)\sum_{x&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}\lfloor\dfrac{n}{xd}\rfloor\sum_{y&#x3D;1}^{\lfloor\frac{m}{xd}\rfloor}\lfloor\dfrac{m}{yd}\rfloor\end{aligned}$$</p>
+<p>$$\begin{aligned}&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}\sum_{x\mid i}\sum_{y\mid j}[\gcd(x,y)&#x3D;1]<br>\\&#x3D;&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}\sum_{x\mid i}\sum_{y\mid j}\sum_{d\mid \gcd(x,y)}\mu(d)<br>\\&#x3D;&amp; \sum_{x&#x3D;1}^{n}\sum_{y&#x3D;1}^{m}\sum_{i&#x3D;1}^{\lfloor\frac{n}{x}\rfloor}\sum_{j&#x3D;1}^{\lfloor\frac{m}{y}\rfloor}\sum_{d\mid \gcd(x,y)}\mu(d)<br>\\ &#x3D;&amp; \sum_{x&#x3D;1}^{n}\sum_{y&#x3D;1}^{m}\sum_{d\mid \gcd(x,y)}\mu(d)\lfloor\dfrac{n}{x}\rfloor\lfloor\dfrac{m}{y}\rfloor<br>\\ &#x3D;&amp; \sum_{d&#x3D;1}^{n}\mu(d)\sum_{x&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}\sum_{y&#x3D;1}^{\lfloor\frac{m}{d}\rfloor}\lfloor\dfrac{n}{xd}\rfloor\lfloor\dfrac{m}{yd}\rfloor<br>\\&#x3D;&amp; \sum_{d&#x3D;1}^{n}\mu(d)\sum_{x&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}\lfloor\dfrac{n}{xd}\rfloor\sum_{y&#x3D;1}^{\lfloor\frac{m}{xd}\rfloor}\lfloor\dfrac{m}{yd}\rfloor\end{aligned}$$</p>
 <p>然后我们设 $f(n)&#x3D;\sum_{i&#x3D;1}^{n}\lfloor\dfrac{n}{i}\rfloor$，这个东西好像最优的方法就是数论分块了？</p>
 <p>我只会 $O(\sqrt{n})$ 单次算。。。</p>
 <p>然后就变成了：</p>
@@ -3981,6 +3982,39 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>Manacher</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SthAboutMath</title>
+    <url>/2022/02/28/SthAboutMath/</url>
+    <content><![CDATA[<p>从我的角度来看，数学真的是一门很难学的学科。</p>
+<p>因为相比于其他的自然学科，数学的发展事实上是最深的，也是最抽象的。。。</p>
+<p>而从我目前的学习状况看，数学的发展实际上就是一个不断抽象的过程，数学发展到最后，一定是抽象的。一句话来说，就是“万物皆可抽象”。</p>
+<p>一开始可能是一个很实际的问题，慢慢抽象抽象，形成了一个模型，再继续抽象，变成了一个概念，再继续抽象，变成了一个字母，然后把这一堆字母抽象在一起，又抽象成不可名状的事物……这样不断的抽象下去，就是抽象数学最终的发展方向。。。</p>
+<p>然而也正如《具体数学》中所言，虽然数学目前的发展是在不断抽象的，但是我们的实际应用仍然需要具体的东西、实际的东西，计算机科学所需要的大抵也是这种数学，不能够像抽象数学那样虚无缥缈。。。</p>
+<p>关于数学的学习，我后来想想为什么自己偏爱使用纸笔而不是电子设备来进行数学的学习，原因可能有如下几点：</p>
+<ol>
+<li><p>最重要的是，我比较享受书写数学符号的美感。。。虽然我字写得不太好看，但这确实是真的。。。</p>
+</li>
+<li><p>其次，就是学习过程中很需要反复回忆之前记下的概念，电子设备上学习需要来回翻，很麻烦，也容易打断思路；而活页纸（或者普通的 A4 纸）就可以铺开放在桌子上，哪个概念或定义有些遗忘或者不清晰的时候一眼就能看到，很方便，学起来也会舒服一些。</p>
+</li>
+<li><p>比较方便地添加一些注脚（虽然可能一般电子设备也能实现），可以很方便地记录一些自己在学习时对概念、定义、题目的理解之类的。</p>
+</li>
+</ol>
+<p>讲实话能学懂数学，哪怕只是一点点的知识，都是很令人开心的，这点我是有一点体会的。。。</p>
+<p>然后就是觉得我目前学习的一些数学的核心基本上就是概念和定义。</p>
+<p>就像我数学老师所说的话，现在的高考数学题型化的方向实际上不太好。</p>
+<p>题目的根本目的大抵不是为了出多难的题把人考死（虽然大部分人乐此不疲），应该是更好的帮助学习者学习数学、理解概念和定义吧。。。</p>
+<p>我不是说反对难题，只是一些方向性的东西不该出太难。。。必要的难题肯定是需要的。。。</p>
+<p>说句实话，我的很多学习都是比较囫囵吞枣的，对概念的理解实际上并不深刻，只是单纯了解了某个题目怎么做或者某个题型怎么做就完了，这个时候概念和定义对于我来说仅仅是一个工具。</p>
+<p>然而我现在感觉这种学习对我真的是大有害处。。。概念和定义都没有搞清楚，反而会做一些稀奇古怪的题，事实上什么也没学会，对所学的知识很难有更加纵深的拓展。。。</p>
+<p>所以说爱数学和学数学也算是两码事。。。真正研究数学的人我真的非常佩服。。。我觉得想达到那种境界，数学大抵已经成为一种信仰了。。。</p>
+]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
