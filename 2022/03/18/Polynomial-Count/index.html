@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":false,"post_header":false,"post_body":false,"coll_header":false,"sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="多项式计数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Polynomial_Count">
+<meta property="og:url" content="git://onlypath.github.io/2022/03/18/Polynomial-Count/index.html">
+<meta property="og:site_name" content="onlypath&#39;s Blog">
+<meta property="og:description" content="多项式计数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-18T02:45:46.000Z">
+<meta property="article:modified_time" content="2022-03-18T08:14:03.791Z">
+<meta property="article:author" content="onlypath">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="git://onlypath.github.io/2022/03/18/Polynomial-Count/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/03/18/Polynomial-Count/","path":"2022/03/18/Polynomial-Count/","title":"Polynomial_Count"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Polynomial_Count | onlypath's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">onlypath's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blossom, Wind, & You.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E5%BC%95%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">一、生成函数引入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%8E%A8%E5%AF%BC"><span class="nav-number">2.</span> <span class="nav-text">二、轻量级推导</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="onlypath"
+      src="/images/avator.jpg">
+  <p class="site-author-name" itemprop="name">onlypath</p>
+  <div class="site-description" itemprop="description">因为抛弃了世间所有的美好，才会比任何人都更加温柔。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/onlypath" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;onlypath" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2558992311@qq.com" title="E-Mail → mailto:2558992311@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/154279" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;154279" rel="noopener" target="_blank">Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/2558992311" title="QQ → 2558992311"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/03/18/Polynomial-Count/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Polynomial_Count
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-03-18 10:45:46 / 修改时间：16:14:03" itemprop="dateCreated datePublished" datetime="2022-03-18T10:45:46+08:00">2022-03-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">多项式计数</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>又开了巨坑。。。</p>
+<p>$\huge{数你妈！}$</p>
+<p>深必的东西：</p>
+<ol>
+<li>广义二项式系数，当 $n\in \mathbb{R}$，$m\in \mathbb{N}$ 时，有：</li>
+</ol>
+<p>$$\binom{n}{m}&#x3D;\dfrac{n!}{m!(n-m)!}&#x3D;\dfrac{n(n-1)\cdots (n-m+1)}{m!}$$</p>
+<ol start="2">
+<li>广义二项式定理，当 $a\in \mathbb{R}$ 时：</li>
+</ol>
+<p>$$(1+x)^a&#x3D;\sum_{i&#x3D;0}^{\infty}\binom{a}{i}x^i$$</p>
+<ol start="3">
+<li>恒等式：</li>
+</ol>
+<p>$$\binom{n}{k}&#x3D;\binom{n}{n-k}$$</p>
+<p>$$\binom{n}{k}&#x3D;(-1)^k\binom{k-n-1}{k}$$</p>
+<h1 id="一、生成函数引入"><a href="#一、生成函数引入" class="headerlink" title="一、生成函数引入"></a>一、生成函数引入</h1><ol>
+<li><p>斐波那契数列的生成函数：</p>
+<p> 斐波那契数列定义 $f_0&#x3D;0,f_1&#x3D;1$。</p>
+<p> $$F(x)&#x3D;x+xF(x)+x^2F(x)$$</p>
+<p> $$F(x)&#x3D;\dfrac{x}{1-x-x^2}$$</p>
+</li>
+<li><p>1 元，2 元，5 元支付 $n$ 元的方案数：</p>
+<p> $$F_1(x)&#x3D;1+x+x^2+\cdots&#x3D;\dfrac{1}{1-x}$$</p>
+<p> $$F_2(x)&#x3D;1+x^2+x^4+\cdots&#x3D;\dfrac{1}{1-x^2}$$</p>
+<p> $$F_5(x)&#x3D;1+x^5+x^{10}+\cdots&#x3D;\dfrac{1}{1-x^{10}}$$</p>
+<p> $$G(x)&#x3D;F_1(x)F_2(x)F_5(x)$$</p>
+</li>
+</ol>
+<p>生成函数分析计数问题的步骤：先将问题用生成函数刻画，再用处理幂级数的技巧得到答案。</p>
+<h1 id="二、轻量级推导"><a href="#二、轻量级推导" class="headerlink" title="二、轻量级推导"></a>二、轻量级推导</h1><ol>
+<li><p>已知系数的若干幂级数：</p>
+<ul>
+<li>$\langle 1, 1,1,\cdots\rangle$ 的生成函数是 $\dfrac{1}{1-x}$</li>
+<li>$\langle 1,a,a^2,\cdots\rangle$ 的生成函数是 $\dfrac{1}{1-ax}$</li>
+<li>$F(x)&#x3D;1+x^k+(x^k)^2+\cdots&#x3D;\dfrac{1}{1-x^k}$</li>
+<li>$F(x)&#x3D;1+cx^k+(cx^k)^2+\cdots&#x3D;\dfrac{1}{1-cx^k}$</li>
+<li>$\langle \binom{n}{0},\binom{n}{1},\binom{n}{2},\cdots\rangle$ 的生成函数是 $(1+x)^n$（广义二项式定理）</li>
+<li>$\langle \binom{n}{0},-\binom{n}{1},\binom{n}{2},\cdots\rangle$ 的生成函数是 $(1-x)^n$（把上面那个 $x$ 变成 $-x$）</li>
+<li>$\langle\binom{n}{0},\binom{n+1}{1},\binom{n+2}{2},\cdots\rangle$ 的生成函数是 $(1-x)^{-n-1}$（用上面的恒等式）</li>
+</ul>
+</li>
+</ol>
+<p>我们要做的就是通过封闭形式反推回数列。</p>
+<ol start="2">
+<li>斐波那契数列（生成函数求通项）：</li>
+</ol>
+<p>$$F(x)&#x3D;\dfrac{x}{1-x-x^2}$$</p>
+<p>我们知道这是个常系数齐次递推，所以很显然最后的通项会是指数求和的形式，而我们又知道 $\dfrac{1}{1-cx^k}$ 这个东西，所以我们想办法往上面靠。</p>
+<p>裂项裂项裂项（根据二次）：</p>
+<p>$$\dfrac{1}{1-x-x^2}&#x3D;\dfrac{A}{1-\alpha x}+\dfrac{B}{1-\beta x}$$</p>
+<p>有方程：</p>
+<p>$$(1-\alpha x)(1-\beta x)&#x3D;1-x-x^2$$</p>
+<p>得到：</p>
+<p>$$\alpha&#x3D;\dfrac{1+\sqrt{5}}{2},\beta&#x3D;\dfrac{1-\sqrt{5}}{2}$$</p>
+<p>又有方程：</p>
+<p>$$A(1-\beta x)+B(1-\alpha x)&#x3D;x$$</p>
+<p>解得：</p>
+<p>$$A&#x3D;\dfrac{\sqrt{5}}{5},B&#x3D;-\dfrac{\sqrt{5}}{5}$$</p>
+<p>代回去：</p>
+<p>$$F(x)&#x3D;\dfrac{x}{1-x-x^2}&#x3D;\dfrac{\sqrt{5}}{5}(\dfrac{1}{1-\frac{1+\sqrt{5}}{2}x}-\dfrac{1}{1-\frac{1-\sqrt{5}}{2}x})$$</p>
+<p>拆回幂级数的形式：</p>
+<p>$$\begin{aligned}F(x)&#x3D;\dfrac{\sqrt{5}}{5}[(1+\dfrac{1+\sqrt{5}}{2}x+(\dfrac{1+\sqrt{5}}{2})^2x^2+\cdots)<br>\\<br>+(1+\dfrac{1-\sqrt{5}}{2}x+(\dfrac{1-\sqrt{5}}{2})^2x^2+\cdots)]\end{aligned}$$</p>
+<p>这岂不是显然的不能再显然了？？？</p>
+<p>$$f_n&#x3D;\dfrac{\sqrt{5}}{5}[(\dfrac{1+\sqrt{5}}{2})^n-(\dfrac{1-\sqrt{5}}{2})^n]$$</p>
+<p>深必应用：求 $\sum_{i&#x3D;1}^nf_i^k$，随便推推就能得到 $r^k\sum_{j&#x3D;0}^k\binom{k}{j}\sum_{i&#x3D;1}^n(a^jb^jb^{-k})^i$（其中 $r&#x3D;\dfrac{\sqrt{5}}{5}$，$a&#x3D;\alpha$，$b&#x3D;\beta$）。</p>
+<ol start="3">
+<li>特征方程（求解常系数齐次递推，隔壁 MO 一般解二阶，因为阶数一高就要求高阶方程了）</li>
+</ol>
+<p>和生成函数关系不大，但是 MO 的用了都说好！</p>
+<p>求解这玩意和求解微分方程非常相似！</p>
+<p>但我们先鸽掉这种理解！（咕咕咕）</p>
+<p>定理：</p>
+<p>对于常系数齐次递推 $h_n&#x3D;a_1h_{n-1}+\cdots+a_kh_{n-k}$（$a_k\not&#x3D;0$，$n\ge k$），其特征方程为：</p>
+<p>$$x^k-a_1x^{k-1}-a_2x^{k-2}-\cdots-a_k&#x3D;0$$</p>
+<p>若该多项式方程有 $k$ 个不同的根 $q_1,q_2,\cdots,q_k$，则：</p>
+<p>$$h_n&#x3D;c_1q_1^n+c_2q_2^n+\cdots+c_kq_k^n$$</p>
+<p>无论给定怎样的初始数列 $h_1,h_2,\cdots,h_{k-1}$，都存在常数 $c_1,c_2,\cdots,c_k$，且数列唯一。</p>
+<p>特征方程的 $k$ 个根称为特征根，通项成立的条件是特征根互不相同。</p>
+<p>想要证明这个定理需要用到线性代数的一些知识，详细证明可以参考《组合数学》。（咕不咕？咕哉，咕哉。）</p>
+<p>更常见的二阶情况，譬如：</p>
+<p>已知 $f_0$，$f_1$，求解 $f_n&#x3D;af_{n-1}+bf_{n-2}$ 的通项。</p>
+<p>根据上面的定理，我们可以得到特征方程：</p>
+<p>$$x^2-ax-b&#x3D;0$$</p>
+<p>其特征根为：</p>
+<p>$$q_1&#x3D;\dfrac{a+\sqrt{a^2+4b}}{2},q_2&#x3D;\dfrac{a-\sqrt{a^2+4b}}{2}$$</p>
+<p>则有：</p>
+<p>$$f_n&#x3D;c_1q_1^n+c_2q_2^n$$</p>
+<p>代入 $n&#x3D;0$ 和 $n&#x3D;1$ 的情况把 $c_1$ 与 $c_2$ 解出来，然后就能得到通项啦！</p>
+<ol start="4">
+<li><p>构造幂级数技巧：</p>
+<ul>
+<li>平移：$[x^n]x^tF(x)&#x3D;f_{n-t}$</li>
+<li>拉伸：$F(x^k)$（会在中间空出来 $k-1$ 个 0）</li>
+</ul>
+</li>
+<li><p>生成函数封闭形式的获取：</p>
+</li>
+</ol>
+<p>已知数列 ${f}$ 和递推系数 ${c}$，容易知道在常系数齐次递推下它能满足：$\sum_{i&#x3D;0}^kc_if_{n-i}&#x3D;0$（就是特征方程）。</p>
+<p>设 $F(x)$ 为 ${f}$ 的生成函数。</p>
+<p>考虑使用递推式凑出次数到达 $k$ 的部分。</p>
+<p>构造生成函数：</p>
+<p>$$F_t(x)&#x3D;c_tx^t(F(x)-\sum_{i&#x3D;0}^{k-t-1}f_ix^i)$$</p>
+<p>易知 $[x^n]F_t(x)&#x3D;c_tf_{n-t}$，这恰好是定义式所需要的（这里对于任意 $n\ge k$）。</p>
+<p>很显然 $\sum_{i&#x3D;0}^kc_if_{n-i}&#x3D;0$（同样对于任意 $n\ge k$），于是就有了 $\sum_{i&#x3D;0}^kF_t(x)&#x3D;0$，即：</p>
+<p>$$\sum_{t&#x3D;0}^kc_tx^t(F(x)-\sum_{i&#x3D;0}^{k-t-1}f_ix^i)&#x3D;0$$</p>
+<p>移项：</p>
+<p>$$(\sum_{t&#x3D;0}^kc_tx_t)F(x)&#x3D;\sum_{t&#x3D;0}^k(c_tx^t\sum_{i&#x3D;0}^{k-t-1}f_ix^i)$$</p>
+<p>左边有 ${c}$ 的生成函数，设为 $C(x)$，右边的余项次数小于 $k$，设为 $P(x)$。</p>
+<p>即 $C(x)F(x)&#x3D;P(x)$，即 $F(x)&#x3D;\dfrac{P(x)}{C(x)}$。（已经得到了封闭形式）</p>
+<ol start="6">
+<li>分式分解</li>
+</ol>
+<p>求形如 $F(x)&#x3D;\dfrac{P(x)}{C(x)}$ 的系数的通项。</p>
+<p>所以谁会一般的分式分解啊？？？</p>
+<p>找出 $k$，$p$，使得 $C(x)\mid (1-x^k)^p$，记 $A(x)&#x3D;\dfrac{(1-x^k)^p}{C(x)}$。</p>
+<p>则 $F(x)&#x3D;\dfrac{A(x)P(x)}{(1-x^k)^p}$。</p>
+<p>例子：求 $F(x)&#x3D;\dfrac{1}{(1-x)(1-x^2)(1-x^5)}$ 的系数。</p>
+<p>因为 $(1-x)(1-x^2)(1-x^5)\mid (1-x^{10})^3$（我也不知道怎么找的）：</p>
+<p>$$\begin{aligned}A(x)&amp;&#x3D;\dfrac{(1-x^{10})^3}{(1-x)(1-x^2)(1-x^5)}\\ &amp;&#x3D;<br>x^{22}+x^{21}+2x^{20}+2x^{19}+3x^{18}+4x^{17}+5x^{16}\\<br>&amp; +6x^{15}+7x^{14}+8x^{13}+7x^{12}+8x^{11}\\<br>&amp;+7x^{10}+8x^9+7x^8+6x^7+5x^6\\ &amp;+4x^5+3x^4+2x^3+2x^2+x+1<br>\end{aligned}$$</p>
+<p>然后有：</p>
+<p>$$f_n&#x3D;[x^n]\dfrac{A(x)}{(1-x^{10})^3}&#x3D;\sum_{i+j&#x3D;n}a_i[x^j]\dfrac{1}{(1-x^{10})^3}$$</p>
+<p>注意到 $[x^n]\dfrac{1}{(1-x^c)^k}&#x3D;[c\mid n]\dbinom{n&#x2F;c+k-1}{n&#x2F;c}$，所以：</p>
+<p>$$f_n&#x3D;\sum_{i&#x3D;0}^{22}a_i[10\mid (n-i)]\dbinom{(n-i)&#x2F;10+2}{(n-i)&#x2F;10}$$</p>
+<ol start="7">
+<li>卡塔兰数</li>
+</ol>
+<p>定义 $c_0&#x3D;1$，$c_n$ 表示 $n$ 对括号的合法序列数（$n&gt;1$）。</p>
+<p>容易得到递推式：</p>
+<p>$$c_{n+1}&#x3D;\sum_{i&#x3D;0}^nc_ic_{n-i}$$</p>
+<p>组合理解这东西：第 $n+1$ 对括号放在前面，把剩下 $n$ 堆括号分成两份，一份放在第 $n+1$ 对括号里，另外一份放在其右边。</p>
+<p>这个式子 $O(n^2)$ 不多说了。</p>
+<p>这玩意贼像卷积，我们拿 Catalan 数的生成函数自卷一下：</p>
+<p>$$[x^n]C^2(x)&#x3D;\sum_{i&#x3D;0}^nc_ic_{n-i}&#x3D;c_{n+1}$$</p>
+<p>相当于系数整体左移，也就是说 $C^2(x)&#x3D;\dfrac{C(x)-1}{x}$。</p>
+<p>解出来 $C(x)&#x3D;\dfrac{1\pm\sqrt{1-4x}}{2x}$。</p>
+<p>关于根的取舍：</p>
+<p>显然 $\lim_{x\rightarrow 0} C(x)&#x3D;c_0&#x3D;1$，然而取正号时是 $C(x)&#x3D;\infty$，取符号时 $C(x)&#x3D;1$（洛必达）（二者是等量无穷小，收敛）。</p>
+<p>数列如果存在必然会有一根正确，一般情况下把错的给舍弃掉就完事了。</p>
+<p>所以：</p>
+<p>$$C(x)&#x3D;\dfrac{1-\sqrt{1-4x}}{2x}$$</p>
+<p>由广义二项式定理：</p>
+<p>$$\begin{aligned}\sqrt{1-4x}&amp;&#x3D;(1-4x)^{\frac{1}{2}}\\<br>&amp;&#x3D; \sum_{i&#x3D;0}^{\infty}\binom{\frac{1}{2}}{i}(-4x)^i\\<br>&amp;&#x3D; 1+\sum_{i\ge 1}\dfrac{\frac{1}{2}\times (-\frac{1}{2})\times\cdots \times(\frac{3-2i}{2})}{i!}(-4x)^i\\<br>&amp;&#x3D; 1+\sum_{i\ge 1}(-1)^{i-1}\dfrac{1\times 3\times 5\times\cdots\times (2i-3)}{2^ii!}(-4x)^i\\<br>&amp;&#x3D;1-\sum_{i\ge 1}\dfrac{1\times 3\times 5\times \cdots\times (2i-3)}{i!}(2x)^i\\<br>&amp;&#x3D;1-\sum_{i\ge 1}\dfrac{1\times 2\times 3\times\cdots \times (2i-3)\times (2i-2)}{2\times 4\times \cdots\times (2i-2)\times i!}(2x)^i\\<br>&amp;&#x3D; 1-\sum_{i\ge 1}\dfrac{(2i-2)!}{(i-1)!i!2^{i-1}}(2x)^i\\<br>&amp;&#x3D; 1-2\sum_{i\ge 1}\dfrac{(2i-2)!}{(i-1)!i!}x^i\end{aligned}$$</p>
+<p>代入 $C(x)$，则有：</p>
+<p>$$\begin{aligned}C(x)&amp;&#x3D;\dfrac{1}{2x}(2\sum_{n\ge 1}\dfrac{(2n-2)!}{(n-1)!n!}x^n)\\<br>&amp;&#x3D;\sum_{n\ge 1}\dfrac{(2n-2)!}{(n-1)!n!}x^{n-1}\\<br>&amp;&#x3D;\sum_{n\ge 0}\dfrac{(2n)!}{n!(n+1)!}x^n\\<br>&amp;&#x3D;\sum_{n\ge 0}\dfrac{\binom{2n}{n}}{n+1}x^n\end{aligned}$$</p>
+<p>于是就有了熟悉的：</p>
+<p>$$c_n&#x3D;\dfrac{1}{n+1}\binom{2n}{n}$$</p>
+<ol start="8">
+<li>前缀和</li>
+</ol>
+<p>如 ${f}$ 的前缀和 ${s}$，我们有 $s_n&#x3D;\sum_{i&#x3D;0}^nf_i$。</p>
+<p>那么对于 ${s}$ 的生成函数：</p>
+<p>$$\begin{aligned}<br>S(x)<br>&amp;&#x3D;\sum_{n\ge 0}s_nx^n<br>\\<br>&amp;&#x3D;\sum_{n\ge 0}(\sum_{i&#x3D;0}^nf_i)x^n<br>\\<br>&amp;&#x3D; \sum_{i\ge 0}f_i\sum_{n\ge i}x^n<br>\\<br>&amp;&#x3D;\sum_{i\ge 0}f_i\dfrac{x_i}{1-x}\\<br>&amp;&#x3D;\dfrac{1}{1-x}\sum_{i\ge 0}f_ix^i<br>\\<br>&amp;&#x3D; \dfrac{1}{1-x}F(x)<br>\end{aligned}$$</p>
+<p>因此，要求一个数列前缀和的生成函数，将其生成函数乘上 $(1-x)^{-1}$ 即可。</p>
+<ol start="9">
+<li><a href="">P4921</a> [MtOI2018]情侣？给我烧了！</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/17/P1659/" rel="prev" title="P1659">
+                  <i class="fa fa-chevron-left"></i> P1659
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/18/P4921/" rel="next" title="P4921">
+                  P4921 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-feather-alt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">onlypath</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f0b1b5010172c6c04f33465f1cbf0577"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
