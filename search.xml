@@ -4494,7 +4494,10 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$\begin{aligned}<br>S(x)<br>&amp;&#x3D;\sum_{n\ge 0}s_nx^n<br>\\<br>&amp;&#x3D;\sum_{n\ge 0}(\sum_{i&#x3D;0}^nf_i)x^n<br>\\<br>&amp;&#x3D; \sum_{i\ge 0}f_i\sum_{n\ge i}x^n<br>\\<br>&amp;&#x3D;\sum_{i\ge 0}f_i\dfrac{x_i}{1-x}\\<br>&amp;&#x3D;\dfrac{1}{1-x}\sum_{i\ge 0}f_ix^i<br>\\<br>&amp;&#x3D; \dfrac{1}{1-x}F(x)<br>\end{aligned}$$</p>
 <p>因此，要求一个数列前缀和的生成函数，将其生成函数乘上 $(1-x)^{-1}$ 即可。</p>
 <ol start="9">
-<li><a href="">P4921</a> [MtOI2018]情侣？给我烧了！</li>
+<li><p><a href="https://onlypath.github.io/2022/03/18/P4931/">P4921</a> [MtOI2018]情侣？给我烧了！</p>
+</li>
+<li><p>一个排列计数问题：对 $[1,n]$ 内的整数进行排列，满足相差 1 的数不会相邻，问方案数。</p>
+</li>
 </ol>
 ]]></content>
       <categories>
@@ -4514,7 +4517,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>我们定义关系矩阵 $A$，描述求和关系：</p>
 <p>$$f_n&#x3D;\sum_{i&#x3D;0}^{\infty}A_{n,i}g_i$$</p>
 <p>其中 $A_{n,i}$ 表示矩阵 $A$ 第 $n$ 行第 $i$ 列的数。</p>
-<p>那么我们称：$f&#x3D;g<em>A$。反过来也有 $g&#x3D;f</em>A^{-1}$。</p>
+<p>那么我们称：$f&#x3D;g*A$。</p>
+<p>反过来也有 $g&#x3D;f*A^{-1}$。</p>
 <p>定理：两个互为反演关系的矩阵互逆。</p>
 <h1 id="二、二项式反演"><a href="#二、二项式反演" class="headerlink" title="二、二项式反演"></a>二、二项式反演</h1><p>$$f_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}g_i$$</p>
 <p>上式等价于：</p>
