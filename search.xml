@@ -4347,10 +4347,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Polynomial_Count</title>
     <url>/2022/03/18/Polynomial-Count/</url>
-    <content><![CDATA[<p>基本是复读某巨神的博客。。。因为这玩意我一点不会。。。</p>
-<p>虽然贾队和我说这玩意不太可能考，但我可能这辈子就学这么一次。。。</p>
-<p>又开了巨坑。。。</p>
+    <content><![CDATA[<p>回过头来看我就一句话：</p>
 <p>$\huge{数你妈！}$</p>
+<hr>
+<p>基本是复读某巨神的博客。。。因为这玩意我一点不会。。。所以大概算是学习笔记。。。</p>
+<p>虽然贾队和我说这玩意不太可能考，但我可能这辈子就学这么一次。。。</p>
 <p>深必的东西：</p>
 <ol>
 <li>广义二项式系数，当 $n\in \mathbb{R}$，$m\in \mathbb{N}$ 时，有：</li>
@@ -4531,7 +4532,21 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>加法卷积，但是要 NTT</li>
 </ul>
-<p> 例二：</p>
+<p> 例二：<a href="">UVA12298</a> Super Poker II</p>
+<ul>
+<li><p>刘汝佳书上（可能是唯一的）FFT 练习题</p>
+</li>
+<li><p>加法卷积，和上面的差不多，因为都是在处理背包</p>
+</li>
+</ul>
+<p> 例三：<a href="">P4551</a> [国家集训队]整数的lqp拆分</p>
+<ul>
+<li><p>不会</p>
+</li>
+<li><p>可以找到答案序列的生成函数：$F(x)&#x3D;\dfrac{x}{1-x-x^2}$，$G(x)&#x3D;\sum_{m&#x3D;0}F^m(x)&#x3D;\dfrac{1}{1-F(x)}$</p>
+</li>
+</ul>
+<p> 例四：<a href="">CF438E</a> The Child and Binary Tree</p>
 </li>
 </ol>
 ]]></content>
