@@ -4647,8 +4647,48 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Polynomial_Industry</title>
     <url>/2022/03/20/Polynomial-Industry/</url>
-    <content><![CDATA[<p>基本是复读某巨神博客的。</p>
+    <content><![CDATA[<p>方便复习直接把重要的式子放在前面：</p>
+<ol>
+<li>求逆，采用倍增，式子（牛顿迭代记忆可能比较方便？）：</li>
+</ol>
+<p>  $$B(x)\equiv 2B_*(x)-B^2_*(x)A(x)\pmod{x^n}$$</p>
+<ol start="2">
+<li>求导、积分与复合，即经典求导、积分与复合，式子：</li>
+</ol>
+<p>  $$F’(x)&#x3D;\sum_{i&#x3D;0}^{\infty}if_ix^{i-1}$$</p>
+<p>  $$F’(x)&#x3D;C+\sum_{i&#x3D;0}^{\infty}\dfrac{f_i}{i}x^{i+1}$$</p>
+<p>  $$F(G(x))&#x3D;\sum_{i&#x3D;0}^{\infty}f_iG^i(x)$$</p>
+<ol start="3">
+<li>牛顿迭代（非常重要）：</li>
+</ol>
+<p>  $$F(x)\equiv F_*(x)-\dfrac{G(F_*(x))}{G’(F_*(x))}\pmod{x^n}$$</p>
+<ol start="4">
+<li>开根，采用倍增（可以用牛顿迭代直接推）：</li>
+</ol>
+<p>  $$B(x)\equiv \dfrac{A(x)+B^2_*(x)}{2B_*(x)}\pmod{x^n}$$</p>
+<ol start="5">
+<li>多项式带余除法（换元翻转再取余）：</li>
+</ol>
+<p>  $$Q^T(x)\equiv F^T(x)G^T(x)^{-1}\pmod{x^{n-m+1}}$$</p>
+<p>  $$R(x)&#x3D;F(x)-Q(x)G(x)$$</p>
+<ol start="6">
+<li>多项式 $\ln$（两边求导再积分）：</li>
+</ol>
+<p>  $$\ln F(x)&#x3D;-\sum_{i&#x3D;0}^{\infty}\dfrac{(1-F(x))^i}{i}$$</p>
+<p>  $$B(x)&#x3D;\int\dfrac{A’(x)}{A(x)}$$</p>
+<ol start="7">
+<li>多项式 $\exp$，采用倍增（牛顿迭代推）：</li>
+</ol>
+<p>  $$B(x)\equiv B_*(x)(1-\ln B_*(x)+A(x))\pmod{x^n}$$</p>
+<ol start="8">
+<li>多项式快速幂：</li>
+</ol>
+<p>  $$A^k(x)&#x3D;\exp(k\ln A(x))$$</p>
+<p>方便粘板子直接把全家桶放 <a href="https://www.luogu.com.cn/paste/9b4j3uzo">这里</a> 了。</p>
+<hr>
+<p>基本是复读某巨神博客的。</p>
 <p>模板题洛谷上基本都有。</p>
+<p>占时没有 MTT 的东西。。。</p>
 <p>工业基础：<a href="https://onlypath.github.io/2022/02/02/P3803/">NTT &amp; FFT</a>。</p>
 <p>学完 NTT 后就可以来看这些操作了。</p>
 <p>我们先把基本的模板贴在这里：</p>
@@ -4677,7 +4717,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>根据主定理：</p>
 <p>$$T(n)&#x3D;T(n&#x2F;2)+\Theta(n\log n)&#x3D;\Theta(n\log n)$$</p>
 <p>所以最后时间复杂度 $O(n\log n)$。</p>
-<p>一个简单的实现方法是先求 $(2R_*)(x)$，然后求 $R_*^2(x)$（自己和自己卷），然后把 $R_*^2(x)$ 和 $F(x)$ 卷，最后两个一减。</p>
+<p>一个简单的实现方法是先求 $(2R_*)(x)$，然后求 ${R_*}^2(x)$（自己和自己卷），然后把 ${R_*}^2(x)$ 和 $F(x)$ 卷，最后两个一减。</p>
 <p>然后可能还有什么优化方法，但是我不想用。。。</p>
 <p>最后记得清空。</p>
 <p>代码：</p>
@@ -4706,8 +4746,116 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>但上面的运算是 $\pmod{x^n}$ 下的，所以这些项全部木大，故：</p>
 <p>$$G(F(x))&#x3D;G(F_*(x))+\dfrac{G’(F_*(x))}{1!}(F(x)-F_*(x))$$</p>
 <p>因为 $G(F(x))&#x3D;0$，整理一下就是上面的结论了。</p>
-<p>据说这个式子很牛逼。</p>
-<h1 id="三、多项式开根"><a href="#三、多项式开根" class="headerlink" title="三、多项式开根"></a>三、多项式开根</h1>]]></content>
+<p>这个式子很牛逼。</p>
+<ul>
+<li><p>多项式求逆再推导</p>
+<p>  这个用牛顿迭代推导。求 $A(x)$ 的逆 $B(x)$。</p>
+<p>  那么我们就有 $A(x)B(x)\equiv 1\pmod{x^n}$。</p>
+<p>  然后我们设 $G(B(x))\equiv A(x)B(x)-1\pmod{x^n}$。</p>
+<p>  则 $G’(B(x))\equiv A(x)\pmod{x^n}$。</p>
+<p>  设 $B_*(x)$ 为 $\pmod{x^{n&#x2F;2}}$ 下的解。</p>
+<p>  用上文牛顿迭代的式子：</p>
+<p>  $$B(x)\equiv B_*(x)-\dfrac{G(B_*(x))}{G’(B_*(x))}\equiv B_*(x)-\dfrac{A(x)B_*(x)-1}{A_*(x)}\pmod{x^n}$$</p>
+<p>  上面的 $\dfrac{1}{A_*(x)}$ 就是 $B_*(x)$，因为这俩多项式都是在 $\pmod{x^{n&#x2F;2}}$ 下的。</p>
+<p>  然后就有了：</p>
+<p>  $$B(x)\equiv B_*(x)-B_*(x)(A(x)B_*(x)-1)\equiv 2B_*(x)-B_*^2(x)A(x)\pmod{x^n}$$</p>
+<p>  这玩意就是上面那个求逆的式子。</p>
+</li>
+</ul>
+<h1 id="三、多项式开根"><a href="#三、多项式开根" class="headerlink" title="三、多项式开根"></a>三、多项式开根</h1><p>即 $B^2(x)-A(x)\equiv 0\pmod{x^n}$。</p>
+<p>于是我们套路令 $G(B(x))\equiv B^2(x)-A(x)\pmod{x^n}$。</p>
+<p>于是有 $G’(B(x))\equiv 2B(x)\pmod{x^n}$。</p>
+<p>再根据牛顿迭代：</p>
+<p>$$B(x)\equiv B_*(x)-\dfrac{G(B_*(x))}{G’(B_*(x))}\equiv B_*(x)-\dfrac{B^2_*(x)-A(x)}{2B_*(x)}\pmod{x^n}$$</p>
+<p>化简后就是：</p>
+<p>$$B(x)\equiv \dfrac{A(x)+B^2_*(x)}{2B_*(x)}\pmod{x^n}$$</p>
+<p>这个东西可以倍增了（还要用一下求逆），时间复杂度可以用定积分推导（不关心这个的可以跳过）：</p>
+<p>$$T(n)&#x3D;\Theta(\sum_{i&#x3D;0}^{\log_2 n}\dfrac{n}{2^i}\log_2 \dfrac{n}{2^i})&#x3D;\Theta(n\sum_{i&#x3D;0}^{\log_2 n}(\dfrac{1}{2})^i(\log_2 n-i))$$</p>
+<p>我们积分近似一下：</p>
+<p>$$T(n)&#x3D;\Theta(n\int_{0}^{\log_2 n}(\dfrac{1}{2})^x(\log_2 n-x)\delta x)$$</p>
+<p>积分线性性拆一下：</p>
+<p>$$T(n)&#x3D;\Theta(n\log_2 n\int_{0}^{\log_2 n}(\dfrac{1}{2})^x\delta x-n\int_{0}^{\log_2 n}x(\dfrac{1}{2})^x\delta x)$$</p>
+<p>第一个还好，就是 $\int a^x\delta x&#x3D;\dfrac{1}{\ln a}a^x+C$。</p>
+<p>第二个我去查了一下积分表：$\int xa^x\delta x&#x3D;\dfrac{x}{\ln a}a^x-\dfrac{1}{(\ln a)^2}a^x+C$。</p>
+<p>然后这个我们就能算了：</p>
+<p>$$T(n)&#x3D;\Theta(-\dfrac{1}{\ln \frac{1}{2}}n\log_2 n-\dfrac{n}{(\ln \frac{1}{2})^2}+\dfrac{1}{\ln \frac{1}{2}})$$</p>
+<p>注意 $\ln \dfrac{1}{2}$ 是负的，于是我们的时间复杂度就是：</p>
+<p>$$T(n)&#x3D;\Theta(n\log_2 n)$$</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Squre root</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Sqroot</span><span class="params">(ll *f,ll m)</span> </span>&#123;</span><br><span class="line">  ll n;<span class="keyword">for</span>(n=<span class="number">1</span>;n&lt;m;n&lt;&lt;=<span class="number">1</span>);<span class="keyword">static</span> ll b1[N*<span class="number">2</span>+<span class="number">5</span>],b2[N*<span class="number">2</span>+<span class="number">5</span>];b1[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll len=<span class="number">2</span>;len&lt;=n;len&lt;&lt;=<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;(len&gt;&gt;<span class="number">1</span>);i++) b2[i]=(b1[i]&lt;&lt;<span class="number">1</span>)%mo;</span><br><span class="line">    <span class="built_in">Invp</span>(b2,len);<span class="built_in">NTT</span>(b1,len,<span class="number">0</span>);<span class="built_in">Conv</span>(b1,b1,len);<span class="built_in">NTT</span>(b1,len,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;len;i++) b1[i]=(f[i]+b1[i])%mo;</span><br><span class="line">    <span class="built_in">Times</span>(b1,b2,len,len);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">Cpy</span>(f,b1,m);<span class="built_in">Clr</span>(b1,n+n);<span class="built_in">Clr</span>(b2,n+n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、多项式带余除法"><a href="#四、多项式带余除法" class="headerlink" title="四、多项式带余除法"></a>四、多项式带余除法</h1><p>定义多项式带余除法，对于多项式 $F(x)$，$G(x)$，存在唯一 $Q(x)$，$R(x)$ 使得：</p>
+<p>$$F(x)&#x3D;Q(x)G(x)+R(x)$$</p>
+<p>此时称 $Q(x)$ 为 $F(x)$ 除以 $G(x)$ 的商，$R(x)$ 为 $F(x)$ 除以 $G(x)$ 的余数（若 $Q(x)\not &#x3D; 0$，需要满足 $\deg Q+\deg G&#x3D;deg F$）。</p>
+<p>我们同样可以记作：</p>
+<p>$$F(x)\equiv R(x)\pmod{G(x)}$$</p>
+<p>很容易想到，上面的 $R(x)$ 如果没了，这玩意就是直接多项式求逆。</p>
+<p>那么我们就要考虑如何让 $R(x)$ 消失。</p>
+<p>我们知道 $R(x)$ 的次数比较低，而我们前面的 $\pmod{x^{?}}$ 往往只能消去高次的项，留下低次的项。</p>
+<p>那么很自然想到翻转系数，原来次数低的系数变成次数高的。</p>
+<p>定义 $n$ 次多项式翻转操作 $F^T(x)&#x3D;x^nF(x^{-1})$（实质上就是把系数翻转了一下）。</p>
+<p>我们从 $F(x)&#x3D;Q(x)G(x)+R(x)$ 开始，换元得到：</p>
+<p>$$F(x^{-1})&#x3D;Q(x^{-1})G(x^{-1})+R(x^{-1})$$</p>
+<p>两边同时乘上 $x^n$：</p>
+<p>$$x^nF(x^{-1})&#x3D;x^nQ(x^{-1})G(x^{-1})+x^nR(x^{-1})$$</p>
+<p>将我们上文定义的翻转操作代入：</p>
+<p>$$F^T(x)&#x3D;Q^T(x)G^T(x)+x^{n-m+1}R(x)$$</p>
+<p>这个时候我们将其置入 $\pmod{x^{n-m+1}}$ 的环境下：</p>
+<p>$$F^T(x)\equiv Q^T(x)G^T(x)\pmod{x^{n-m+1}}$$</p>
+<p>那么商就是：</p>
+<p>$$Q^T(x)\equiv F^T(x)G^T(x)^{-1}\pmod{x^{n-m+1}}$$</p>
+<p>求逆之后，翻转一下系数即可。</p>
+<p>余数就是：</p>
+<p>$$R(x)&#x3D;F(x)-Q(x)G(x)$$</p>
+<p>时间复杂度仍然是 $O(n \log n)$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Division with Remainder. Here f/g-&gt;f f%g-&gt;g.</span></span><br><span class="line"><span class="comment">// The quotient is the Prev n-m+1 terms of f.</span></span><br><span class="line"><span class="comment">// The remainder is the Prev m-1 terms of g.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Rev</span><span class="params">(ll *f,ll n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;(i&lt;&lt;<span class="number">1</span>)&lt;n<span class="number">-1</span>;i++) <span class="built_in">swap</span>(f[i],f[n-i<span class="number">-1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Divid</span><span class="params">(ll *f,ll *g,ll n,ll m)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> ll q[N&lt;&lt;<span class="number">1</span>],t[N&lt;&lt;<span class="number">1</span>];ll l=n-m+<span class="number">1</span>;</span><br><span class="line">  <span class="built_in">Rev</span>(g,m);<span class="built_in">Cpy</span>(q,g,l);<span class="built_in">Rev</span>(g,m);<span class="built_in">Rev</span>(f,n);<span class="built_in">Cpy</span>(t,f,l);<span class="built_in">Rev</span>(f,n);</span><br><span class="line">  <span class="built_in">Invp</span>(q,l);<span class="built_in">Times</span>(q,t,l,l);<span class="built_in">Rev</span>(q,l);<span class="built_in">Times</span>(g,q,n,n);</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;m<span class="number">-1</span>;i++) &#123;g[i]=(f[i]-g[i]+mo)%mo;&#125;</span><br><span class="line">  <span class="built_in">Clr</span>(g+m<span class="number">-1</span>,l);<span class="built_in">Cpy</span>(f,q,l);<span class="built_in">Clr</span>(f+l,n-l);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="五、多项式-ln-，-exp"><a href="#五、多项式-ln-，-exp" class="headerlink" title="五、多项式 $\ln$，$\exp$"></a>五、多项式 $\ln$，$\exp$</h1><p>两者均由麦克劳林级数定义：</p>
+<p>$$\ln F(x)&#x3D;-\sum_{i&#x3D;1}^{\infty}\dfrac{(1-F(x))^i}{i}$$</p>
+<p>$$\exp F(x)&#x3D;\sum_{i&#x3D;0}^{\infty}\dfrac{F^i(x)}{i!}$$</p>
+<p>这样我们的运算可以满足经典的一些性质。</p>
+<ul>
+<li><p>多项式 $\ln$</p>
+<p>这里我们有 $\ln A(x)&#x3D;B(x)$。</p>
+<p>两边同时求导：</p>
+<p>$$\dfrac{\delta}{\delta x}\ln A(x)&#x3D;\dfrac{\delta}{\delta x}B(x)$$</p>
+<p>即（链式法则）：</p>
+<p>$$\dfrac{\delta A(x)}{\delta x}\dfrac{\delta}{\delta A(x)}\ln A(x)&#x3D;B’(x)$$</p>
+<p>即：</p>
+<p>$$\dfrac{A’(x)}{A(x)}&#x3D;B’(x)$$</p>
+<p>再两边同时积分：</p>
+<p>$$B(x)&#x3D;\int \dfrac{A’(x)}{A(x)}$$</p>
+<p>也就是说，一次求导，一次求逆，一次相乘，一次积分，我们就得到了 $\ln A(x)$。</p>
+<p>时间复杂度 $O(n\log n)$。</p>
+</li>
+<li><p>多项式 $\exp$</p>
+<p>这里就讲一个倍增方法。</p>
+<p>已知 $e^{A(x)}&#x3D;B(x)$，即 $A(x)&#x3D;\ln B(x)$。</p>
+<p>我们设 $G(B(x))&#x3D;\ln B(x)-A(x)$。</p>
+<p>求导可得 $G’(B(x))&#x3D;B^{-1}(x)$。</p>
+<p>套路牛顿迭代：</p>
+<p>$$B(x)\equiv B_*(x)-\dfrac{G(B_*(x))}{G’(B_*(x))}\equiv B_*(x)-\dfrac{\ln B_*(x)-A(x)}{B_*(x)^{-1}}\pmod{x^n}$$</p>
+<p>即：</p>
+<p>$$B(x)\equiv B_*(x)(1-\ln B_*(x)+A(x))\pmod{x^n}$$</p>
+<p>根据上式倍增即可。</p>
+<p>需要注意的是，必须保证 $a_0&#x3D;0$，此时 $b_0&#x3D;1$。</p>
+<p>与上文多项式开根的复杂度分析类似，使用定积分可以得到 $\exp$ 的时间复杂度是 $O(n\log n)$ 的。</p>
+</li>
+</ul>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Ln &amp; Exp.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Lnp</span><span class="params">(ll *f,ll m)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> ll g[N*<span class="number">2</span>+<span class="number">5</span>];</span><br><span class="line">  <span class="built_in">Cpy</span>(g,f,m);<span class="built_in">Invp</span>(g,m);<span class="built_in">Deriv</span>(f,m);<span class="built_in">Times</span>(f,g,m,m);</span><br><span class="line">  <span class="built_in">Integr</span>(f,m<span class="number">-1</span>);<span class="built_in">Clr</span>(g,m);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Exp</span><span class="params">(ll *f,ll m)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> ll s[N*<span class="number">2</span>+<span class="number">5</span>],s2[N*<span class="number">2</span>+<span class="number">5</span>];ll n=<span class="number">1</span>;<span class="keyword">for</span>(;n&lt;m;n&lt;&lt;=<span class="number">1</span>);s2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll len=<span class="number">2</span>;len&lt;=n;len&lt;&lt;=<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">Cpy</span>(s,s2,len&gt;&gt;<span class="number">1</span>);<span class="built_in">Lnp</span>(s,len);</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;len;i++) &#123;s[i]=(f[i]-s[i]+mo)%mo;&#125;</span><br><span class="line">    s[<span class="number">0</span>]=(s[<span class="number">0</span>]+<span class="number">1</span>)%mo;<span class="built_in">Times</span>(s2,s,len,len);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">Cpy</span>(f,s2,m);<span class="built_in">Clr</span>(s,n);<span class="built_in">Clr</span>(s2,n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="六、多项式快速幂"><a href="#六、多项式快速幂" class="headerlink" title="六、多项式快速幂"></a>六、多项式快速幂</h1><p>有了上面的操作，这个东西就变得简单了起来：</p>
+<p>$$A^k(x)&#x3D;\exp (k\ln A(x))$$</p>
+<p>也就是说，一次 $\ln$，一次乘常系数，一次 $\exp$，我们就完成了多项式快速幂。</p>
+<p>时间复杂度 $O(n\log n)$（与 $k$ 完全没有关系）。</p>
+<p><del>关于加强版，因为巨神的码被 Hack 了，我也懒得管，所以就不做了。</del></p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Qpow.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Transtonum</span><span class="params">(<span class="keyword">char</span> *ch,ll len)</span> </span>&#123;</span><br><span class="line">  ll res=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;len;i++) &#123;res=res*<span class="number">10ll</span>%mo;res=(res+ch[i]<span class="number">-48</span>)%mo;&#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();<span class="keyword">char</span> ch[N+<span class="number">5</span>];<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,ch);<span class="built_in">Init</span>(n);</span><br><span class="line">  ll k=<span class="built_in">Transtonum</span>(ch,<span class="built_in">strlen</span>(ch));</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) f[i]=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Lnp</span>(f,n);<span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) f[i]=f[i]*k%mo;<span class="built_in">Exp</span>(f,n);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">writes</span>(f[i]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="七、任意模数多项式乘法"><a href="#七、任意模数多项式乘法" class="headerlink" title="七、任意模数多项式乘法"></a>七、任意模数多项式乘法</h1><p>咕咕咕。</p>
+]]></content>
       <categories>
         <category>模板</category>
       </categories>
