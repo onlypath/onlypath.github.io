@@ -4495,7 +4495,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>加法卷积，但是要 NTT</li>
 </ul>
-<p> 例二：<a href="">UVA12298</a> Super Poker II</p>
+<p> 例二：<a href="https://onlypath.github.io/2022/03/19/UVA12298/">UVA12298</a> Super Poker II</p>
 <ul>
 <li><p>刘汝佳书上（可能是唯一的）FFT 练习题</p>
 </li>
@@ -4509,7 +4509,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>可以找到答案序列的生成函数：$F(x)&#x3D;\dfrac{x}{1-x-x^2}$，$G(x)&#x3D;\sum_{m&#x3D;0}F^m(x)&#x3D;\dfrac{1}{1-F(x)}$。部分分可以直接全家桶艹上去。</p>
 </li>
 </ul>
-<p> 例四：<a href="">CF438E</a> The Child and Binary Tree</p>
+<p> 例四：<a href="https://onlypath.github.io/2022/03/21/CF438E/">CF438E</a> The Child and Binary Tree</p>
 <ul>
 <li>从 DP 到生成函数</li>
 </ul>
@@ -4517,7 +4517,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>不会</li>
 </ul>
-<p> 例六：<a href="">P4389</a> 付公主的背包</p>
+<p> 例六：<a href="https://onlypath.github.io/2022/03/21/P4389/">P4389</a> 付公主的背包</p>
 <ul>
 <li><p>乘积用 $\ln$ 转换为加法再 $\exp$ 回去的自然思路</p>
 </li>
@@ -4712,7 +4712,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>稍微化一下：</p>
 <p>$$H’(x)&#x3D;4xH’(x)+8xH(x)$$</p>
 <p>提出系数：</p>
-<p>$$h’<em>n&#x3D;4h’</em>{n-1}+8h_{n-1}$$</p>
+<p>$$h_n’&#x3D;4h_{n-1}’+8h_{n-1}$$</p>
 <p>把导数还原回 $h$ 的表达：</p>
 <p>$$(n+1)h_{n+1}&#x3D;4nh_n+8h_{n-1}$$</p>
 <p>于是我们得到递推式 $h_n&#x3D;\dfrac{4(n-1)h_{n-1}+8h_{n-2}}{n}$。</p>
