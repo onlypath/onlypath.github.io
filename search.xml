@@ -5217,4 +5217,42 @@ But I finally decided to walk ahead and sing the life as the brightest light.
         <tag>插头 DP</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Quadrilateral_Inequality</title>
+    <url>/2022/03/26/Quadrilateral-Inequality/</url>
+    <content><![CDATA[<p>复读。</p>
+<h1 id="一、2D1D-类动态规划"><a href="#一、2D1D-类动态规划" class="headerlink" title="一、2D1D 类动态规划"></a>一、2D1D 类动态规划</h1><ol>
+<li><p>形式：</p>
+<p> $$\begin{matrix}f(l,r)&#x3D;\min_{k&#x3D;l}^{r-1}{f(l,k),f(k+1,r)}+w(l,r) &amp; (1\le l&lt; r\le n)\end{matrix}$$</p>
+<p> 直接实现的话时间复杂度 $O(n^3)$。</p>
+</li>
+<li><p>区间包含单调性：</p>
+<p> 如果对于任意 $l\le l’\le r’\le r$，均有 $w(l’,r’)\le w(l,r)$ 成立，则称函数 $w$ 对于区间包含关系具有单调性。</p>
+</li>
+<li><p>四边形不等式：</p>
+<p> 如果对于任意 $l_1\le l_2\le r_1\le r_2$，均有 $w(l_1,r_1)+w(l_2,r_2)\le w(l_1,r_2)+w(l_2,r_1)$ 成立，则称函数 $w$ 满足四边形不等式（可以记忆为“交叉小于包含”）。若等号永远成立，则称函数 $w$ 满足四边形恒等式。</p>
+<blockquote>
+<p>引理 1：若 $w$ 满足区间包含单调性和四边形不等式，则状态 $f(l,r)$ 满足四边形不等式。</p>
+</blockquote>
+<p> 证明：</p>
+<p> 定义 $g(k,l,r)&#x3D;f(l,k)+f(k+1,r)+w(l,r)$ 表示当决策为 $k$ 时的状态值。任取 $l_1\le l_2\le r_1\le r_2$，记 $u$，$v$ 分别表示 $f(l_1,r_2)$ 和 $f(l_2,r_1)$ 的最优决策点。</p>
+<ul>
+<li><p>若 $l_1&#x3D;l_2$ 或 $r_1&#x3D;r_2$ 时，显然引理成立（直接 $f$ 代入四边形不等式即可，此时为两边相等的情况）。</p>
+</li>
+<li><p>若 $l_1&lt;l_2&#x3D;r_1&lt;r_2$：</p>
+<ul>
+<li>若 $u&lt;r_1$，则 $f(l_1,r_1)\le f(l_1,u)+f(u+1,r_1)+w(l_1,r_1)$（$u$ 不一定是 $f(l_1,r_1)$ 的最优决策点）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>四边形不等式</tag>
+      </tags>
+  </entry>
 </search>
