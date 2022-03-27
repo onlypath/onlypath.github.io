@@ -1613,13 +1613,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>FFT，NTT <a href="https://onlypath.github.io/2022/02/02/P3803/">P3803</a></li>
 <li>MTT</li>
 <li>FMT，FWT <a href="https://onlypath.github.io/2022/02/04/P4717/">P4717</a></li>
-<li>多项式求逆 <a href="https://onlypath.github.io/2022/02/03/P4238/">P4238</a></li>
-<li>多项式牛顿迭代（求导、积分、复合）</li>
-<li>多项式开方</li>
-<li>多项式带余除法</li>
-<li>多项式 $\ln$，$\exp$</li>
-<li>多项式快速幂</li>
-<li>多项式平移</li>
+<li>多项式全家桶 <a href="https://onlypath.github.io/2022/03/20/Polynomial-Industry/">Polynomial Industry</a></li>
+<li>其他多项式操作（不会）</li>
 <li>常系数齐次线性递推（EI 的 <a href="https://www.luogu.com.cn/blog/EntropyIncreaser/solution-p4723">一种新的线性递推计算方法</a>）</li>
 </ul>
 </li>
@@ -1743,7 +1738,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>DAG 上 DP</p>
 </li>
-<li><p>数位 DP</p>
+<li><p>数位 DP <a href="https://onlypath.github.io/2022/03/22/P2657/">P2657</a></p>
 </li>
 <li><p>数据结构优化 DP</p>
 <ul>
@@ -1755,12 +1750,12 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>状压 DP</p>
 <ul>
-<li>插头 DP</li>
+<li>插头 DP <a href="https://onlypath.github.io/2022/03/26/P5056/">P5056</a></li>
 </ul>
 </li>
 <li><p>斜率优化 <a href="https://onlypath.github.io/2022/03/11/P3195/">P3195</a></p>
 </li>
-<li><p>四边形不等式优化</p>
+<li><p>四边形不等式优化 <a href="https://onlypath.github.io/2022/03/26/Quadrilateral-Inequality/">Quadrangle</a></p>
 </li>
 <li><p>矩阵表示 DP</p>
 <ul>
@@ -1768,11 +1763,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>数据结构优化</li>
 </ul>
 </li>
-<li><p>生成函数优化 DP</p>
-<ul>
-<li>生成函数描述问题</li>
-<li>计数型背包</li>
-</ul>
+<li><p>生成函数优化 DP <a href="https://onlypath.github.io/2022/03/21/P4389/">P4389</a></p>
 </li>
 </ol>
 <h1 id="五、计算几何"><a href="#五、计算几何" class="headerlink" title="五、计算几何"></a>五、计算几何</h1><p><a href="https://onlypath.github.io/2022/03/15/Geometry/">Geometry</a></p>
@@ -5228,7 +5219,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>若对于任意整数 $a&lt;b$，都有：</p>
 <p> $$w(a,b+1)+w(a+1,b)\ge w(a,b)+w(a+1,b+1)$$</p>
-<p> 则称 $w$ 满足四边形不等式。</p>
+<p> 则称 $w$ 满足四边形不等式（亦称为凸完全单调性，因为此时 $w(x,i+1)-w(x,i)$ 单调不增）。</p>
 </li>
 <li><p>关于上面两种定义等价的证明：</p>
 <p> 对于 $a&lt;c$，有 $w(a,c+1)+w(a+1,c)\ge w(a,c)+w(a+1,c+1)$。</p>
@@ -5241,7 +5232,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> 我们证明了一个方向的充分性，因为另一个方向的充分性实在太显然我就不证了。</p>
 </li>
 </ol>
-<h1 id="二、1D1D-DP-的四边形不等式优化"><a href="#二、1D1D-DP-的四边形不等式优化" class="headerlink" title="二、1D1D DP 的四边形不等式优化"></a>二、1D1D DP 的四边形不等式优化</h1><ol>
+<h1 id="二、1D1D-DP"><a href="#二、1D1D-DP" class="headerlink" title="二、1D1D DP"></a>二、1D1D DP</h1><ol>
 <li><p>决策单调性：</p>
 <p> 对于形如 $f(i)&#x3D;\min_{j&#x3D;0}^{i-1}{f(j)+w(j,i)}$ 的状态转移方程，记 $p(i)$ 为 $f(i)$ 取到最小值时的 $j$ 的值。此时称 $p(i)$ 为 $f(i)$ 的最优决策。</p>
 <p> 若 $p$ 在 $[1,n]$ 上单调不降，则称 $f$ 具有决策单调性。</p>
@@ -5259,9 +5250,24 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> 翻译一下就是若 $j&lt;p(i)$，则 $j$ 作为 $f(i’)$ 的决策一定不如 $p(i)$ 作为 $f(i’)$ 的决策优秀。</p>
 <p> 再换句话说，$p(i’)$ 一定大于等于 $p(i)$（因为不可能小于 $p(i)$，还能怎么样？）。</p>
 <p> 所以 $f$ 此时具有决策单调性。</p>
+<p> 上述定理的证明过程比较重要，记住思路，可以将决策单调性扩展到更多的转移。</p>
+<p> 比如说：$f(i)&#x3D;\min_{j&#x3D;0}^{i-1}{kf(j)+w(j,i)}$，这里 $k\in \mathbb{R}$，仿照上面的证明就能知道，它仍然具有决策单调性。</p>
+</li>
+<li><p>应用方法：栈，三元组，以及二分。。。</p>
+<p> 这里我很难一下解释清楚这个做法，大概说明一下：</p>
+<ul>
+<li>新加入一个决策点 $i$</li>
+<li>寻找上一个最优决策点 $j$ 最左能到达哪里（不妨设为 $l$）。</li>
+<li>如果说 $l$ 由 $i$ 决策时比 $j$ 时优，那么显然 $j$ 能决策的点（就是 $[l,n]$）都要换成 $i$ 为决策点了。</li>
+<li>接下来显然还可以以此类推找到上上个决策点，上上上个决策点，直到存在一个 $l$ 的最优决策不再是 $i$。</li>
+<li>找到这种决策点的时候我们就要在 $j$ 所决策的区域上二分，看我们最多能决策哪一段区间。</li>
+<li>借助三元组和栈来完成这个过程的模拟。</li>
+<li>时间复杂度 $O(n\log n)$。</li>
+</ul>
+<p> 当然在一些特殊的情况我们还有特殊分治的做法（当然这个方法还可以沿用），更加方便：<a href="">P3515</a>。</p>
 </li>
 </ol>
-<h1 id="三、2D1D-DP-的四边形不等式优化"><a href="#三、2D1D-DP-的四边形不等式优化" class="headerlink" title="三、2D1D DP 的四边形不等式优化"></a>三、2D1D DP 的四边形不等式优化</h1><ol>
+<h1 id="三、2D1D-DP"><a href="#三、2D1D-DP" class="headerlink" title="三、2D1D DP"></a>三、2D1D DP</h1><ol>
 <li><p>区间包含单调性：</p>
 <p> 对于任意 $a\le b\le c\le d$，都有 $w(a,d)\ge w(b,c)$，则称 $w$ 满足区间包含单调性。</p>
 </li>
@@ -5316,9 +5322,84 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> 类似地，我们也可以证明 $p(i,j-1)\le p(i,j)$。</p>
 </li>
 </ol>
+<h1 id="四、一些性质"><a href="#四、一些性质" class="headerlink" title="四、一些性质"></a>四、一些性质</h1><p>复读 OI wiki，但是把我觉得不太靠谱的给删了。。。</p>
+<ol>
+<li><p>若 $w_1$，$w_2$ 均满足四边形不等式，则对于任意 $c_1$，$c_2$，都有 $c_1w_1+c_2w_2$ 满足四边形不等式。</p>
+<p> 证明：显然（把两个四边形不等式分别乘上 $c_1$，$c_2$ 并相加就能得到该结论）。。。</p>
+</li>
+<li><p>若存在函数 $f$，$g$ 使得 $w(l,r)&#x3D;f(r)-g(l)$，则函数 $w$ 满足四边形恒等式。若 $f$，$g$ 单调递增，则 $w$ 满足区间包含单调性。</p>
+<p> 证明：显然（用定义）。。。</p>
+</li>
+<li><p>设 $h(x)$ 是一个单调增加的函数，若函数 $w$ 满足四边形不等式和区间包含单调性，则 $h(w(l,r))$ 也满足四边形不等式和区间包含单调性。</p>
+<p> 证明：</p>
+<ul>
+<li><p>对于区间包含单调性：</p>
+<p>  设 $l\le l’\le r’\le r$，显然 $w(l’,r’)\le w(l,r)$，又 $h$ 是增函数，就有 $h(w(l’,r’))\le h(w(l,r))$。</p>
+</li>
+<li><p>对于四边形不等式：</p>
+<p>  任取 $a\le b\le c\le d$，根据 $w$ 满足四边形不等式：</p>
+<p>  $$w(a,d)+w(b,c)\ge w(a,c)+w(b,d)$$</p>
+<p>  移项，并根据区间包含单调性：</p>
+<p>  $$w(a,d)-w(b,d)\ge w(a,c)-w(b,c)\ge 0$$</p>
+<p>  记 $t&#x3D;w(a,d)-w(b,d)\ge 0$，则上式等价于：</p>
+<p>  $$<br>  w(a,c)\le w(b,c)+t<br>  \\<br>  w(a,d)&#x3D;w(b,d)+t<br>  $$</p>
+<p>  根据 $h$ 的单调性：</p>
+<p>  $$<br>  h(w(a,c))-h(w(b,c))\le h(w(b,c)+t)-h(w(b,c))<br>  \\<br>  h(w(a,d))-h(w(b,d))&#x3D;h(w(b,d)+t)-h(w(b,d))<br>  $$</p>
+<p>  设 $\Delta h(x)&#x3D;h(x+t)-h(x)$，由单调性，得到：</p>
+<p>  $$\begin{aligned}<br>  h(w(a,c))-h(w(b,c)) &amp; \le \Delta h(w(b,c))<br>  \\<br>  &amp; \le \Delta h(w(b,d))<br>  \\<br>  &amp;&#x3D;h(w(a,d))-h(w(b,d))<br>  \end{aligned}$$</p>
+<p>  即四边形不等式的形式。</p>
+</li>
+</ul>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>四边形不等式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P3515</title>
+    <url>/2022/03/27/P3515/</url>
+    <content><![CDATA[<p>[POI2011]Lightning Conductor</p>
+<p>分析一手这个东西：</p>
+<p>$$a_j\le a_i+p(i)-\sqrt{|i-j|}\Leftrightarrow p(i)\ge a_j-a_i+\sqrt{|i-j|}$$</p>
+<p>于是我们设 $f(i)&#x3D;\max_{j\in [1,n]}{a_j-a_i+\sqrt{|i-j|}}$，则 $p(i)&#x3D;\lceil f(i)\rceil$。</p>
+<p>然后这个绝对值很烦人，我们想办法给它分类讨论掉。</p>
+<p>不妨设 $j\le i$，那么就有：</p>
+<p>$$f(i)&#x3D;\max_{j&#x3D;1}^{i}{a_j-a_i+\sqrt{i-j}}$$</p>
+<p>此时我们设权函数 $w(j,i)&#x3D;a_j-a_i+\sqrt{i-j}$，尝试证明其满足四边形不等式。</p>
+<p>即证明：$w(i,j+1)+w(i+1,j)\le w(i,j)+w(i+1,j+1)$。</p>
+<p>代入我们权函数的定义式，并消去相同项，我们需要证：</p>
+<p>$$\sqrt{j-i+1}+\sqrt{j-i-1}\le 2\sqrt{j-i}$$</p>
+<p>好像 $j-i$ 可以当作一个整体，不妨设其为 $x$，则我们要证：</p>
+<p>$$\sqrt{x+1}+\sqrt{x-1}\le 2\sqrt{x}$$</p>
+<p>两边平方，我们需要证：</p>
+<p>$$\sqrt{x^2-1}\le x$$</p>
+<p>这是显然的，所以我们得到 $w$ 满足四边形不等式。</p>
+<p>到这里我们就可以着手做题了，但我还是想用求导再证一下（不感兴趣的可以忽略这种证明）：</p>
+<p>回到 $\sqrt{x+1}+\sqrt{x-1}\le 2\sqrt{x}$ 这个式子，将其改为：</p>
+<p>$$\sqrt{x+1}-\sqrt{x}\le \sqrt{x}-\sqrt{x-1}$$</p>
+<p>我们可以通过证明 $f(x)&#x3D;\sqrt{x+1}-\sqrt{x}$ 是一个单调不增函数来得到这个式子。</p>
+<p>那么一个比较好的方式就是求导：</p>
+<p>$$f’(x)&#x3D;\dfrac{1}{2\sqrt{x+1}}-\dfrac{1}{2\sqrt{x}}&lt;0$$</p>
+<p>所以说这玩意就是单调递减的。</p>
+<p>证明其满足四边形不等式之后，我们回到 $f$ 的定义：</p>
+<p>$$f(i)&#x3D;\max_{j&#x3D;1}^{i}{w(j,i)}$$</p>
+<p>由决策单调性定理（的推广），得到 $f(i)$ 满足决策单调性。</p>
+<p>然后我们要做的就是如何利用决策单调性来优化，这里使用分治。</p>
+<p>具体讲一下流程：假设 $f(x)$（$x\in [l,r]$）的最优决策点在 $[k_l,k_r]$，这个时候我们设 $mid&#x3D;(l+r)&#x2F;2$，暴力求出 $mid$ 的决策点 $k$，根据决策单调性将区间分成 $[l,mid-1]$ 和 $[mid+1,r]$ 两段，其最优决策点所在的区间分别为 $[kl,k]$ 和 $[k,kr]$。</p>
+<p>用一下主定理就能知道这个复杂度是对的。。。</p>
+<p>反过来的话像上面一样推就好了，仍然可以得到：</p>
+<p>$$f(i)&#x3D;\max_{j&#x3D;n}^{i}{w’(i,j)}$$</p>
+<p>其中 $f(i)$ 是满足决策单调性的，且决策点随 $i$ 的减小而减小。</p>
+<p>时间复杂度 $O(n\log n)$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ld long double</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">5e5</span>;</span><br><span class="line"></span><br><span class="line">ll n,ans;</span><br><span class="line">ld f[N+<span class="number">5</span>],f_[N+<span class="number">5</span>],a[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ld <span class="title">W</span><span class="params">(ll x,ll y)</span> </span>&#123;<span class="keyword">return</span> a[x]-a[y]+<span class="built_in">sqrt</span>(y-x);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ld <span class="title">W_</span><span class="params">(ll x,ll y)</span> </span>&#123;<span class="keyword">return</span> a[y]-a[x]+<span class="built_in">sqrt</span>(y-x);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">DP</span><span class="params">(ll l,ll r,ll kl,ll kr)</span> </span>&#123;</span><br><span class="line">  ll mid=(l+r)&gt;&gt;<span class="number">1</span>,k=kl;</span><br><span class="line">  <span class="keyword">for</span>(ll i=kl;i&lt;=kr&amp;&amp;i&lt;=mid;i++) &#123;<span class="keyword">if</span>(<span class="built_in">W</span>(i,mid)&gt;<span class="built_in">W</span>(k,mid)) k=i;&#125;</span><br><span class="line">  f[mid]=<span class="built_in">W</span>(k,mid);</span><br><span class="line">  <span class="keyword">if</span>(l&lt;mid) <span class="built_in">DP</span>(l,mid<span class="number">-1</span>,kl,k);<span class="keyword">if</span>(r&gt;mid) <span class="built_in">DP</span>(mid+<span class="number">1</span>,r,k,kr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">DP_</span><span class="params">(ll l,ll r,ll kl,ll kr)</span> </span>&#123;</span><br><span class="line">  ll mid=(l+r+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>,k=kr;</span><br><span class="line">  <span class="keyword">for</span>(ll i=kr;i&gt;=kl&amp;&amp;i&gt;=mid;i--) &#123;<span class="keyword">if</span>(<span class="built_in">W_</span>(mid,i)&gt;<span class="built_in">W_</span>(mid,k)) k=i;&#125;</span><br><span class="line">  f_[mid]=<span class="built_in">W_</span>(mid,k);</span><br><span class="line">  <span class="keyword">if</span>(l&lt;mid) <span class="built_in">DP_</span>(l,mid<span class="number">-1</span>,kl,k);<span class="keyword">if</span>(r&gt;mid) <span class="built_in">DP_</span>(mid+<span class="number">1</span>,r,k,kr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;a[i]=<span class="built_in">read</span>();&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">DP</span>(<span class="number">1</span>,n,<span class="number">1</span>,n);<span class="built_in">DP_</span>(<span class="number">1</span>,n,<span class="number">1</span>,n);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;<span class="built_in">writeln</span>(<span class="built_in">ceil</span>(<span class="built_in">max</span>(f[i],f_[i])));&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
       </categories>
       <tags>
         <tag>四边形不等式</tag>
