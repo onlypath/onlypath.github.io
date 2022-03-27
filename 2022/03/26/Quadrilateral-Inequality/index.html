@@ -28,7 +28,7 @@
 <meta property="og:description" content="四边形不等式">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-26T10:09:22.000Z">
-<meta property="article:modified_time" content="2022-03-26T12:10:05.691Z">
+<meta property="article:modified_time" content="2022-03-27T03:18:35.599Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="四边形不等式">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%812D1D-%E7%B1%BB%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">一、2D1D 类动态规划</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">一、定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%811D1D-DP-%E7%9A%84%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%BC%98%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">二、1D1D DP 的四边形不等式优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%812D1D-DP-%E7%9A%84%E5%9B%9B%E8%BE%B9%E5%BD%A2%E4%B8%8D%E7%AD%89%E5%BC%8F%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">三、2D1D DP 的四边形不等式优化</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -260,10 +260,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-03-26 18:09:22 / 修改时间：20:10:05" itemprop="dateCreated datePublished" datetime="2022-03-26T18:09:22+08:00">2022-03-26</time>
+      <time title="创建时间：2022-03-26 18:09:22" itemprop="dateCreated datePublished" datetime="2022-03-26T18:09:22+08:00">2022-03-26</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-03-27 11:18:35" itemprop="dateModified" datetime="2022-03-27T11:18:35+08:00">2022-03-27</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -285,31 +291,100 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>复读。</p>
-<h1 id="一、2D1D-类动态规划"><a href="#一、2D1D-类动态规划" class="headerlink" title="一、2D1D 类动态规划"></a>一、2D1D 类动态规划</h1><ol>
-<li><p>形式：</p>
-<p> $$\begin{matrix}f(l,r)&#x3D;\min_{k&#x3D;l}^{r-1}{f(l,k),f(k+1,r)}+w(l,r) &amp; (1\le l&lt; r\le n)\end{matrix}$$</p>
-<p> 直接实现的话时间复杂度 $O(n^3)$。</p>
+        <p>说明：本篇中的一切决策点都是在整数意义下的，这样归纳法才能成立。</p>
+<h1 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h1><ol>
+<li><p>若对于 $a\le b\le c\le d$，满足：</p>
+<p> $$w(a,d)+w(b,c)\ge w(a,c)+w(b,d)$$</p>
+<p> 则称 $w$ 满足四边形不等式。（简记为“包含大于交叉”）</p>
 </li>
+<li><p>若对于任意整数 $a&lt;b$，都有：</p>
+<p> $$w(a,b+1)+w(a+1,b)\ge w(a,b)+w(a+1,b+1)$$</p>
+<p> 则称 $w$ 满足四边形不等式。</p>
+</li>
+<li><p>关于上面两种定义等价的证明：</p>
+<p> 对于 $a&lt;c$，有 $w(a,c+1)+w(a+1,c)\ge w(a,c)+w(a+1,c+1)$。</p>
+<p> 对于 $a+1&lt;c$，有 $w(a+1,c+1)+w(a+2,c)\ge w(a+1,c)+w(a+2,c+1)$。</p>
+<p> 两式相加，消去相同项，有 $w(a,c+1)+w(a+2,c)\ge w(a,c)+w(a+2,c+1)$。</p>
+<p> 依次类推，我们的 $a+1$ 可以扩展称所有大于 $a$ 小于 $c$ 的整数（包括 $b$，等于的时候不用证就略了）（扩展就是不断将 $a$ 替换为 $a+2$，$a+3$ 类似的）。</p>
+<p> 因此，对于任意 $a\le b\le c$，有 $w(a,c+1)+w(b,c)\ge w(a,c)+w(b,c+1)$。</p>
+<p> 同理，我们将上面的过程类似的做一遍（把 $a+1&lt;c$ 的假设换成 $a&lt;c+1$），又可以将 $c+1$ 扩展到 $d$。</p>
+<p> 因此，对任意 $a\le b\le c\le d$，有 $w(a,d)+w(b,c)\ge w(a,c)+w(b,d)$。</p>
+<p> 我们证明了一个方向的充分性，因为另一个方向的充分性实在太显然我就不证了。</p>
+</li>
+</ol>
+<h1 id="二、1D1D-DP-的四边形不等式优化"><a href="#二、1D1D-DP-的四边形不等式优化" class="headerlink" title="二、1D1D DP 的四边形不等式优化"></a>二、1D1D DP 的四边形不等式优化</h1><ol>
+<li><p>决策单调性：</p>
+<p> 对于形如 $f(i)&#x3D;\min_{j&#x3D;0}^{i-1}{f(j)+w(j,i)}$ 的状态转移方程，记 $p(i)$ 为 $f(i)$ 取到最小值时的 $j$ 的值。此时称 $p(i)$ 为 $f(i)$ 的最优决策。</p>
+<p> 若 $p$ 在 $[1,n]$ 上单调不降，则称 $f$ 具有决策单调性。</p>
+</li>
+<li><p>决策单调性定理：</p>
+<p> 对于 $f(i)&#x3D;\min_{j&#x3D;0}^{i-1}{f(j)+w(j,i)}$，若函数 $w$ 满足四边形不等式，则 $f$ 具有决策单调性。</p>
+<p> 证明：设 $j&lt;p(i)$，由 $p(i)$ 的最优性，易知：</p>
+<p> $$f(p(i))+w(p(i),i)\le f(j)+w(j,i)$$</p>
+<p> 设 $i’&gt;i$，因此我们有 $j&lt;p(i)&lt;i&lt;i’$，根据四边形不等式：</p>
+<p> $$w(j,i’)+w(p(i),i)\ge w(j,i)+w(p(i),i’)$$</p>
+<p> 移项有：</p>
+<p> $$w(p(i),i’)-w(p(i),i)\le w(j,i’)-w(j,i)$$</p>
+<p> 与证明中的第一个不等式相加：</p>
+<p> $$f(p(i))+w(p(i),i’)\le f(j)+w(j,i’)$$</p>
+<p> 翻译一下就是若 $j&lt;p(i)$，则 $j$ 作为 $f(i’)$ 的决策一定不如 $p(i)$ 作为 $f(i’)$ 的决策优秀。</p>
+<p> 再换句话说，$p(i’)$ 一定大于等于 $p(i)$（因为不可能小于 $p(i)$，还能怎么样？）。</p>
+<p> 所以 $f$ 此时具有决策单调性。</p>
+</li>
+</ol>
+<h1 id="三、2D1D-DP-的四边形不等式优化"><a href="#三、2D1D-DP-的四边形不等式优化" class="headerlink" title="三、2D1D DP 的四边形不等式优化"></a>三、2D1D DP 的四边形不等式优化</h1><ol>
 <li><p>区间包含单调性：</p>
-<p> 如果对于任意 $l\le l’\le r’\le r$，均有 $w(l’,r’)\le w(l,r)$ 成立，则称函数 $w$ 对于区间包含关系具有单调性。</p>
+<p> 对于任意 $a\le b\le c\le d$，都有 $w(a,d)\ge w(b,c)$，则称 $w$ 满足区间包含单调性。</p>
 </li>
-<li><p>四边形不等式：</p>
-<p> 如果对于任意 $l_1\le l_2\le r_1\le r_2$，均有 $w(l_1,r_1)+w(l_2,r_2)\le w(l_1,r_2)+w(l_2,r_1)$ 成立，则称函数 $w$ 满足四边形不等式（可以记忆为“交叉小于包含”）。若等号永远成立，则称函数 $w$ 满足四边形恒等式。</p>
-<blockquote>
-<p>引理 1：若 $w$ 满足区间包含单调性和四边形不等式，则状态 $f(l,r)$ 满足四边形不等式。</p>
-</blockquote>
-<p> 证明：</p>
-<p> 定义 $g(k,l,r)&#x3D;f(l,k)+f(k+1,r)+w(l,r)$ 表示当决策为 $k$ 时的状态值。任取 $l_1\le l_2\le r_1\le r_2$，记 $u$，$v$ 分别表示 $f(l_1,r_2)$ 和 $f(l_2,r_1)$ 的最优决策点。</p>
+<li><p>定理：</p>
+<p> 对于 $f(i,j)&#x3D;\min_{k&#x3D;i}^{j-1}{f(i,k)+f(k+1,j)}+w(i,j)$（满足 $f(i,i)&#x3D;w(i,i)&#x3D;0$），若 $w$ 满足：</p>
 <ul>
-<li><p>若 $l_1&#x3D;l_2$ 或 $r_1&#x3D;r_2$ 时，显然引理成立（直接 $f$ 代入四边形不等式即可，此时为两边相等的情况）。</p>
-</li>
-<li><p>若 $l_1&lt;l_2&#x3D;r_1&lt;r_2$：</p>
+<li>四边形不等式</li>
+<li>区间包含单调性</li>
+</ul>
+<p> 则 $f$ 满足四边形不等式。</p>
+<p> 证明：显然有 $f(i,i+1)&#x3D;w(i,i+1)$。</p>
+<p> 下面考虑归纳法证明。</p>
+<p> 当 $j-i&#x3D;1$ 时，即 $i+1&#x3D;j$ 时，显然：</p>
+<p> $$f(i,j+1)+f(i+1,j)&#x3D;f(i,i+2)+f(i+1,i+1)&#x3D;f(i,i+2)$$</p>
 <ul>
-<li>若 $u&lt;r_1$，则 $f(l_1,r_1)\le f(l_1,u)+f(u+1,r_1)+w(l_1,r_1)$（$u$ 不一定是 $f(l_1,r_1)$ 的最优决策点）。</li>
-</ul>
+<li><p>若 $f(i,i+2)$ 的最优决策是 $i+1$，则：</p>
+<p>  $$\begin{aligned}<br>  f(i,i+2) &amp; &#x3D;f(i,i+1)+f(i+2,i+2)+w(i,i+2)<br>  \\<br>  &amp; &#x3D;w(i,i+1)+w(i,i+2)<br>  \\<br>  &amp; \ge w(i,i+1)+w(i+1,i+2)<br>  \\<br>  &amp; &#x3D;f(i,i+1)+f(i+1,i+2)<br>  \\<br>  &amp;&#x3D;f(i,j)+f(i+1,j+1)\end{aligned}$$</p>
+<p>  上面的不等式证明部分使用了 $w$ 的包含单调性。</p>
+</li>
+<li><p>若 $f(i,i+2)$ 的最优决策点是 $i$，则：</p>
+<p>  $$\begin{aligned}<br>  f(i,i+2)&amp;&#x3D;f(i,i)+f(i+1,i+2)+w(i,i+2)<br>  \\<br>  &amp;&#x3D; w(i+1,i+2)+w(i,i+2)<br>  \\<br>  &amp;\ge w(i+1,i+2)+w(i,i+1)<br>  \\<br>  &amp;&#x3D; f(i+1,i+2)+f(i,i+1)<br>  \\<br>  &amp;&#x3D; f(i+1,j+1)+f(i,j)<br>  \end{aligned}$$</p>
+<p>  上面的不等式部分证明仍然是包含单调性。</p>
 </li>
 </ul>
+<p> 上面两种情况的不等式即 $f(i,i+2)\ge f(i+1,j+1)+f(i,j)$，将 $f(i,i+2)$ 替换为 $f(i,j+1)+f(i+1,j)$，我们就得到了四边形不等式的形式。</p>
+<p> 因此，当 $j-i&#x3D;1$ 时，四边形性不等式对 $f(i,j)$ 成立。</p>
+<p> 使用数学归纳法，设 $j-i&lt;k$ 时，四边形不等式对 $f(i,j)$ 成立，考虑 $j-i&#x3D;k$ 的情况。</p>
+<p> 设 $f(i,j+1)$ 以 $x$ 为最优决策点，$f(i+1,j)$ 以 $y$ 为最优决策点，不妨设 $i+1\le x\le y&lt;j$。</p>
+<p> 根据 $x$，$y$ 的最优性：</p>
+<p> $$\begin{aligned}<br> &amp; f(i,j+1)+f(i+1,j)<br> \\<br> &#x3D;&amp;f(i,x)+f(x+1,j+1)+w(i,j+1)<br> \\<br> &amp; +f(i+1,y)+f(y+1,j)+w(i+1,j)<br> \end{aligned}$$</p>
+<p> 对于 $f(i,j)$ 和 $f(i+1,j+1)$，$x$ 和 $y$ 是任意决策（不一定最优），因此有：</p>
+<p> $$\begin{aligned}<br> &amp; f(i,j)+f(i+1,j+1)<br> \\<br> \le &amp; f(i,x)+f(x+1,j)+w(i,j)<br> \\<br> &amp; +f(i+1,y)+f(y+1,j+1)+w(i+1,j+1)<br> \end{aligned}$$</p>
+<p> 因为 $w$ 满足四边形不等式：</p>
+<p> $$w(i,j+1)+w(i+1,j)\ge w(i,j)+w(i+1,j+1)$$</p>
+<p> 根据归纳假设：</p>
+<p> $$f(x+1,j+1)+f(y+1,j)\ge f(x+1,j)+f(y+1,j+1)$$</p>
+<p> 结合上面的几个式子（懒了，就是代换一下），我们就得到：</p>
+<p> $$\begin{matrix}f(i,j+1)+f(i+1,j)\ge f(i,j)+f(i+1,j+1)&amp;\square \end{matrix}$$</p>
+</li>
+<li><p>二维决策单调性定理：</p>
+<p> 在状态转移方程 $f(i,j)&#x3D;\min_{i&#x3D;k}^{j-1}{f(i,k)+f(k+1,j)}+w(i,j)$（满足 $f(i,i)&#x3D;w(i,i)&#x3D;0$），记 $p(i,j)$ 为 $f(i,j)$ 取到最小值的时候 $k$ 的值，称 $p(i,j)$ 为 $f(i,j)$ 的最优决策点。</p>
+<p> 若 $f$ 满足四边形不等式，那么对于任意 $i&lt;j$，有 $p(i,j-1)\le p(i,j)\le p(i+1,j)$。</p>
+<p> 证明：记 $p’&#x3D;p(i,j)$，对于任意 $i&lt;i+1\le k\le p’$ 因为 $f$ 满足四边形不等式：</p>
+<p> $$f(i,p’)+f(i+1,k)\ge f(i,k)+f(i+1,p’)$$</p>
+<p> 移项：</p>
+<p> $$f(i+1,k)-f(i+1,p’)\ge f(i,k)-f(i,p’)$$</p>
+<p> 根据 $p’$ 的最优性：</p>
+<p> $$f(i,k)+f(k+1,j)\ge f(i,p’)+f(p’+1,j)$$</p>
+<p> 因此：</p>
+<p> $$\begin{aligned}<br> &amp; [f(i+1,k)+f(k+1,j)+w(i+1,j)]-[f(i+1,p’)+f(p’+1,j)+w(i+1,j)]<br> \\<br> &#x3D;&amp; [f(i+1,k)-f(i+1,p’)]+[f(k+1,j)-f(p’+1,j)]<br> \\<br> \ge &amp; [f(i,k)-f(i,p’)]+[f(k+1,j)-f(p’+1,j)]<br> \\<br> &#x3D;&amp; [f(i,k)+f(k+1,j)]-[f(i,p’)+f(p’+1,j)]<br> \\<br> \ge &amp; 0<br> \end{aligned}$$</p>
+<p> 这意味着对于 $f(i+1,j)$，$p’$ 比任意的 $k\le p’$ 要优。因此 $p(i+1,k)\ge p(i,j)$。</p>
+<p> 类似地，我们也可以证明 $p(i,j-1)\le p(i,j)$。</p>
 </li>
 </ol>
 
