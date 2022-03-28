@@ -2735,17 +2735,17 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$k$ 是一个已知的数，$j$ 是我们枚举的数。</p>
 <p>分类讨论 $j$ 与 $k$ 的关系：</p>
 <ol>
-<li>当 $j&#x3D;k$ 的时候，有：</li>
+<li><p>当 $j&#x3D;k$ 的时候，有：</p>
+<p> $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\sum_{i&#x3D;0}^{n-1}1&#x3D;n$$</p>
+</li>
+<li><p>当 $j\not&#x3D;k$ 的时候，有：</p>
+<p> $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\sum_{i&#x3D;0}^{n-1}(\omega_n^{j-k})^i$$</p>
+<p> 这是个等比数列求和，也就是：</p>
+<p> $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\omega_n^{j-k}\dfrac{1-(\omega_n^{j-k})^n}{1-\omega_n^{j-k}}$$</p>
+<p> 很显然 $(\omega_{n}^{j-k})^n&#x3D;(\omega_n^n)^{j-k}&#x3D;1$。所以：</p>
+<p> $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\omega_n^{j-k}\dfrac{1-1}{1-\omega_n^{j-k}}&#x3D;0$$</p>
+</li>
 </ol>
-<p>  $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\sum_{i&#x3D;0}^{n-1}1&#x3D;n$$</p>
-<ol start="2">
-<li>当 $j\not&#x3D;k$ 的时候，有：</li>
-</ol>
-<p>  $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\sum_{i&#x3D;0}^{n-1}(\omega_n^{j-k})^i$$</p>
-<p>  这是个等比数列求和，也就是：</p>
-<p>  $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\omega_n^{j-k}\dfrac{1-(\omega_n^{j-k})^n}{1-\omega_n^{j-k}}$$</p>
-<p>  很显然 $(\omega_{n}^{j-k})^n&#x3D;(\omega_n^n)^{j-k}&#x3D;1$。所以：</p>
-<p>  $$\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}&#x3D;\omega_n^{j-k}\dfrac{1-1}{1-\omega_n^{j-k}}&#x3D;0$$</p>
 <p>讨论完了，现在我们回顾上式：</p>
 <p>$$\dfrac{1}{n}\sum_{i&#x3D;0}^{n-1}\hat{f_i}(\omega_n^{-k})^i&#x3D;\dfrac{1}{n}\sum_{j&#x3D;0}^{n-1}f_j\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}$$</p>
 <p>$\sum_{j&#x3D;0}^{n-1}f_j\sum_{i&#x3D;0}^{n-1}\omega_{n}^{(j-k)i}$ 这个式子的右边在 $j$ 枚举到 $k$ 的时候是 $nf_j&#x3D;nf_k$，其余时候都是 $0$，那么它的值就是 $nk$。所以：</p>
@@ -5262,6 +5262,10 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>Quadrilateral_Inequality</title>
     <url>/2022/03/26/Quadrilateral-Inequality/</url>
     <content><![CDATA[<p>说明：本篇中的一切决策点都是在整数意义下的，这样归纳法才能成立。</p>
+<blockquote>
+<p>实际上我根本不会四边形不等式那一套理论。DP 的时候打个表，看看决策点是否是单调的，如果是，用就完了。<br>—— xpp</p>
+</blockquote>
+<p>然后下面的东西基本就都不用学啦。</p>
 <h1 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h1><ol>
 <li><p>若对于 $a\le b\le c\le d$，满足：</p>
 <p> $$w(a,d)+w(b,c)\ge w(a,c)+w(b,d)$$</p>
@@ -5284,7 +5288,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ol>
 <h1 id="二、1D1D-DP"><a href="#二、1D1D-DP" class="headerlink" title="二、1D1D DP"></a>二、1D1D DP</h1><ol>
 <li><p>决策单调性：</p>
-<p> 对于形如 $f(i)&#x3D;\min_{j&#x3D;0}^{i-1}{f(j)+w(j,i)}$ 的状态转移方程，记 $p(i)$ 为 $f(i)$ 取到最小值时的 $j$ 的值。此时称 $p(i)$ 为 $f(i)$ 的最优决策。</p>
+<p> 对于形如 $f(i)&#x3D;\min_{j&#x3D;0}^{i-1} \{ f(j)+w(j,i) \}$ 的状态转移方程，记 $p(i)$ 为 $f(i)$ 取到最小值时的 $j$ 的值。此时称 $p(i)$ 为 $f(i)$ 的最优决策。</p>
 <p> 若 $p$ 在 $[1,n]$ 上单调不降，则称 $f$ 具有决策单调性。</p>
 </li>
 <li><p>决策单调性定理：</p>
@@ -5317,12 +5321,13 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> 当然在一些特殊的情况我们还有特殊分治的做法（当然这个方法还可以沿用），更加方便：<a href="https://onlypath.github.io/2022/03/27/P3515/">P3515</a>。</p>
 </li>
 </ol>
-<h1 id="三、2D1D-DP"><a href="#三、2D1D-DP" class="headerlink" title="三、2D1D DP"></a>三、2D1D DP</h1><ol>
+<h1 id="三、2D1D-DP"><a href="#三、2D1D-DP" class="headerlink" title="三、2D1D DP"></a>三、2D1D DP</h1><p>注意：取 $\max$ 时下面的东西都不能用。。。但一般这个时候能用贪心解决所以不要太担心。。。</p>
+<ol>
 <li><p>区间包含单调性：</p>
 <p> 对于任意 $a\le b\le c\le d$，都有 $w(a,d)\ge w(b,c)$，则称 $w$ 满足区间包含单调性。</p>
 </li>
 <li><p>定理：</p>
-<p> 对于 $f(i,j)&#x3D;\min_{k&#x3D;i}^{j-1}{f(i,k)+f(k+1,j)}+w(i,j)$（满足 $f(i,i)&#x3D;w(i,i)&#x3D;0$），若 $w$ 满足：</p>
+<p> 对于 $f(i,j)&#x3D;\min_{k&#x3D;i}^{j-1}\{f(i,k)+f(k+1,j)\}+w(i,j)$（满足 $f(i,i)&#x3D;w(i,i)&#x3D;0$），若 $w$ 满足：</p>
 <ul>
 <li>四边形不等式</li>
 <li>区间包含单调性</li>
@@ -5358,7 +5363,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> $$\begin{matrix}f(i,j+1)+f(i+1,j)\ge f(i,j)+f(i+1,j+1)&amp;\square \end{matrix}$$</p>
 </li>
 <li><p>二维决策单调性定理：</p>
-<p> 在状态转移方程 $f(i,j)&#x3D;\min_{i&#x3D;k}^{j-1}{f(i,k)+f(k+1,j)}+w(i,j)$（满足 $f(i,i)&#x3D;w(i,i)&#x3D;0$），记 $p(i,j)$ 为 $f(i,j)$ 取到最小值的时候 $k$ 的值，称 $p(i,j)$ 为 $f(i,j)$ 的最优决策点。</p>
+<p> 在状态转移方程 $f(i,j)&#x3D;\min_{k&#x3D;i}^{j-1}\{f(i,k)+f(k+1,j)\}+w(i,j)$（满足 $f(i,i)&#x3D;w(i,i)&#x3D;0$），记 $p(i,j)$ 为 $f(i,j)$ 取到最小值的时候 $k$ 的值，称 $p(i,j)$ 为 $f(i,j)$ 的最优决策点。</p>
 <p> 若 $f$ 满足四边形不等式，那么对于任意 $i&lt;j$，有 $p(i,j-1)\le p(i,j)\le p(i+1,j)$。</p>
 <p> 证明：记 $p’&#x3D;p(i,j)$，对于任意 $i&lt;i+1\le k\le p’$ 因为 $f$ 满足四边形不等式：</p>
 <p> $$f(i,p’)+f(i+1,k)\ge f(i,k)+f(i+1,p’)$$</p>
@@ -5418,10 +5423,10 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <content><![CDATA[<p>[POI2011]Lightning Conductor</p>
 <p>分析一手这个东西：</p>
 <p>$$a_j\le a_i+p(i)-\sqrt{|i-j|}\Leftrightarrow p(i)\ge a_j-a_i+\sqrt{|i-j|}$$</p>
-<p>于是我们设 $f(i)&#x3D;\max_{j\in [1,n]}{a_j-a_i+\sqrt{|i-j|}}$，则 $p(i)&#x3D;\lceil f(i)\rceil$。</p>
+<p>于是我们设 $f(i)&#x3D;\max_{j\in [1,n]}\{a_j-a_i+\sqrt{|i-j|}\}$，则 $p(i)&#x3D;\lceil f(i)\rceil$。</p>
 <p>然后这个绝对值很烦人，我们想办法给它分类讨论掉。</p>
 <p>不妨设 $j\le i$，那么就有：</p>
-<p>$$f(i)&#x3D;\max_{j&#x3D;1}^{i}{a_j-a_i+\sqrt{i-j}}$$</p>
+<p>$$f(i)&#x3D;\max_{j&#x3D;1}^{i}\{a_j-a_i+\sqrt{i-j}\}$$</p>
 <p>此时我们设权函数 $w(j,i)&#x3D;a_j-a_i+\sqrt{i-j}$，尝试证明其满足四边形不等式。</p>
 <p>即证明：$w(i,j+1)+w(i+1,j)\le w(i,j)+w(i+1,j+1)$。</p>
 <p>代入我们权函数的定义式，并消去相同项，我们需要证：</p>
@@ -5439,13 +5444,13 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$f’(x)&#x3D;\dfrac{1}{2\sqrt{x+1}}-\dfrac{1}{2\sqrt{x}}&lt;0$$</p>
 <p>所以说这玩意就是单调递减的。</p>
 <p>证明其满足四边形不等式之后，我们回到 $f$ 的定义：</p>
-<p>$$f(i)&#x3D;\max_{j&#x3D;1}^{i}{w(j,i)}$$</p>
+<p>$$f(i)&#x3D;\max_{j&#x3D;1}^{i}\{w(j,i)\}$$</p>
 <p>由决策单调性定理（的推广），得到 $f(i)$ 满足决策单调性。</p>
 <p>然后我们要做的就是如何利用决策单调性来优化，这里使用分治。</p>
 <p>具体讲一下流程：假设 $f(x)$（$x\in [l,r]$）的最优决策点在 $[k_l,k_r]$，这个时候我们设 $mid&#x3D;(l+r)&#x2F;2$，暴力求出 $mid$ 的决策点 $k$，根据决策单调性将区间分成 $[l,mid-1]$ 和 $[mid+1,r]$ 两段，其最优决策点所在的区间分别为 $[kl,k]$ 和 $[k,kr]$。</p>
 <p>用一下主定理就能知道这个复杂度是对的。。。</p>
 <p>反过来的话像上面一样推就好了，仍然可以得到：</p>
-<p>$$f(i)&#x3D;\max_{j&#x3D;n}^{i}{w’(i,j)}$$</p>
+<p>$$f(i)&#x3D;\max_{j&#x3D;n}^{i}\{w’(i,j)\}$$</p>
 <p>其中 $f(i)$ 是满足决策单调性的，且决策点随 $i$ 的减小而减小。</p>
 <p>时间复杂度 $O(n\log n)$。</p>
 <p>代码：</p>
@@ -5455,6 +5460,40 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>四边形不等式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P1880</title>
+    <url>/2022/03/28/P1880/</url>
+    <content><![CDATA[<p>[NOI1995] 石子合并</p>
+<p>取 $\min$ 就是一般的四边形不等式分析。</p>
+<p>我们有 $p(i,j-1)\le p(i,j)\le p(i+1,j)$。所以在这个范围内枚举决策点即可。</p>
+<p>时间复杂度：</p>
+<p>$$\begin{aligned}<br>T(n)&amp;&#x3D; O\left(\sum_{l&#x3D;1}^{n-1}\sum_{r&#x3D;l+1}^{n}(p(l+1,r)-p(l,r-1)+1)\right)<br>\\<br>&amp; &#x3D; O\left(\sum_{i&#x3D;1}^{n}(p(l+1,n)-p(1,n-i)+n-i)\right)<br>\\<br>&amp;&#x3D; O(n^2)<br>\end{aligned}$$</p>
+<p>第二行那个推导有点难搞，一个深必的方法是把二维的求和拆开，然后把相同的项消去，观察一下得到。</p>
+<p>取 $\max$ 的话不能用四边形不等式。。。</p>
+<p>但实际上我们根本就不需要 DP 来做这一问鸭。</p>
+<p>稍微动一下脑子就能知道可以贪心，最大值一定是以两端为决策点的某一端取到的。</p>
+<p>所以最后总的复杂度还是 $O(n^2)$ 的。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e3</span>;</span><br><span class="line"></span><br><span class="line">ll n,ans1,ans2;</span><br><span class="line">ll a[N+<span class="number">5</span>],c[N+<span class="number">5</span>];</span><br><span class="line">ll f[N+<span class="number">5</span>][N+<span class="number">5</span>],g[N+<span class="number">5</span>][N+<span class="number">5</span>],p[N+<span class="number">5</span>][N+<span class="number">5</span>],p_[N+<span class="number">5</span>][N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    a[i]=a[i+n]=<span class="built_in">read</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=<span class="number">2</span>*n;i++) &#123;c[i]=c[i<span class="number">-1</span>]+a[i];&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=<span class="number">2</span>*n<span class="number">-1</span>;i++) &#123;</span><br><span class="line">    f[i][i+<span class="number">1</span>]=c[i+<span class="number">1</span>]-c[i<span class="number">-1</span>];g[i][i+<span class="number">1</span>]=c[i+<span class="number">1</span>]-c[i<span class="number">-1</span>];</span><br><span class="line">    p[i][i+<span class="number">1</span>]=i;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll x=<span class="number">3</span>;x&lt;=n;x++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i+x<span class="number">-1</span>&lt;=<span class="number">2</span>*n;i++) &#123;</span><br><span class="line">      ll j=i+x<span class="number">-1</span>;ll k=p[i][j<span class="number">-1</span>];</span><br><span class="line">      f[i][j]=f[i][k]+f[k+<span class="number">1</span>][j]+c[j]-c[i<span class="number">-1</span>];</span><br><span class="line">      p[i][j]=k;</span><br><span class="line">      <span class="keyword">for</span>(ll k=p[i][j<span class="number">-1</span>]+<span class="number">1</span>;k&lt;=p[i+<span class="number">1</span>][j];k++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(f[i][k]+f[k+<span class="number">1</span>][j]+c[j]-c[i<span class="number">-1</span>]&lt;f[i][j]) &#123;</span><br><span class="line">          f[i][j]=f[i][k]+f[k+<span class="number">1</span>][j]+c[j]-c[i<span class="number">-1</span>];</span><br><span class="line">          p[i][j]=k;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      g[i][j]=<span class="built_in">max</span>(g[i+<span class="number">1</span>][j]+c[j]-c[i<span class="number">-1</span>],g[i][j<span class="number">-1</span>]+c[j]-c[i<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ans1=f[<span class="number">1</span>][n];ans2=g[<span class="number">1</span>][n];</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n+<span class="number">1</span>;i++) &#123;</span><br><span class="line">    ans1=<span class="built_in">min</span>(ans1,f[i][i+n<span class="number">-1</span>]);ans2=<span class="built_in">max</span>(ans2,g[i][i+n<span class="number">-1</span>]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">writeln</span>(ans1);<span class="built_in">writeln</span>(ans2);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>四边形不等式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tex_Problem</title>
+    <url>/2022/03/28/Tex-Problem/</url>
+    <content><![CDATA[<p>什么玩意？？？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">为了保证文章安全只能放在代码框里了/kk。。。</span><br><span class="line"></span><br><span class="line">本来这个博客我是想用 $MathJax$ 这类东西的。。。</span><br><span class="line"></span><br><span class="line">但奈何一用 $MathJax$ 博客就崩，退而求其次就用了稍微差一些的 $\KaTeX$。。。</span><br><span class="line"></span><br><span class="line">但是这个东西真的锅巨多。。。</span><br><span class="line"></span><br><span class="line">稍微罗列一下，方便以后书写公式：</span><br><span class="line"></span><br><span class="line">1. 在 $$ 中使用 \\\\ 换行，而不是 \\。（猜测原因：会把 \\ 识别成 \）</span><br><span class="line"></span><br><span class="line">2. \&#123; 要写成 \\&#123;。（原因：大概同上）</span><br><span class="line"></span><br><span class="line">3. B_*^2 无法渲染，但是 B^2_* 可以。（好像与 * 有关的公式渲染多多少少都有些问题；原因：未知）</span><br><span class="line"></span><br><span class="line">4. (f*g)_i 这类公式无法渲染，勉强使用 \tiny&#123;i&#125; 企图蒙混过关。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">5. 公式会被空白遮挡。（尚无解决方案，原因：猜测是 $\KaTeX$ 对公式的高度计算出现问题）</span><br><span class="line"></span><br><span class="line">6. Markdown 对不齐。。。（应该不是 $\KaTeX$ 的问题。。。解决方案：使用 4 空格缩进）</span><br><span class="line"></span><br><span class="line">7. \not = 在一定条件下渲染会崩。（解决方案：使用 \ne；原因：未知）</span><br><span class="line"></span><br><span class="line">8. \mathscr 有时候渲染会崩掉。。。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">9. 字体内使用上下标。。。否则渲染会崩。示例：\mathbf&#123;f^x&#125;(x)。（原因：未知）</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
       </tags>
   </entry>
 </search>
