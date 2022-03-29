@@ -1498,14 +1498,64 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <content><![CDATA[<h1 id="0x01-基础使用"><a href="#0x01-基础使用" class="headerlink" title="0x01 基础使用"></a>0x01 基础使用</h1><p><code>Ctrl+Alt+T</code> 召唤终端。</p>
 <p>新建文件的指令是 <code>touch+文件名</code> 。</p>
 <h1 id="0x02-VSCode-的使用技巧"><a href="#0x02-VSCode-的使用技巧" class="headerlink" title="0x02 VSCode 的使用技巧"></a>0x02 VSCode 的使用技巧</h1><p>现在给一些在英文环境下使用 VSC 的指北。</p>
-<p>左下角有一个设置按钮，点开，第二行的 Settings。</p>
-<p>然后点第一行 Text Editor，再点第三行 Font，选择 Font Size，选择至合适大小（这里在 Windows 下 30 比较合适）。</p>
-<p>然后是 Text Editor 下倒数第三行的 Minimap，Maxcolumn 调整为 240（差不多罢），然后下面的 Scale 调整为 3。</p>
-<p>大概可以了，在 NOI Linux 的环境下应该可以较为正常的使用了。</p>
-<p>然后 VSC 里撤销是 <code>Ctrl+Z</code>，恢复上一步操作是 <code>Ctrl+Shift+Z</code>。</p>
-<p>VSCode 里 <code>shift+&#123;</code> 可以把选中的内容套上大括号，小括号同理，方括号不行。</p>
-<p><code>Ctrl+&#123;</code> 可以减去区域的整体缩进，<code>Ctrl+&#125;</code> 可以增加区域的整体缩进。</p>
-<p>在底边栏中可以调整缩进是空格还是真的缩进。</p>
+<ol>
+<li><p>预先配置：</p>
+<p> 左下角有一个设置按钮，点开，第二行的 Settings。</p>
+<p> 然后点第一行 Text Editor，再点第三行 Font，选择 Font Size，选择至合适大小（这里在 Windows 下 30 比较合适）。</p>
+<p> 然后是 Text Editor 下倒数第三行的 Minimap，Maxcolumn 调整为 240（差不多罢），然后下面的 Scale 调整为 3。</p>
+<p> 然后右下角空格缩进 4 改为 2。</p>
+<p> 大概可以了，在 NOI Linux 的环境下应该可以较为正常的使用了。</p>
+</li>
+<li><p>基础快捷键：</p>
+<p> 然后 VSC 里撤销是 <code>Ctrl+Z</code>，恢复上一步操作是 <code>Ctrl+Shift+Z</code>。</p>
+<p> VSCode 里 <code>shift+&#123;</code> 可以把选中的内容套上大括号，小括号同理，方括号不行。</p>
+<p> <code>Ctrl+&#123;</code> 可以减去区域的整体缩进，<code>Ctrl+&#125;</code> 可以增加区域的整体缩进。</p>
+</li>
+<li><p>终端打开：</p>
+<p> 有两种方法，一种是 <code>Ctrl+~</code> 可以打开 VSC 内的一个控制系统的终端，不好的地方在于需要 <code>cd</code> 文件夹，除非考场上直接把选手文件夹建在主文件夹，这个东西有一点费事。</p>
+<p> 还有一种是直接 <code>Ctrl+Shift+C</code>，直接打开一个文件下的终端，比较爽。</p>
+</li>
+<li><p>行内操作：</p>
+<p> 删除当前行：<code>Ctrl+Shift+K</code>。</p>
+<p> 移动当前行：<code>Alt+Up/Down</code>。</p>
+<p> 复制粘贴行：<code>Ctrl+C Ctrl+V</code>，注意这个真的会覆盖剪切板。</p>
+<p> 剪切一行：<code>Ctrl+X</code>。</p>
+<p> 跳到指定行：<code>Ctrl+G</code>，如果用鼠标的话当我没说，想用这个快速换行可以实时调整（？）。</p>
+<p> 在上面插入一行：<code>Ctrl+Shift+Enter</code>。</p>
+<p> 在下面插入一行：<code>Ctrl+Enter</code>。</p>
+<p> 折叠行：<code>Ctrl+Shift+&#123;</code>。</p>
+<p> 展开行：<code>Ctrl+Shift+&#125;</code>。</p>
+<p> 自动换行：<code>Alt+Z</code>，不会真的换行，只是更改显示。</p>
+</li>
+<li><p>编辑器视图相关：</p>
+<p> 关闭当前视图：<code>Ctrl+W</code>。</p>
+<p> 拆分视图：<code>Ctrl+\</code>，向左拆分的，好像用处不大。</p>
+<p> 切换编辑器视图：<code>Alt+数字</code>。</p>
+<p> 切换组：<code>Ctrl+数字</code>。</p>
+<p> 切换视图的水平&#x2F;垂直布局：实在想换还是拿鼠标方便&#x2F;ts。</p>
+<p> 放大和缩小（好像很智障）：<code>Ctrl+ +/-</code>。</p>
+<p> 平常写博客要把预览关掉的话可以先 <code>Ctrl+k v</code>，然后把视图 <code>Ctrl+W</code> 掉。。。</p>
+</li>
+<li><p>查找搜索相关：</p>
+<p> 替换：<code>Ctrl+H</code>，退出的话点 <code>Esc</code>。</p>
+<p> 查找下一个：<code>F3</code>。</p>
+<p> 查找上一个：<code>Shift+F3</code>。</p>
+<p> 切换区分使用大小写：<code>Alt+C</code>。</p>
+</li>
+<li><p>选择：</p>
+<p> 一般选择：<code>Shift+U/D/L/R</code>。</p>
+<p> 选择单词：<code>Ctrl+Shift+Left/Right</code>。</p>
+<p> 选择整行：<code>Alt+Shift+Right+Right</code>。</p>
+<p> 删除单词：<code>Ctrl+Backspace</code>。</p>
+<p> 删除当前行中光标后的东西：<code>Ctrl+Del</code>。</p>
+<p> 快速复制并粘贴当前行的东西到下一行：<code>Alt+Shift+Down</code></p>
+<p> 选中所有相同的匹配项：<code>Ctrl+F2</code>。</p>
+<p> 选择后复制到行上：<code>Shift+Alt+Up</code>。</p>
+<p> 选择后复制到行下：<code>Shift+Alt+Down</code>。</p>
+<p> 退回到上一个光标的位置：<code>Ctrl+U</code>。</p>
+<p> 很可惜没有找到使用键盘快速移动光标的方法（想要至少能赶上鼠标滚轮的速度&#x2F;kk，不然使用 <code>Ctrl+G</code> 实际上还是有一点鸡肋）。</p>
+</li>
+</ol>
 <h1 id="0x03-gdb-的相关使用"><a href="#0x03-gdb-的相关使用" class="headerlink" title="0x03 gdb 的相关使用"></a>0x03 gdb 的相关使用</h1><p>然后再补充一些指令，以及 gdb 的使用。</p>
 <p><code>time ./code</code> 可以在运行的同时显示运行所需的时间。</p>
 <p>gdb 最强大的地方在于可以快速找到段错误（除 0，数组越界，爆栈等），我们可以直接在 gdb 下运行，然后就可以直接给你返回出错的地方。</p>
@@ -1533,6 +1583,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>学校 hwc 机房里的 MinGW 居然是 1999 年的令我大为震撼，这时指令只可以使用 <code>gcc</code>。</p>
 <p>然后 Win7 的路径修改还和 Win10 不太相同，其实就是多一个 <code>;</code> 隔开每一条路径而已。</p>
 <p>另外，一定注意编译的路径是英文的，千万不能有中文符号，否则编译一次真的可以爽上一年。</p>
+<h1 id="0x05-Windows-日常操作指北"><a href="#0x05-Windows-日常操作指北" class="headerlink" title="0x05 Windows 日常操作指北"></a>0x05 Windows 日常操作指北</h1><p>打开文件资源管理器：<code>Win+R explorer.exe</code>，然后上下键或者直接键入首字母都是可以的。</p>
+<p>退回上一级文件：<code>Alt+Left</code>，下一级就是 <code>Alt+Right</code>。</p>
+<p>删除文件可以直接 <code>Del</code>。</p>
+<p>重命名文件可以直接 <code>F2</code>（不知道这玩意曾经把我累死过一次。。。）。</p>
+<p>反正能少用不少次鼠标&#x2F;ts。</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -5494,6 +5549,102 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>LaTeX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P6619</title>
+    <url>/2022/03/29/P6619/</url>
+    <content><![CDATA[<p>[省选联考 2020 A&#x2F;B 卷] 冰火战士</p>
+<p>应该是没有办法直接用线段树维护这类最大值最小的信息的。。。</p>
+<p>所以该二分还是要二分。</p>
+<p>注意到这个冰系战士的能量都是后缀的形式，火系的能量都是前缀的形式。</p>
+<p>意味着冰系总能量随温度增加而增加，火系总能量随温度增加而降低。</p>
+<p>很显然这个最佳温度大概就在这两个函数的交点。</p>
+<p>我们可以通过能量差的正负来进行二分。</p>
+<p>这里采用树状数组上二分的技巧，类似倍增，实际上也就是倍增。。。</p>
+<p>然后我们找到温度 $p$ 是能量差为非正的最大值，显然 $p+1$ 也有可能是答案。</p>
+<p>于是我们比较 $p$ 和 $p+1$ 处哪个更优，如果 $p$ 更优，不用想就可以直接输出了；反之比较麻烦，因为 $p+1$ 不一定是最大的最佳温度，所以我们要再次二分找到这个最大的最佳温度。</p>
+<p>找到这个最大的最佳温度的二分可以通过火系的能量来判断，我们要找的就是火系总能量不低于我们现有答案，并且温度最高的温度。</p>
+<p>找到后输出就完了。</p>
+<p>时间复杂度 $O(n\log n)$。</p>
+<p>虽然我严重怀疑只要卡卡常数 $O(n\log^2 n)$ 也可以搞过去。。。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writes</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">32</span>);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">2e6</span>;</span><br><span class="line"></span><br><span class="line">ll n,amt;</span><br><span class="line">ll uq[N+<span class="number">5</span>],c0[N+<span class="number">5</span>],c1[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Qry</span>&#123;</span>ll op,t,x,y;&#125;q[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add0</span><span class="params">(ll x,ll y)</span> </span>&#123;<span class="keyword">for</span>(;x&lt;=amt;x+=x&amp;-x) c0[x]+=y;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Ask0</span><span class="params">(ll x)</span> </span>&#123;ll r=<span class="number">0</span>;<span class="keyword">for</span>(;x;x-=x&amp;-x) r+=c0[x];<span class="keyword">return</span> r;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add1</span><span class="params">(ll x,ll y)</span> </span>&#123;<span class="keyword">for</span>(;x&lt;=amt;x+=x&amp;-x) c1[x]+=y;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Ask1</span><span class="params">(ll x)</span> </span>&#123;ll r=<span class="number">0</span>;<span class="keyword">for</span>(;x;x-=x&amp;-x) r+=c1[x];<span class="keyword">return</span> r;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    q[i].op=<span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">if</span>(q[i].op==<span class="number">1</span>) &#123;</span><br><span class="line">      q[i].t=<span class="built_in">read</span>();q[i].x=<span class="built_in">read</span>();q[i].y=<span class="built_in">read</span>();uq[++amt]=q[i].x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;q[i].t=<span class="built_in">read</span>();&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">sort</span>(uq+<span class="number">1</span>,uq+amt+<span class="number">1</span>);amt=<span class="built_in">unique</span>(uq+<span class="number">1</span>,uq+amt+<span class="number">1</span>)-uq;uq[amt]=uq[amt<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(q[i].op==<span class="number">1</span>) &#123;q[i].x=<span class="built_in">lower_bound</span>(uq+<span class="number">1</span>,uq+amt+<span class="number">1</span>,q[i].x)-uq;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(q[i].op==<span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span>(q[i].t==<span class="number">0</span>) &#123;<span class="built_in">Add0</span>(q[i].x,q[i].y);<span class="built_in">Add0</span>(amt,-q[i].y);&#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;<span class="built_in">Add1</span>(q[i].x+<span class="number">1</span>,-q[i].y);<span class="built_in">Add1</span>(<span class="number">1</span>,q[i].y);&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(q[q[i].t].t==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">Add0</span>(q[q[i].t].x,-q[q[i].t].y);</span><br><span class="line">        <span class="built_in">Add0</span>(amt,q[q[i].t].y);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;<span class="built_in">Add1</span>(q[q[i].t].x+<span class="number">1</span>,q[q[i].t].y);<span class="built_in">Add1</span>(<span class="number">1</span>,-q[q[i].t].y);&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll p=<span class="number">0</span>,s0=<span class="number">0</span>,s1=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">20</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">      ll tmp=p+(<span class="number">1ll</span>&lt;&lt;i);<span class="keyword">if</span>(tmp&gt;amt) <span class="keyword">continue</span>;</span><br><span class="line">      ll delta=s0-s1+c0[tmp]-c1[tmp];</span><br><span class="line">      <span class="keyword">if</span>(delta&lt;<span class="number">0</span>) &#123;p=tmp;s0+=c0[tmp];s1+=c1[tmp];&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll w1=<span class="built_in">min</span>(<span class="built_in">Ask0</span>(p),<span class="built_in">Ask1</span>(p)),w2=<span class="built_in">min</span>(<span class="built_in">Ask0</span>(p+<span class="number">1</span>),<span class="built_in">Ask1</span>(p+<span class="number">1</span>));</span><br><span class="line">    <span class="keyword">if</span>(w1&lt;=<span class="number">0</span>&amp;&amp;w2&lt;=<span class="number">0</span>) &#123;<span class="built_in">printf</span>(<span class="string">&quot;Peace\n&quot;</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">    <span class="keyword">if</span>(w1&gt;w2) &#123;<span class="built_in">writes</span>(uq[p]);<span class="built_in">writeln</span>(w1*<span class="number">2</span>);<span class="keyword">continue</span>;&#125;</span><br><span class="line">    p=<span class="number">0</span>;s1=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">20</span>;i&gt;=<span class="number">0</span>;i--) &#123;</span><br><span class="line">      ll tmp=p+(<span class="number">1ll</span>&lt;&lt;i);<span class="keyword">if</span>(tmp&gt;amt) <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">if</span>(s1+c1[tmp]&gt;=w2) &#123;p=tmp;s1+=c1[tmp];&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">writes</span>(uq[p]);<span class="built_in">writeln</span>(w2*<span class="number">2</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>树状数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basis</title>
+    <url>/2022/03/29/Basis/</url>
+    <content><![CDATA[<p><del>琪露诺的完美小学数学教室。</del></p>
+<p><del>バカバカ。</del></p>
+<p><del>我为什么要写这种 sb 的东西。。。</del></p>
+<p><del>我为什么这么 sb。</del></p>
+<ol>
+<li><p>《具 体 数 学》</p>
+</li>
+<li><p>有 手 就 行：</p>
+<ul>
+<li><p>求导链式法则：</p>
+<p>  $$\begin{aligned}<br>  \dfrac{\delta}{\delta x}f(g(x))&#x3D;\dfrac{\delta g(x)}{\delta x}\dfrac{\delta}{\delta g(x)}f(g(x))<br>  \end{aligned}$$</p>
+</li>
+<li><p>积分链式法则：</p>
+<p>  $$\int f’(g(x))g’(x)\delta x&#x3D;f(g(x))+C$$</p>
+</li>
+<li><p>分部积分：</p>
+<p>  $$\int f’(x)g(x)\delta x+\int f(x)g’(x)\delta x&#x3D;f(x)g(x)$$</p>
+</li>
+<li><p>洛必达：</p>
+<p>  $$\lim_{x\to a}\dfrac{f(x)}{g(x)}&#x3D;\lim_{x\to a}\dfrac{f’(x)}{g’(x)}$$</p>
+</li>
+<li><p>泰勒展开与麦克劳林级数：</p>
+<p>  $$<br>  f(x)&#x3D;\sum_{i&#x3D;0}^{\infty}\dfrac{f^{(i)}(a)}{i!}(x-a)^i<br>  $$</p>
+</li>
+</ul>
+</li>
+<li><p>关于这个：</p>
+<p> $$\begin{aligned}<br> \sum_{i&#x3D;1}^{n}i^2 &amp;&#x3D; \dfrac{n(n+1)(2n+1)}{6}<br> \\ &amp;&#x3D; \binom{n+2}{3}+\binom{n+1}{3}<br> \\<br> &amp;&#x3D; \dfrac{1}{4}\binom{2n+2}{3}<br> \\<br> &amp;&#x3D; n\binom{n+1}{2}-\binom{n+1}{3}<br> \end{aligned}$$</p>
+<p> 证明：</p>
+<ul>
+<li><p>法一：归纳法。略（你都记住这个结论了还归纳证个球啊）。</p>
+</li>
+<li><p>法二：利用一个 $(n+1)^3&#x3D;n^3+3n^2+3n+1$。</p>
+<p>  考虑作差，就能得到：</p>
+<p>  $$\begin{aligned}<br>  \sum_{i&#x3D;1}^{n}[(i+1)^3-i^3]<br>  &amp; &#x3D; (n+1)^3-1<br>  \\<br>  &amp;&#x3D; n^3+3n^2+3n<br>  \end{aligned}$$</p>
+<p>  而我们又知道：</p>
+<p>  $$\begin{aligned}<br>  \sum_{i&#x3D;1}^{n}[(i+1)^3-i^3]<br>  &amp;&#x3D; \sum_{i&#x3D;1}^{n} (3i^2+3i+1)<br>  \\<br>  &amp;&#x3D; 3\sum_{i&#x3D;1}^{n}i^2+3\sum_{i&#x3D;1}^{n}i+n<br>  \\<br>  &amp;&#x3D; 3\sum_{i&#x3D;1}^{n}i^2+\dfrac{3n(n+1)}{2}+n<br>  \end{aligned}$$</p>
+<p>  我们设 $S&#x3D;\sum_{i&#x3D;1}^ni^2$，联立上面两个等式：</p>
+<p>  $$3S+\dfrac{3n(n+1)}{2}+n&#x3D;n^3+3n^2+3n$$</p>
+<p>  解一下就是：</p>
+<p>  $$S&#x3D;\dfrac{n^3}{3}+\dfrac{n^2}{2}+\dfrac{n}{6}$$</p>
+<p>  这个式子和那个因式分解的式子是等价的。想要得到那个饮食分解的式子并不需要什么技巧，只需要你会简单的十字相乘就可以了。</p>
+</li>
+</ul>
+<p> 我只是单纯地把组合数的式子从百度上抄了下来，然而我并不想去证这个东西。。。</p>
+<p> 这个式子实际上是冯哈伯公式的特殊情况，和伯努利数有一点关系，这里就略了。。。</p>
+</li>
+<li><p>主定理：<a href="https://www.luogu.com.cn/blog/154279/master-theorem-yu-shi-jian-fu-za-du-fen-xi">懒了</a>。</p>
+</li>
+<li><p>求约数个数（听起来就很 sb）：</p>
+<p> $$Ans&#x3D;\prod_{i&#x3D;1}^{m}(c_i+1)$$</p>
+</li>
+<li><p>直线分割：</p>
+</li>
+<li><p>裂项事实：</p>
+</li>
+<li><p>循环小数相关：</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
       </tags>
   </entry>
 </search>
