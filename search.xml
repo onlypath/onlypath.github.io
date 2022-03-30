@@ -5651,6 +5651,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>P5356</title>
     <url>/2022/03/30/P5356/</url>
     <content><![CDATA[<p>[Ynoi2017] 由乃打扑克</p>
+<p>提供一组 <a href="https://www.luogu.com.cn/paste/wmesmy1v">样例</a>。</p>
 <p>这题比较好想的一个做法是分块，然后二分答案，然后再在每个块上二分得到排名，零散块每次 <code>Check</code> 的时候都扫一遍。修改的时候直接快速排序来重构零散块。</p>
 <p>稍微算一算时间复杂度大概是 $O(\dfrac{n^2}{T}\log T\log n+nT\log n)$。</p>
 <p>平衡不会算，随便取个 $T&#x3D;\sqrt{n}$ 的话大概是 $O(n\sqrt{n}\log^2 n)$。如果 $T&#x3D;\sqrt{n\log n}$ 的话可能会优秀一点？ </p>
@@ -5699,7 +5700,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>这里每条蓝色的线段表示在这个时间对序列进行了操作。</p>
 <p>然后我们的每个询问实际上就是针对平面上的某个竖直向上的射线的信息的询问。</p>
 <p>我不太好解释这个东西&#x2F;kk。</p>
-<p>现在我们扫描线扫到了一个位置 $x$，它对应序列轴上横坐标为 $x$ 的竖直线，表示现在我们要对 $p&#x3D;x$ 的所有询问进行集中处理。</p>
+<p>假设现在我们扫描线扫到了一个位置 $x$，它对应序列轴上横坐标为 $x$ 的竖直线，表示现在我们要对 $p&#x3D;x$ 的所有询问进行集中处理。</p>
 <p>询问的就是该点在时间 $i-1$ 及之前（一直到 0）数值上大于等于 $y$ 的秒数，对应到这个平面上就是扫描线纵坐标小于等于 $i-1$ 的那一段中，统计一下这个大于等于 $y$ 的数的个数即可。</p>
 <p>每次扫之前我们要先把红线和粉线进行操作，即在平行于扫描线的时间序列上加或减操作的数。</p>
 <p>现在问题来了，我们一般的扫描线是线段树，似乎很难处理这类询问大于等于 $y$ 的数的个数之类的问题。。。</p>
@@ -5714,6 +5715,35 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>扫描线</tag>
         <tag>分块</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CF1657E</title>
+    <url>/2022/03/30/CF1657E/</url>
+    <content><![CDATA[<p>Star MST</p>
+<p>这个场一大堆 DP，我还都不会做&#x2F;kk。。。</p>
+<p>首先我们需要知道一个性质，对于一张菊花图，要想满足菊花图的最小的生成树，其他不与 1 相连的边 $(u,v)$ 必须满足：</p>
+<p>$$\begin{cases}<br>w(1,u)+w(u,v)\ge w(1,v)+w(1,u)<br>\\<br>w(1,v)+w(u,v)\ge w(1,u)+w(1,v)<br>\end{cases}$$</p>
+<p>即满足不管替换哪一条路径 $w(u,v)$ 都不会更优，上面的方程解一下就是 $w(u,v)\ge \max\{w(1,u),w(1,v)\}$。容易明白这个条件是充要的。</p>
+<p>那么现在着手 DP。</p>
+<p>定义状态 $f(i,j)$，表示已经定好了前 $i$ 个点和它们的连边，其中与 1 相连的边权最大为 $j$，一共有多少种方案。</p>
+<p>那么我们考虑转移，我们的一个阶段显然是选择 $p$ 个点与 1 的连边边权是 $j$，不妨直接选择 $p$ 个点与 1 的连边权小于 $j$，并考虑从 $f(p,x)$（$x&lt;j$）转移。</p>
+<p>很容易想到我们选择点的方案数是 $\binom{n-p}{i-p}$ 的（从剩下的 $n-p$ 个点选 $i-p$ 个点与 1 相连边权为 $j$）。</p>
+<p>很容易想到连边的边数是 $t&#x3D;(i-p)(p-1)+(i-p)(i-p-1)&#x2F;2&#x3D;(i-p)(i+p-3)&#x2F;2$ 的（即这 $i-p$ 个点与除了 1 的前面的点的连边边权大于 $j$，这 $i-p$ 个点之间相互连边的边权大于 $j$）。</p>
+<p>那么我们连边的方案数也就很显然了：$(k-j+1)^t$。</p>
+<p>然后我们就有了转移方程：</p>
+<p>$$f(i,j)&#x3D;\sum_{p&#x3D;1}^{i-1}\left[\left(\sum_{x&#x3D;0}^{j-1}f(p,x)\right)\binom{n-p}{i-p}(k-j+1)^{(i+p-3)(i-p)&#x2F;2}\right]$$</p>
+<p>这个 $\sum_{x&#x3D;0}^{j-1}f(p,x)$ 可以预处理，$\binom{n-p}{i-p}$ 可以预处理，$(k-j+1)^{(i+p-3)(i-p)&#x2F;2}$ 可以快速幂或者光速幂。</p>
+<p>初始状态 $f(1,0)&#x3D;1$。</p>
+<p>最后的答案是 $\sum_{i&#x3D;1}^kf(n,i)$。</p>
+<p>时间复杂度 $O(n^2k\log n)$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">3e2</span>,mo=<span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line">ll n,k;</span><br><span class="line">ll comb[N+<span class="number">5</span>][N+<span class="number">5</span>],c[N+<span class="number">5</span>][N+<span class="number">5</span>],f[N+<span class="number">5</span>][N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(ll b,ll p)</span> </span>&#123;</span><br><span class="line">  ll res=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) res=res*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=n||i&lt;=k;i++) &#123;</span><br><span class="line">    comb[i][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=i;j++) &#123;</span><br><span class="line">      comb[i][j]=(comb[i<span class="number">-1</span>][j]+comb[i<span class="number">-1</span>][j<span class="number">-1</span>])%mo;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();k=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  f[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=k;i++) c[<span class="number">1</span>][i]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=k;j++) &#123;</span><br><span class="line">      <span class="keyword">for</span>(ll p=<span class="number">1</span>;p&lt;i;p++) &#123;</span><br><span class="line">        ll tmp=c[p][j<span class="number">-1</span>];</span><br><span class="line">        tmp=tmp*comb[n-p][i-p]%mo;</span><br><span class="line">        ll tmp1=k-j+<span class="number">1</span>,tmp2=(i+p<span class="number">-3</span>)*(i-p)/<span class="number">2</span>;</span><br><span class="line">        tmp1=<span class="built_in">Pow</span>(tmp1,tmp2)%mo;</span><br><span class="line">        tmp=tmp*tmp1%mo;</span><br><span class="line">        f[i][j]=(f[i][j]+tmp)%mo;</span><br><span class="line">        c[i][j]=(c[i][j<span class="number">-1</span>]+f[i][j])%mo;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ll ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=k;i++) &#123;ans=(ans+f[n][i])%mo;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>DP</tag>
       </tags>
   </entry>
 </search>
