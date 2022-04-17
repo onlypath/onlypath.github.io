@@ -169,7 +169,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -223,6 +223,394 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/17/P5518/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/17/P5518/" class="post-title-link" itemprop="url">P5518</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-17 14:17:48 / 修改时间：16:06:06" itemprop="dateCreated datePublished" datetime="2022-04-17T14:17:48+08:00">2022-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTS/" itemprop="url" rel="index"><span itemprop="name">PTS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>[MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
+<p>出题人我 <code>*****</code>。</p>
+<p>推了整整六张 A4 纸。。。。</p>
+<p>考场上估计就直接寄了（因为每次要草稿纸必须要把旧草稿纸交上去才能拿新草稿纸）。。。</p>
+<p>做这个题不过就是复健一下。。。</p>
+<p>三问的关联不大，分开讲吧。</p>
+<hr>
+<p>当 $type&#x3D;0$ 时。</p>
+<p>这个问题实际上和 P3704 是一样的（或者说非常类似的）。</p>
+<p>这里我就偷懒不写每一步的具体解释了。</p>
+<p>$$<br>\begin{aligned}<br>Ans&amp;&#x3D;\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\prod_{k&#x3D;1}^{C}\dfrac{\operatorname{lcm}(i,j)}{\gcd(i,k)}<br>\\<br>&amp;&#x3D;\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\prod_{k&#x3D;1}^{C}\dfrac{ij}{\gcd(i,j)\gcd(i,k)}<br>\\<br>&amp;&#x3D;A!B!\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\dfrac{1}{\gcd(i,j)}\right)\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{C}\dfrac{1}{\gcd(i,k)}\right)<br>\end{aligned}<br>$$</p>
+<p>这个时候我们发现后面的两个因式的结构是相似的，不妨将它们设为一个二元函数的形式：</p>
+<p>$$<br>\begin{aligned}<br>f(n,m)&amp;&#x3D;\prod_{i&#x3D;1}^{n}\prod_{j&#x3D;1}^{m}\dfrac{1}{\gcd(i,j)}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\prod_{i&#x3D;1}^{n}\prod_{j&#x3D;1}^{m}\left(\dfrac{1}{d}\right)^{[\gcd(i,j)&#x3D;d]}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}[\gcd(i,j)&#x3D;d]}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}\sum_{j&#x3D;1}^{\lfloor m&#x2F;d\rfloor}[\gcd(i,j)&#x3D;1]}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}\sum_{j&#x3D;1}^{\lfloor m&#x2F;d\rfloor}\sum_{k\mid i,k\mid j}\mu(k)}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{\sum_{k&#x3D;1}\mu(k)\lfloor n&#x2F;(kd)\rfloor\lfloor m&#x2F;(kd)\rfloor}<br>\end{aligned}<br>$$</p>
+<p>设 $T&#x3D;kd$，则 $k&#x3D;T&#x2F;d$，于是我们有：</p>
+<p>$$<br>f(n,m)&#x3D;\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)}\right)^{\lfloor n&#x2F;T\rfloor\lfloor m&#x2F;T\rfloor}<br>$$</p>
+<p>与 P3704 类似，我们设：</p>
+<p>$$<br>g(n)&#x3D;\prod_{d\mid n}\left(\dfrac{1}{d}\right)^{\mu(n&#x2F;d)}<br>$$</p>
+<p>然后我们可以类似埃氏筛的方法在 $O(n\ln n \log p)$ 的复杂度下求出 $g$。</p>
+<p>然后设一个前缀乘的函数：</p>
+<p>$$<br>c(n)&#x3D;\prod_{i&#x3D;1}^{n}g(i)<br>$$</p>
+<p>然后我们就可以对 $f(n,m)$ 数论分块求解，单次求 $f(n,m)$ 是 $O(\sqrt{n}\log p)$ 的。</p>
+<p>这里范围比较小，不用扩展欧拉定理也无所谓。</p>
+<p>最后：</p>
+<p>$$<br>Ans&#x3D;A!B!f(A,B)f(A,C)<br>$$</p>
+<p>求得第一小问答案的总复杂度是 $O(n\ln n\log p+T\sqrt{n}\log p)$ 的。</p>
+<hr>
+<p>当 $type&#x3D;1$ 时。</p>
+<p>实际上和上面的问题差别不大。</p>
+<p>$$<br>\begin{aligned}<br>Ans&amp;&#x3D;\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\prod_{k&#x3D;1}^{C}\left(\dfrac{\operatorname{lcm}(i,j)}{\gcd(i,k)}\right)^{ijk}<br>\\<br>&amp;&#x3D;\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\prod_{k&#x3D;1}^{C}\left(\dfrac{ij}{\gcd(i,j)\gcd(i,k)}\right)^{ijk}<br>\\<br>&amp;&#x3D;\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\prod_{k&#x3D;1}^{C}\left(\dfrac{1}{\gcd(i,j)}\right)^{ijk}\left(\dfrac{1}{\gcd(i,k)}\right)^{ijk}(i)^{ijk}(j)^{ijk}<br>\end{aligned}<br>$$</p>
+<p>看起来会有一大堆等差数列求和，可以提前设：</p>
+<p>$$<br>f(n)&#x3D;\sum_{i&#x3D;1}^{n}i&#x3D;\dfrac{n(n+1)}{2}<br>$$</p>
+<p>然后我们继续变形原式。</p>
+<p>$$<br>Ans&#x3D;\left(\prod_{i&#x3D;1}^{A}(i)^{if(B)f(C)}\right)\left(\prod_{j&#x3D;1}^{B}(j)^{jf(A)f(C)}\right)\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\left(\dfrac{1}{\gcd(i,j)}\right)^{ij}\right)^{f(C)}\left(\prod_{i&#x3D;1}^{A}\prod_{k&#x3D;1}^{C}\left(\dfrac{1}{\gcd(i,k)}\right)^{ik}\right)^{f(B)}<br>$$</p>
+<p>前面两个因式显然可以 $O(n\log p)$ 单次求解。当然需要用扩展欧拉定理缩小指数。</p>
+<p>后面两项的结构类似，我们同样设函数解决：</p>
+<p>$$<br>\begin{aligned}<br>g(n,m)&amp;&#x3D;\prod_{i&#x3D;1}^{n}\prod_{j&#x3D;1}^{m}\left(\dfrac{1}{\gcd(i,j)}\right)^{ij}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\prod_{i&#x3D;1}^{n}\prod_{j&#x3D;1}^{m}\left(\dfrac{1}{d}\right)^{[\gcd(i,j)&#x3D;d]ij}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}[\gcd(i,j)&#x3D;d]ij}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}\sum_{j&#x3D;1}^{\lfloor m&#x2F;d\rfloor}[\gcd(i,j)&#x3D;1]ijd^2}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{d^2\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}\sum_{j&#x3D;1}^{\lfloor m&#x2F;d\rfloor}\sum_{k\mid i,k\mid j}ij\mu(k)}<br>\\<br>&amp;&#x3D;\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{d^2\sum_{k&#x3D;1}\mu(k)k^2f(\lfloor n&#x2F;(kd)\rfloor)f(\lfloor m&#x2F;(kd)\rfloor)}<br>\\<br>&amp;&#x3D;\prod_{k&#x3D;1}\prod_{d&#x3D;1}\left(\dfrac{1}{d}\right)^{d^2\mu(k)k^2f(\lfloor n&#x2F;(kd)\rfloor)f(\lfloor m&#x2F;(kd)\rfloor)}<br>\end{aligned}<br>$$</p>
+<p>设 $T&#x3D;kd$，则 $k&#x3D;T&#x2F;d$，于是我们有：</p>
+<p>$$<br>\begin{aligned}<br>g(n,m)&amp;&#x3D;\prod_{T&#x3D;1}\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{d^2(T&#x2F;d)^2\mu(T&#x2F;d)f(\lfloor n&#x2F;T\rfloor)f(\lfloor m&#x2F;T\rfloor)}<br>\\<br>&amp;&#x3D;\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)}\right)^{T^2f(\lfloor n&#x2F;T\rfloor)f(\lfloor m&#x2F;T\rfloor)}<br>\end{aligned}<br>$$</p>
+<p>显然我们在 $type&#x3D;0$ 的时候有一个 $g$ 函数（和这个不一样）可以用在这里。</p>
+<p>然后我们单次求 $g(n,m)$ 是 $O(\sqrt{n}\log p)$ 的。同样需要用扩展欧拉定理降低指数。</p>
+<p>最后我们的答案就是：</p>
+<p>$$Ans&#x3D;\left(\prod_{i&#x3D;1}^{A}(i)^{if(B)f(C)}\right)\left(\prod_{j&#x3D;1}^{B}(j)^{jf(A)f(C)}\right)g(A,B)^{f(C)}g(A,C)^{f(B)}$$</p>
+<p>最后求得第二小问答案的总复杂度是 $O(n\ln n\log p+Tn\log p)$ 的。</p>
+<hr>
+<p>当 $type&#x3D;2$ 时。</p>
+<p>这个是最恶心的小问。</p>
+<p>$$<br>\begin{aligned}<br>Ans&#x3D;&amp;\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\prod_{k&#x3D;1}^{C}\left(\dfrac{\operatorname{lcm}(i,j)}{\gcd(i,k)}\right)^{\gcd(i,j,k)}<br>\\<br>&#x3D;&amp;<br>\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}(ij)^{\sum_{k&#x3D;1}^{C}\gcd(\gcd(i,j),k)}\right)<br>\\<br>&amp;\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}\left(\dfrac{1}{\gcd(i,j)}\right)^{\sum_{k&#x3D;1}^{C}\gcd(\gcd(i,j),k)}\right)<br>\\<br>&amp;\left(\prod_{i&#x3D;1}^{A}\prod_{k&#x3D;1}^{C}\left(\dfrac{1}{\gcd(i,k)}\right)^{\sum_{j&#x3D;1}^{B}\gcd(\gcd(i,k),j)}\right)<br>\end{aligned}<br>$$</p>
+<p>后两个因式的形式相似，看起来也好解决一点，于是我们设函数：</p>
+<p>$$<br>\begin{aligned}<br>f(a,b,c)&#x3D;&amp; \prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}\left(\dfrac{1}{\gcd(i,j)}\right)^{\sum_{k&#x3D;1}^{c}\gcd(\gcd(i,j),k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}\left(\dfrac{1}{d}\right)^{[gcd(i,j)&#x3D;d]\sum_{k&#x3D;1}^{c}\gcd(d,k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{[gcd(i,j)&#x3D;1]\sum_{k&#x3D;1}^{c}\gcd(d,k)}<br>\end{aligned}<br>$$</p>
+<p>看起来比较难以处理，但我们发现指数中的后面的式子是个基础题，我们单独把它抽成一个函数：</p>
+<p>$$<br>\begin{aligned}<br>g(n,m)&#x3D;&amp; \sum_{i&#x3D;1}^{n}\gcd(m,i)<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}\sum_{i&#x3D;1}^{n}[\gcd(m,i)&#x3D;d]d<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}[\gcd(m,i)&#x3D;1]d<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}d\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}\sum_{k\mid m,k\mid i}\mu(k)<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}d\sum_{k\mid m}\mu(k)\left\lfloor\dfrac{n}{kd}\right\rfloor<br>\end{aligned}<br>$$</p>
+<p>设 $T&#x3D;kd$，则 $d&#x3D;T&#x2F;k$，于是有：</p>
+<p>$$<br>\begin{aligned}<br>g(n,m)&#x3D;&amp;\sum_{T&#x3D;1}\sum_{k\mid m}\mu(k)\dfrac{T}{k}\left\lfloor\dfrac{n}{T}\right\rfloor<br>\\<br>&#x3D;&amp; \left(\sum_{T&#x3D;1}T\left\lfloor\dfrac{n}{T}\right\rfloor\right)<br>\left(\sum_{k\mid m}\dfrac{\mu(k)}{k}\right)<br>\end{aligned}<br>$$</p>
+<p>前面的那个因式可以 $O(n\sqrt{n})$ 预处理出对于所有 $n$ 的确切值。后面的因式同理也可以在 $O(n\sqrt{n})$ 下预处理出对于所有 $m$ 的确切值。然后单次求出 $g(n,m)$ 就是 $O(1)$ 的。</p>
+<p>然后我们把这个函数待会原式：</p>
+<p>$$<br>\begin{aligned}<br>f(a,b,c)<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{[gcd(i,j)&#x3D;1]g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{\sum_{k\mid i,k\mid j}\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\prod_{k\mid i,k\mid j}\left(\dfrac{1}{d}\right)^{\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp;\prod_{d&#x3D;1}\prod_{k&#x3D;1}\left(\dfrac{1}{d}\right)^{\mu(k)g(c,d)\lfloor a&#x2F;(kd)\rfloor\lfloor b&#x2F;(kd)\rfloor}<br>\end{aligned}<br>$$</p>
+<p>然后我们设 $T&#x3D;kd$，则 $k&#x3D;T&#x2F;d$，于是我们有：</p>
+<p>$$<br>f(a,b,c)&#x3D;\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor a&#x2F;T\rfloor\lfloor b&#x2F;T\rfloor}<br>$$</p>
+<p>中间那个因式的埃氏筛处理技巧应该不用我多说了，后面的指数同样需要扩展欧拉定理降低。</p>
+<p>于是单次求 $f(a,b,c)$ 就是 $O(\sqrt{n}\log p)$ 的了。</p>
+<p>我们回顾一下原式：</p>
+<p>$$<br>\begin{aligned}<br>Ans<br>&#x3D;&amp;<br>\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}(ij)^{\sum_{k&#x3D;1}^{C}\gcd(\gcd(i,j),k)}\right)f(A,B,C)f(A,C,B)<br>\end{aligned}<br>$$</p>
+<p>第一个因式还需要解决，于是设：</p>
+<p>$$<br>\begin{aligned}<br>h(a,b,c)&#x3D;&amp;\prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}(ij)^{\sum_{k&#x3D;1}^{c}\gcd(\gcd(i,j),k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}(ij)^{[\gcd(i,j)&#x3D;d]\sum_{k&#x3D;1}^{c}\gcd(d,k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}(ijd^2)^{[\gcd(i,j)&#x3D;1]g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}(ijd^2)^{\sum_{k\mid i,k\mid j}\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\prod_{k\mid i,k\mid j}(ijd^2)^{\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{k&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;(kd)\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;(kd)\rfloor}(ijk^2d^2)^{\mu(k)g(c,d)}<br>\end{aligned}<br>$$</p>
+<p>设 $T&#x3D;kd$，则 $k&#x3D;T&#x2F;d$，于是我们有：</p>
+<p>$$<br>\begin{aligned}<br>h(a,b,c)<br>&#x3D;&amp;\prod_{T&#x3D;1}\prod_{d\mid T}\prod_{i&#x3D;1}^{\lfloor a&#x2F;T\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;T\rfloor}(ijT^2)^{\mu(T&#x2F;d)g(c,d)}<br>\\<br>&#x3D;&amp; \left(\prod_{T&#x3D;1}\left(\prod_{d\mid T}(T^2)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor a&#x2F;T\rfloor\lfloor b&#x2F;T\rfloor}\right)<br>\\<br>&amp;\left(\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\left\lfloor\dfrac{a}{T}\right\rfloor!\right)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor b&#x2F;T\rfloor}\right)<br>\\<br>&amp;\left(\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\left\lfloor\dfrac{b}{T}\right\rfloor!\right)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor a&#x2F;T\rfloor}\right)<br>\end{aligned}<br>$$</p>
+<p>我真的不想再解释了。。。这三个因式都是可以 $O(\sqrt{n}\log p)$ 单次求取的。</p>
+<p>于是求得第三小问答案的总复杂度是 $O(n\sqrt{n}+n\ln n\log p+T\sqrt{n}\log p)$ 的。</p>
+<hr>
+<p>至此，三小问全部解决，问题以 $O(n\sqrt{n}+n\ln n\log p+Tn\log p)$ 的复杂度解决。</p>
+<p>代码真的很难写。。。要预处理的东西和各小问之间的函数实在是太乱了。。。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">咕咕咕。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/08/P2444/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/08/P2444/" class="post-title-link" itemprop="url">P2444</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-08 21:18:34 / 修改时间：21:22:06" itemprop="dateCreated datePublished" datetime="2022-04-08T21:18:34+08:00">2022-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTS/" itemprop="url" rel="index"><span itemprop="name">PTS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>[POI2000]病毒</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/08/P2444/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/08/P3121/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/08/P3121/" class="post-title-link" itemprop="url">P3121</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-08 16:55:33 / 修改时间：17:04:13" itemprop="dateCreated datePublished" datetime="2022-04-08T16:55:33+08:00">2022-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTS/" itemprop="url" rel="index"><span itemprop="name">PTS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>[USACO15FEB]Censoring G</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/08/P3121/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/08/CF808G/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/08/CF808G/" class="post-title-link" itemprop="url">CF808G</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-08 11:29:24 / 修改时间：17:12:57" itemprop="dateCreated datePublished" datetime="2022-04-08T11:29:24+08:00">2022-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTS/" itemprop="url" rel="index"><span itemprop="name">PTS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Anthem of Berland</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/04/08/CF808G/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -694,336 +1082,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/04/06/P3850/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/06/P2234/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.jpg">
-      <meta itemprop="name" content="onlypath">
-      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onlypath's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/06/P2234/" class="post-title-link" itemprop="url">P2234</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-04-06 09:39:32 / 修改时间：09:47:15" itemprop="dateCreated datePublished" datetime="2022-04-06T09:39:32+08:00">2022-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/PTS/" itemprop="url" rel="index"><span itemprop="name">PTS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[HNOI2002]营业额统计</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/06/P2234/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/05/P3380/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.jpg">
-      <meta itemprop="name" content="onlypath">
-      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onlypath's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/05/P3380/" class="post-title-link" itemprop="url">P3380</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-05 23:05:24" itemprop="dateCreated datePublished" datetime="2022-04-05T23:05:24+08:00">2022-04-05</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-04-06 12:47:54" itemprop="dateModified" datetime="2022-04-06T12:47:54+08:00">2022-04-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">模板</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>【模板】二逼平衡树（树套树）</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/05/P3380/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/03/P4357/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.jpg">
-      <meta itemprop="name" content="onlypath">
-      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onlypath's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/03/P4357/" class="post-title-link" itemprop="url">P4357</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-04-03 21:39:54 / 修改时间：21:55:30" itemprop="dateCreated datePublished" datetime="2022-04-03T21:39:54+08:00">2022-04-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/PTS/" itemprop="url" rel="index"><span itemprop="name">PTS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[CQOI2016]K 远点对</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/03/P4357/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/03/P7883/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avator.jpg">
-      <meta itemprop="name" content="onlypath">
-      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="onlypath's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/03/P7883/" class="post-title-link" itemprop="url">P7883</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-04-03 19:14:28 / 修改时间：21:39:09" itemprop="dateCreated datePublished" datetime="2022-04-03T19:14:28+08:00">2022-04-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">模板</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>平面最近点对（加强加强版）</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/03/P7883/">
                 阅读全文 &raquo;
               </a>
             </div>
