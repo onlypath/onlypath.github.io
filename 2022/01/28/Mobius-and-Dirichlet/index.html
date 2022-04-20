@@ -28,7 +28,7 @@
 <meta property="og:description" content="莫比乌斯反演与狄利克雷卷积">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-28T14:47:28.000Z">
-<meta property="article:modified_time" content="2022-04-02T08:09:01.653Z">
+<meta property="article:modified_time" content="2022-04-18T15:56:04.860Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="莫比乌斯反演">
 <meta property="article:tag" content="数学">
@@ -269,7 +269,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-04-02 16:09:01" itemprop="dateModified" datetime="2022-04-02T16:09:01+08:00">2022-04-02</time>
+        <time title="修改时间：2022-04-18 23:56:04" itemprop="dateModified" datetime="2022-04-18T23:56:04+08:00">2022-04-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -419,6 +419,10 @@
 <p>杜教筛之类的东西不用说了。</p>
 <p>然后这类整除偏序的题目，主要还是看推式子的能力。当然有些时候还会结合一些算法的思想，比如那个完全平方数。</p>
 <p>综合性比较强的题目会是一个难点，当然前提是要会推式子，不然就算会其它考点似乎也用处不大。</p>
+<p>上 Whk 的时候我稍微想了一下，自己会做的反演题只有 $\gcd$ 类的。</p>
+<p>后来想想这个事情其实比较复杂，大概是因为大部分题只有和 $\gcd$ 扯上关系才能涉及到 $\lfloor n&#x2F;d\rfloor$ 这种可以应用数论分块降低复杂度的东西（其实就在于构造出一个 $\varepsilon$ 的同时给换序求和降复杂度创造了机会，其他的反演往往看起来不那么精妙）。</p>
+<p>其他式子的反演用到的机会比较少的根本原因就是：大部分出题人喜欢让数论分块把题目的复杂度狂降以显题目 nb，然而实际上仅仅通过一般的狄利克雷卷积和换序求和（求积）等操作也可以把一堆垃圾的复杂度化成比较正常的。</p>
+<p>但是大部分出题人似乎不愿意这么干&#x2F;ts。</p>
 <h1 id="五、入门教程（应用）"><a href="#五、入门教程（应用）" class="headerlink" title="五、入门教程（应用）"></a>五、入门教程（应用）</h1><p>以上都是一些比较结论性的东西。</p>
 <p>想要训练的话可以跟着下面的入门。。。</p>
 <p>题面自己搜。</p>
@@ -426,11 +430,12 @@
 <p>这里就是数论分块的基本内容。</p>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a> [CQOI2007]余数求和</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a> [CQOI2007]余数求和</p>
 <ul>
 <li>希望这个题能让读者明白一个转化套路，就是想办法往 $\sum_{i&#x3D;1}^{n}\lfloor\dfrac{n}{i}\rfloor$ 上去靠，然后用数论分块</li>
 </ul>
+</li>
+</ol>
 <p>接下来正式进入莫比乌斯反演：</p>
 <p>例一：<a href="https://onlypath.github.io/2022/01/27/P3455/">P3455</a> [POI2007]ZAP-Queries</p>
 <ul>
@@ -443,13 +448,14 @@
 </ul>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2022/01/27/P2522/">P2522</a> [HAOI2011]Problem b</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2022/01/27/P2522/">P2522</a> [HAOI2011]Problem b</p>
 <ul>
 <li>和上面的题其实一样</li>
 <li>这里用到了容斥</li>
 <li>希望读者能够熟悉一下上面的推导</li>
 </ul>
+</li>
+</ol>
 <p>例二：<a href="https://onlypath.github.io/2022/02/05/P2257/">P2257</a> YY的GCD</p>
 <ul>
 <li>这题需要的技巧是换元</li>
@@ -458,12 +464,13 @@
 </ul>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2022/02/05/P2398/">P2398</a> GCD SUM</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2022/02/05/P2398/">P2398</a> GCD SUM</p>
 <ul>
 <li>希望读者熟悉一下刚才的技巧</li>
 <li>同时希望读者提升观察能力，熟练运用常用结论</li>
 </ul>
+</li>
+</ol>
 <p>例三：<a href="https://onlypath.github.io/2022/02/06/P3327/">P3327</a> [SDOI2015]约数个数和</p>
 <ul>
 <li>需要用到上面的某个结论</li>
@@ -483,35 +490,44 @@
 </ul>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2022/02/06/P1829/">P1829</a> [国家集训队]Crash的数字表格 &#x2F; JZPTAB</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2022/02/06/P1829/">P1829</a> [国家集训队]Crash的数字表格 &#x2F; JZPTAB</p>
 <ul>
 <li>虽然可能不太适合杜教筛的练习题</li>
 <li>希望读者就算不会杜教筛的方法做这道题也要会最基本的那个线性做法</li>
 </ul>
+</li>
+</ol>
 <p>大概把这些题目看完，对莫比乌斯反演类的题目，尤其是有关于 $\gcd$ 的题目会有基本的处理思想和技巧。</p>
 <p>下面给出一些练习题（希望读者自己练习）：</p>
 <ol>
-<li>P3704 [SDOI2017]数字表格</li>
-</ol>
+<li><p>P3704 [SDOI2017]数字表格</p>
 <ul>
-<li>并不是很难的题目</li>
-<li>处理 $\prod$ 的技巧</li>
+<li><p>并不是很难的题目</p>
+</li>
+<li><p>处理 $\prod$ 的技巧</p>
+</li>
 </ul>
-<ol start="2">
-<li>P7325 [WC2021] 斐波那契</li>
-</ol>
+</li>
+<li><p>P5518 [MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
+<ul>
+<li>垃圾题，就是上面那个题的强化版本</li>
+<li>把式子推完就要做大模拟了</li>
+<li>仔细检查复杂度，一不小心就容易假</li>
+</ul>
+</li>
+<li><p>P7325 [WC2021] 斐波那契</p>
+<ul>
+<li>不是裸的数论题，还需要其他结论</li>
+<li>有一定难度</li>
+</ul>
+</li>
+<li><p>P1587 [NOI2016] 循环之美</p>
 <ul>
 <li>不是裸的数论题</li>
 <li>有一定难度</li>
 </ul>
-<ol start="3">
-<li>P1587 [NOI2016] 循环之美</li>
+</li>
 </ol>
-<ul>
-<li>不是裸的数论题</li>
-<li>有一定难度</li>
-</ul>
 <p><del>入门教程就到这里</del>。</p>
 <p><del>以上是一名平凡的 OIer 无私的馈赠。衷心希望想要入门数论求和类题目的人能够有所收获。</del></p>
 <p><del>毕竟水平有限，人在 AH（非 asdfz），没啥题量，所以只能写到这里了。</del></p>

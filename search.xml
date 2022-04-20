@@ -1387,6 +1387,10 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>杜教筛之类的东西不用说了。</p>
 <p>然后这类整除偏序的题目，主要还是看推式子的能力。当然有些时候还会结合一些算法的思想，比如那个完全平方数。</p>
 <p>综合性比较强的题目会是一个难点，当然前提是要会推式子，不然就算会其它考点似乎也用处不大。</p>
+<p>上 Whk 的时候我稍微想了一下，自己会做的反演题只有 $\gcd$ 类的。</p>
+<p>后来想想这个事情其实比较复杂，大概是因为大部分题只有和 $\gcd$ 扯上关系才能涉及到 $\lfloor n&#x2F;d\rfloor$ 这种可以应用数论分块降低复杂度的东西（其实就在于构造出一个 $\varepsilon$ 的同时给换序求和降复杂度创造了机会，其他的反演往往看起来不那么精妙）。</p>
+<p>其他式子的反演用到的机会比较少的根本原因就是：大部分出题人喜欢让数论分块把题目的复杂度狂降以显题目 nb，然而实际上仅仅通过一般的狄利克雷卷积和换序求和（求积）等操作也可以把一堆垃圾的复杂度化成比较正常的。</p>
+<p>但是大部分出题人似乎不愿意这么干&#x2F;ts。</p>
 <h1 id="五、入门教程（应用）"><a href="#五、入门教程（应用）" class="headerlink" title="五、入门教程（应用）"></a>五、入门教程（应用）</h1><p>以上都是一些比较结论性的东西。</p>
 <p>想要训练的话可以跟着下面的入门。。。</p>
 <p>题面自己搜。</p>
@@ -1394,11 +1398,12 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>这里就是数论分块的基本内容。</p>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a> [CQOI2007]余数求和</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a> [CQOI2007]余数求和</p>
 <ul>
 <li>希望这个题能让读者明白一个转化套路，就是想办法往 $\sum_{i&#x3D;1}^{n}\lfloor\dfrac{n}{i}\rfloor$ 上去靠，然后用数论分块</li>
 </ul>
+</li>
+</ol>
 <p>接下来正式进入莫比乌斯反演：</p>
 <p>例一：<a href="https://onlypath.github.io/2022/01/27/P3455/">P3455</a> [POI2007]ZAP-Queries</p>
 <ul>
@@ -1411,13 +1416,14 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2022/01/27/P2522/">P2522</a> [HAOI2011]Problem b</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2022/01/27/P2522/">P2522</a> [HAOI2011]Problem b</p>
 <ul>
 <li>和上面的题其实一样</li>
 <li>这里用到了容斥</li>
 <li>希望读者能够熟悉一下上面的推导</li>
 </ul>
+</li>
+</ol>
 <p>例二：<a href="https://onlypath.github.io/2022/02/05/P2257/">P2257</a> YY的GCD</p>
 <ul>
 <li>这题需要的技巧是换元</li>
@@ -1426,12 +1432,13 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2022/02/05/P2398/">P2398</a> GCD SUM</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2022/02/05/P2398/">P2398</a> GCD SUM</p>
 <ul>
 <li>希望读者熟悉一下刚才的技巧</li>
 <li>同时希望读者提升观察能力，熟练运用常用结论</li>
 </ul>
+</li>
+</ol>
 <p>例三：<a href="https://onlypath.github.io/2022/02/06/P3327/">P3327</a> [SDOI2015]约数个数和</p>
 <ul>
 <li>需要用到上面的某个结论</li>
@@ -1451,35 +1458,44 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 <p>练习：</p>
 <ol>
-<li><a href="https://onlypath.github.io/2022/02/06/P1829/">P1829</a> [国家集训队]Crash的数字表格 &#x2F; JZPTAB</li>
-</ol>
+<li><p><a href="https://onlypath.github.io/2022/02/06/P1829/">P1829</a> [国家集训队]Crash的数字表格 &#x2F; JZPTAB</p>
 <ul>
 <li>虽然可能不太适合杜教筛的练习题</li>
 <li>希望读者就算不会杜教筛的方法做这道题也要会最基本的那个线性做法</li>
 </ul>
+</li>
+</ol>
 <p>大概把这些题目看完，对莫比乌斯反演类的题目，尤其是有关于 $\gcd$ 的题目会有基本的处理思想和技巧。</p>
 <p>下面给出一些练习题（希望读者自己练习）：</p>
 <ol>
-<li>P3704 [SDOI2017]数字表格</li>
-</ol>
+<li><p>P3704 [SDOI2017]数字表格</p>
 <ul>
-<li>并不是很难的题目</li>
-<li>处理 $\prod$ 的技巧</li>
+<li><p>并不是很难的题目</p>
+</li>
+<li><p>处理 $\prod$ 的技巧</p>
+</li>
 </ul>
-<ol start="2">
-<li>P7325 [WC2021] 斐波那契</li>
-</ol>
+</li>
+<li><p>P5518 [MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
+<ul>
+<li>垃圾题，就是上面那个题的强化版本</li>
+<li>把式子推完就要做大模拟了</li>
+<li>仔细检查复杂度，一不小心就容易假</li>
+</ul>
+</li>
+<li><p>P7325 [WC2021] 斐波那契</p>
+<ul>
+<li>不是裸的数论题，还需要其他结论</li>
+<li>有一定难度</li>
+</ul>
+</li>
+<li><p>P1587 [NOI2016] 循环之美</p>
 <ul>
 <li>不是裸的数论题</li>
 <li>有一定难度</li>
 </ul>
-<ol start="3">
-<li>P1587 [NOI2016] 循环之美</li>
+</li>
 </ol>
-<ul>
-<li>不是裸的数论题</li>
-<li>有一定难度</li>
-</ul>
 <p><del>入门教程就到这里</del>。</p>
 <p><del>以上是一名平凡的 OIer 无私的馈赠。衷心希望想要入门数论求和类题目的人能够有所收获。</del></p>
 <p><del>毕竟水平有限，人在 AH（非 asdfz），没啥题量，所以只能写到这里了。</del></p>
@@ -5966,8 +5982,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Farewell</title>
     <url>/2022/04/02/Farewell/</url>
-    <content><![CDATA[<p>反正也没什么希望，毕竟联赛就那么点分。</p>
-<p>省选延期倒是给我停课延长续了个冠冕堂皇的理由。。。</p>
+    <content><![CDATA[<p>我真正追求的，是什么呢？</p>
+<p>要去学 Whk 了吧。（叹气）</p>
 ]]></content>
       <categories>
         <category>杂记</category>
@@ -6399,7 +6415,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <url>/2022/04/17/P5518/</url>
     <content><![CDATA[<p>[MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
 <p>推了整整六张 A4 纸。。。。</p>
-<p>考场上估计就直接寄了（因为每次要草稿纸必须要把旧草稿纸交上去才能拿新草稿纸）。。。</p>
+<p>推完式子就是良心大模拟。</p>
+<p>md 果然是 基 础 练 习 题 。。。</p>
+<p>考场上估计就直接寄了（因为每次要草稿纸必须要把旧草稿纸交上去才能拿新草稿纸），干脆推完一问把一问的程序写掉不留后顾之忧，反正考场上想快速切掉的概率对我来说不大。。。</p>
 <p>做这个题不过就是复健一下。。。</p>
 <p>三问的关联不大，分开讲吧。</p>
 <hr>
@@ -6450,11 +6468,15 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>设 $T&#x3D;kd$，则 $d&#x3D;T&#x2F;k$，于是有：</p>
 <p>$$<br>\begin{aligned}<br>g(n,m)&#x3D;&amp;\sum_{T&#x3D;1}\sum_{k\mid m}\mu(k)\dfrac{T}{k}\left\lfloor\dfrac{n}{T}\right\rfloor<br>\\<br>&#x3D;&amp; \left(\sum_{T&#x3D;1}T\left\lfloor\dfrac{n}{T}\right\rfloor\right)<br>\left(\sum_{k\mid m}\dfrac{\mu(k)}{k}\right)<br>\end{aligned}<br>$$</p>
 <p>前面的那个因式可以 $O(n\sqrt{n})$ 预处理出对于所有 $n$ 的确切值。后面的因式同理也可以在 $O(n\sqrt{n})$ 下预处理出对于所有 $m$ 的确切值。然后单次求出 $g(n,m)$ 就是 $O(1)$ 的。</p>
-<p>然后我们把这个函数待会原式：</p>
+<p>然后我们把这个函数代回原式：</p>
 <p>$$<br>\begin{aligned}<br>f(a,b,c)<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{[gcd(i,j)&#x3D;1]g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{\sum_{k\mid i,k\mid j}\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\prod_{k\mid i,k\mid j}\left(\dfrac{1}{d}\right)^{\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp;\prod_{d&#x3D;1}\prod_{k&#x3D;1}\left(\dfrac{1}{d}\right)^{\mu(k)g(c,d)\lfloor a&#x2F;(kd)\rfloor\lfloor b&#x2F;(kd)\rfloor}<br>\end{aligned}<br>$$</p>
 <p>然后我们设 $T&#x3D;kd$，则 $k&#x3D;T&#x2F;d$，于是我们有：</p>
 <p>$$<br>f(a,b,c)&#x3D;\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor a&#x2F;T\rfloor\lfloor b&#x2F;T\rfloor}<br>$$</p>
-<p>中间那个因式的埃氏筛处理技巧应该不用我多说了，后面的指数同样需要扩展欧拉定理降低。</p>
+<p>md 这里还是不太可以，干脆把 $g(n,m)$ 拆开算了，设：</p>
+<p>$$<br>\begin{cases}<br>g_1(n)&#x3D;\sum_{T&#x3D;1}\left\lfloor n&#x2F;T\right\rfloor<br>\\<br>g_2(m)&#x3D;\sum_{k\mid m}\mu(k)&#x2F;k<br>\end{cases}<br>$$</p>
+<p>把 $g(c,d)&#x3D;g_1(c)g_2(d)$ 搞进去，指数分离一波：</p>
+<p>$$<br>f(a,b,c)&#x3D;\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)g_2(d)}\right)^{g_1(c)\lfloor a&#x2F;T\rfloor\lfloor b&#x2F;T\rfloor}<br>$$</p>
+<p>中间那个因式的埃氏筛处理技巧应该不用我多说了（md 还要再预处理一遍），后面的指数同样需要扩展欧拉定理降低。</p>
 <p>于是单次求 $f(a,b,c)$ 就是 $O(\sqrt{n}\log p)$ 的了。</p>
 <p>我们回顾一下原式：</p>
 <p>$$<br>\begin{aligned}<br>Ans<br>&#x3D;&amp;<br>\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}(ij)^{\sum_{k&#x3D;1}^{C}\gcd(\gcd(i,j),k)}\right)f(A,B,C)f(A,C,B)<br>\end{aligned}<br>$$</p>
@@ -6462,11 +6484,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$<br>\begin{aligned}<br>h(a,b,c)&#x3D;&amp;\prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}(ij)^{\sum_{k&#x3D;1}^{c}\gcd(\gcd(i,j),k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}(ij)^{[\gcd(i,j)&#x3D;d]\sum_{k&#x3D;1}^{c}\gcd(d,k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}(ijd^2)^{[\gcd(i,j)&#x3D;1]g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}(ijd^2)^{\sum_{k\mid i,k\mid j}\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\prod_{k\mid i,k\mid j}(ijd^2)^{\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{k&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;(kd)\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;(kd)\rfloor}(ijk^2d^2)^{\mu(k)g(c,d)}<br>\end{aligned}<br>$$</p>
 <p>设 $T&#x3D;kd$，则 $k&#x3D;T&#x2F;d$，于是我们有：</p>
 <p>$$<br>\begin{aligned}<br>h(a,b,c)<br>&#x3D;&amp;\prod_{T&#x3D;1}\prod_{d\mid T}\prod_{i&#x3D;1}^{\lfloor a&#x2F;T\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;T\rfloor}(ijT^2)^{\mu(T&#x2F;d)g(c,d)}<br>\\<br>&#x3D;&amp; \left(\prod_{T&#x3D;1}\left(\prod_{d\mid T}(T^2)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor a&#x2F;T\rfloor\lfloor b&#x2F;T\rfloor}\right)<br>\\<br>&amp;\left(\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\left\lfloor\dfrac{a}{T}\right\rfloor!\right)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor b&#x2F;T\rfloor}\right)<br>\\<br>&amp;\left(\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\left\lfloor\dfrac{b}{T}\right\rfloor!\right)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor a&#x2F;T\rfloor}\right)<br>\end{aligned}<br>$$</p>
-<p>我真的不想再解释了。。。这三个因式都是可以 $O(\sqrt{n}\log p)$ 单次求取的。</p>
+<p>我真的不想再解释了。。。这三个因式都是可以 $O(\sqrt{n}\log p)$ 单次求取的（$g(c,d)$ 同样要拆成 $g_1(c)$ 和 $g_2(d)$），而且都还要再预处理时完成。</p>
 <p>于是求得第三小问答案的总复杂度是 $O(n\sqrt{n}+n\ln n\log p+T\sqrt{n}\log p)$ 的。</p>
 <hr>
 <p>至此，三小问全部解决，问题以 $O(n\sqrt{n}+n\ln n\log p+Tn\log p)$ 的复杂度解决。</p>
-<p>代码真的很难写。。。要预处理的东西和各小问之间的函数实在是太乱了。。。</p>
+<p>代码真的很难写。。。要预处理的东西和各小问之间的函数实在是太乱了，字母真的已经在乱标了。。。</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">咕咕咕。</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
