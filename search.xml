@@ -1264,7 +1264,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <h1 id="一、基本定义"><a href="#一、基本定义" class="headerlink" title="一、基本定义"></a>一、基本定义</h1><p>我们先定义数论函数：定义域为正整数，值域为一个数集的函数。</p>
 <p>定义两个数论函数的狄利克雷卷积：</p>
 <ul>
-<li>若 $t&#x3D;f\ast g$，则 $t(n)&#x3D;\sum_{i\mid n}f(i)g(\dfrac{n}{i})$。</li>
+<li>若 $t&#x3D;f\ast g$，则 $t(n)&#x3D;\sum_{i\mid n}f(i)g\left(\dfrac{n}{i}\right)$。</li>
 </ul>
 <p>狄利克雷卷积是满足交换律和结合律的。</p>
 <p>我们再补充一个分配律：$(f+g)\ast h&#x3D;f\ast h+g\ast h$（这个很显然啊）。</p>
@@ -1272,16 +1272,16 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li><p>对于每个 $f(1)\not &#x3D; 0$ 的函数 $f$，都有 $g$ 使 $f*g&#x3D;\varepsilon$。</p>
 </li>
-<li><p>定义 $g(n)&#x3D;\dfrac{1}{f(1)}([n&#x3D;1]-\sum_{i\mid n,i\not &#x3D;1}f(i)g(\dfrac{n}{i}))$。</p>
+<li><p>定义 $g(n)&#x3D;\dfrac{1}{f(1)}\left([n&#x3D;1]-\sum_{i\mid n,i\not &#x3D;1}f(i)g(\dfrac{n}{i})\right)$。</p>
 </li>
-<li><p>易知：$\sum_{i\mid n}f(i)g(\dfrac{n}{i})&#x3D;f(1)g(n)+\sum_{i\mid n,i\not &#x3D; 1}f(i)g(\dfrac{n}{i})&#x3D;[n&#x3D;1]$。</p>
+<li><p>易知：$\sum_{i\mid n}f(i)g\left(\dfrac{n}{i}\right)&#x3D;f(1)g(n)+\sum_{i\mid n,i\not &#x3D; 1}f(i)g\left(\dfrac{n}{i}\right)&#x3D;[n&#x3D;1]$。</p>
 </li>
 </ul>
 <p>补充结论：</p>
 <ol>
 <li><p>两个积性函数的狄利克雷卷积是积性函数。</p>
 <p> 证明：若 $n\bot m$，且 $a\mid n$，$b\mid m$，则 $a\bot b$，此时：</p>
-<p> $$\begin{aligned}<br> t(nm)&amp;&#x3D;\sum_{d\mid nm}f(d)g(\dfrac{nm}{d})<br> \\<br> &amp;&#x3D; \sum_{ab\mid nm}f(ab)g(\dfrac{nm}{ab})<br> \\<br> &amp;&#x3D; \sum_{ab\mid nm} f(a)g(\dfrac{n}{a})f(b)g(\dfrac{m}{b})<br> \\<br> &amp;&#x3D; [\sum_{a\mid n}f(a)g(\dfrac{n}{a})][\sum_{b\mid n}f(b)g(\dfrac{m}{b})]<br> \\<br> &amp;&#x3D; t(n)t(m) &amp; \square<br> \end{aligned}$$</p>
+<p> $$\begin{aligned}<br> t(nm)&amp;&#x3D;\sum_{d\mid nm}f(d)g\left(\dfrac{nm}{d}\right)<br> \\<br> &amp;&#x3D; \sum_{ab\mid nm}f(ab)g\left(\dfrac{nm}{ab}\right)<br> \\<br> &amp;&#x3D; \sum_{ab\mid nm} f(a)g\left(\dfrac{n}{a}\right)f(b)g\left(\dfrac{m}{b}\right)<br> \\<br> &amp;&#x3D; \left(\sum_{a\mid n}f(a)g\left(\dfrac{n}{a}\right)\right)\left(\sum_{b\mid n}f(b)g\left(\dfrac{m}{b}\right)\right)<br> \\<br> &amp;&#x3D; t(n)t(m) &amp; \square<br> \end{aligned}$$</p>
 </li>
 <li><p>积性函数的逆是积性函数（不考虑 $f(1)&#x3D;0$）。</p>
 <p> 证明：考虑对 $nm$ 的大小进行归纳。</p>
@@ -1289,109 +1289,130 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>若 $nm&#x3D;1$，则 $g(1)&#x3D;1$，结论成立</p>
 </li>
 <li><p>假设 $nm&gt;1$，当 $n’m’&lt;nm$ 时有 $g(n’m’)&#x3D;g(n’)g(m’)$，欲证 $nm$ 时满足命题：</p>
-<p>  $$\begin{aligned}<br>  g(nm)&amp;&#x3D;-\sum_{d\mid nm,d\ne 1}f(d)g(\dfrac{nm}{d})<br>  \\<br>  &amp;&#x3D; -\sum_{a\mid n,b\mid m,ab\ne 1}f(a)f(b)g(\dfrac{n}{a})g(\dfrac{m}{b})<br>  \\<br>  &amp;&#x3D; f(1)f(1)g(n)g(m)-\sum_{a\mid n,b\mid m}f(a)f(b)g(\dfrac{n}{a})g(\dfrac{m}{b})<br>  \\<br>  &amp;&#x3D; g(n)g(m)-[\sum_{a\mid n}f(a)g(\dfrac{n}{a})][\sum_{b\mid m}f(b)g(\dfrac{m}{b})]<br>  \\<br>  &amp;&#x3D; g(n)g(m)-\varepsilon(n)\varepsilon(m)<br>  \\<br>  &amp;&#x3D; g(n)g(m)<br>  \end{aligned}$$</p>
+<p>  $$\begin{aligned}<br>  g(nm)&amp;&#x3D;-\sum_{d\mid nm,d\ne 1}f(d)g\left(\dfrac{nm}{d}\right)<br>  \\<br>  &amp;&#x3D; -\sum_{a\mid n,b\mid m,ab\ne 1}f(a)f(b)g\left(\dfrac{n}{a}\right)g\left(\dfrac{m}{b}\right)<br>  \\<br>  &amp;&#x3D; f(1)f(1)g(n)g(m)-\sum_{a\mid n,b\mid m}f(a)f(b)g\left(\dfrac{n}{a}\right)g\left(\dfrac{m}{b}\right)<br>  \\<br>  &amp;&#x3D; g(n)g(m)-\left(\sum_{a\mid n}f(a)g\left(\dfrac{n}{a}\right)\right)\left(\sum_{b\mid m}f(b)g\left(\dfrac{m}{b}\right)\right)<br>  \\<br>  &amp;&#x3D; g(n)g(m)-\varepsilon(n)\varepsilon(m)<br>  \\<br>  &amp;&#x3D; g(n)g(m)<br>  \end{aligned}$$</p>
 <p>  这里 $\dfrac{nm}{ab}&lt;nm$ 可运用归纳条件。</p>
 </li>
 </ul>
 <p> $\mathcal{Q.E.D.}$</p>
 </li>
 </ol>
-<h1 id="二、符号及常用结论"><a href="#二、符号及常用结论" class="headerlink" title="二、符号及常用结论"></a>二、符号及常用结论</h1><p>一般人需要知道的大概就是：</p>
-<ol>
-<li><p>$\varepsilon$，这个函数是单位元，具体来说，除了 $\varepsilon(1)&#x3D;1$，其余都为 0。</p>
+<h1 id="二、符号及常用结论"><a href="#二、符号及常用结论" class="headerlink" title="二、符号及常用结论"></a>二、符号及常用结论</h1><ol>
+<li><p>常用的几个符号：</p>
+<p> $\varepsilon$，这个函数是单位元，具体来说，除了 $\varepsilon(1)&#x3D;1$，其余都为 0。（读法：epsilon，完全积性）</p>
+<p> $\mathbf{id}$，字面意思就是 $\mathbf{id}(n)&#x3D;n$。（完全积性）</p>
+<p> $\sigma_k$，这个叫做除数函数，具体来说它是 $\sigma_k(n)&#x3D;\sum_{d\mid n}d^k$。（读法：sigma，积性）</p>
+<p> $\mathbf{1}$，它就是黎曼函数。具体来说就是 $\mathbf{1}(n)&#x3D;\zeta(n)&#x3D;1$。（读法：zeta，完全积性）</p>
+<p> $\varphi$ 和 $\mu$ 我就不多介绍了。</p>
 </li>
-<li><p>$\mathbf{id}$，字面意思就是 $\mathbf{id}(n)&#x3D;n$。</p>
+<li><p>常用结论：</p>
+<ul>
+<li><p>莫比乌斯反演：</p>
+<p>  $$[n&#x3D;1]&#x3D;\sum_{d\mid n}\mu(d)$$</p>
+<p>  写成狄利克雷卷积就是：</p>
+<p>  $$\varepsilon&#x3D;1\ast\mu$$</p>
 </li>
-<li><p>$\sigma_k$，这个叫做除数函数，具体来说它是 $\sigma_k(n)&#x3D;\sum_{d\mid n}d^k$。</p>
+<li><p>欧拉反演（然而没有这个名字，暂且可以这么称呼）：</p>
+<p>  $$n&#x3D;\sum_{d\mid n}\varphi(d)$$</p>
+<p>  写成狄利克雷卷积就是：</p>
+<p>  $$\mathbf{id}&#x3D;1\ast \mu$$</p>
+<p>  其逆即为：</p>
+<p>  $$\mathbf{id}*\mu&#x3D;\varphi$$</p>
 </li>
-<li><p>$\mathbf{1}$，它就是黎曼函数。具体来说就是 $\mathbf{1}(n)&#x3D;\zeta(n)&#x3D;1$。</p>
+<li><p>约数函数有关卷积：</p>
+<p>  $$\sigma_0&#x3D;\mathbf{1}*\mathbf{1}$$</p>
+<p>  $$\sigma&#x3D;\mathbf{id}*\mathbf{1}$$</p>
+<p>  $$\sigma_k&#x3D;\mathbf{id^k}*\mathbf{1}$$</p>
+<p>  以及一个：</p>
+<p>  $$\sigma_0(xy)&#x3D;\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)&#x3D;1]$$</p>
+<p>  这个结论的扩展：</p>
+<p>  $$\sigma_0(xyz)&#x3D;\sum_{i\mid x}\sum_{j\mid y}\sum_{k\mid z}[\gcd(x,y)&#x3D;1][\gcd(y,z)&#x3D;1][\gcd(x,z)&#x3D;1]$$</p>
 </li>
-<li><p>$\varphi$ 和 $\mu$ 我就不多介绍了。</p>
+</ul>
 </li>
 </ol>
-<p>我还是决定咕掉一些东西。。。</p>
-<p>所以直接上一些好用的结论：</p>
-<p>$$[n&#x3D;1]&#x3D;\sum_{d\mid n}\mu(d)$$</p>
-<p>这个东西实际上就是：</p>
-<p>$$\varepsilon&#x3D;1*\mu$$</p>
-<p>还有：</p>
-<p>$$\operatorname{id}&#x3D;1*\varphi$$</p>
-<p>就是熟悉的：</p>
-<p>$$n&#x3D;\sum_{d\mid n}\varphi(d)$$</p>
-<p>当然以上式子的逆也要记一下：</p>
-<p>$$\operatorname{id}*\mu&#x3D;\varphi$$</p>
-<p>有关约数函数的几个看起来不太有用的卷积：</p>
-<p>$$\sigma_0&#x3D;\mathbf{1}*\mathbf{1}$$</p>
-<p>$$\sigma&#x3D;\mathbf{id}*\mathbf{1}$$</p>
-<p>$$\sigma_k&#x3D;\mathbf{id^k}*\mathbf{1}$$</p>
-<p>以及一个：</p>
-<p>$$\sigma_0(xy)&#x3D;\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)&#x3D;1]$$</p>
-<p>其他的大量结论需要一定的题目积累。。。</p>
 <h1 id="三、积性函数求法"><a href="#三、积性函数求法" class="headerlink" title="三、积性函数求法"></a>三、积性函数求法</h1><p>通过线性筛求积性函数，一般有两种方法：</p>
 <ol>
 <li><p>分类讨论这个东西：</p>
 <ul>
 <li>$f(1)&#x3D;1$。</li>
 <li>$n\in \mathcal{P},f(n)$，这里 $\mathcal{P}$ 指质数集（<del>并不知道初等数论中那个炫酷的符号是怎么打出来的</del>）。</li>
-<li>$p\mid n,p^2 \nmid n,f(n)&#x3D;f\left(\dfrac{n}{p}\right)f(p)$</li>
+<li>$p\mid n,p^2 \nmid n,f(n)&#x3D;f\left(n&#x2F;p\right)f(p)$</li>
 <li>$p\mid n,p^2\mid n,f(n)$，这里一般不同情况不同分析。</li>
 <li>经典的例子有一般的 $\mu$ 和 $\varphi$ 的求法。</li>
 </ul>
 </li>
-<li><p>先算出 $f$ 在素数幂的取值，对于每个 $n$ 求出其最小质因数 $p_k$ 及 其次数 $c_k$，直接 $f(n)&#x3D;f(p_k^{c_k})f\left(\dfrac{n}{p_k^{c_k}}\right)$ 算就完了。这个次数可以递推求。</p>
+<li><p>先算出 $f$ 在素数幂的取值，对于每个 $n$ 求出其最小质因数 $p_k$ 及 其次数 $c_k$，直接 $f(n)&#x3D;f(p_k^{c_k})f\left(n&#x2F;{p_k^{c_k}}\right)$ 算就完了。这个次数可以递推求。</p>
 <p> 当然素数幂处的取值也不一定很好求，反正不管怎样是要动脑子的。</p>
 </li>
+<li><p>（从 EI 的知乎专栏看到的）现在我们来谈一谈一种特殊的情况 $h&#x3D;f*g$，其中 $f$ 和 $g$ 都是积性函数。</p>
+<p> 很容易知道 $h$ 是积性函数。那么同理我们可以按照上面的方法 2 求取。</p>
+<p> 那么很显然我们需要知道这个 $h$ 在 $p^k$ 的取值。</p>
+<p> 容易知道：</p>
+<p> $$h(p^k)&#x3D;\sum_{d&#x3D;0}^{k}f(p^d)g(p^{k-d})$$</p>
+<p> 那么我们在 $p^k$ 处计算 $h$ 需要 $\Theta(k)$ 的复杂度。</p>
+<p> 这一块的复杂度分析就是 EI 专栏的精华（但也是最傻的&#x2F;tx）。</p>
+<p> 我们考虑枚举 $p$ 的指数 $k$，则 $k\le \log_2 n$。</p>
+<p> 若我们指定 $k$，则使 $p^k\le n$ 的 $p$ 只有 $\pi(\lfloor \sqrt[x]{n}\rfloor)$ 个。</p>
+<p> 因此这个复杂度：</p>
+<p> $$\begin{aligned}<br> T(n)&amp;&#x3D;O\left(\sum_{x&#x3D;1}^{\log_2 n} x\pi(\lfloor \sqrt[x]{n}\rfloor)\right)<br> \\<br> &amp;&#x3D; O\left(\sum_{x&#x3D;1}^{\log_2 n}\dfrac{x\sqrt[x]{n}}{\ln \sqrt[x]{n}}\right)<br> \\<br> &amp;&#x3D; O\left(\dfrac{1}{\ln n}\sum_{x&#x3D;1}^{\log_2 n}x^2\sqrt[x]{n}\right)<br> \end{aligned}$$</p>
+<p> 现在尝试寻找 $x^2\sqrt[x]{n}$ 的极值：</p>
+<p> $$\dfrac{\delta}{\delta x}x^2\sqrt[x]{n}&#x3D;\sqrt[x]{n}(2x-\ln n)$$</p>
+<p> 可知原函数单峰下凸，在 $x&#x3D;1$ 时得 $n$。</p>
+<p> 用最大值作界得到：</p>
+<p> $$T(n)\le \dfrac{\log_2 n}{\ln n}n&#x3D;O(n)$$</p>
+<p> 当然，数论带师 Wky 直接给了一种更简明的方法：</p>
+<p> 因为对于 $k&#x3D;1$，一共有 $\pi(n)$ 个 $p$。</p>
+<p> 对于每个 $k\in [2,\log_2 n]$，最多只有 $\pi(\sqrt[k]{n})&lt;\sqrt[k]{n}$ 个 $p$。</p>
+<p> 那么 $n$ 以内 $p^k$ 的个数就是 $O(\pi(n)+\sqrt{n}\log_2 n)&#x3D;O\left(\dfrac{n}{\ln n}\right)$（数量级可以通过相除比较）。</p>
+<p> 那么总的计算复杂度 $T(n)&#x3D;O\left(\dfrac{n\log_2 n}{\ln n}\right)&#x3D;O(n)$。</p>
+</li>
 </ol>
-<p>（从 EI 的知乎专栏看到的）现在我们来谈一谈一种特殊的情况 $h&#x3D;f*g$，其中 $f$ 和 $g$ 都是积性函数。</p>
-<p>很容易知道 $h$ 是积性函数。那么同理我们可以按照上面的方法 2 求取。</p>
-<p>那么很显然我们需要知道这个 $h$ 在 $p^k$ 的取值。</p>
-<p>容易知道：</p>
-<p>$$h(p^k)&#x3D;\sum_{d&#x3D;0}^{k}f(p^d)g(p^{k-d})$$</p>
-<p>那么我们在 $p^k$ 处计算 $h$ 需要 $\Theta(k)$ 的复杂度。</p>
-<p>这一块的复杂度分析就是 EI 专栏的精华（但也是最傻的&#x2F;tx）。</p>
-<p>我们考虑枚举 $p$ 的指数 $k$，则 $k\le \log_2 n$。</p>
-<p>若我们指定 $k$，则使 $p^k\le n$ 的 $p$ 只有 $\pi(\lfloor \sqrt[x]{n}\rfloor)$ 个。</p>
-<p>因此这个复杂度：</p>
-<p>$$\begin{aligned}<br>T(n)&amp;&#x3D;O\left(\sum_{x&#x3D;1}^{\log_2 n} x\pi(\lfloor \sqrt[x]{n}\rfloor)\right)<br>\\<br>&amp;&#x3D; O\left(\sum_{x&#x3D;1}^{\log_2 n}\dfrac{x\sqrt[x]{n}}{\ln \sqrt[x]{n}}\right)<br>\\<br>&amp;&#x3D; O\left(\dfrac{1}{\ln n}\sum_{x&#x3D;1}^{\log_2 n}x^2\sqrt[x]{n}\right)<br>\end{aligned}$$</p>
-<p>现在尝试寻找 $x^2\sqrt[x]{n}$ 的极值：</p>
-<p>$$\dfrac{\delta}{\delta x}x^2\sqrt[x]{n}&#x3D;\sqrt[x]{n}(2x-\ln n)$$</p>
-<p>可知原函数单峰下凸，在 $x&#x3D;1$ 时得 $n$。</p>
-<p>用最大值作界得到：</p>
-<p>$$T(n)\le \dfrac{\log_2 n}{\ln n}n&#x3D;O(n)$$</p>
-<p>当然，数论带师 Wky 直接给了一种更简明的方法：</p>
-<p>因为对于 $k&#x3D;1$，一共有 $\pi(n)$ 个 $p$。</p>
-<p>对于每个 $k\in [2,\log_2 n]$，最多只有 $\pi(\sqrt[k]{n})&lt;\sqrt[k]{n}$ 个 $p$。</p>
-<p>那么 $n$ 以内 $p^k$ 的个数就是 $O(\pi(n)+\sqrt{n}\log_2 n)&#x3D;O\left(\dfrac{n}{\ln n}\right)$（数量级可以通过相除比较）。</p>
-<p>那么总的计算复杂度 $T(n)&#x3D;O\left(\dfrac{n\log_2 n}{\ln n}\right)&#x3D;O(n)$。</p>
-<h1 id="四、一些总结"><a href="#四、一些总结" class="headerlink" title="四、一些总结"></a>四、一些总结</h1><p>推式子，我只会</p>
+<h1 id="四、贝尔级数"><a href="#四、贝尔级数" class="headerlink" title="四、贝尔级数"></a>四、贝尔级数</h1><p>这一块我也不太明白，也不怎么会用。</p>
+<p>定义积性函数 $f$ 模 $p$ 的贝尔级数为：</p>
+<p>$$f_p(x)&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)x^i$$</p>
+<p>这样的话根据积性函数的性质，狄利克雷卷积就变成了一般卷积：</p>
+<p>$$(f\ast g)_p(x)&#x3D;f_p(x)g_p(x)$$</p>
+<p>加法形式也是可以对应的（但是如果变非积性函数就没法卷积了）：</p>
+<p>$$(f+g)_p(x)&#x3D;f_p(x)+g_p(x)$$</p>
+<p>常见的封闭形式（想要推导出来就仔细想一想 $f(p^x)$ 等于什么，变成一个正常的 OGF，然后就会推了）：</p>
 <ol>
-<li><p>公式瞎套。</p>
+<li><p>$\varepsilon_p(x)&#x3D;1$</p>
 </li>
-<li><p>换序求和。</p>
+<li><p>$\zeta_p(x)&#x3D;\dfrac{1}{1-x}$</p>
 </li>
-<li><p>换元乱搞。</p>
+<li><p>$\mathbf{id^k_p}(x)&#x3D;\dfrac{1}{1-p^kx}$</p>
 </li>
-<li><p>创造互质（构造一些类似 $[\gcd(x,y)&#x3D;1]$ 的东西）。</p>
+<li><p>$\mu_p(x)&#x3D;1-x$，$\mu^2_p(x)&#x3D;1+x$</p>
 </li>
-<li><p>函数积性。</p>
+<li><p>$\sigma_{0p}(x)&#x3D;\dfrac{1}{(1-x)^2}$</p>
 </li>
-<li><p>函数求逆。</p>
-</li>
-<li><p>提项合并（一个套路性偏低的东西，比较需要脑子和眼力）。</p>
-</li>
-<li><p><del>当场躺平。</del></p>
+<li><p>$\varphi_p(x)&#x3D;\dfrac{1-x}{1-px}$（实在不会直接推导可以利用上面的结论和卷积来推导）</p>
 </li>
 </ol>
-<p>不怕出事可以从一些底层意义上面自己创造一些式子，这种事情一般就偏考验对底层知识的掌握和智商层面的东西。</p>
-<p>然后数论分块当然是必备技能了。</p>
-<p>杜教筛之类的东西不用说了。</p>
-<p>然后这类整除偏序的题目，主要还是看推式子的能力。当然有些时候还会结合一些算法的思想，比如那个完全平方数。</p>
-<p>综合性比较强的题目会是一个难点，当然前提是要会推式子，不然就算会其它考点似乎也用处不大。</p>
-<p>上 Whk 的时候我稍微想了一下，自己会做的反演题只有 $\gcd$ 类的。</p>
-<p>后来想想这个事情其实比较复杂，大概是因为大部分题只有和 $\gcd$ 扯上关系才能涉及到 $\lfloor n&#x2F;d\rfloor$ 这种可以应用数论分块降低复杂度的东西（其实就在于构造出一个 $\varepsilon$ 的同时给换序求和降复杂度创造了机会，其他的反演往往看起来不那么精妙）。</p>
-<p>其他式子的反演用到的机会比较少的根本原因就是：大部分出题人喜欢让数论分块把题目的复杂度狂降以显题目 nb，然而实际上仅仅通过一般的狄利克雷卷积和换序求和（求积）等操作也可以把一堆垃圾的复杂度化成比较正常的。</p>
-<p>但是大部分出题人似乎不愿意这么干&#x2F;ts。</p>
-<h1 id="五、入门教程（应用）"><a href="#五、入门教程（应用）" class="headerlink" title="五、入门教程（应用）"></a>五、入门教程（应用）</h1><p>以上都是一些比较结论性的东西。</p>
+<h1 id="五、技巧总结"><a href="#五、技巧总结" class="headerlink" title="五、技巧总结"></a>五、技巧总结</h1><ol>
+<li><p>推式子，我只会：</p>
+<p> 公式瞎套，换序求和，换元乱搞，创造互质（构造 $[\gcd(x,y)&#x3D;1]$），函数积性，函数求逆，提项合并，<del>当场躺平</del>。</p>
+<p> 不怕出事可以从一些底层意义上面自己创造一些式子。</p>
+</li>
+<li><p>关于如何理解莫比乌斯反演加速计算的本质：</p>
+<p> 莫比乌斯反演的一种本质是数论容斥，实际上这个东西对加速计算本身没有什么帮助。</p>
+<p> 真正加速计算的有两个：换序求和与数论分块。</p>
+<p> 数论分块的加速效果想必不需要我多说。</p>
+<p> 换序求和的加速实际上就是实现了对容斥集合的较优划分。</p>
+</li>
+<li><p>关于数论分块被使用的原因：</p>
+<p> 题目里有 $\gcd$，一般很容易扯到数论分块。</p>
+<p> 原因就是 $x\mid\gcd(i,j)\Leftrightarrow x\mid i,x\mid j$。于是就能涉及到整除，从而牵扯到数论分块。</p>
+</li>
+<li><p>定义运算 $\cdot$，表示 $(f\cdot g)(n)&#x3D;f(n)g(n)$。</p>
+<p> 很显然 $\mathbf{1}&#x3D;\zeta$ 是单位元啊。</p>
+<p> 若 $f$ 是完全积性的，有性质：</p>
+<p> $$(f\cdot g)\ast (f\cdot h)&#x3D;f\cdot(g\ast h)$$</p>
+<p> 除此我们一般的处理方法就是把它展开成一般的求和形式，然后使用普通的数学技巧化简。</p>
+<p> 主要是用在杜教筛里的。</p>
+</li>
+</ol>
+<h1 id="六、入门教程（应用）"><a href="#六、入门教程（应用）" class="headerlink" title="六、入门教程（应用）"></a>六、入门教程（应用）</h1><p>以上都是一些比较结论性的东西。</p>
 <p>想要训练的话可以跟着下面的入门。。。</p>
 <p>题面自己搜。</p>
 <p>必备技能：<a href="https://onlypath.github.io/2021/12/13/UVA11526/">UVA11526</a> H(n)</p>
@@ -1400,7 +1421,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ol>
 <li><p><a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a> [CQOI2007]余数求和</p>
 <ul>
-<li>希望这个题能让读者明白一个转化套路，就是想办法往 $\sum_{i&#x3D;1}^{n}\lfloor\dfrac{n}{i}\rfloor$ 上去靠，然后用数论分块</li>
+<li>希望这个题能让读者明白一个转化套路，就是想办法往 $\sum_{i&#x3D;1}^{n}\left\lfloor\dfrac{n}{i}\right\rfloor$ 上去靠，然后用数论分块</li>
 </ul>
 </li>
 </ol>
@@ -1436,6 +1457,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>希望读者熟悉一下刚才的技巧</li>
 <li>同时希望读者提升观察能力，熟练运用常用结论</li>
+<li>这里的欧拉反演（随便起的名字，实际上就是 $\mathbf{id}&#x3D;\mathbf{1}\ast \varphi$）技巧一定要掌握</li>
 </ul>
 </li>
 </ol>
@@ -1458,9 +1480,15 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 <p>练习：</p>
 <ol>
+<li><p><a href="https://onlypath.github.io/2022/04/21/P3768/">P3768</a> 简单的数学题</p>
+<ul>
+<li>比较简单的杜教筛题目</li>
+<li>基本上就是构造一下就会做了</li>
+</ul>
+</li>
 <li><p><a href="https://onlypath.github.io/2022/02/06/P1829/">P1829</a> [国家集训队]Crash的数字表格 &#x2F; JZPTAB</p>
 <ul>
-<li>虽然可能不太适合杜教筛的练习题</li>
+<li>虽然可能不太适合做杜教筛的练习题（数据并没有卡死用杜教筛）</li>
 <li>希望读者就算不会杜教筛的方法做这道题也要会最基本的那个线性做法</li>
 </ul>
 </li>
@@ -1470,17 +1498,14 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ol>
 <li><p>P3704 [SDOI2017]数字表格</p>
 <ul>
-<li><p>并不是很难的题目</p>
-</li>
-<li><p>处理 $\prod$ 的技巧</p>
-</li>
+<li>并不是很难的题目</li>
+<li>处理 $\prod$ 的技巧</li>
 </ul>
 </li>
 <li><p>P5518 [MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
 <ul>
-<li>垃圾题，就是上面那个题的强化版本</li>
 <li>把式子推完就要做大模拟了</li>
-<li>仔细检查复杂度，一不小心就容易假</li>
+<li>请一定要耐心。。。</li>
 </ul>
 </li>
 <li><p>P7325 [WC2021] 斐波那契</p>
@@ -1494,6 +1519,19 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>不是裸的数论题</li>
 <li>有一定难度</li>
 </ul>
+</li>
+</ol>
+<h1 id="七、附录"><a href="#七、附录" class="headerlink" title="七、附录"></a>七、附录</h1><p>$\LaTeX$ 使用表：</p>
+<ol>
+<li><p><code>\mathbf&#123;id^2&#125;</code> $\rightarrow \mathbf{id^2}$</p>
+</li>
+<li><p><code>\zeta</code> $\rightarrow \zeta$</p>
+</li>
+<li><p><code>\sigma_0</code> $\rightarrow \sigma_0$</p>
+</li>
+<li><p><code>\varphi</code> $\rightarrow \varphi$</p>
+</li>
+<li><p><code>\varepsilon</code> $\rightarrow \varepsilon$</p>
 </li>
 </ol>
 <p><del>入门教程就到这里</del>。</p>
@@ -2371,7 +2409,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>后面是不知道哪里的原题了反正。。。算了还是写一下。。。</p>
 <p>$$\begin{aligned}&#x3D;&amp;\sum_{d&#x3D;1}d\sum_{i&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}[\gcd(i,j)&#x3D;1]\\ &#x3D;&amp; \sum_{d&#x3D;1}d\sum_{i&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j&#x3D;1}^{\lfloor\frac{n}{d}\rfloor}\sum_{k\mid \gcd(i,j)}\mu(k)\\&#x3D;&amp; \sum_{d&#x3D;1}d\sum_{k&#x3D;1}\mu(k)(\lfloor\dfrac{n}{kd}\rfloor)^2\end{aligned}$$</p>
 <p>接下来设 $T&#x3D;kd$，则 $k&#x3D;\dfrac{T}{d}$。</p>
-<p>$$\begin{aligned}&#x3D;&amp; \sum_{d&#x3D;1}d\sum_{T&#x3D;1}\mu(\dfrac{T}{d})(\lfloor\dfrac{n}{T}\rfloor)^2\\ &#x3D;&amp; \sum_{T&#x3D;1}\sum_{d&#x3D;1}d\mu(\dfrac{T}{d})(\lfloor\dfrac{n}{T}\rfloor)^2\end{aligned}$$</p>
+<p>$$\begin{aligned}&#x3D;&amp; \sum_{d&#x3D;1}d\sum_{d\mid T}\mu(\dfrac{T}{d})(\lfloor\dfrac{n}{T}\rfloor)^2\\ &#x3D;&amp; \sum_{T&#x3D;1}\sum_{d\mid T}d\mu(\dfrac{T}{d})(\lfloor\dfrac{n}{T}\rfloor)^2\end{aligned}$$</p>
 <p>然后我们知道有 $\mathbf{id} * \mu&#x3D;\varphi * \mathbf{1} * \mu&#x3D;\varphi$。</p>
 <p>所以说上式就是：</p>
 <p>$$\sum_{T&#x3D;1}\varphi(T)(\lfloor\dfrac{n}{T}\rfloor)^2$$</p>
@@ -2381,6 +2419,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>于是原式直接变为：</p>
 <p>$$\begin{aligned}&amp; \sum_{i&#x3D;1}\sum_{j&#x3D;1}\sum_{d\mid \gcd(i,j)}\varphi(d)\\ &#x3D;&amp; \sum_{d&#x3D;1}\varphi(d)(\lfloor\dfrac{n}{d}\rfloor)^2\end{aligned}$$</p>
 <p>其实这里第一个吃多了的做法就是我一开始的做法，事实证明只要结论足够熟练，<del>推的七拐八绕也能再推回来</del>，但是这其实还是体现了一个对题目的敏感度低，再加上平常套路做太多了，容易丧失这种比较简便的思维。</p>
+<p>更重要的是，式子一旦麻烦起来，有时候你真的是推不出来（很容易推错，比如幽灵乐团）。</p>
 <p>虽然这是一道没有太大难度的题目，但希望来这里看的人能够引以为戒。</p>
 <p>时间复杂度 $O(n)$。</p>
 <p>代码：</p>
@@ -6464,19 +6503,14 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>后两个因式的形式相似，看起来也好解决一点，于是我们设函数：</p>
 <p>$$<br>\begin{aligned}<br>f(a,b,c)&#x3D;&amp; \prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}\left(\dfrac{1}{\gcd(i,j)}\right)^{\sum_{k&#x3D;1}^{c}\gcd(\gcd(i,j),k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{a}\prod_{j&#x3D;1}^{b}\left(\dfrac{1}{d}\right)^{[gcd(i,j)&#x3D;d]\sum_{k&#x3D;1}^{c}\gcd(d,k)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{[gcd(i,j)&#x3D;1]\sum_{k&#x3D;1}^{c}\gcd(d,k)}<br>\end{aligned}<br>$$</p>
 <p>看起来比较难以处理，但我们发现指数中的后面的式子是个基础题，我们单独把它抽成一个函数：</p>
-<p>$$<br>\begin{aligned}<br>g(n,m)&#x3D;&amp; \sum_{i&#x3D;1}^{n}\gcd(m,i)<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}\sum_{i&#x3D;1}^{n}[\gcd(m,i)&#x3D;d]d<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}[\gcd(m,i)&#x3D;1]d<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}d\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}\sum_{k\mid m,k\mid i}\mu(k)<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}d\sum_{k\mid m}\mu(k)\left\lfloor\dfrac{n}{kd}\right\rfloor<br>\end{aligned}<br>$$</p>
-<p>设 $T&#x3D;kd$，则 $d&#x3D;T&#x2F;k$，于是有：</p>
-<p>$$<br>\begin{aligned}<br>g(n,m)&#x3D;&amp;\sum_{T&#x3D;1}\sum_{k\mid m}\mu(k)\dfrac{T}{k}\left\lfloor\dfrac{n}{T}\right\rfloor<br>\\<br>&#x3D;&amp; \left(\sum_{T&#x3D;1}T\left\lfloor\dfrac{n}{T}\right\rfloor\right)<br>\left(\sum_{k\mid m}\dfrac{\mu(k)}{k}\right)<br>\end{aligned}<br>$$</p>
-<p>前面的那个因式可以 $O(n\sqrt{n})$ 预处理出对于所有 $n$ 的确切值。后面的因式同理也可以在 $O(n\sqrt{n})$ 下预处理出对于所有 $m$ 的确切值。然后单次求出 $g(n,m)$ 就是 $O(1)$ 的。</p>
+<p>$$<br>\begin{aligned}<br>g(n,m)&#x3D;&amp; \sum_{i&#x3D;1}^{n}\gcd(m,i)<br>\\<br>&#x3D;&amp; \sum_{i&#x3D;1}^{n}\sum_{d\mid m,d\mid i}\varphi(d)<br>\\<br>&#x3D;&amp; \sum_{d\mid m}\varphi(d)\left\lfloor\dfrac{n}{d}\right\rfloor<br>\\<br>&#x3D;&amp; \sum_{d&#x3D;1}[d\mid m]\varphi(d)\left\lfloor\dfrac{n}{d}\right\rfloor<br>\end{aligned}<br>$$</p>
+<p>欧拉反演不用多说了吧。。。</p>
+<p>后面的写法是方便整除分块。</p>
+<p>每次 $O(\sqrt{m})$ 预处理出 $d$ 的所有因数，然后 $O(\sqrt{n})$ 数论分块就完了。</p>
 <p>然后我们把这个函数代回原式：</p>
 <p>$$<br>\begin{aligned}<br>f(a,b,c)<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{[gcd(i,j)&#x3D;1]g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\left(\dfrac{1}{d}\right)^{\sum_{k\mid i,k\mid j}\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp; \prod_{d&#x3D;1}\prod_{i&#x3D;1}^{\lfloor a&#x2F;d\rfloor}\prod_{j&#x3D;1}^{\lfloor b&#x2F;d\rfloor}\prod_{k\mid i,k\mid j}\left(\dfrac{1}{d}\right)^{\mu(k)g(c,d)}<br>\\<br>&#x3D;&amp;\prod_{d&#x3D;1}\prod_{k&#x3D;1}\left(\dfrac{1}{d}\right)^{\mu(k)g(c,d)\lfloor a&#x2F;(kd)\rfloor\lfloor b&#x2F;(kd)\rfloor}<br>\end{aligned}<br>$$</p>
 <p>然后我们设 $T&#x3D;kd$，则 $k&#x3D;T&#x2F;d$，于是我们有：</p>
 <p>$$<br>f(a,b,c)&#x3D;\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)g(c,d)}\right)^{\lfloor a&#x2F;T\rfloor\lfloor b&#x2F;T\rfloor}<br>$$</p>
-<p>md 这里还是不太可以，干脆把 $g(n,m)$ 拆开算了，设：</p>
-<p>$$<br>\begin{cases}<br>g_1(n)&#x3D;\sum_{T&#x3D;1}\left\lfloor n&#x2F;T\right\rfloor<br>\\<br>g_2(m)&#x3D;\sum_{k\mid m}\mu(k)&#x2F;k<br>\end{cases}<br>$$</p>
-<p>把 $g(c,d)&#x3D;g_1(c)g_2(d)$ 搞进去，指数分离一波：</p>
-<p>$$<br>f(a,b,c)&#x3D;\prod_{T&#x3D;1}\left(\prod_{d\mid T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)g_2(d)}\right)^{g_1(c)\lfloor a&#x2F;T\rfloor\lfloor b&#x2F;T\rfloor}<br>$$</p>
-<p>中间那个因式的埃氏筛处理技巧应该不用我多说了（md 还要再预处理一遍），后面的指数同样需要扩展欧拉定理降低。</p>
 <p>于是单次求 $f(a,b,c)$ 就是 $O(\sqrt{n}\log p)$ 的了。</p>
 <p>我们回顾一下原式：</p>
 <p>$$<br>\begin{aligned}<br>Ans<br>&#x3D;&amp;<br>\left(\prod_{i&#x3D;1}^{A}\prod_{j&#x3D;1}^{B}(ij)^{\sum_{k&#x3D;1}^{C}\gcd(\gcd(i,j),k)}\right)f(A,B,C)f(A,C,B)<br>\end{aligned}<br>$$</p>
@@ -6496,6 +6530,30 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>莫比乌斯反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P3768</title>
+    <url>/2022/04/21/P3768/</url>
+    <content><![CDATA[<p>简单的数学题</p>
+<p>找到了比较好的杜教筛练习题。</p>
+<p>这个式子欧拉反演啥的应该相当简单。</p>
+<p>$$<br>\begin{aligned}<br>&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{n}ij\gcd(ij)<br>\\<br>&#x3D;&amp;\sum_{i&#x3D;1}^{n}i\sum_{j&#x3D;1}^{n}j\sum_{k\mid i,k\mid j}\varphi(k)<br>\\<br>&#x3D;&amp; \sum_{k&#x3D;1}\varphi(k)\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}ik\sum_{j&#x3D;1}^{\lfloor n&#x2F;d\rfloor}jk<br>\\<br>&#x3D;&amp; \sum_{k&#x3D;1}k^2\varphi(k)\left(\sum_{i&#x3D;1}^{\lfloor n&#x2F;d\rfloor}i\right)^2<br>\end{aligned}<br>$$</p>
+<p>设 $S(x)&#x3D;\sum_{i&#x3D;1}^{n}i$，那么原式就是：</p>
+<p>$$<br>\sum_{k&#x3D;1}k^2\varphi(k)S\left(\left\lfloor\dfrac{n}{d}\right\rfloor\right)<br>$$</p>
+<p>后面的 $f$ 可以数论分块，前面的这个 $k^2\varphi(k)$ 需要求前缀和。</p>
+<p>这里数据 $n\le 10^{10}$ 一看就不能暴力求，杜教筛看起来不错。</p>
+<p>令 $f&#x3D;\mathbf{id^2}\ast \varphi$，$g&#x3D;\mathbf{id^2}$，则 $f\ast g&#x3D;\mathbf{id^3}$。</p>
+<p>因为 $S_g(n)&#x3D;n(n+1)(2n+1)&#x2F;6$，$S_f(n)&#x3D;S(n)^2$，都是 $O(1)$ 可求的，那么这个显然杜教筛可做。</p>
+<p>时间复杂度 $O(n^{2&#x2F;3}\log n)$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll M=<span class="number">6e6</span>;</span><br><span class="line"></span><br><span class="line">ll mo,n,cnt,inv2,inv6;</span><br><span class="line">ll prime[M+<span class="number">5</span>],phi[M+<span class="number">5</span>],sf1[M+<span class="number">5</span>];</span><br><span class="line">map&lt;ll,ll&gt; sf2;</span><br><span class="line"><span class="keyword">bool</span> f[M+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(ll b,ll p)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) r=r*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">F</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> (x*(x+<span class="number">1</span>)%mo)*inv2%mo;&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">G</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> (x*(x+<span class="number">1</span>)%mo)*((<span class="number">2</span>*x%mo+<span class="number">1</span>)%mo)*inv6%mo;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Sf</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> sf1[x];</span><br><span class="line">  <span class="keyword">if</span>(sf2.<span class="built_in">find</span>(x)!=sf2.<span class="built_in">end</span>()) <span class="keyword">return</span> sf2[x];sf2[x]=<span class="built_in">F</span>(x)*<span class="built_in">F</span>(x)%mo;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);sf2[x]=(sf2[x]-((<span class="built_in">G</span>(j)-<span class="built_in">G</span>(i<span class="number">-1</span>)+mo)%mo)*<span class="built_in">Sf</span>(x/i)%mo+mo)%mo;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sf2[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  f[<span class="number">1</span>]=<span class="number">1</span>;phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=M;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;phi[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;i*prime[j]&lt;=M;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">        phi[i*prime[j]]=phi[i]*prime[j];<span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      phi[i*prime[j]]=phi[i]*(prime[j]<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=M;i++) &#123;sf1[i]=(sf1[i<span class="number">-1</span>]+(phi[i]*i%mo)*i%mo)%mo;&#125;</span><br><span class="line">  inv2=<span class="built_in">Pow</span>(<span class="number">2</span>,mo<span class="number">-2</span>);inv6=<span class="built_in">Pow</span>(<span class="number">6</span>,mo<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  mo=<span class="built_in">read</span>();n=<span class="built_in">read</span>();</span><br><span class="line">  <span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  ll ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=n;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=n/(n/i);ans=(ans+(((<span class="built_in">Sf</span>(j)-<span class="built_in">Sf</span>(i<span class="number">-1</span>)+mo)%mo)*<span class="built_in">F</span>(n/i)%mo)*<span class="built_in">F</span>(n/i)%mo)%mo;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>莫比乌斯反演</tag>
+        <tag>杜教筛</tag>
       </tags>
   </entry>
 </search>
