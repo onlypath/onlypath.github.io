@@ -1329,7 +1329,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>  以及一个：</p>
 <p>  $$\sigma_0(xy)&#x3D;\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)&#x3D;1]$$</p>
 <p>  这个结论的扩展：</p>
-<p>  $$\sigma_0(xyz)&#x3D;\sum_{i\mid x}\sum_{j\mid y}\sum_{k\mid z}[\gcd(x,y)&#x3D;1][\gcd(y,z)&#x3D;1][\gcd(x,z)&#x3D;1]$$</p>
+<p>  $$\sigma_0(xyz)&#x3D;\sum_{i\mid x}\sum_{j\mid y}\sum_{k\mid z}[\gcd(i,j)&#x3D;1][\gcd(j,k)&#x3D;1][\gcd(i,k)&#x3D;1]$$</p>
 </li>
 </ul>
 </li>
@@ -2400,8 +2400,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
         <category>PTS</category>
       </categories>
       <tags>
-        <tag>整除分块</tag>
-        <tag>数论</tag>
+        <tag>数论分块</tag>
       </tags>
   </entry>
   <entry>
@@ -2456,7 +2455,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>莫比乌斯反演</tag>
         <tag>容斥</tag>
-        <tag>数论分块</tag>
       </tags>
   </entry>
   <entry>
@@ -2674,7 +2672,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>莫比乌斯反演</tag>
-        <tag>数论分块</tag>
       </tags>
   </entry>
   <entry>
@@ -3891,8 +3888,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
         <category>PTS</category>
       </categories>
       <tags>
-        <tag>整除分块</tag>
-        <tag>数论</tag>
+        <tag>数论分块</tag>
       </tags>
   </entry>
   <entry>
@@ -4877,7 +4873,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <h1 id="二、二项式反演"><a href="#二、二项式反演" class="headerlink" title="二、二项式反演"></a>二、二项式反演</h1><p>$$f_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}g_i \Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}f_i$$</p>
 <p>非常对称。即 $A_{n,i}&#x3D;(-1)^i\binom{n}{i}$ 这个矩阵是自逆的。</p>
 <p>证明：</p>
-<p>$$\begin{aligned}<br>{(A*A)}\tiny{d,t}<br>&amp;&#x3D;\sum_{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br>\\<br>&amp;&#x3D;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br>\\<br>&amp;&#x3D;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br>\\<br>&amp;&#x3D;<br>(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br>\\<br>&amp;&#x3D;[d&#x3D;t]<br>\end{aligned}$$</p>
+<p>$$\begin{aligned}<br>{(A\ast A)}<em>{d,t}<br>&amp;&#x3D;\sum</em>{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br>\\<br>&amp;&#x3D;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br>\\<br>&amp;&#x3D;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br>\\<br>&amp;&#x3D;<br>(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br>\\<br>&amp;&#x3D;[d&#x3D;t]<br>\end{aligned}$$</p>
 <p>于是 $A*A&#x3D;I$，反演成立。</p>
 <p>另外一种形式：</p>
 <p>$$f_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^{n}(-1)^{n-i}\binom{n}{i}f_i$$</p>
@@ -4992,7 +4988,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ol>
 <li>求逆，采用倍增，式子（牛顿迭代记忆可能比较方便？）：</li>
 </ol>
-<p>  $$B(x)\equiv 2B_*(x)-B^2_*(x)A(x)\pmod{x^n}$$</p>
+<p>  $$B(x)\equiv 2B_\ast(x)-B^2_\ast(x)A(x)\pmod{x^n}$$</p>
 <ol start="2">
 <li>求导、积分与复合，即经典求导、积分与复合，式子：</li>
 </ol>
@@ -5002,11 +4998,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ol start="3">
 <li>牛顿迭代（非常重要）：</li>
 </ol>
-<p>  $$F(x)\equiv F_*(x)-\dfrac{G(F_*(x))}{G’(F_*(x))}\pmod{x^n}$$</p>
+<p>  $$F(x)\equiv F_\ast(x)-\dfrac{G(F_\ast(x))}{G’(F_\ast(x))}\pmod{x^n}$$</p>
 <ol start="4">
 <li>开根，采用倍增（可以用牛顿迭代直接推）：</li>
 </ol>
-<p>  $$B(x)\equiv \dfrac{A(x)+B^2_*(x)}{2B_*(x)}\pmod{x^n}$$</p>
+<p>  $$B(x)\equiv \dfrac{A(x)+B^2_\ast(x)}{2B_\ast(x)}\pmod{x^n}$$</p>
 <ol start="5">
 <li>多项式带余除法（换元翻转再取余）：</li>
 </ol>
@@ -5020,7 +5016,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ol start="7">
 <li>多项式 $\exp$，采用倍增（牛顿迭代推）：</li>
 </ol>
-<p>  $$B(x)\equiv B_*(x)(1-\ln B_*(x)+A(x))\pmod{x^n}$$</p>
+<p>  $$B(x)\equiv B_\ast(x)(1-\ln B_\ast(x)+A(x))\pmod{x^n}$$</p>
 <ol start="8">
 <li>多项式快速幂：</li>
 </ol>
@@ -5043,22 +5039,22 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$R’(x)\equiv F^{-1}(x)\pmod{x^{\frac{n}{2}}}$$</p>
 <p>即逆元的前 $\dfrac{n}{2}$ 位。</p>
 <p>显然：</p>
-<p>$$R(x)\equiv R_*(x)\pmod{x^{\frac{n}{2}}}$$</p>
+<p>$$R(x)\equiv R_\ast(x)\pmod{x^{\frac{n}{2}}}$$</p>
 <p>移项一下：</p>
-<p>$$R(x)-R_*(x)\equiv0\pmod{x^{\frac{n}{2}}}$$</p>
+<p>$$R(x)-R_\ast(x)\equiv0\pmod{x^{\frac{n}{2}}}$$</p>
 <p>然后平方一下：</p>
-<p>$$(R(x)-R_*(x))^2\equiv 0\pmod{x^n}$$</p>
+<p>$$(R(x)-R_\ast(x))^2\equiv 0\pmod{x^n}$$</p>
 <p>拆开：</p>
-<p>$$R^2(x)-2R_*(x)R(x)+R_*^2(x)\equiv 0\pmod{x^n}$$</p>
+<p>$$R^2(x)-2R_\ast(x)R(x)+R_\ast^2(x)\equiv 0\pmod{x^n}$$</p>
 <p>两边同乘 $F(x)$：</p>
-<p>$$R(x)-2R_*(x)+R_*^2(x)F(x)\equiv 0\pmod {x^n}$$</p>
+<p>$$R(x)-2R_\ast(x)+R_\ast^2(x)F(x)\equiv 0\pmod {x^n}$$</p>
 <p>移项：</p>
-<p>$$R(x)\equiv2R_*(x)-R_*^2(x)F(x)\pmod {x^n}$$</p>
+<p>$$R(x)\equiv2R_\ast(x)-R_\ast^2(x)F(x)\pmod {x^n}$$</p>
 <p>显然可以算了。</p>
 <p>根据主定理：</p>
 <p>$$T(n)&#x3D;T(n&#x2F;2)+\Theta(n\log n)&#x3D;\Theta(n\log n)$$</p>
 <p>所以最后时间复杂度 $O(n\log n)$。</p>
-<p>一个简单的实现方法是先求 $(2R_*)(x)$，然后求 ${R_*}^2(x)$（自己和自己卷），然后把 ${R_*}^2(x)$ 和 $F(x)$ 卷，最后两个一减。</p>
+<p>一个简单的实现方法是先求 $(2R_\ast)(x)$，然后求 ${R_\ast}^2(x)$（自己和自己卷），然后把 ${R_\ast}^2(x)$ 和 $F(x)$ 卷，最后两个一减。</p>
 <p>然后可能还有什么优化方法，但是我不想用。。。</p>
 <p>最后记得清空。</p>
 <p>代码：</p>
@@ -5076,16 +5072,16 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Newton Iteration.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Deriv</span><span class="params">(ll *f,ll m)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;m;i++) &#123;f[i<span class="number">-1</span>]=f[i]*i%mo;&#125;f[m<span class="number">-1</span>]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Integr</span><span class="params">(ll *f,ll m)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(ll i=m;i;i--) &#123;f[i]=f[i<span class="number">-1</span>]*inv[i]%mo;&#125;f[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">  inv[<span class="number">1</span>]=<span class="number">1</span>;<span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n;i++) inv[i]=inv[mo%i]*(mo-mo/i)%mo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>关于多项式牛顿迭代：</p>
-<p>若 $G(F(x))&#x3D;0$，且 $G(F_*(x))\equiv 0\pmod{x^{\frac{n}{2}}}$，则我们有：</p>
-<p>$$F(x)\equiv F_*(x)-\dfrac{G(F_*(x))}{G’(F_*(x))}\pmod{x^n}$$</p>
+<p>若 $G(F(x))&#x3D;0$，且 $G(F_\ast(x))\equiv 0\pmod{x^{\frac{n}{2}}}$，则我们有：</p>
+<p>$$F(x)\equiv F_\ast(x)-\dfrac{G(F_\ast(x))}{G’(F_\ast(x))}\pmod{x^n}$$</p>
 <p>证明：</p>
-<p>显然 $F(x)\equiv F_*(x)\pmod{x^{\frac{n}{2}}}$。</p>
-<p>将 $G(F(x))$ 在 $F_*(x)$ 处展开：</p>
-<p>$$\begin{aligned}G(F(x))&amp;&#x3D;G(F_*(x))+\dfrac{G’(F_*(x))}{1!}(F(x)-F_*(x))<br>\\<br>&amp;+\dfrac{G’’(F_*(x))}{2!}(F(x)-F_*(x))^2+\cdots\end{aligned}$$</p>
-<p>可知 $F(x)-F_*(x)$ 的最低次项至少是 $x^{n&#x2F;2}$。</p>
-<p>可知 $(F(x)-F_*(x))^2,(F(x)-F_*(x))^3,\cdots$ 等的最低次项是 $x^n$。</p>
+<p>显然 $F(x)\equiv F_\ast(x)\pmod{x^{\frac{n}{2}}}$。</p>
+<p>将 $G(F(x))$ 在 $F_\ast(x)$ 处展开：</p>
+<p>$$\begin{aligned}G(F(x))&amp;&#x3D;G(F_\ast(x))+\dfrac{G’(F_\ast(x))}{1!}(F(x)-F_\ast(x))<br>\\<br>&amp;+\dfrac{G’’(F_\ast(x))}{2!}(F(x)-F_\ast(x))^2+\cdots\end{aligned}$$</p>
+<p>可知 $F(x)-F_\ast(x)$ 的最低次项至少是 $x^{n&#x2F;2}$。</p>
+<p>可知 $(F(x)-F_\ast(x))^2,(F(x)-F_\ast(x))^3,\cdots$ 等的最低次项是 $x^n$。</p>
 <p>但上面的运算是 $\pmod{x^n}$ 下的，所以这些项全部木大，故：</p>
-<p>$$G(F(x))&#x3D;G(F_*(x))+\dfrac{G’(F_*(x))}{1!}(F(x)-F_*(x))$$</p>
+<p>$$G(F(x))&#x3D;G(F_\ast(x))+\dfrac{G’(F_\ast(x))}{1!}(F(x)-F_\ast(x))$$</p>
 <p>因为 $G(F(x))&#x3D;0$，整理一下就是上面的结论了。</p>
 <p>这个式子很牛逼。</p>
 <ul>
@@ -5094,12 +5090,12 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>  那么我们就有 $A(x)B(x)\equiv 1\pmod{x^n}$。</p>
 <p>  然后我们设 $G(B(x))\equiv A(x)B(x)-1\pmod{x^n}$。</p>
 <p>  则 $G’(B(x))\equiv A(x)\pmod{x^n}$。</p>
-<p>  设 $B_*(x)$ 为 $\pmod{x^{n&#x2F;2}}$ 下的解。</p>
+<p>  设 $B_\ast(x)$ 为 $\pmod{x^{n&#x2F;2}}$ 下的解。</p>
 <p>  用上文牛顿迭代的式子：</p>
-<p>  $$B(x)\equiv B_*(x)-\dfrac{G(B_*(x))}{G’(B_*(x))}\equiv B_*(x)-\dfrac{A(x)B_*(x)-1}{A_*(x)}\pmod{x^n}$$</p>
-<p>  上面的 $\dfrac{1}{A_*(x)}$ 就是 $B_*(x)$，因为这俩多项式都是在 $\pmod{x^{n&#x2F;2}}$ 下的。</p>
+<p>  $$B(x)\equiv B_\ast(x)-\dfrac{G(B_\ast(x))}{G’(B_\ast(x))}\equiv B_\ast(x)-\dfrac{A(x)B_\ast(x)-1}{A_\ast(x)}\pmod{x^n}$$</p>
+<p>  上面的 $\dfrac{1}{A_\ast(x)}$ 就是 $B_\ast(x)$，因为这俩多项式都是在 $\pmod{x^{n&#x2F;2}}$ 下的。</p>
 <p>  然后就有了：</p>
-<p>  $$B(x)\equiv B_*(x)-B_*(x)(A(x)B_*(x)-1)\equiv 2B_*(x)-B_*^2(x)A(x)\pmod{x^n}$$</p>
+<p>  $$B(x)\equiv B_\ast(x)-B_\ast(x)(A(x)B_\ast(x)-1)\equiv 2B_\ast(x)-B_\ast^2(x)A(x)\pmod{x^n}$$</p>
 <p>  这玩意就是上面那个求逆的式子。</p>
 </li>
 </ul>
@@ -5107,9 +5103,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>于是我们套路令 $G(B(x))\equiv B^2(x)-A(x)\pmod{x^n}$。</p>
 <p>于是有 $G’(B(x))\equiv 2B(x)\pmod{x^n}$。</p>
 <p>再根据牛顿迭代：</p>
-<p>$$B(x)\equiv B_*(x)-\dfrac{G(B_*(x))}{G’(B_*(x))}\equiv B_*(x)-\dfrac{B^2_*(x)-A(x)}{2B_*(x)}\pmod{x^n}$$</p>
+<p>$$B(x)\equiv B_\ast(x)-\dfrac{G(B_\ast(x))}{G’(B_\ast(x))}\equiv B_\ast(x)-\dfrac{B^2_\ast(x)-A(x)}{2B_\ast(x)}\pmod{x^n}$$</p>
 <p>化简后就是：</p>
-<p>$$B(x)\equiv \dfrac{A(x)+B^2_*(x)}{2B_*(x)}\pmod{x^n}$$</p>
+<p>$$B(x)\equiv \dfrac{A(x)+B^2_\ast(x)}{2B_\ast(x)}\pmod{x^n}$$</p>
 <p>这个东西可以倍增了（还要用一下求逆），时间复杂度可以用定积分推导（不关心这个的可以跳过）：</p>
 <p>$$T(n)&#x3D;\Theta(\sum_{i&#x3D;0}^{\log_2 n}\dfrac{n}{2^i}\log_2 \dfrac{n}{2^i})&#x3D;\Theta(n\sum_{i&#x3D;0}^{\log_2 n}(\dfrac{1}{2})^i(\log_2 n-i))$$</p>
 <p>我们积分近似一下：</p>
@@ -5176,9 +5172,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>我们设 $G(B(x))&#x3D;\ln B(x)-A(x)$。</p>
 <p>求导可得 $G’(B(x))&#x3D;B^{-1}(x)$。</p>
 <p>套路牛顿迭代：</p>
-<p>$$B(x)\equiv B_*(x)-\dfrac{G(B_*(x))}{G’(B_*(x))}\equiv B_*(x)-\dfrac{\ln B_*(x)-A(x)}{B_*(x)^{-1}}\pmod{x^n}$$</p>
+<p>$$B(x)\equiv B_\ast(x)-\dfrac{G(B_\ast(x))}{G’(B_\ast(x))}\equiv B_\ast(x)-\dfrac{\ln B_\ast(x)-A(x)}{B_\ast(x)^{-1}}\pmod{x^n}$$</p>
 <p>即：</p>
-<p>$$B(x)\equiv B_*(x)(1-\ln B_*(x)+A(x))\pmod{x^n}$$</p>
+<p>$$B(x)\equiv B_\ast(x)(1-\ln B_\ast(x)+A(x))\pmod{x^n}$$</p>
 <p>根据上式倍增即可。</p>
 <p>需要注意的是，必须保证 $a_0&#x3D;0$，此时 $b_0&#x3D;1$。</p>
 <p>与上文多项式开根的复杂度分析类似，使用定积分可以得到 $\exp$ 的时间复杂度是 $O(n\log n)$ 的。</p>
@@ -5683,7 +5679,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>Tex_Problem</title>
     <url>/2022/03/28/Tex-Problem/</url>
     <content><![CDATA[<p>什么玩意？？？</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">为了保证文章安全只能放在代码框里了/kk。。。</span><br><span class="line"></span><br><span class="line">本来这个博客我是想用 $MathJax$ 这类东西的。。。</span><br><span class="line"></span><br><span class="line">但奈何一用 $MathJax$ 博客就崩，退而求其次就用了稍微差一些的 $\KaTeX$。。。</span><br><span class="line"></span><br><span class="line">但是这个东西真的锅巨多。。。</span><br><span class="line"></span><br><span class="line">稍微罗列一下，方便以后书写公式：</span><br><span class="line"></span><br><span class="line">1. 在 $$ 中使用 \\\\ 换行，而不是 \\。（猜测原因：会把 \\ 识别成 \）</span><br><span class="line"></span><br><span class="line">2. \&#123; 要写成 \\&#123;。（原因：大概同上）</span><br><span class="line"></span><br><span class="line">3. B_*^2 无法渲染，但是 B^2_* 可以。（好像与 * 有关的公式渲染多多少少都有些问题；原因：未知）</span><br><span class="line"></span><br><span class="line">4. (f*g)_i 这类公式无法渲染，勉强使用 \tiny&#123;i&#125; 企图蒙混过关。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">5. 公式会被空白遮挡。（尚无解决方案，原因：猜测是 $\KaTeX$ 对公式的高度计算出现问题）</span><br><span class="line"></span><br><span class="line">6. Markdown 对不齐。。。（应该不是 $\KaTeX$ 的问题。。。解决方案：使用 4 空格缩进）</span><br><span class="line"></span><br><span class="line">7. \not = 在一定条件下渲染会崩。（解决方案：使用 \ne；原因：未知）</span><br><span class="line"></span><br><span class="line">8. \mathscr 有时候渲染会崩掉。。。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">9. 字体内使用上下标。。。否则渲染会崩。示例：\mathbf&#123;f^x&#125;(x)。（原因：未知）</span><br><span class="line"></span><br><span class="line">10. 建议使用 \ast 来代替 *（。。。）</span><br><span class="line"></span><br><span class="line">11. 建议行内（比较紧凑的文字），不要使用 \dfrac 一类特意巨化字符的命令，直接用 / 实际上也很美观。</span><br><span class="line"></span><br><span class="line">12. 建议非行内的强调模式使用括号一定要用 \left(\right) 这种形式。</span><br><span class="line"></span><br><span class="line">13. 建议空集使用 \varnothing 而不是 \emptyset</span><br><span class="line"></span><br><span class="line">14. 建议积分中的 \delta x 和式子之间加入 \,，</span><br><span class="line">多元积分尽量在 \delta x 和 \delta y 之间加入 \,。</span><br><span class="line">（作者书写公式时更喜欢使用 \delta x 而不是 \mathrm&#123;d&#125; x，</span><br><span class="line">主要是受具体数学的写法影响，还有一个就是长短上更好一些。。。）</span><br><span class="line"></span><br><span class="line">15. 建议多重积分使用 \iiint 这种形式。</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">为了保证文章安全只能放在代码框里了/kk。。。</span><br><span class="line"></span><br><span class="line">本来这个博客我是想用 $MathJax$ 这类东西的。。。</span><br><span class="line"></span><br><span class="line">但奈何一用 $MathJax$ 博客就崩，退而求其次就用了稍微差一些的 $\KaTeX$。。。</span><br><span class="line"></span><br><span class="line">但是这个东西真的锅巨多。。。</span><br><span class="line"></span><br><span class="line">稍微罗列一下，方便以后书写公式：</span><br><span class="line"></span><br><span class="line">1. 在 $$ 中使用 \\\\ 换行，而不是 \\。（猜测原因：会把 \\ 识别成 \）</span><br><span class="line"></span><br><span class="line">2. \&#123; 要写成 \\&#123;。（原因：大概同上）</span><br><span class="line"></span><br><span class="line">3. B_*^2 无法渲染，但是 B^2_* 可以。（原因：* 在 Markdown 中功用较多，谨慎使用，一般使用 \ast 来代替）</span><br><span class="line"></span><br><span class="line">4. (f*g)_i 这类公式无法渲染。（同上，使用 \ast）</span><br><span class="line"></span><br><span class="line">5. 公式会被空白遮挡。（原因：猜测是 $\KaTeX$ 对公式的高度计算出现问题；解决方案：行内尽量避免使用分数一类有高度的公式，而一致压到行内）</span><br><span class="line"></span><br><span class="line">6. Markdown 对不齐。。。（应该不是 $\KaTeX$ 的问题。。。解决方案：使用 4 空格缩进）</span><br><span class="line"></span><br><span class="line">7. \not = 在一定条件下渲染会崩。（解决方案：使用 \ne；原因：未知）</span><br><span class="line"></span><br><span class="line">8. \mathscr 有时候渲染会崩掉。。。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">9. 字体内使用上下标。。。否则渲染会崩。示例：\mathbf&#123;f^x&#125;(x)。（原因：未知）</span><br><span class="line"></span><br><span class="line">10. 建议使用 \ast 来代替 *（。。。）</span><br><span class="line"></span><br><span class="line">11. 建议行内（比较紧凑的文字），不要使用 \dfrac 一类特意巨化字符的命令，直接用 / 实际上也很美观。</span><br><span class="line"></span><br><span class="line">12. 建议非行内的强调模式使用括号一定要用 \left(\right) 这种形式。</span><br><span class="line"></span><br><span class="line">13. 建议空集使用 \varnothing 而不是 \emptyset</span><br><span class="line"></span><br><span class="line">14. 建议积分中的 \delta x 和式子之间加入 \,，</span><br><span class="line">多元积分尽量在 \delta x 和 \delta y 之间加入 \\,。</span><br><span class="line">（作者书写公式时更喜欢使用 \delta x 而不是 \mathrm&#123;d&#125; x，</span><br><span class="line">主要是受具体数学的写法影响，还有一个就是长短上更好一些。。。）</span><br><span class="line"></span><br><span class="line">15. 建议多重积分使用 \iiint 这种形式。</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -6512,7 +6508,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$<br>\begin{aligned}<br>h(n,m)&#x3D;&amp;\prod_{T&#x3D;1}\left(\prod_{d|T}\left(\dfrac{1}{d}\right)^{\mu(T&#x2F;d)}\right)^{\lfloor n&#x2F;T\rfloor\lfloor m&#x2F;T\rfloor}<br>\end{aligned}<br>$$</p>
 <p>中间那个东西我们显然在前两问已经预处理过了，直接拿过来用就完了。后面的指数同样数论分块掉。</p>
 <p>然后我们这个是数论分块套数论分块，复杂度分析类似于不加预处理的杜教筛：</p>
-<p>$$<br>\begin{aligned}<br>T(n)&#x3D;&amp; O\left(\sum_{i&#x3D;1}^{\sqrt{n}}\sqrt{i}+\sum_{i&#x3D;1}^{\sqrt{n}}\sqrt{\left\lfloor\dfrac{n}{i}\right\rfloor}\right)<br>\\<br>&#x3D;&amp; O\left(\int_{1}^{\sqrt{n}}x^{1&#x2F;2},\delta x+\int_{1}^{\sqrt{n}}\sqrt{\dfrac{n}{x}},\delta x\right)<br>\\<br>&#x3D;&amp; O\left(\dfrac{2}{3}n^{3&#x2F;4}-\dfrac{2}{3}+2n^{3&#x2F;4}-2n^{1&#x2F;2}\right)<br>\\<br>&#x3D;&amp; O(n^{3&#x2F;4})<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>T(n)&#x3D;&amp; O\left(\sum_{i&#x3D;1}^{\sqrt{n}}\sqrt{i}+\sum_{i&#x3D;1}^{\sqrt{n}}\sqrt{\left\lfloor\dfrac{n}{i}\right\rfloor}\right)<br>\\<br>&#x3D;&amp; O\left(\int_{1}^{\sqrt{n}}x^{1&#x2F;2}\,\delta x+\int_{1}^{\sqrt{n}}\sqrt{\dfrac{n}{x}}\,\delta x\right)<br>\\<br>&#x3D;&amp; O\left(\dfrac{2}{3}n^{3&#x2F;4}-\dfrac{2}{3}+2n^{3&#x2F;4}-2n^{1&#x2F;2}\right)<br>\\<br>&#x3D;&amp; O(n^{3&#x2F;4})<br>\end{aligned}<br>$$</p>
 <p>于是我们的答案就是：</p>
 <p>$$<br>Ans&#x3D;f(A,B,C)f(B,A,C)g(A,B,C)g(A,C,B)<br>$$</p>
 <p>四舍五入单次计算答案就是 $O(n^{3&#x2F;4}\log n)$ 的。</p>
@@ -6554,6 +6550,97 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>莫比乌斯反演</tag>
         <tag>杜教筛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P1390</title>
+    <url>/2022/04/22/P1390/</url>
+    <content><![CDATA[<p>公约数的和</p>
+<p>简单的小容斥。</p>
+<p>$$<br>\begin{aligned}<br>&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;i+1}^{n}\gcd(i,j)<br>\\<br>&#x3D;&amp; \dfrac{1}{2}\left(\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{n}\gcd(i,j)-\sum_{i&#x3D;1}^{n}i\right)<br>\\<br>&#x3D;&amp; \dfrac{1}{2}\left(\sum_{k&#x3D;1}\varphi(k)\left\lfloor\dfrac{n}{k}\right\rfloor^2-\sum_{i&#x3D;1}^{n}i\right)<br>\end{aligned}<br>$$</p>
+<p>数论分块就行了。</p>
+<p>答案可能有些大，反正开 <code>__int128</code> 就没事了。</p>
+<p>时间复杂度 $O(n)$。</p>
+<p>比较闲的话可以上杜教筛 $O(n^{2&#x2F;3})$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">2e6</span>;</span><br><span class="line"></span><br><span class="line">ll n,cnt;</span><br><span class="line">ll prime[N+<span class="number">5</span>],phi[N+<span class="number">5</span>],sphi[N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> f[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">F</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> x*(x+<span class="number">1</span>)/<span class="number">2</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  f[<span class="number">1</span>]=<span class="number">1</span>;phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;phi[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;i*prime[j]&lt;=n;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">        phi[i*prime[j]]=phi[i]*prime[j];<span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      phi[i*prime[j]]=phi[i]*phi[prime[j]];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) sphi[i]=sphi[i<span class="number">-1</span>]+phi[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();<span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  ll ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=n;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=n/(n/i);ans=ans+(sphi[j]-sphi[i<span class="number">-1</span>])*(n/i)*(n/i);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ans-=<span class="built_in">F</span>(n);ans/=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>莫比乌斯反演</tag>
+        <tag>容斥</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P1447</title>
+    <url>/2022/04/22/P1447/</url>
+    <content><![CDATA[<p>[NOI2010] 能量采集</p>
+<p>我们知道对于 $(i,j)$，它有 $d&#x3D;\gcd(i,j)$，且 $(i&#x2F;d,j&#x2F;d)$ 是对应直线上第一个点，下一个点就是该点坐标两倍，再下一个就是三倍，以此类推。</p>
+<p>因此 $(i,j)$ 前的点数为 $\gcd(i,j)-1$，答案就是：</p>
+<p>$$<br>\begin{aligned}<br>&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}\left(2(\gcd(i,j)-1)+1\right)<br>\\<br>&#x3D;&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}\left(2\gcd(i,j)-1\right)<br>\\<br>&#x3D;&amp; 2\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}\gcd(i,j)-nm<br>\\<br>&#x3D;&amp; 2\sum_{k&#x3D;1}\varphi(k)\left\lfloor\dfrac{n}{k}\right\rfloor\left\lfloor\dfrac{m}{k}\right\rfloor-nm<br>\end{aligned}<br>$$</p>
+<p>直接 $O(n)$ 预处理出 $\varphi$ 前缀和，线性或数论分块就完事了。</p>
+<p>闲着没事可以杜教筛 $O(n^{2&#x2F;3})$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">2e6</span>;</span><br><span class="line"></span><br><span class="line">ll n,m,cnt;</span><br><span class="line">ll prime[N+<span class="number">5</span>],phi[N+<span class="number">5</span>],sphi[N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> f[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  f[<span class="number">1</span>]=<span class="number">1</span>;phi[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;phi[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;i*prime[j]&lt;=n;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">        phi[i*prime[j]]=phi[i]*prime[j];<span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      phi[i*prime[j]]=phi[i]*phi[prime[j]];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) sphi[i]=sphi[i<span class="number">-1</span>]+phi[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();<span class="keyword">if</span>(n&lt;m) <span class="built_in">swap</span>(n,m);<span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  ll ans=-n*m;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=n&amp;&amp;i&lt;=m;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=<span class="built_in">min</span>(n/(n/i),m/(m/i));ans=ans+<span class="number">2</span>*(sphi[j]-sphi[i<span class="number">-1</span>])*(n/i)*(m/i);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>莫比乌斯反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P2158</title>
+    <url>/2022/04/22/P2158/</url>
+    <content><![CDATA[<p>[SDOI2008] 仪仗队</p>
+<p>暴力的想法，枚举每个点，判断它是否能被看到。</p>
+<p>然后就思考能被看到的充要条件。</p>
+<p>假设队列是坐标区间 $[0,n)$ 的区域，如果横纵坐标都不为 0，那么当且仅当横纵坐标互质时能被看到，反之不能。</p>
+<p>原因很简单，如果两坐标不互质，将两坐标除以最大公约数就能得到另一个在这条直线上且更靠近原点的点，一定能把该点遮盖，反之则一定能看见。</p>
+<p>算上 $(0,1)$ 和 $(1,0)$ 两点，就是我们的答案。</p>
+<p>所以有：</p>
+<p>$$<br>\begin{aligned}<br>Ans&#x3D;&amp;\sum_{i&#x3D;1}^{n-1}\sum_{j&#x3D;1}^{n-1}[\gcd(i,j)&#x3D;1]+2<br>\end{aligned}<br>$$</p>
+<p>直接反演应该不用多说：</p>
+<p>$$Ans&#x3D;\sum_{k&#x3D;1}\mu(k)\left\lfloor\dfrac{n-1}{k}\right\rfloor^2+2$$</p>
+<p>另外我们根据欧拉函数的定义：不大于 $n$ 的与 $n$ 互质的数个数，可以将原式变形为另外的状态。</p>
+<p>这样就有：</p>
+<p>$$\dfrac{1}{2}(Ans-1)&#x3D;\sum_{i&#x3D;1}^{n-1}\varphi(i)$$</p>
+<p>实际上我只是单纯地想写：</p>
+<p>$$\sum_{i&#x3D;1}^{n-1}\varphi(i)&#x3D;\sum_{i&#x3D;1}^{n-1}\sum_{j&#x3D;1}^{i}[\gcd(i,j)&#x3D;1]$$</p>
+<p>然后左右调整一下就是上面的那个。</p>
+<p>于是我们就有：</p>
+<p>$$<br>Ans&#x3D;2\sum_{i&#x3D;1}^{n-1}\varphi(i)+1<br>$$</p>
+<p>反正线性筛之后都可以 $O(n)$ 求，差别不大。</p>
+<p>闲着没事可以杜教筛 $O(n^{2&#x2F;3})$，两种方式好像复杂度仍然没有区别，只不过第二种方法更适合杜教筛（毕竟只要求一个前缀和）。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">2e6</span>;</span><br><span class="line"></span><br><span class="line">ll n,cnt;</span><br><span class="line">ll prime[N+<span class="number">5</span>],mu[N+<span class="number">5</span>],smu[N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> f[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  f[<span class="number">1</span>]=<span class="number">1</span>;mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;i*prime[j]&lt;=n;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">        mu[i*prime[j]]=<span class="number">0</span>;<span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      mu[i*prime[j]]=-mu[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) smu[i]=smu[i<span class="number">-1</span>]+mu[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();<span class="built_in">Init</span>();n--;</span><br><span class="line"></span><br><span class="line">  ll ans=<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=n;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=n/(n/i);ans=ans+(smu[j]-smu[i<span class="number">-1</span>])*(n/i)*(n/i);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="built_in">write</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">else</span> <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>莫比乌斯反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P2260</title>
+    <url>/2022/04/22/P2260/</url>
+    <content><![CDATA[<p>[清华集训2012]模积和</p>
+<p>简单容斥加上数论分块。</p>
+<p>肯定要改写形式。</p>
+<p>不妨设 $n\ge m$。</p>
+<p>$$<br>\begin{aligned}<br>Ans&#x3D;&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}[i\ne j](n\bmod i)(m\bmod j)<br>\\<br>&#x3D;&amp; \sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{m}\left(n-i\left\lfloor\dfrac{n}{i}\right\rfloor\right)\left(m-j\left\lfloor\dfrac{m}{j}\right\rfloor\right)<br>\\<br>&amp; -\sum_{i&#x3D;1}^{m}\left(n-i\left\lfloor\dfrac{n}{i}\right\rfloor\right)\left(m-i\left\lfloor\dfrac{m}{i}\right\rfloor\right)<br>\end{aligned}<br>$$</p>
+<p>后面就是把式子拆开之后针对每一项进行计算就可以了。</p>
+<p>找到相同的项并统一计算可以减少代码量。</p>
+<p>因为这一部分比较 Trivial 我就略了。</p>
+<p>时间复杂度 $O(\sqrt{n})$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll mo=<span class="number">19940417</span>;</span><br><span class="line"></span><br><span class="line">ll n,m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">S1</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> (x*(x+<span class="number">1</span>)/<span class="number">2</span>)%mo;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">F</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);r=(r+(<span class="built_in">S1</span>(j)-<span class="built_in">S1</span>(i<span class="number">-1</span>)+mo)*(x/i)%mo)%mo;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">S2</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> (x*(x+<span class="number">1</span>)*(<span class="number">2</span>*x+<span class="number">1</span>)/<span class="number">6</span>)%mo;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">G</span><span class="params">(ll n,ll m)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=m;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=<span class="built_in">min</span>(n/(n/i),m/(m/i));<span class="keyword">if</span>(j&gt;m) j=m;</span><br><span class="line">    r=(r+(<span class="built_in">S2</span>(j)-<span class="built_in">S2</span>(i<span class="number">-1</span>)+mo)*(n/i)*(m/i)%mo)%mo;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">H</span><span class="params">(ll n,ll m)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=m;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=n/(n/i);<span class="keyword">if</span>(j&gt;m) j=m;</span><br><span class="line">    r=(r+(<span class="built_in">S1</span>(j)-<span class="built_in">S1</span>(i<span class="number">-1</span>)+mo)*(n/i)%mo)%mo;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();<span class="keyword">if</span>(n&lt;m) <span class="built_in">swap</span>(n,m);</span><br><span class="line"></span><br><span class="line">  ll tmp1=<span class="built_in">F</span>(n),tmp2=<span class="built_in">F</span>(m),tmp3=n*n%mo,tmp4=m*m%mo;</span><br><span class="line">  ll ans=<span class="number">0</span>;</span><br><span class="line">  ans=tmp3*tmp4%mo;</span><br><span class="line">  ans=(ans-tmp3*tmp2%mo+mo)%mo;</span><br><span class="line">  ans=(ans-tmp4*tmp1%mo+mo)%mo;</span><br><span class="line">  ans=(ans+tmp1*tmp2%mo)%mo;</span><br><span class="line"></span><br><span class="line">  ans=(ans-n*tmp4%mo+mo)%mo;</span><br><span class="line">  ans=(ans-<span class="built_in">G</span>(n,m)+mo)%mo;</span><br><span class="line">  ans=(ans+n*tmp2%mo)%mo;</span><br><span class="line">  ans=(ans+m*<span class="built_in">H</span>(n,m)%mo)%mo;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>数论分块</tag>
       </tags>
   </entry>
 </search>
