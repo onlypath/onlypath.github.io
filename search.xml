@@ -1378,7 +1378,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$(f\ast g)_p(x)&#x3D;f_p(x)g_p(x)$$</p>
 <p>加法形式也是可以对应的（但是如果变非积性函数就没法卷积了）：</p>
 <p>$$(f+g)_p(x)&#x3D;f_p(x)+g_p(x)$$</p>
-<p>常见的封闭形式（想要推导出来就仔细想一想 $f(p^x)$ 等于什么，变成一个正常的 OGF，然后就会推了）：</p>
+<p>点乘的话就是对应 $x^i$ 的系数相乘即可，很好理解。可惜没有什么贝尔级数上的初等运算可以对应。</p>
+<p>常见的封闭形式：</p>
 <ol>
 <li><p>$\varepsilon_p(x)&#x3D;1$</p>
 </li>
@@ -1392,10 +1393,15 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>$\varphi_p(x)&#x3D;\dfrac{1-x}{1-px}$</p>
 </li>
+<li><p>$(\mathbf{id}\cdot \mu)_p(x)&#x3D;1-px$</p>
+</li>
 </ol>
+<p>想要推导出来就仔细想一想 $f(p^x)$ 等于什么，变成一个正常的 OGF，然后就会推了。</p>
 <p>实在不会直接推导可以利用上面你已经理解的结论和自己知道的卷积来推导，比如 $\varphi_p(x)&#x3D;\mu_p(x)\mathbf{id_p}(x)$。</p>
-<p>因为有关这个的习题似乎很难找（？）。</p>
+<p>或者说理解一下这个意义。。。我也没什么好方法。。。</p>
+<p>有关这个的习题似乎很难找（？）。</p>
 <p>所以我自己造了一道：<a href="https://www.luogu.com.cn/problem/U214268">U214268</a> 不老不死的竹林引路人。</p>
+<p>或者去看 rqy 博客里的那道奇怪的题目（显然会比这一题难处理一些）。</p>
 <h1 id="五、技巧总结"><a href="#五、技巧总结" class="headerlink" title="五、技巧总结"></a>五、技巧总结</h1><ol>
 <li><p>推式子，我只会：</p>
 <p> 公式瞎套，换序求和，换元乱搞，创造互质（构造 $[\gcd(x,y)&#x3D;1]$），函数积性，函数求逆，提项合并，<del>当场躺平</del>。</p>
@@ -1539,11 +1545,12 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>希望读者就算不会杜教筛的方法做这道题也要会最基本的那个线性做法</li>
 </ul>
 </li>
-<li><p><a href="">U214268</a> 不老不死的竹林引路人</p>
+<li><p><a href="https://onlypath.github.io/2022/04/23/U214268/">U214268</a> 不老不死的竹林引路人</p>
 <ul>
 <li>自己造的题目</li>
 <li>需要贝尔级数（知道这个这题就太简单了。。。）</li>
 <li>剩下就是简单的杜教筛模板</li>
+<li>高级筛法我不会</li>
 </ul>
 </li>
 <li><p><a href="https://onlypath.github.io/2022/04/17/P5518/">P5518</a> [MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
@@ -4857,7 +4864,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ol>
 <h1 id="四、关于二项式"><a href="#四、关于二项式" class="headerlink" title="四、关于二项式"></a>四、关于二项式</h1><p>$$\binom{n}{m}&#x3D;\dfrac{n!}{m!(n-m)!}&#x3D;\dfrac{n^{\underline{m}}}{m!}$$</p>
 <ol>
-<li><p>对称：$\dbinom{n}{m}&#x3D;\dfrac{n}{n-m}$</p>
+<li><p>对称：$\dbinom{n}{m}&#x3D;\dbinom{n}{n-m}$</p>
 </li>
 <li><p>吸收与释放：$\dbinom{n}{m}&#x3D;\dfrac{n}{m}\dbinom{n-1}{m-1}$</p>
 </li>
@@ -6674,13 +6681,50 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Binomial_Inversion</title>
     <url>/2022/02/03/Binomial-Inversion/</url>
-    <content><![CDATA[<p>咕咕咕咕咕咕咕咕咕。</p>
-<p>二项式反演基本形式：</p>
+    <content><![CDATA[<h1 id="一、反演简介"><a href="#一、反演简介" class="headerlink" title="一、反演简介"></a>一、反演简介</h1><p>反演的本质：两个数列的双向求和关系。</p>
+<p>最常见的反演，比如前缀和与差分。</p>
+<p>定义关系矩阵 $A$，则 $f_n&#x3D;\sum_{i&#x3D;0}^{\infty}A_{n,i}g_{i}$。</p>
+<p>即 $F&#x3D;G\times A$。</p>
+<p>反过来我们也有 $G&#x3D;A^{-1}\times F$。</p>
+<p>我们有如下结论：</p>
+<blockquote>
+<p>定理：两个互为反演关系的矩阵互逆。</p>
+</blockquote>
+<p>反演中 -1 的幂可以任意移动。（不会证）</p>
+<p>对于多维反演，以二维情况为例，假设两维的关系矩阵分别为 $A,B$：</p>
+<p>$$<br>f_{n,m}&#x3D;\sum_{i&#x3D;0}^{\infty}\sum_{j&#x3D;0}^{\infty}A_{n,i}B_{m,j}g_{i,j}\Leftrightarrow g_{n,m}&#x3D;\sum_{i&#x3D;0}^{\infty}\sum_{j&#x3D;0}^{\infty}A^{-1}<em>{n,i}B^{-1}</em>{m,j}g_{i,j}<br>$$</p>
+<h1 id="二、二项式相关结论"><a href="#二、二项式相关结论" class="headerlink" title="二、二项式相关结论"></a>二、二项式相关结论</h1><p>$$\binom{n}{m}&#x3D;\dfrac{n!}{m!(n-m)!}&#x3D;\dfrac{n^{\underline{m}}}{m!}$$</p>
+<ol>
+<li><p>对称：$\dbinom{n}{m}&#x3D;\dbinom{n}{n-m}$</p>
+</li>
+<li><p>吸收与释放：$\dbinom{n}{m}&#x3D;\dfrac{n}{m}\dbinom{n-1}{m-1}$</p>
+</li>
+<li><p>二项式定理：</p>
+<p> $$(1+x)^a&#x3D;\sum_{i&#x3D;0}^{\infty}\binom{a}{i}x^i$$</p>
+</li>
+<li><p>递推公式（杨辉三角）：</p>
+<p> $$\binom{n}{m}&#x3D;\binom{n-1}{m-1}+\binom{n-1}{m}$$</p>
+</li>
+<li><p>平行求和：</p>
+<p> $$\sum_{i&#x3D;0}^{n}\binom{r+i}{i}&#x3D;\binom{r+n+1}{n}$$</p>
+<p> 证明：前两项之和为</p>
+<p> $$\binom{r}{0}+\binom{r+1}{1}&#x3D;\binom{r+1}{0}+\binom{r+1}{1}&#x3D;\binom{r+2}{1}$$</p>
+<p> 然后与 $\binom{r+2}{2}$ 求和：</p>
+<p> $$\binom{r+2}{1}+\binom{r+2}{2}&#x3D;\binom{r+3}{2}$$</p>
+<p> 以此类推，综上得到结论。</p>
+</li>
+<li><p>上指标求和：</p>
+<p> $$\sum_{i&#x3D;0}^{n}\binom{i}{m}&#x3D;\binom{n+1}{m+1}$$</p>
+<p> 证明：$\binom{m}{m}&#x3D;\binom{m+1}{m+1}$，与 $\binom{m+1}{m}$ 相加得到 $\binom{m+2}{m+1}$。</p>
+<p> 剩下的递推与上个证明类似，不作赘述。</p>
+</li>
+</ol>
+<h1 id="三、二项式反演"><a href="#三、二项式反演" class="headerlink" title="三、二项式反演"></a>三、二项式反演</h1><p>二项式反演基本形式：</p>
 <p>$$f_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}g_i \Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}f_i$$</p>
-<p>非常对称。即 $A_{n,i}&#x3D;(-1)^i\binom{n}{i}$ 这个矩阵是自逆的。</p>
+<p>证明该结论即证明 $A_{n,i}&#x3D;(-1)^i\binom{n}{i}$ 这个矩阵是自逆的。</p>
 <p>证明：</p>
-<p>$$\begin{aligned}<br>{(A\ast A)}<em>{d,t}<br>&amp;&#x3D;\sum</em>{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br>\\<br>&amp;&#x3D;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br>\\<br>&amp;&#x3D;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br>\\<br>&amp;&#x3D;<br>(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br>\\<br>&amp;&#x3D;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br>\\<br>&amp;&#x3D;[d&#x3D;t]<br>\end{aligned}$$</p>
-<p>于是 $A*A&#x3D;I$，反演成立。</p>
+<p>$$\begin{aligned}<br>{(A\times A)}<em>{d,t}<br>&#x3D;&amp;\sum</em>{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br>\\<br>&#x3D;&amp;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-i)!t!(i-t)!}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!(i-t)!}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!((d-t)-(d-i))!}<br>\\<br>&#x3D;&amp;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br>\\<br>&#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br>\\<br>&#x3D;&amp;<br>(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br>\\<br>&#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br>\\<br>&#x3D;&amp;[d&#x3D;t]<br>\end{aligned}$$</p>
+<p>于是 $A\times A&#x3D;I$，反演成立。</p>
 <p>另外一种形式：</p>
 <p>$$f_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^{n}(-1)^{n-i}\binom{n}{i}f_i$$</p>
 <p>另一种形式：</p>
@@ -6703,6 +6747,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>非常抱歉这个题的模数方面设置的不是太好，需要特殊处理一下负数特别小的情况。</p>
 <p>题目背景是瞎写的，不用过多在意。</p>
 <p>征求验题。。。</p>
+<hr>
 <p>首先我们可以将 $f$ 的贝尔级数写出来：</p>
 <p>$$f_p(x)&#x3D;1-(p^2+1)x+p^2x^2$$</p>
 <p>将其因式分解得到：</p>
@@ -6716,8 +6761,12 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>然后就做完了。</p>
 <p>时间复杂度 $O(Tn^{2&#x2F;3})$。</p>
 <p>然后笔者自己的程序跑得奇慢，觉得原因大概是用了 <code>map</code> 和自己代码习惯不好，所以把最后几个点的时限开到了 $4s$。</p>
-<p>更 nb 的科技笔者不会。</p>
-<p>欢迎大家提供更优秀的做法（或者把我的常数吊起来打）。</p>
+<hr>
+<p>Wky 大师说这个可以 Min-25 筛，理论复杂度会更优秀，但我不会。。。</p>
+<p>似乎因为构造的方式过于简单导致大师似乎可以一眼看出这个 $g&#x3D;\mathbf{id^2}$。。。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/c0lijupn.png" alt="大师的嘲讽"></p>
+<p>那还要个鬼的贝尔级数。。。</p>
+<p>但像我这样的凡人还是老老实实想一些比较通用的方法吧。。。</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Fm</span><span class="params">(ll x,ll y)</span> </span>&#123;<span class="keyword">return</span> x&gt;=<span class="number">0</span>?x%y:(x+(-x/y+<span class="number">1</span>)*y)%y;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll M=<span class="number">5e6</span>;</span><br><span class="line"></span><br><span class="line">ll T,mo,n,cnt;</span><br><span class="line">ll prime[M+<span class="number">5</span>],f[M+<span class="number">5</span>],mu[M+<span class="number">5</span>],sf1[M+<span class="number">5</span>],smu1[M+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> ff[M+<span class="number">5</span>];</span><br><span class="line">map&lt;ll,ll&gt; sf2,smu2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">S2</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> x*(x+<span class="number">1</span>)*(<span class="number">2</span>*x+<span class="number">1</span>)/<span class="number">6</span>;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Smu</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> smu1[x];</span><br><span class="line">  <span class="keyword">if</span>(smu2.<span class="built_in">find</span>(x)!=smu2.<span class="built_in">end</span>()) <span class="keyword">return</span> smu2[x];</span><br><span class="line">  ll r=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);r=<span class="built_in">Fm</span>(r-(j-i+<span class="number">1</span>)*<span class="built_in">Smu</span>(x/i),mo);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> smu2[x]=r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Sf</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> sf1[x];</span><br><span class="line">  <span class="keyword">if</span>(sf2.<span class="built_in">find</span>(x)!=sf2.<span class="built_in">end</span>()) <span class="keyword">return</span> sf2[x];</span><br><span class="line">  ll r=<span class="built_in">Smu</span>(x);</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);r=<span class="built_in">Fm</span>(r-(<span class="built_in">S2</span>(j)-<span class="built_in">S2</span>(i<span class="number">-1</span>))*<span class="built_in">Sf</span>(x/i),mo);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sf2[x]=r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ff[<span class="number">1</span>]=<span class="number">1</span>;f[<span class="number">1</span>]=<span class="number">1</span>;mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=M;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!ff[i]) &#123;prime[++cnt]=i;f[i]=<span class="built_in">Fm</span>(-i*i<span class="number">-1</span>,mo);mu[i]=<span class="built_in">Fm</span>(<span class="number">-1</span>,mo);&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;i*prime[j]&lt;=M;j++) &#123;</span><br><span class="line">      ff[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">        mu[i*prime[j]]=<span class="number">0</span>;</span><br><span class="line">        ll tmp=i/prime[j];</span><br><span class="line">        <span class="keyword">if</span>(tmp%prime[j]==<span class="number">0</span>) f[i*prime[j]]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> f[i*prime[j]]=<span class="built_in">Fm</span>(prime[j]*prime[j]*f[tmp],mo);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      f[i*prime[j]]=<span class="built_in">Fm</span>(f[prime[j]]*f[i],mo);mu[i*prime[j]]=<span class="built_in">Fm</span>(-mu[i],mo);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=M;i++) sf1[i]=<span class="built_in">Fm</span>(sf1[i<span class="number">-1</span>]+f[i],mo);</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=M;i++) smu1[i]=<span class="built_in">Fm</span>(smu1[i<span class="number">-1</span>]+mu[i],mo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();mo=<span class="built_in">read</span>();<span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    n=<span class="built_in">read</span>();</span><br><span class="line">    <span class="built_in">writeln</span>(<span class="built_in">Sf</span>(n));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
