@@ -28,7 +28,7 @@
 <meta property="og:description" content="莫比乌斯反演与狄利克雷卷积">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-28T14:47:28.000Z">
-<meta property="article:modified_time" content="2022-04-22T14:02:39.062Z">
+<meta property="article:modified_time" content="2022-04-23T11:57:57.250Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="莫比乌斯反演">
 <meta property="article:tag" content="数学">
@@ -174,18 +174,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">93</span>
+        <span class="site-state-item-count">94</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -269,7 +269,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-04-22 22:02:39" itemprop="dateModified" datetime="2022-04-22T22:02:39+08:00">2022-04-22</time>
+        <time title="修改时间：2022-04-23 19:57:57" itemprop="dateModified" datetime="2022-04-23T19:57:57+08:00">2022-04-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,7 +292,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Orz _rqy , An_account , negiizhao , Elegia.</p>
+        <p>Orz _rqy , An_account , negiizhao , Elegia, Wkywkywky.</p>
 <h1 id="一、基本定义"><a href="#一、基本定义" class="headerlink" title="一、基本定义"></a>一、基本定义</h1><p>我们先定义数论函数：定义域为正整数，值域为一个数集的函数。</p>
 <p>定义两个数论函数的狄利克雷卷积：</p>
 <ul>
@@ -304,7 +304,7 @@
 <ul>
 <li><p>对于每个 $f(1)\not &#x3D; 0$ 的函数 $f$，都有 $g$ 使 $f*g&#x3D;\varepsilon$。</p>
 </li>
-<li><p>定义 $g(n)&#x3D;\dfrac{1}{f(1)}\left([n&#x3D;1]-\sum_{i\mid n,i\not &#x3D;1}f(i)g(\dfrac{n}{i})\right)$。</p>
+<li><p>定义 $g(n)&#x3D;\dfrac{1}{f(1)}\left([n&#x3D;1]-\sum_{i\mid n,i\not &#x3D;1}f(i)g\left(\dfrac{n}{i}\right)\right)$。</p>
 </li>
 <li><p>易知：$\sum_{i\mid n}f(i)g\left(\dfrac{n}{i}\right)&#x3D;f(1)g(n)+\sum_{i\mid n,i\not &#x3D; 1}f(i)g\left(\dfrac{n}{i}\right)&#x3D;[n&#x3D;1]$。</p>
 </li>
@@ -346,7 +346,7 @@
 <li><p>欧拉反演（然而没有这个名字，暂且可以这么称呼）：</p>
 <p>  $$n&#x3D;\sum_{d\mid n}\varphi(d)$$</p>
 <p>  写成狄利克雷卷积就是：</p>
-<p>  $$\mathbf{id}&#x3D;1\ast \mu$$</p>
+<p>  $$\mathbf{id}&#x3D;1\ast \varphi$$</p>
 <p>  其逆即为：</p>
 <p>  $$\mathbf{id}*\mu&#x3D;\varphi$$</p>
 </li>
@@ -392,7 +392,7 @@
 <p> 可知原函数单峰下凸，在 $x&#x3D;1$ 时得 $n$。</p>
 <p> 用最大值作界得到：</p>
 <p> $$T(n)\le \dfrac{\log_2 n}{\ln n}n&#x3D;O(n)$$</p>
-<p> 当然，数论带师 Wky 直接给了一种更简明的方法：</p>
+<p> 当然，数学明珠上的皇冠 Wky 大师直接给了一种更简明的方法：</p>
 <p> 因为对于 $k&#x3D;1$，一共有 $\pi(n)$ 个 $p$。</p>
 <p> 对于每个 $k\in [2,\log_2 n]$，最多只有 $\pi(\sqrt[k]{n})&lt;\sqrt[k]{n}$ 个 $p$。</p>
 <p> 那么 $n$ 以内 $p^k$ 的个数就是 $O(\pi(n)+\sqrt{n}\log_2 n)&#x3D;O\left(\dfrac{n}{\ln n}\right)$（数量级可以通过相除比较）。</p>
@@ -414,13 +414,16 @@
 </li>
 <li><p>$\mathbf{id^k_p}(x)&#x3D;\dfrac{1}{1-p^kx}$</p>
 </li>
-<li><p>$\mu_p(x)&#x3D;1-x$，$\mu^2_p(x)&#x3D;1+x$</p>
+<li><p>$\mu_p(x)&#x3D;1-x$，$(\mu\cdot\mu)_p(x)&#x3D;1+x$</p>
 </li>
 <li><p>$\sigma_{0p}(x)&#x3D;\dfrac{1}{(1-x)^2}$</p>
 </li>
-<li><p>$\varphi_p(x)&#x3D;\dfrac{1-x}{1-px}$（实在不会直接推导可以利用上面的结论和卷积来推导）</p>
+<li><p>$\varphi_p(x)&#x3D;\dfrac{1-x}{1-px}$</p>
 </li>
 </ol>
+<p>实在不会直接推导可以利用上面你已经理解的结论和自己知道的卷积来推导，比如 $\varphi_p(x)&#x3D;\mu_p(x)\mathbf{id_p}(x)$。</p>
+<p>因为有关这个的习题似乎很难找（？）。</p>
+<p>所以我自己造了一道：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/U214268">U214268</a> 不老不死的竹林引路人。</p>
 <h1 id="五、技巧总结"><a href="#五、技巧总结" class="headerlink" title="五、技巧总结"></a>五、技巧总结</h1><ol>
 <li><p>推式子，我只会：</p>
 <p> 公式瞎套，换序求和，换元乱搞，创造互质（构造 $[\gcd(x,y)&#x3D;1]$），函数积性，函数求逆，提项合并，<del>当场躺平</del>。</p>
@@ -447,16 +450,20 @@
 <h1 id="六、入门教程（应用）"><a href="#六、入门教程（应用）" class="headerlink" title="六、入门教程（应用）"></a>六、入门教程（应用）</h1><p>以上都是一些比较结论性的东西。</p>
 <p>想要训练的话可以跟着下面的入门。。。</p>
 <p>题面自己搜。</p>
+<p>建议初学者做例题的时候可以适当利用题解，熟练掌握例题中的基本思想，我保证在掌握了对应例题后练习题可以完全独立做出。</p>
+<p>如果只是想要掌握基础的话，将例题和对应练习做掉即可，后面的 ABC 组练习题就可以不做，这些题目的主要目的是为了巩固。</p>
+<p>A 组是基础题，难度和例题的对应练习保持一致，觉得 Trivial 可以直接跳过。</p>
+<p>B 组放了一些稍微上了点难度的题，但总体来说仍然不难，想要巩固的话可以优先做这一组的题目。</p>
+<p>C 组放了一些我自己觉得比较毒瘤的题，供想要继续深入的同学探究。。。</p>
+<p>虽然笔者又加入了不少题目，但实际上难度上仍然不高，而且基本都是纯推式子题，只能帮助读者了解基础，更加高明的应用欠缺很多（我也无能为力）。</p>
+<hr>
 <p>必备技能：<a href="https://onlypath.github.io/2021/12/13/UVA11526/">UVA11526</a> H(n)</p>
 <p>这里就是数论分块的基本内容。</p>
-<p>练习：</p>
-<ol>
-<li><p><a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a> [CQOI2007]余数求和</p>
+<p>练习：<a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a> [CQOI2007]余数求和</p>
 <ul>
 <li>希望这个题能让读者明白一个转化套路，就是想办法往 $\sum_{i&#x3D;1}^{n}\left\lfloor\dfrac{n}{i}\right\rfloor$ 上去靠，然后用数论分块</li>
 </ul>
-</li>
-</ol>
+<hr>
 <p>接下来正式进入莫比乌斯反演：</p>
 <p>例一：<a href="https://onlypath.github.io/2022/01/27/P3455/">P3455</a> [POI2007]ZAP-Queries</p>
 <ul>
@@ -467,55 +474,91 @@
 <li>区别于一般的反演做法，这种方法可能更适合入门</li>
 <li>想要做题的话掌握这种技巧就足够了</li>
 </ul>
-<p>练习：</p>
-<ol>
-<li><p><a href="https://onlypath.github.io/2022/01/27/P2522/">P2522</a> [HAOI2011]Problem b</p>
+<p>练习一：<a href="https://onlypath.github.io/2022/01/27/P2522/">P2522</a> [HAOI2011]Problem b</p>
 <ul>
 <li>和上面的题其实一样</li>
 <li>这里用到了容斥</li>
 <li>希望读者能够熟悉一下上面的推导</li>
 </ul>
-</li>
-</ol>
+<hr>
 <p>例二：<a href="https://onlypath.github.io/2022/02/05/P2257/">P2257</a> YY的GCD</p>
 <ul>
 <li>这题需要的技巧是换元</li>
 <li>形象的来说，我们设了一个 $T&#x3D;kd$，然后让枚举的条件通过整除限制地更紧</li>
 <li>通过这个方式来优化我们的复杂度</li>
 </ul>
-<p>练习：</p>
-<ol>
-<li><p><a href="https://onlypath.github.io/2022/02/05/P2398/">P2398</a> GCD SUM</p>
+<p>练习二：<a href="https://onlypath.github.io/2022/02/05/P2398/">P2398</a> GCD SUM</p>
 <ul>
 <li>希望读者熟悉一下刚才的技巧</li>
 <li>同时希望读者提升观察能力，熟练运用常用结论</li>
 <li>这里的欧拉反演（随便起的名字，实际上就是 $\mathbf{id}&#x3D;\mathbf{1}\ast \varphi$）技巧一定要掌握</li>
 </ul>
-</li>
-</ol>
+<hr>
 <p>例三：<a href="https://onlypath.github.io/2022/02/06/P3327/">P3327</a> [SDOI2015]约数个数和</p>
 <ul>
 <li>需要用到上面的某个结论</li>
 <li>只要看推导的式子就够了，杜教筛后面会讲（虽然这个题也没必要杜教筛）</li>
 <li>没有什么典型性，希望读者能知道数论题的有些结论是背不到的</li>
 </ul>
+<hr>
 <p>例四：<a href="https://onlypath.github.io/2022/02/06/P4318/">P4318</a> 完全平方数</p>
 <ul>
 <li>我们结合了二分答案的技巧</li>
 <li>主要是这个是否含平方因子与 $\mu^2$ 之间的转化</li>
 </ul>
+<hr>
 <p>例五：<a href="https://onlypath.github.io/2022/01/30/P4213/">P4213</a> 【模板】杜教筛（Sum）</p>
 <ul>
 <li>这里我们来讲一个常用的杜教筛</li>
 <li>它的功用是帮助我们更快地求出数论函数的前缀和</li>
 <li>应该说是必备技能</li>
 </ul>
-<p>练习：</p>
-<ol>
-<li><p><a href="https://onlypath.github.io/2022/04/21/P3768/">P3768</a> 简单的数学题</p>
+<p>练习五：<a href="https://onlypath.github.io/2022/04/21/P3768/">P3768</a> 简单的数学题</p>
 <ul>
 <li>比较简单的杜教筛题目</li>
 <li>基本上就是构造一下就会做了</li>
+</ul>
+<hr>
+<p>例六：<a href="https://onlypath.github.io/2022/02/08/P3704/">P3704</a> [SDOI2017]数字表格</p>
+<ul>
+<li>并不是很难的题目</li>
+<li>处理 $\prod$ 的技巧</li>
+</ul>
+<p>大概把这些题目看完，对莫比乌斯反演类的题目，尤其是有关于 $\gcd$ 的题目会有基本的处理思想和技巧。</p>
+<hr>
+<p>练习题 A 组：</p>
+<ol>
+<li><p><a href="https://onlypath.github.io/2022/04/22/P2260/">P2260</a> [清华集训2012]模积和</p>
+<ul>
+<li>很简单的容斥</li>
+<li>数论分块练习</li>
+</ul>
+</li>
+<li><p><a href="https://onlypath.github.io/2022/04/22/P1390/">P1390</a> 公约数的和</p>
+<ul>
+<li>欧拉反演练习</li>
+<li>简单容斥</li>
+</ul>
+</li>
+<li><p><a href="https://onlypath.github.io/2022/04/23/P2424/">P2424</a> 约数和</p>
+<ul>
+<li>约数函数有关卷积的应用</li>
+</ul>
+</li>
+<li><p><a href="https://onlypath.github.io/2022/04/22/P2158/">P2158</a> [SDOI2008] 仪仗队</p>
+<ul>
+<li>先想办法找到要推的式子</li>
+<li><del>如果不会可以从互质切入</del></li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>练习题 B 组：</p>
+<ol>
+<li><p><a href="https://onlypath.github.io/2022/04/22/P1447/">P1447</a> [NOI2010] 能量采集</p>
+<ul>
+<li>上面题目的强化</li>
+<li>似乎也不难</li>
 </ul>
 </li>
 <li><p><a href="https://onlypath.github.io/2022/02/06/P1829/">P1829</a> [国家集训队]Crash的数字表格 &#x2F; JZPTAB</p>
@@ -524,33 +567,35 @@
 <li>希望读者就算不会杜教筛的方法做这道题也要会最基本的那个线性做法</li>
 </ul>
 </li>
-</ol>
-<p>大概把这些题目看完，对莫比乌斯反演类的题目，尤其是有关于 $\gcd$ 的题目会有基本的处理思想和技巧。</p>
-<p>下面给出一些练习题（希望读者自己练习）：</p>
-<ol>
-<li><p>P3704 [SDOI2017]数字表格</p>
+<li><p><a href="">U214268</a> 不老不死的竹林引路人</p>
 <ul>
-<li>并不是很难的题目</li>
-<li>处理 $\prod$ 的技巧</li>
+<li>自己造的题目</li>
+<li>需要贝尔级数（知道这个这题就太简单了。。。）</li>
+<li>剩下就是简单的杜教筛模板</li>
 </ul>
 </li>
-<li><p>P5518 [MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
+<li><p><a href="https://onlypath.github.io/2022/04/17/P5518/">P5518</a> [MtOI2019]幽灵乐团 &#x2F; 莫比乌斯反演基础练习题</p>
 <ul>
 <li>把式子推完就要做大模拟了</li>
 <li>请一定要耐心。。。</li>
 </ul>
 </li>
-<li><p>P7325 [WC2021] 斐波那契</p>
+<li><p><a href="">P7325</a> [WC2021] 斐波那契</p>
+</li>
+<li><p><a href="">P1587</a> [NOI2016] 循环之美</p>
+</li>
+</ol>
+<hr>
+<p>练习题 C 组：</p>
+<ol>
+<li><p><a href="">P4619</a> [SDOI2018]旧试题</p>
 <ul>
-<li>不是裸的数论题，还需要其他结论</li>
-<li>有一定难度</li>
+<li>前面某道题目的扩展</li>
 </ul>
 </li>
-<li><p>P1587 [NOI2016] 循环之美</p>
-<ul>
-<li>不是裸的数论题</li>
-<li>有一定难度</li>
-</ul>
+<li><p><a href="">P5572</a> [CmdOI2019]简单的数论题</p>
+</li>
+<li><p><a href="">P4240</a> 毒瘤之神的考验</p>
 </li>
 </ol>
 <h1 id="七、附录"><a href="#七、附录" class="headerlink" title="七、附录"></a>七、附录</h1><p>$\LaTeX$ 使用表：</p>
@@ -565,10 +610,12 @@
 </li>
 <li><p><code>\varepsilon</code> $\rightarrow \varepsilon$</p>
 </li>
+<li><p><code>\sqrt[x]&#123;n&#125;</code> $\rightarrow \sqrt[x]{n}$</p>
+</li>
 </ol>
 <p><del>入门教程就到这里</del>。</p>
 <p><del>以上是一名平凡的 OIer 无私的馈赠。衷心希望想要入门数论求和类题目的人能够有所收获。</del></p>
-<p><del>毕竟水平有限，人在 AH（非 asdfz），没啥题量，所以只能写到这里了。</del></p>
+<p><del>很可惜笔者题量太少，对数学的悟性也不高，只能写到这里了。</del></p>
 
     </div>
 
