@@ -1372,13 +1372,16 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 </ol>
 <h1 id="四、贝尔级数"><a href="#四、贝尔级数" class="headerlink" title="四、贝尔级数"></a>四、贝尔级数</h1><p>这一块我也不太明白，也不怎么会用。</p>
+<p>可以说是狄利克雷生成函数的一个较好替代品（看起来就要简洁许多），以至于我现在还不会狄利克雷生成函数。。。</p>
+<p>讲解这个的主要是 rqy 和 cmd 的博客。</p>
 <p>定义积性函数 $f$ 模 $p$ 的贝尔级数为：</p>
 <p>$$f_p(x)&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)x^i$$</p>
 <p>这样的话根据积性函数的性质，狄利克雷卷积就变成了一般卷积：</p>
 <p>$$(f\ast g)_p(x)&#x3D;f_p(x)g_p(x)$$</p>
 <p>加法形式也是可以对应的（但是如果变非积性函数就没法卷积了）：</p>
 <p>$$(f+g)_p(x)&#x3D;f_p(x)+g_p(x)$$</p>
-<p>点乘的话就是对应 $x^i$ 的系数相乘即可，很好理解。可惜没有什么贝尔级数上的初等运算可以对应。</p>
+<p>求逆的话非常简单，若 $f\ast g&#x3D;\varepsilon$，则：</p>
+<p>$$f_p(x)g_p(x)&#x3D;1$$</p>
 <p>常见的封闭形式：</p>
 <ol>
 <li><p>$\varepsilon_p(x)&#x3D;1$</p>
@@ -1399,8 +1402,14 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>想要推导出来就仔细想一想 $f(p^x)$ 等于什么，变成一个正常的 OGF，然后就会推了。</p>
 <p>实在不会直接推导可以利用上面你已经理解的结论和自己知道的卷积来推导，比如 $\varphi_p(x)&#x3D;\mu_p(x)\mathbf{id_p}(x)$。</p>
 <p>或者说理解一下这个意义。。。我也没什么好方法。。。</p>
+<p>点乘的话就是对应 $x^i$ 的系数相乘即可，很好理解。可惜没有什么贝尔级数上的初等运算可以对应。</p>
+<p>一种特殊的点乘是数论函数 $f$ 点乘上 $\mathbf{id^k}$，这种情况下我们是可以求出其贝尔级数的：</p>
+<p>$$(f\cdot \mathbf{id^k})<em>p(x)&#x3D;\sum</em>{i&#x3D;0}^{\infty}f(p^i)p^{ki}x^{i}&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)(p^kx)^i$$</p>
+<p>这个时候将 $p^kx$ 视作整体，代入 $f_p(x)$ 就好了。</p>
+<p>比如：$(\varphi\cdot \mathbf{id^2})_p(x)&#x3D;\dfrac{1-p^2x}{1-p^3x}$。</p>
+<p>然后 <a href="https://onlypath.github.io/2022/04/21/P3768/">P3768</a> 简单的数学题 就可以做了。</p>
 <p>有关这个的习题似乎很难找（？）。</p>
-<p>所以我自己造了一道：<a href="https://www.luogu.com.cn/problem/U214268">U214268</a> 不老不死的竹林引路人。</p>
+<p>所以我自己造了一道：<a href="https://www.luogu.com.cn/problem/U214268">U214268</a> 不老不死的竹林引路人。或许用狄利克雷生成函数会更简洁，但我不会。</p>
 <p>或者去看 rqy 博客里的那道奇怪的题目（显然会比这一题难处理一些）。</p>
 <h1 id="五、技巧总结"><a href="#五、技巧总结" class="headerlink" title="五、技巧总结"></a>五、技巧总结</h1><ol>
 <li><p>推式子，我只会：</p>
@@ -1494,7 +1503,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>练习五：<a href="https://onlypath.github.io/2022/04/21/P3768/">P3768</a> 简单的数学题</p>
 <ul>
 <li>比较简单的杜教筛题目</li>
-<li>基本上就是构造一下就会做了</li>
+<li>基本上就是构造一下就会做了（或者应用贝尔级数&#x2F;狄利克雷生成函数的技巧）</li>
 </ul>
 <hr>
 <p>例六：<a href="https://onlypath.github.io/2022/02/08/P3704/">P3704</a> [SDOI2017]数字表格</p>
@@ -3222,18 +3231,18 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>效果拔群。</p>
 <p>这里简单把杜教筛的式子推一遍。</p>
 <p>已知函数 $f$ 和 $g$。我们要求的是 $S_f$。这里 $S_f(n)&#x3D;\sum_{i&#x3D;1}^{n}f(i)$。</p>
-<p>假设我们可以比较轻松地求出 $S_g$ 和 $S_{(f*g)}$ 及它们的前缀和。</p>
-<p>这里 $(f*g)(i)&#x3D;\sum_{xy&#x3D;i}f(x)g(y)$（好像看杜教筛的人不会有不知道的。。。）。</p>
+<p>假设我们可以比较轻松地求出 $S_g$ 和 $S_{(f\ast g)}$ 及它们的前缀和。</p>
+<p>这里 $(f\ast g)(i)&#x3D;\sum_{xy&#x3D;i}f(x)g(y)$（好像看杜教筛的人不会有不知道的。。。）。</p>
 <p>先从 $f*g$ 的前缀和开始推导：</p>
-<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{i&#x3D;1}^n\sum_{xy&#x3D;i}f(x)g(y)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f\ast g)(i)&#x3D;\sum_{i&#x3D;1}^n\sum_{xy&#x3D;i}f(x)g(y)$$</p>
 <p>然后把 $y$ 提前枚举：</p>
-<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)\sum_{xy\le n}f(x)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f\ast g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)\sum_{xy\le n}f(x)$$</p>
 <p>实际上就是：</p>
-<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)\sum_{x&#x3D;1}^{\lfloor\frac{n}{y}\rfloor}f(x)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f\ast g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)\sum_{x&#x3D;1}^{\lfloor\frac{n}{y}\rfloor}f(x)$$</p>
 <p>即：</p>
-<p>$$\sum_{i&#x3D;1}^n(f*g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
+<p>$$\sum_{i&#x3D;1}^n(f\ast g)(i)&#x3D;\sum_{y&#x3D;1}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
 <p>然后我们把右边除 $g(1)S_f(n)$ 的部分往另一边移：</p>
-<p>$$g(1)S_f(n)&#x3D;\sum_{i&#x3D;1}^n(f*g)(i)-\sum_{y&#x3D;2}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
+<p>$$g(1)S_f(n)&#x3D;\sum_{i&#x3D;1}^n(f\ast g)(i)-\sum_{y&#x3D;2}^ng(y)S_f(\lfloor\dfrac{n}{y}\rfloor)$$</p>
 <p>一般情况下我们找的 $g$ 是积性函数并且 $g(1)&#x3D;1$，所以我们可以直接得到 $S_f(n)$ 的一个表达式。如果不是积性函数把 $g(1)$ 除过去就完了。</p>
 <p>然后我们显然得到了一个可以递推解决的东西，这个东西很像 DP，而且后面那一部分显然可以数论分块。</p>
 <p>所以我们可以采取类似 DP 的方式记忆化瞎搞。</p>
@@ -3280,14 +3289,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ol>
 <p>好了我们做完了。</p>
 <p>那么肯定有人问如果题目没那么模板，$g$ 和 $f*g$ 不太能 $O(1)$ 求怎么办？</p>
-<p>提供两种方法：</p>
-<ol>
-<li><p>想办法用杜教筛先求出 $g$ 和 $f*g$ 的前缀和，然后再拿这个前缀和去求 $f$ 的前缀和。</p>
-</li>
-<li><p>如果说 $g$ 还算比较好求，$f*g$ 的求取只要在 $O(\sqrt{n})$ 内完成，不影响杜教筛的整体复杂度即可。</p>
-</li>
-</ol>
-<p>顺便提一嘴，这个题小卡常数，采用这种记忆化方法可以多预处理一些前缀和提高效率。</p>
+<p>对于 $g$ 来说我实在是没辙，换成其它函数试试吧（因为 $g$ 要再套杜教筛一类的东西很容易复杂度爆炸）。</p>
+<p>对于 $f\ast g$，大胆杜教筛没有问题，理论复杂度仍然是 $O(n^{2&#x2F;3})$。</p>
 <p>（算是我写得相当用心的 blog 了。。。）</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=(<span class="number">1ll</span>&lt;&lt;<span class="number">31</span>)<span class="number">-1</span>,M=<span class="number">2e6</span>,L=<span class="number">1.3e3</span>;</span><br><span class="line"></span><br><span class="line">ll T,n,cnt;</span><br><span class="line"></span><br><span class="line">ll phi[M+<span class="number">5</span>],mu[M+<span class="number">5</span>],SMu1[M+<span class="number">5</span>],SPhi1[M+<span class="number">5</span>],prime[M+<span class="number">5</span>];</span><br><span class="line">ll SMu2[L+<span class="number">5</span>],SPhi2[L+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[L+<span class="number">5</span>],f[M+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  mu[<span class="number">1</span>]=<span class="number">1</span>;phi[<span class="number">1</span>]=<span class="number">1</span>;f[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=M;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;mu[i]=<span class="number">-1</span>;phi[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prime[j]*i&lt;=M;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;</span><br><span class="line">        mu[i*prime[j]]=<span class="number">0</span>;phi[i*prime[j]]=phi[i]*prime[j];</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      mu[i*prime[j]]=-mu[i];phi[i*prime[j]]=phi[i]*(prime[j]<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=M;i++) &#123;</span><br><span class="line">    SMu1[i]=SMu1[i<span class="number">-1</span>]+mu[i];SPhi1[i]=SPhi1[i<span class="number">-1</span>]+phi[i];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SMu</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SMu1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SMu2[tmp]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);SMu2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SMu</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SMu2[tmp];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">SPhi</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=M) <span class="keyword">return</span> SPhi1[x];ll tmp=n/x;</span><br><span class="line">  <span class="keyword">if</span>(vis[tmp]) <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">  vis[tmp]=<span class="number">1</span>;SPhi2[tmp]=(x+<span class="number">1</span>)*x/<span class="number">2</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);SPhi2[tmp]-=(j-i+<span class="number">1</span>)*<span class="built_in">SPhi</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> SPhi2[tmp];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">  <span class="keyword">while</span>(ch&lt;<span class="string">&#x27;0&#x27;</span>||ch&gt;<span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch==<span class="string">&#x27;-&#x27;</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">while</span>(ch&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;ch&lt;=<span class="string">&#x27;9&#x27;</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch-<span class="string">&#x27;0&#x27;</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">  <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">  <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    n=<span class="built_in">read</span>();</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(vis));</span><br><span class="line">    <span class="built_in">write</span>(<span class="built_in">SPhi</span>(n));<span class="built_in">putchar</span>(<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(vis));</span><br><span class="line">    <span class="built_in">write</span>(<span class="built_in">SMu</span>(n));<span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
@@ -6690,7 +6693,31 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <blockquote>
 <p>定理：两个互为反演关系的矩阵互逆。</p>
 </blockquote>
-<p>反演中 -1 的幂可以任意移动。（不会证）</p>
+<hr>
+<p>一对互逆矩阵转置后仍然互逆，即：</p>
+<p>$$A\times B&#x3D;I\Leftrightarrow A^T\times B^T&#x3D;I$$</p>
+<p>一对互逆矩阵分别数乘 $c(c\ne 0)$ 后仍然互逆，即：</p>
+<p>$$A\times B&#x3D;I\Leftrightarrow (cA)\times (cB)&#x3D;I$$</p>
+<hr>
+<p>反演中 -1 的幂可以移动：</p>
+<p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n-t}A_{n,t}B_{t,m}&#x3D;[n&#x3D;m]\Leftrightarrow \sum_{t&#x3D;0}^{\infty}(-1)^{t}A_{n,t}(-1)^{m}B_{t,m}&#x3D;[n&#x3D;m]$$</p>
+<p>我们想办法证明后面的等式能推出前面的等式。</p>
+<p>将后面的等式两边乘上 $(-1)^{n-m}$：</p>
+<p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n+t}A_{n,t}B_{t,m}&#x3D;<a href="-1">n&#x3D;m</a>^{n-m}$$</p>
+<p>很显然 $n+t$ 与 $n-t$ 奇偶性相同：</p>
+<p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n-t}A_{n,t}B_{t,m}&#x3D;<a href="-1">n&#x3D;m</a>^{n-m}$$</p>
+<p>分类讨论：</p>
+<ul>
+<li><p>如果 $n&#x3D;m$，则等式的右边为 1。</p>
+</li>
+<li><p>如果 $n\ne m$，则等式的右边为 0。</p>
+</li>
+</ul>
+<p>说明 $<a href="-1">n&#x3D;m</a>^{n-m}&#x3D;[n&#x3D;m]$，即：</p>
+<p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n-t}A_{n,t}B_{t,m}&#x3D;[n&#x3D;m]$$</p>
+<p>即我们从右边的等式推到了左边的等式。</p>
+<p>想从左边推到右边的话把这个证明过程倒过来走一遍就行了。</p>
+<hr>
 <p>对于多维反演，以二维情况为例，假设两维的关系矩阵分别为 $A,B$：</p>
 <p>$$<br>f_{n,m}&#x3D;\sum_{i&#x3D;0}^{\infty}\sum_{j&#x3D;0}^{\infty}A_{n,i}B_{m,j}g_{i,j}\Leftrightarrow g_{n,m}&#x3D;\sum_{i&#x3D;0}^{\infty}\sum_{j&#x3D;0}^{\infty}A^{-1}<em>{n,i}B^{-1}</em>{m,j}g_{i,j}<br>$$</p>
 <h1 id="二、二项式相关结论"><a href="#二、二项式相关结论" class="headerlink" title="二、二项式相关结论"></a>二、二项式相关结论</h1><p>$$\binom{n}{m}&#x3D;\dfrac{n!}{m!(n-m)!}&#x3D;\dfrac{n^{\underline{m}}}{m!}$$</p>
@@ -6719,18 +6746,76 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> 剩下的递推与上个证明类似，不作赘述。</p>
 </li>
 </ol>
-<h1 id="三、二项式反演"><a href="#三、二项式反演" class="headerlink" title="三、二项式反演"></a>三、二项式反演</h1><p>二项式反演基本形式：</p>
-<p>$$f_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}g_i \Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}f_i$$</p>
-<p>证明该结论即证明 $A_{n,i}&#x3D;(-1)^i\binom{n}{i}$ 这个矩阵是自逆的。</p>
-<p>证明：</p>
-<p>$$\begin{aligned}<br>{(A\times A)}<em>{d,t}<br>&#x3D;&amp;\sum</em>{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br>\\<br>&#x3D;&amp;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-i)!t!(i-t)!}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!(i-t)!}<br>\\<br>&#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!((d-t)-(d-i))!}<br>\\<br>&#x3D;&amp;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br>\\<br>&#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br>\\<br>&#x3D;&amp;<br>(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br>\\<br>&#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br>\\<br>&#x3D;&amp;[d&#x3D;t]<br>\end{aligned}$$</p>
-<p>于是 $A\times A&#x3D;I$，反演成立。</p>
-<p>另外一种形式：</p>
-<p>$$f_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^{n}(-1)^{n-i}\binom{n}{i}f_i$$</p>
-<p>另一种形式：</p>
-<p>$$f_n&#x3D;\sum_{i&#x3D;n}\binom{i}{n}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;n}(-1)^{i-n}\binom{i}{n}f_i$$</p>
-<p>另一种形式：</p>
-<p>$$f_n&#x3D;\sum_{i&#x3D;n}(-1)^i\binom{i}{n}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;n}(-1)^i\binom{i}{n}f_i$$</p>
+<h1 id="三、二项式反演"><a href="#三、二项式反演" class="headerlink" title="三、二项式反演"></a>三、二项式反演</h1><ol>
+<li><p>常见形式及其证明：</p>
+<p> 二项式反演基本形式：</p>
+<p> $$f_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}g_i \Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}f_i$$</p>
+<p> 证明该结论即证明 $A_{n,i}&#x3D;(-1)^i\binom{n}{i}$ 这个矩阵是自逆的。</p>
+<p> 证明：</p>
+<p> $$\begin{aligned}<br> {(A\times A)}<em>{d,t}<br> &#x3D;&amp;\sum</em>{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br> \\<br> &#x3D;&amp;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-i)!t!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!((d-t)-(d-i))!}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br> \\<br> &#x3D;&amp;<br> (-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br> \\<br> &#x3D;&amp;[d&#x3D;t]<br> \end{aligned}$$</p>
+<p> 于是 $A\times A&#x3D;I$，反演成立。</p>
+<hr>
+<p> 二项式反演的另外一种形式：</p>
+<p> $$f_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^{n}(-1)^{n-i}\binom{n}{i}f_i$$</p>
+<p> 就是利用我们第一部分讲的那个 -1 的幂可以移动的结论，证明这个形式和我们刚才讲的基本形式是等价的。</p>
+<p> 如果想证明的话，当然可以先证明这个和上面的基本形式等价，然后再证明基本形式正确，从而证明这个形式正确。</p>
+<p> 但实际上在这种形式下，我们有更好的证明方法。</p>
+<p> 证明：</p>
+<p> $$f_n&#x3D;\sum_{i&#x3D;0}^{n}\binom{n}{i}g_i$$</p>
+<p> 等价于：</p>
+<p> $$\dfrac{f_n}{n!}&#x3D;\sum_{i&#x3D;0}^{n}\dfrac{1}{(n-i)!}\dfrac{g_i}{i!}$$</p>
+<p> 这实际上是一个 EGF 的卷积形式：</p>
+<p> $$\hat{F}&#x3D;\hat{G}\ast e^x \Leftrightarrow \hat{F}\ast e^{-x}&#x3D;\hat{G}$$</p>
+<p> 再换成级数的形式：</p>
+<p> $$\dfrac{g_n}{n!}&#x3D;\sum_{i&#x3D;0}^{n}\dfrac{(-1)^{n-i}}{(n-i)!}\dfrac{f_i}{i!}$$</p>
+<p> 该形式等价于：</p>
+<p> $$g_n&#x3D;\sum_{i&#x3D;0}^{n}(-1)^{n-i}\binom{n}{i}f_i$$</p>
+<p> 因为上述证明中我们使用的都是等价，因此所有的推导都可以逆向进行，即两个等式等价。</p>
+<hr>
+<p> 另一种形式：</p>
+<p> $$f_n&#x3D;\sum_{i&#x3D;n}^{\infty}\binom{i}{n}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;n}^{\infty}(-1)^{i-n}\binom{i}{n}f_i$$</p>
+<p> 实际上就是将 EGF 证明的那种形式的矩阵进行转置后得到的。</p>
+<hr>
+<p> 另一种形式：</p>
+<p> $$f_n&#x3D;\sum_{i&#x3D;n}^{\infty}(-1)^i\binom{i}{n}g_i\Leftrightarrow g_n&#x3D;\sum_{i&#x3D;n}^{\infty}(-1)^i\binom{i}{n}f_i$$</p>
+<p> 将上面的形式移动 -1 的幂次即可。</p>
+</li>
+<li><p>错排引入：</p>
+<p> 求错位排列数 $d_n$。</p>
+<p> 我知道你会 $d_n&#x3D;(n-1)(d_{n-1}+d_{n-2})$ 然后矩阵加速，跑得飞快。</p>
+<p> 但我现在要讲一下这个东西的通项公式是如何使用二项式反演得到的。</p>
+<p> 每次钦定 $k$ 个位置，它们严格错排，其余位置不动。其中 $k$ 取 $0,1,2,\cdots,n$。</p>
+<p> 显然这些方案可以不重不漏的覆盖所有排列的方案：</p>
+<p> $$n!&#x3D;\sum_{i&#x3D;0}^{n}\binom{n}{i}d_i$$</p>
+<p> 二项式反演：</p>
+<p> $$<br> \begin{aligned}<br> d_n&#x3D;&amp;\sum_{i&#x3D;0}^{n}(-1)^{n-i}\binom{n}{i}i!<br> \\<br> &#x3D;&amp; n!\sum_{i&#x3D;0}^{n}\dfrac{(-1)^{n-i}}{(n-i)!}<br> \\<br> &#x3D;&amp; n!\sum_{i&#x3D;0}^{n}\dfrac{(-1)^i}{i!}<br> \end{aligned}<br> $$</p>
+<p> 于是我们得到了 $d_n$ 的通项，每项可以 $O(n)$ 计算。</p>
+<p> 如果想求出前 $n$ 项的具体值的话，根据 $\hat{G}&#x3D;\hat{F}\ast e^{-x}$ 卷积，直接 NTT 就是 $O(n\log n)$ 的，和矩阵乘法没差。</p>
+<p> 但是单次求还是矩阵乘法更胜一筹。</p>
+<p> 这里拿这个问题不过就是简单应用一下二项式反演。。。</p>
+</li>
+<li><p>钦定法：</p>
+<p> 还是错排问题。</p>
+<p> 我们称 $p_i&#x3D;i$ 的 $i$ 为不动点。</p>
+<p> 设 $g_{n,k}$ 为恰有 $k$ 个不动点的长度为 $n$ 的排列个数。</p>
+<p> 设 $f_{n,k}$ 为有 $k$ 个及以上不动点的长度为 $n$ 的排列个数。</p>
+<p> 那么我们就有：</p>
+<p> $$f_{n,k}&#x3D;\sum_{m&#x3D;k}^{n}\binom{m}{k}g_{n,m}$$</p>
+<p> 然后二项式反演：</p>
+<p> $$g_{n,m}&#x3D;\sum_{k&#x3D;m}^{n}(-1)^{k-m}\binom{k}{m}f_{n,k}$$</p>
+<p> 很容易知道：</p>
+<p> $$f_{n,k}&#x3D;\binom{n}{k}(n-k)!&#x3D;\dfrac{n!}{k!}$$</p>
+<p> 代入 $g_{n,m}$：</p>
+<p> $$g_{n,m}&#x3D;g_{n,m}&#x3D;\sum_{k&#x3D;m}^{n}(-1)^{k-m}\binom{k}{m}\dfrac{n!}{k!}$$</p>
+<p> 我们要求的就是：</p>
+<p> $$d_{n}&#x3D;g_{n,0}&#x3D;n!\sum_{k&#x3D;0}^{n}\dfrac{(-1)^{k}}{k!}$$</p>
+<p> 和上面我们求出的通项是一样的。</p>
+</li>
+</ol>
+<p>例题：<a href="">P4491</a> [HAOI2018]染色</p>
+<ul>
+<li>差卷积的使用，就是调整序列标号之后再做加法卷积</li>
+</ul>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -6760,7 +6845,10 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>至于 $f$ 的前 $n^{2&#x2F;3}$ 个值，实际上可以线性筛求出来，不过就是分类讨论一下最小质因子的次数。</p>
 <p>然后就做完了。</p>
 <p>时间复杂度 $O(Tn^{2&#x2F;3})$。</p>
+<p>奉劝大家选用其他 $g$ 的时候不要用需要套杜教筛求的，不然理论复杂度就不是 $O(n^{2&#x2F;3})$ 了。。。</p>
+<p>$f\ast g$ 可以再套一层杜教筛是因为它的求取和 $f$ 同级，也就是说调用一次 $S_f$ 仅仅对应调用一次 $S_{\mu}$。因此理论复杂度还是 $O(n^{2&#x2F;3})$。</p>
 <p>然后笔者自己的程序跑得奇慢，觉得原因大概是用了 <code>map</code> 和自己代码习惯不好，所以把最后几个点的时限开到了 $4s$。</p>
+<p>当然如果你愿意可以再根号平衡一下，把 $n^c$ 适当调大来加快，不过我懒得去这么做了。</p>
 <hr>
 <p>Wky 大师说这个可以 Min-25 筛，理论复杂度会更优秀，但我不会。。。</p>
 <p>似乎因为构造的方式过于简单导致大师似乎可以一眼看出这个 $g&#x3D;\mathbf{id^2}$。。。</p>
