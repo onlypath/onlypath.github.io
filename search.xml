@@ -1325,11 +1325,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>约数函数有关卷积：</p>
 <p>  $$\sigma_0&#x3D;\mathbf{1}*\mathbf{1}$$</p>
 <p>  $$\sigma&#x3D;\mathbf{id}*\mathbf{1}$$</p>
-<p>  $$\sigma_k&#x3D;\mathbf{id^k}*\mathbf{1}$$</p>
+<p>  $$\sigma _ k &#x3D; \mathbf{id} ^ k \ast \mathbf{1}$$</p>
 <p>  以及一个：</p>
-<p>  $$\sigma_0(xy)&#x3D;\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)&#x3D;1]$$</p>
+<p>  $$\sigma _ 0 (xy)&#x3D;\sum _ {i\mid x}\sum _ {j\mid y} [\gcd (i,j)&#x3D;1] $$</p>
 <p>  这个结论的扩展：</p>
-<p>  $$\sigma_0(xyz)&#x3D;\sum_{i\mid x}\sum_{j\mid y}\sum_{k\mid z}[\gcd(i,j)&#x3D;1][\gcd(j,k)&#x3D;1][\gcd(i,k)&#x3D;1]$$</p>
+<p>  $$\sigma _ 0(xyz)&#x3D;\sum_{i\mid x}\sum_{j\mid y}\sum_{k\mid z}[\gcd(i,j)&#x3D;1][\gcd(j,k)&#x3D;1][\gcd(i,k)&#x3D;1]$$</p>
 </li>
 </ul>
 </li>
@@ -1378,21 +1378,23 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$f_p(x)&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)x^i$$</p>
 <p>这样的话根据积性函数的性质，狄利克雷卷积就变成了一般卷积：</p>
 <p>$$(f\ast g)_p(x)&#x3D;f_p(x)g_p(x)$$</p>
-<p>加法形式也是可以对应的（但是如果变非积性函数就没法卷积了）：</p>
-<p>$$(f+g)_p(x)&#x3D;f_p(x)+g_p(x)$$</p>
+<p>加法形式也是有意义的，但是不是对应 $(f+g)$，这点请一定要注意：</p>
+<p>$$h_p(x)&#x3D;f_p(x)+g_p(x)$$</p>
+<p>至于这玩意是什么，我只能最简单的解释一下，在素数幂处为两者函数值相加，其他数值处满足积性，这样的一个函数。减法当然也是同理。</p>
 <p>求逆的话非常简单，若 $f\ast g&#x3D;\varepsilon$，则：</p>
 <p>$$f_p(x)g_p(x)&#x3D;1$$</p>
+<p>虽然有这种有意义的运算，然而狄利克雷卷积上却没有除法（雾），所以一般写法就类似于 $1&#x3D;\mathbf{id}\ast \varphi^{-1}$ 这样子算了。</p>
 <p>常见的封闭形式：</p>
 <ol>
 <li><p>$\varepsilon_p(x)&#x3D;1$</p>
 </li>
 <li><p>$\zeta_p(x)&#x3D;\dfrac{1}{1-x}$</p>
 </li>
-<li><p>$\mathbf{id^k_p}(x)&#x3D;\dfrac{1}{1-p^kx}$</p>
+<li><p>$ \mathbf {id} ^k _ p (x)&#x3D;\dfrac{1}{1-p^kx}$</p>
 </li>
-<li><p>$\mu_p(x)&#x3D;1-x$，$(\mu\cdot\mu)_p(x)&#x3D;1+x$</p>
+<li><p>$\mu _ p(x)&#x3D;1-x$，$(\mu\cdot\mu)_p(x)&#x3D;1+x$</p>
 </li>
-<li><p>$\sigma_{0p}(x)&#x3D;\dfrac{1}{(1-x)^2}$</p>
+<li><p>$\sigma _ {0p}(x)&#x3D;\dfrac{1}{(1-x)^2}$</p>
 </li>
 <li><p>$\varphi_p(x)&#x3D;\dfrac{1-x}{1-px}$</p>
 </li>
@@ -1400,13 +1402,13 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 </ol>
 <p>想要推导出来就仔细想一想 $f(p^x)$ 等于什么，变成一个正常的 OGF，然后就会推了。</p>
-<p>实在不会直接推导可以利用上面你已经理解的结论和自己知道的卷积来推导，比如 $\varphi_p(x)&#x3D;\mu_p(x)\mathbf{id_p}(x)$。</p>
+<p>实在不会直接推导可以利用上面你已经理解的结论和自己知道的卷积来推导，比如 $\varphi _ p(x)&#x3D;\mu _ p(x)\mathbf{id_p}(x)$。</p>
 <p>或者说理解一下这个意义。。。我也没什么好方法。。。</p>
 <p>点乘的话就是对应 $x^i$ 的系数相乘即可，很好理解。可惜没有什么贝尔级数上的初等运算可以对应。</p>
-<p>一种特殊的点乘是数论函数 $f$ 点乘上 $\mathbf{id^k}$，这种情况下我们是可以求出其贝尔级数的：</p>
-<p>$$(f\cdot \mathbf{id^k})<em>p(x)&#x3D;\sum</em>{i&#x3D;0}^{\infty}f(p^i)p^{ki}x^{i}&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)(p^kx)^i$$</p>
+<p>一种特殊的点乘是数论函数 $f$ 点乘上 $\mathbf{id} ^ k $，这种情况下我们是可以求出其贝尔级数的：</p>
+<p>$$<br>(f\cdot \mathbf{id} ^ k)_ p(x)&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)p^{ki}x^{i}&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)(p^kx)^i<br>$$</p>
 <p>这个时候将 $p^kx$ 视作整体，代入 $f_p(x)$ 就好了。</p>
-<p>比如：$(\varphi\cdot \mathbf{id^2})_p(x)&#x3D;\dfrac{1-p^2x}{1-p^3x}$。</p>
+<p>比如：$(\varphi\cdot \mathbf{id} ^ 2)_p(x)&#x3D;\dfrac{1-p^2x}{1-p^3x}$。</p>
 <p>然后 <a href="https://onlypath.github.io/2022/04/21/P3768/">P3768</a> 简单的数学题 就可以做了。</p>
 <p>有关这个的习题似乎很难找（？）。</p>
 <p>所以我自己造了一道：<a href="https://www.luogu.com.cn/problem/U214268">U214268</a> 不老不死的竹林引路人。或许用狄利克雷生成函数会更简洁，但我不会。</p>
@@ -1588,11 +1590,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ol>
 <h1 id="七、附录"><a href="#七、附录" class="headerlink" title="七、附录"></a>七、附录</h1><p>$\LaTeX$ 使用表：</p>
 <ol>
-<li><p><code>\mathbf&#123;id^2&#125;</code> $\rightarrow \mathbf{id^2}$</p>
+<li><p><code>\mathbf&#123;id&#125; ^ 2</code> $\rightarrow \mathbf{id} ^ 2$</p>
 </li>
 <li><p><code>\zeta</code> $\rightarrow \zeta$</p>
 </li>
-<li><p><code>\sigma_0</code> $\rightarrow \sigma_0$</p>
+<li><p><code>\sigma _ 0</code> $\rightarrow \sigma _ 0$</p>
 </li>
 <li><p><code>\varphi</code> $\rightarrow \varphi$</p>
 </li>
@@ -5698,7 +5700,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>Tex_Problem</title>
     <url>/2022/03/28/Tex-Problem/</url>
     <content><![CDATA[<p>什么玩意？？？</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">为了保证文章安全只能放在代码框里了/kk。。。</span><br><span class="line"></span><br><span class="line">本来这个博客我是想用 $MathJax$ 这类东西的。。。</span><br><span class="line"></span><br><span class="line">但奈何一用 $MathJax$ 博客就崩，退而求其次就用了稍微差一些的 $\KaTeX$。。。</span><br><span class="line"></span><br><span class="line">但是这个东西真的锅巨多。。。</span><br><span class="line"></span><br><span class="line">稍微罗列一下，方便以后书写公式：</span><br><span class="line"></span><br><span class="line">1. 在 $$ 中使用 \\\\ 换行，而不是 \\。（猜测原因：会把 \\ 识别成 \）</span><br><span class="line"></span><br><span class="line">2. \&#123; 要写成 \\&#123;。（原因：大概同上）</span><br><span class="line"></span><br><span class="line">3. B_*^2 无法渲染，但是 B^2_* 可以。（原因：* 在 Markdown 中功用较多，谨慎使用，一般使用 \ast 来代替）</span><br><span class="line"></span><br><span class="line">4. (f*g)_i 这类公式无法渲染。（同上，使用 \ast）</span><br><span class="line"></span><br><span class="line">5. 公式会被空白遮挡。（原因：猜测是 $\KaTeX$ 对公式的高度计算出现问题；解决方案：行内尽量避免使用分数一类有高度的公式，而一致压到行内）</span><br><span class="line"></span><br><span class="line">6. Markdown 对不齐。。。（应该不是 $\KaTeX$ 的问题。。。解决方案：使用 4 空格缩进）</span><br><span class="line"></span><br><span class="line">7. \not = 在一定条件下渲染会崩。（解决方案：使用 \ne；原因：未知）</span><br><span class="line"></span><br><span class="line">8. \mathscr 有时候渲染会崩掉。。。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">9. 字体内使用上下标。。。否则渲染会崩。示例：\mathbf&#123;f^x&#125;(x)。（原因：未知）</span><br><span class="line"></span><br><span class="line">10. 建议使用 \ast 来代替 *（。。。）</span><br><span class="line"></span><br><span class="line">11. 建议行内（比较紧凑的文字），不要使用 \dfrac 一类特意巨化字符的命令，直接用 / 实际上也很美观。</span><br><span class="line"></span><br><span class="line">12. 建议非行内的强调模式使用括号一定要用 \left(\right) 这种形式。</span><br><span class="line"></span><br><span class="line">13. 建议空集使用 \varnothing 而不是 \emptyset</span><br><span class="line"></span><br><span class="line">14. 建议积分中的 \delta x 和式子之间加入 \,，</span><br><span class="line">多元积分尽量在 \delta x 和 \delta y 之间加入 \\,。</span><br><span class="line">（作者书写公式时更喜欢使用 \delta x 而不是 \mathrm&#123;d&#125; x，</span><br><span class="line">主要是受具体数学的写法影响，还有一个就是长短上更好一些。。。）</span><br><span class="line"></span><br><span class="line">15. 建议多重积分使用 \iiint 这种形式。</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">为了保证文章安全只能放在代码框里了/kk。。。</span><br><span class="line"></span><br><span class="line">本来这个博客我是想用 $MathJax$ 这类东西的。。。</span><br><span class="line"></span><br><span class="line">但奈何一用 $MathJax$ 博客就崩，退而求其次就用了稍微差一些的 $\KaTeX$。。。</span><br><span class="line"></span><br><span class="line">但是这个东西真的锅巨多。。。</span><br><span class="line"></span><br><span class="line">稍微罗列一下，方便以后书写公式：</span><br><span class="line"></span><br><span class="line">0. 这个是最常见的问题，就是公式之间不加空格，很多渲染崩溃问题只要在公式之间加空格就能解决。。。反正很神奇。</span><br><span class="line"></span><br><span class="line">1. 在 $$ 中使用 \\\\ 换行，而不是 \\。（猜测原因：会把 \\ 识别成 \）</span><br><span class="line"></span><br><span class="line">2. \&#123; 要写成 \\&#123;。（原因：大概同上）</span><br><span class="line"></span><br><span class="line">3. B_*^2 无法渲染，但是 B^2_* 可以。（原因：* 在 Markdown 中功用较多，谨慎使用，一般使用 \ast 来代替，实在不行就往里面加空格，有奇效，比如 B _ \ast ^ 2 这种写法）</span><br><span class="line"></span><br><span class="line">4. (f*g)_i 这类公式无法渲染。（同上，使用 \ast，并加入空格 (f\ast g) _ i）</span><br><span class="line"></span><br><span class="line">5. 公式会被空白遮挡。（原因：猜测是 $\KaTeX$ 对公式的高度计算出现问题；</span><br><span class="line">解决方案：行内尽量避免使用分数一类有高度的公式，而一致压到行内）</span><br><span class="line"></span><br><span class="line">6. Markdown 对不齐。。。（应该不是 $\KaTeX$ 的问题。。。解决方案：使用 4 空格缩进）</span><br><span class="line"></span><br><span class="line">7. \not = 在一定条件下渲染会崩。（解决方案：使用 \ne；原因：未知）</span><br><span class="line"></span><br><span class="line">8. \mathscr 有时候渲染会崩掉。。。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">9. 字体内使用上下标。。。否则渲染会崩。示例：\mathbf&#123;f^x&#125;(x)。（原因：未知）</span><br><span class="line"></span><br><span class="line">10. 建议使用 \ast 来代替 *（。。。）</span><br><span class="line"></span><br><span class="line">11. 建议行内（比较紧凑的文字），不要使用 \dfrac 一类特意巨化字符的命令，直接用 / 实际上也很美观。</span><br><span class="line"></span><br><span class="line">12. 建议非行内的强调模式使用括号一定要用 \left(\right) 这种形式。</span><br><span class="line"></span><br><span class="line">13. 建议空集使用 \varnothing 而不是 \emptyset</span><br><span class="line"></span><br><span class="line">14. 建议积分中的 \delta x 和式子之间加入 \,，</span><br><span class="line">多元积分尽量在 \delta x 和 \delta y 之间加入 \\,。</span><br><span class="line">（作者书写公式时更喜欢使用 \delta x 而不是 \mathrm&#123;d&#125; x，</span><br><span class="line">主要是受具体数学的写法影响，还有一个就是长短上更好一些。。。）</span><br><span class="line"></span><br><span class="line">15. 建议多重积分使用 \iiint 这种形式。</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -6703,9 +6705,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n-t}A_{n,t}B_{t,m}&#x3D;[n&#x3D;m]\Leftrightarrow \sum_{t&#x3D;0}^{\infty}(-1)^{t}A_{n,t}(-1)^{m}B_{t,m}&#x3D;[n&#x3D;m]$$</p>
 <p>我们想办法证明后面的等式能推出前面的等式。</p>
 <p>将后面的等式两边乘上 $(-1)^{n-m}$：</p>
-<p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n+t}A_{n,t}B_{t,m}&#x3D;<a href="-1">n&#x3D;m</a>^{n-m}$$</p>
+<p>$$\sum_ {t&#x3D;0}^{\infty} (-1)^{n+t}A_ {n,t} B_ {t,m}&#x3D; [n&#x3D;m] (-1)^{n-m}$$</p>
 <p>很显然 $n+t$ 与 $n-t$ 奇偶性相同：</p>
-<p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n-t}A_{n,t}B_{t,m}&#x3D;<a href="-1">n&#x3D;m</a>^{n-m}$$</p>
+<p>$$\sum_ {t&#x3D;0}^ {\infty} (-1) ^ {n-t} A_ {n,t} B_ {t,m}&#x3D; [n&#x3D;m] (-1) ^ {n-m}$$</p>
 <p>分类讨论：</p>
 <ul>
 <li><p>如果 $n&#x3D;m$，则等式的右边为 1。</p>
@@ -6713,13 +6715,13 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li><p>如果 $n\ne m$，则等式的右边为 0。</p>
 </li>
 </ul>
-<p>说明 $<a href="-1">n&#x3D;m</a>^{n-m}&#x3D;[n&#x3D;m]$，即：</p>
+<p>说明 $ [n&#x3D;m] (-1) ^ {n-m}&#x3D; [n&#x3D;m] $，即：</p>
 <p>$$\sum_{t&#x3D;0}^{\infty}(-1)^{n-t}A_{n,t}B_{t,m}&#x3D;[n&#x3D;m]$$</p>
 <p>即我们从右边的等式推到了左边的等式。</p>
 <p>想从左边推到右边的话把这个证明过程倒过来走一遍就行了。</p>
 <hr>
 <p>对于多维反演，以二维情况为例，假设两维的关系矩阵分别为 $A,B$：</p>
-<p>$$<br>f_{n,m}&#x3D;\sum_{i&#x3D;0}^{\infty}\sum_{j&#x3D;0}^{\infty}A_{n,i}B_{m,j}g_{i,j}\Leftrightarrow g_{n,m}&#x3D;\sum_{i&#x3D;0}^{\infty}\sum_{j&#x3D;0}^{\infty}A^{-1}<em>{n,i}B^{-1}</em>{m,j}g_{i,j}<br>$$</p>
+<p>$$<br>f_ {n,m}&#x3D;\sum_ {i&#x3D;0} ^ {\infty} \sum_ {j&#x3D;0} ^ {\infty} A_ {n,i} B_ {m,j} g_ {i,j}\Leftrightarrow g_ {n,m}&#x3D;\sum_ {i&#x3D;0} ^ {\infty}\sum_ {j&#x3D;0} ^ {\infty} A ^ {-1} _ {n,i} B ^ {-1} _ {m,j} g _ {i,j}<br>$$</p>
 <h1 id="二、二项式相关结论"><a href="#二、二项式相关结论" class="headerlink" title="二、二项式相关结论"></a>二、二项式相关结论</h1><p>$$\binom{n}{m}&#x3D;\dfrac{n!}{m!(n-m)!}&#x3D;\dfrac{n^{\underline{m}}}{m!}$$</p>
 <ol>
 <li><p>对称：$\dbinom{n}{m}&#x3D;\dbinom{n}{n-m}$</p>
@@ -6752,7 +6754,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> $$f_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}g_i \Leftrightarrow g_n&#x3D;\sum_{i&#x3D;0}^n(-1)^i\binom{n}{i}f_i$$</p>
 <p> 证明该结论即证明 $A_{n,i}&#x3D;(-1)^i\binom{n}{i}$ 这个矩阵是自逆的。</p>
 <p> 证明：</p>
-<p> $$\begin{aligned}<br> {(A\times A)}<em>{d,t}<br> &#x3D;&amp;\sum</em>{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br> \\<br> &#x3D;&amp;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-i)!t!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!((d-t)-(d-i))!}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br> \\<br> &#x3D;&amp;<br> (-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br> \\<br> &#x3D;&amp;[d&#x3D;t]<br> \end{aligned}$$</p>
+<p> $$\begin{aligned}<br> {(A\times A)}_ {d,t}<br> &#x3D;&amp;\sum_{i&#x3D;1}^{\infty}A_{d,i}A_{i,t}<br> \\<br> &#x3D;&amp;\sum_{i&#x3D;t}^{d}(-1)^i\binom{d}{i}(-1)^t\binom{i}{t}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!i!}{i!(d-i)!t!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-i)!t!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!(i-t)!}<br> \\<br> &#x3D;&amp;(-1)^t\sum_{i&#x3D;t}^d(-1)^i\dfrac{d!}{(d-t)!t!}\dfrac{(d-t)!}{(d-i)!((d-t)-(d-i))!}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}\sum_{i&#x3D;t}^{d}(-1)^i\binom{d-t}{d-i}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^{i+t}\binom{d-t}{d-t-i}<br> \\<br> &#x3D;&amp;<br> (-1)^t\binom{d}{t}(-1)^t\sum_{i&#x3D;0}^{d-t}(-1)^i\binom{d-t}{i}<br> \\<br> &#x3D;&amp;(-1)^t\binom{d}{t}(-1)^t(1-1)^{d-t}<br> \\<br> &#x3D;&amp;[d&#x3D;t]<br> \end{aligned}$$</p>
 <p> 于是 $A\times A&#x3D;I$，反演成立。</p>
 <hr>
 <p> 二项式反演的另外一种形式：</p>
@@ -6812,10 +6814,41 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> 和上面我们求出的通项是一样的。</p>
 </li>
 </ol>
-<p>例题：<a href="">P4491</a> [HAOI2018]染色</p>
+<hr>
+<p>例题一：<a href="https://onlypath.github.io/2022/04/25/P4491/">P4491</a> [HAOI2018]染色</p>
 <ul>
 <li>差卷积的使用，就是调整序列标号之后再做加法卷积</li>
 </ul>
+<hr>
+<p>例题二：<a href="https://onlypath.github.io/2022/04/25/P6478/">P6478</a> [NOI Online #2 提高组] 游戏</p>
+<ul>
+<li>先 DP 后反演</li>
+</ul>
+<hr>
+<p>例题三：<a href="https://onlypath.github.io/2022/04/25/CF997C/">CF997C</a> Sky Full of Stars</p>
+<ul>
+<li>二维二项式反演</li>
+<li>反演过后使用二项式定理化简</li>
+</ul>
+<p>练习：<a href="https://onlypath.github.io/2022/04/25/CF1228E/">CF1228E</a> Another Filling the Grid</p>
+<ul>
+<li>同样是二维二项式反演</li>
+<li>例题的弱化</li>
+</ul>
+<hr>
+<p>例题四：<a href="https://onlypath.gituhb.io/2022/04/25/P5339/">P5339</a> [TJOI2019]唱、跳、rap和篮球</p>
+<ul>
+<li>特殊的钦定方法</li>
+<li>以及 EGF 计算</li>
+</ul>
+<hr>
+<p>练习题 ? 组：</p>
+<ol>
+<li><p>P5400 [CTS2019] 随机立方体</p>
+</li>
+<li><p>P5401 [CTS2019] 珍珠</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -6863,6 +6896,198 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>莫比乌斯反演</tag>
         <tag>贝尔级数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P4491</title>
+    <url>/2022/04/25/P4491/</url>
+    <content><![CDATA[<p>[HAOI2018]染色</p>
+<p>考虑钦定法。</p>
+<p>令 $f_k$ 表示钦定 $k$ 种颜色恰好染上 $s$ 次的情况数。</p>
+<p>根据组合意义，我们有：</p>
+<p>$$f_k&#x3D;\binom{m}{k}\dfrac{n!}{(n-sk)!(s!)^k}(n-sk)^{m-k}$$</p>
+<p>我们定义 $g_k$ 表示恰好 $k$ 种颜色恰好出现了 $s$ 次的情况数，于是我们就有：</p>
+<p>$$f_k&#x3D;\sum_{i&#x3D;k}^{m}\binom{i}{k}g_i$$</p>
+<p>接下来我们进行二项式反演：</p>
+<p>$$g_k&#x3D;\sum_{i&#x3D;k}^{m}(-1)^{i-k}\binom{i}{k}f_i$$</p>
+<p>考虑使用卷积优化：</p>
+<p>$$g_k&#x3D;\dfrac{1}{k!}\sum_{i&#x3D;k}^{m}\dfrac{(-1)^{i-k}}{(i-k)!}i!f_i$$</p>
+<p>我们设 $a_i&#x3D;(-1)^{i}&#x2F;i!$，$b_i&#x3D;i!f_i$，于是我们就有：</p>
+<p>$$g_k&#x3D;\dfrac{1}{k!}\sum_{i&#x3D;k}^{m}a_{i-k}b_i$$</p>
+<p>然后我们通过翻转序列将这里的差卷积转化为一般的和卷积，先将下标调整为从 0 开始：</p>
+<p>$$g_k&#x3D;\dfrac{1}{k!}\sum_{i&#x3D;0}^{m-k}a_{i}b_{i+k}$$</p>
+<p>设 $b ^ {\prime} _ i&#x3D; b _ {m-i}$，则 $ b _  i &#x3D; b ^ { \prime} _ {m-i} $，就有：</p>
+<p>$$g_k&#x3D;\dfrac{1}{k!}\sum_{i&#x3D;0}^{m-k}a_ib^{\prime}_{(m-k)-i}$$</p>
+<p>这显然就是一个和卷积的形式了。</p>
+<p>于是我们正常 NTT 之后再翻转序列，每项乘上 $k!$ 的逆元之后就能得到 $g_k$ 的具体值了，最后乘上我们的权值即可得到答案。</p>
+<p>时间复杂度 $O(n+m\log m)$。</p>
+]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>NTT</tag>
+        <tag>二项式反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P3338</title>
+    <url>/2022/04/25/P3338/</url>
+    <content><![CDATA[<p>[ZJOI2014]力</p>
+<p>差卷积的实现。</p>
+<p>库仑力？我物理但都不会。。。</p>
+<p>$$<br>\begin{aligned}<br>E_j&#x3D;&amp; \dfrac{F_j}{q_j}<br>\\<br>&#x3D;&amp; \sum_{i&#x3D;1}^{j-1}\dfrac{q_i}{(i-j)^2}-\sum_{i&#x3D;j+1}^{n}\dfrac{q_i}{(i-j)^2}<br>\end{aligned}<br>$$</p>
+<p>定义 $f_i&#x3D;q_i$，$g_i&#x3D;1&#x2F;i^2$，特别地，令 $g_0&#x3D;0$，于是我们有：</p>
+<p>$$<br>\begin{aligned}<br>E_j&#x3D;&amp; \sum _ {i&#x3D;0} ^ {j} f _ i g _ {j-i} - \sum _ {i&#x3D;j} ^ {n} f _ i g _ {i-j}<br>\\<br>&#x3D;&amp; \sum _ {i&#x3D;0} ^ {j} f _ i g _ {j-i} - \sum _ {i&#x3D;0} ^ {n-j} f _ {i+j} g _ {i}<br>\end{aligned}<br>$$</p>
+<p>令 $f ^ {\prime} _ i &#x3D; f _ {n-i}$，则 $f _ {i} &#x3D; f ^ {\prime} _ {n-i}$，于是我们有：</p>
+<p>$$<br>E_j&#x3D; \sum _ {i&#x3D;0} ^ {j} f _ i g _ {j-i} - \sum _ {i&#x3D;0} ^ {n-j} f ^ {\prime} _ {(n-j)-i} g _ {i}<br>$$</p>
+<p>前面和后面的卷积分开做，后面那一部分的卷积做完之后需要再翻转一次然后贡献给最终数列。</p>
+<p>时间复杂度 $O(n\log n)$。</p>
+]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>FFT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P6478</title>
+    <url>/2022/04/25/P6478/</url>
+    <content><![CDATA[<p>[NOI Online #2 提高组] 游戏</p>
+<p>考虑钦定法与二项式反演。</p>
+<p>令 $f(u,k)$ 表示在 $u$ 子树内钦定 $k$ 次非平局。</p>
+<p>先不考虑根与子树内部点产生的贡献，那么树形 DP 就是加法卷积的叠加：</p>
+<p>$$f(u,k)\leftarrow \sum_{i&#x3D;0}^{k}f(u,i)f(v,k-i)$$</p>
+<p>其中 $v$ 是 $u$ 的儿子。</p>
+<p>这里我们可以 $O(n^2)$ 完成。</p>
+<p>然后是计算根与子树内部点的贡献。</p>
+<p>设 $s_0(u)$ 表示 $u$ 子树内小 A 拥有的点数，$s_1(u)$ 表示小 B 拥有的点数。不妨设 $u$ 为小 B 拥有的点：</p>
+<p>$$f(u,k+1)\leftarrow f(u,k+1)+f(u,k)(s_0(u)-k)$$</p>
+<p>显然也可以 $O(n^2)$ 完成计算。</p>
+<p>接下来定义 $\omega(i)&#x3D;f(1,i)$，$\gamma(i)$ 表示整棵树中恰好有 $i$ 次非平局的方案数。</p>
+<p>由组合意义可知：</p>
+<p>$$\omega(k)&#x3D;\sum_{i&#x3D;k}^{m}\binom{i}{k}\gamma(i)$$</p>
+<p>再根据二项式反演：</p>
+<p>$$\gamma(k)&#x3D;\sum_{i&#x3D;k}^{m}(-1)^{i-k}\binom{i}{k}\omega(i)$$</p>
+<p>这里也是可以 $O(n^2)$ 计算的。</p>
+]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>二项式反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CF1228E</title>
+    <url>/2022/04/25/CF1228E/</url>
+    <content><![CDATA[<p>Another Filling the Grid</p>
+<p>二维的二项式反演。</p>
+<p>考虑钦定法。</p>
+<p>钦定合法的行和列似乎有些困难，所以我们尝试钦定不合法的行和列。</p>
+<p>令 $f(a,b)$ 表示钦定 $a$ 行不合法，$b$ 列不合法，于是有：</p>
+<p>$$f(a,b)&#x3D;\binom{n}{a}\binom{n}{b}(k-1) ^ {na}(k-1) ^ {(n-a)b}$$</p>
+<p>组合意义是，先选中 $a$ 行和 $b$ 列，然后 $a$ 行都不合法，$b$ 列都不合法（但是去掉钦定的 $a$ 行）。</p>
+<p>然后我们考虑令 $g(a,b)$ 表示恰好有 $a$ 行不合法，$b$ 列不合法。于是我们有：</p>
+<p>$$f(a,b) &#x3D; \sum _ {i&#x3D;a} ^ {n}\sum _ {j&#x3D;b} ^ {n} \binom{i}{a} \binom{j}{b} g(i,j)$$</p>
+<p>二项式反演，于是有：</p>
+<p>$$g(a,b) &#x3D; \sum _ {i&#x3D;a} ^ {n} \sum _ {j&#x3D;b} ^ {n} (-1) ^ {i-a} \binom{i}{a} (-1) ^ {j-b} \binom{j}{b} f(i,j)$$</p>
+<p>我们要求的答案即：</p>
+<p>$$g(0,0) &#x3D; \sum _ {i&#x3D;0} ^ {n} \sum _ {j&#x3D;0} ^ {n} (-1)^{i} (-1)^{j} f(i,j)$$</p>
+<p>复杂度是 $O(n^2\log n)$ 的。</p>
+]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>二项式反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CF997C</title>
+    <url>/2022/04/25/CF997C/</url>
+    <content><![CDATA[<p>Sky Full of Stars</p>
+<p>定义 $f(a,b)$ 表示钦定 $a$ 行 $b$ 列颜色相同的方案数。</p>
+<p>我们发现 $a,b$ 是否非零对答案是有影响的，不妨分开讨论。</p>
+<ol>
+<li><p>若 $a,b\ne 0$，则：</p>
+<p> $$f(a,b)&#x3D;3 \binom{n}{a} \binom{n}{b} 3 ^ {(n-a)(n-b)}$$</p>
+<p> 因为行与列有交点，导致被钦定的行和列颜色必定相同，所以先确定这个颜色，再取确定哪 $a$ 行哪 $b$ 列，然后再随意确定剩余格子的涂色。</p>
+</li>
+<li><p>若 $ab&#x3D;0,a+b\ne 0$，此时我们只有行的颜色相同，或只有列的颜色相同，不妨以行的颜色相同考虑，即 $a\ne 0$，则：</p>
+<p> $$f(a,0)&#x3D;\binom{n}{a}3^{a}3^{n(n-a)}$$</p>
+<p> 对于 $ b \ne 0$ 的情况是同理的。</p>
+</li>
+<li><p>若 $a&#x3D;b&#x3D;0$，则我们所有的格子都是任意涂色的：</p>
+<p> $$f(0,0)&#x3D;3 ^ {n ^ 2}$$</p>
+</li>
+</ol>
+<p>接下来我们令 $g(a,b)$ 表示恰好有 $a$ 行 $b$ 列颜色相同的方案数，根据组合意义：</p>
+<p>$$f(a,b)&#x3D; \sum _ {i &#x3D; a} ^ {n}  \sum _ {j &#x3D; b} ^ { n } \binom{i}{a} \binom{j}{b} g(i,j) $$</p>
+<p>然后我们考虑二项式反演：</p>
+<p>$$g(a,b)&#x3D; \sum _ {i&#x3D;a} ^ {n} \sum _ {j&#x3D;b} ^ {n} (-1) ^ {i-a} \binom{i}{a} (-1) ^ {j-b} \binom{j}{b} f(i,j)$$</p>
+<p>介于我们最后的答案是：</p>
+<p>$$Ans &#x3D; 3 ^ {n^2} - g(0,0)$$</p>
+<p>只要计算 $g(0,0)$ 就好了：</p>
+<p>$$g(0,0) &#x3D; \sum _ {i&#x3D;0} ^ {n} \sum _  {j&#x3D;0} ^ {n} (-1) ^ {i+j} f(i,j)$$</p>
+<p>我们有了 $O(n^2)$ 的计算方法，但显然还需要优化。</p>
+<hr>
+<p>考虑化简式子。</p>
+<p>因为我们的 $f$ 是分类讨论得到的，为了方便化简，仍然分类讨论：</p>
+<ol>
+<li><p>若 $a,b\ne 0$，则：</p>
+<p> $$<br> \begin{aligned}<br> &amp; \sum _ {i&#x3D;1} ^ {n} \sum _ {j&#x3D;1} ^ {n} (-1) ^ {i+j}  3 \binom{n}{i} \binom{n}{j} 3 ^ {(n-i)(n-j)}<br> \\<br> &#x3D;&amp; 3 ^ {n ^ 2 + 1} \sum _ {i&#x3D;1} ^ {n} \binom{n}{i} (-1) ^ {i} 3 ^ {-in}<br> \sum _ {j&#x3D;1} ^ {n} \binom{n}{j} (-1) ^ {j} 3 ^ {-jn} 3 ^ {ij}<br> \\<br> &#x3D;&amp; 3 ^ {n ^ 2 + 1} \sum _ {i&#x3D;1} ^ {n} \binom{n}{i} (-1) ^ {i} 3 ^ {-in}<br> \sum _ {j&#x3D;1} ^ {n} \binom{n}{j} (-1) ^ {j} 3 ^ {j(i-n)}<br> \\<br> &#x3D;&amp; 3 ^ {n ^ 2 + 1} \sum _ {i&#x3D;1} ^ {n} \binom{n}{i} (-1) ^ {i} 3 ^ {-in}<br> \sum _ {j&#x3D;1} ^ {n} \binom{n}{j} 1 ^ {n-j} (  - 3  ^ {i-n}) ^ j<br> \\<br> &#x3D;&amp; 3 ^ {n ^ 2 + 1} \sum _ {i&#x3D;1} ^ {n} \binom{n}{i} (-1) ^ {i} 3 ^ {-in}<br> ((1 - 3 ^ {i-n} ) ^ n-1)<br> \end{aligned}<br> $$</p>
+<p> 于是这一部分快速幂可以 $O(n\log n)$ 计算了。</p>
+</li>
+<li><p>若 $ab&#x3D;0,a+b\ne 0$，因为两维的情况相同，我们只要算出某一维的贡献然后翻倍即可。</p>
+<p> $$<br> 2 \sum _ {i&#x3D;1} ^ {n} (-1) ^ {i} \binom{n}{i} 3 ^ {i} 3 ^ {n(n-i)}<br> $$</p>
+<p> 快速幂暴力上就完了，时间复杂度 $O(n\log n)$。</p>
+</li>
+<li><p>若 $a&#x3D;b&#x3D;0$，这一部分贡献就是 $3 ^ {n ^ 2}$。</p>
+<p> 介于我们的答案就是 $3 ^ {n ^ 2} - g (0 , 0)$，这一部分就被抵消了。</p>
+<p> 所以最后我们的答案就是上面算出的两部分之和的相反数。</p>
+</li>
+</ol>
+<p>最后总的时间复杂度是 $O(n\log n)$ 的。</p>
+]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>容斥</tag>
+        <tag>二项式反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P5339</title>
+    <url>/2022/04/25/P5339/</url>
+    <content><![CDATA[<p>[TJOI2019]唱、跳、rap和篮球</p>
+<p>考虑钦定法。</p>
+<p>令 $f(k)$ 表示钦定 $k$ 组人讨论 Cxk，$g(k)$ 表示恰好有 $k$ 组人讨论 Cxk。</p>
+<p>很容易由组合意义得到：</p>
+<p>$$f(k)&#x3D;\sum _ {i&#x3D;k} \binom{i}{k} g(i)$$</p>
+<p>由二项式反演：</p>
+<p>$$g(k) &#x3D;  \sum _ {i&#x3D;k} (-1) ^ {i-k} \binom{i}{k} f(i)$$</p>
+<p>然后我们现在要求的就是 $g(0)$，于是：</p>
+<p>$$g(0) &#x3D; \sum _ {i&#x3D;0} (-1) ^ {i} f(i)$$</p>
+<p>现在考虑如何计算 $f(k)$。</p>
+<p>令 $S(a,b,c,d,n)$ 表示有 $a$ 个人喜欢唱，$b$ 个人喜欢跳，$c$ 个人喜欢 rap，$d$ 个人喜欢篮球，队列长度为 $n$ 的排列方案数。</p>
+<p>那么就有：</p>
+<p>$$f(k)&#x3D; \binom{n-3k}{k} S ( a-k , b-k , c-k ,d-k , n - 4k)$$</p>
+<p>前面的组合数表示我们先从队列中扣掉 $3k$ 个人，这样我们每选中一个人就在后面加入三个人使这个位置被钦定讨论 Cxk。</p>
+<p>然后我们就要考虑 $S(a,b,c,d,n)$ 如何求。</p>
+<p>考虑使用 EGF，定义 $\hat{R} _ k (x)&#x3D; \sum _ {i&#x3D;0} ^ {k} x ^ i &#x2F; i !$，那么我们的答案就是：</p>
+<p>$$S(a,b,c,d,n) &#x3D; [ x ^ n &#x2F; n! ] \hat{R} _ a (x) \hat{R} _ b (x) \hat{R} _ c (x) \hat{R} _ d (x)$$</p>
+<p>这个可以直接 NTT 卷积。</p>
+<p>时间复杂度 $O(n ^ 2 \log n)$。</p>
+]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>NTT</tag>
+        <tag>二项式反演</tag>
       </tags>
   </entry>
 </search>

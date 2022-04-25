@@ -28,7 +28,7 @@
 <meta property="og:description" content="莫比乌斯反演与狄利克雷卷积">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-28T14:47:28.000Z">
-<meta property="article:modified_time" content="2022-04-24T05:34:42.413Z">
+<meta property="article:modified_time" content="2022-04-25T04:09:27.629Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="莫比乌斯反演">
 <meta property="article:tag" content="数学">
@@ -174,7 +174,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -269,7 +269,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-04-24 13:34:42" itemprop="dateModified" datetime="2022-04-24T13:34:42+08:00">2022-04-24</time>
+        <time title="修改时间：2022-04-25 12:09:27" itemprop="dateModified" datetime="2022-04-25T12:09:27+08:00">2022-04-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -353,11 +353,11 @@
 <li><p>约数函数有关卷积：</p>
 <p>  $$\sigma_0&#x3D;\mathbf{1}*\mathbf{1}$$</p>
 <p>  $$\sigma&#x3D;\mathbf{id}*\mathbf{1}$$</p>
-<p>  $$\sigma_k&#x3D;\mathbf{id^k}*\mathbf{1}$$</p>
+<p>  $$\sigma _ k &#x3D; \mathbf{id} ^ k \ast \mathbf{1}$$</p>
 <p>  以及一个：</p>
-<p>  $$\sigma_0(xy)&#x3D;\sum_{i\mid x}\sum_{j\mid y}[\gcd(i,j)&#x3D;1]$$</p>
+<p>  $$\sigma _ 0 (xy)&#x3D;\sum _ {i\mid x}\sum _ {j\mid y} [\gcd (i,j)&#x3D;1] $$</p>
 <p>  这个结论的扩展：</p>
-<p>  $$\sigma_0(xyz)&#x3D;\sum_{i\mid x}\sum_{j\mid y}\sum_{k\mid z}[\gcd(i,j)&#x3D;1][\gcd(j,k)&#x3D;1][\gcd(i,k)&#x3D;1]$$</p>
+<p>  $$\sigma _ 0(xyz)&#x3D;\sum_{i\mid x}\sum_{j\mid y}\sum_{k\mid z}[\gcd(i,j)&#x3D;1][\gcd(j,k)&#x3D;1][\gcd(i,k)&#x3D;1]$$</p>
 </li>
 </ul>
 </li>
@@ -406,21 +406,23 @@
 <p>$$f_p(x)&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)x^i$$</p>
 <p>这样的话根据积性函数的性质，狄利克雷卷积就变成了一般卷积：</p>
 <p>$$(f\ast g)_p(x)&#x3D;f_p(x)g_p(x)$$</p>
-<p>加法形式也是可以对应的（但是如果变非积性函数就没法卷积了）：</p>
-<p>$$(f+g)_p(x)&#x3D;f_p(x)+g_p(x)$$</p>
+<p>加法形式也是有意义的，但是不是对应 $(f+g)$，这点请一定要注意：</p>
+<p>$$h_p(x)&#x3D;f_p(x)+g_p(x)$$</p>
+<p>至于这玩意是什么，我只能最简单的解释一下，在素数幂处为两者函数值相加，其他数值处满足积性，这样的一个函数。减法当然也是同理。</p>
 <p>求逆的话非常简单，若 $f\ast g&#x3D;\varepsilon$，则：</p>
 <p>$$f_p(x)g_p(x)&#x3D;1$$</p>
+<p>虽然有这种有意义的运算，然而狄利克雷卷积上却没有除法（雾），所以一般写法就类似于 $1&#x3D;\mathbf{id}\ast \varphi^{-1}$ 这样子算了。</p>
 <p>常见的封闭形式：</p>
 <ol>
 <li><p>$\varepsilon_p(x)&#x3D;1$</p>
 </li>
 <li><p>$\zeta_p(x)&#x3D;\dfrac{1}{1-x}$</p>
 </li>
-<li><p>$\mathbf{id^k_p}(x)&#x3D;\dfrac{1}{1-p^kx}$</p>
+<li><p>$ \mathbf {id} ^k _ p (x)&#x3D;\dfrac{1}{1-p^kx}$</p>
 </li>
-<li><p>$\mu_p(x)&#x3D;1-x$，$(\mu\cdot\mu)_p(x)&#x3D;1+x$</p>
+<li><p>$\mu _ p(x)&#x3D;1-x$，$(\mu\cdot\mu)_p(x)&#x3D;1+x$</p>
 </li>
-<li><p>$\sigma_{0p}(x)&#x3D;\dfrac{1}{(1-x)^2}$</p>
+<li><p>$\sigma _ {0p}(x)&#x3D;\dfrac{1}{(1-x)^2}$</p>
 </li>
 <li><p>$\varphi_p(x)&#x3D;\dfrac{1-x}{1-px}$</p>
 </li>
@@ -428,13 +430,13 @@
 </li>
 </ol>
 <p>想要推导出来就仔细想一想 $f(p^x)$ 等于什么，变成一个正常的 OGF，然后就会推了。</p>
-<p>实在不会直接推导可以利用上面你已经理解的结论和自己知道的卷积来推导，比如 $\varphi_p(x)&#x3D;\mu_p(x)\mathbf{id_p}(x)$。</p>
+<p>实在不会直接推导可以利用上面你已经理解的结论和自己知道的卷积来推导，比如 $\varphi _ p(x)&#x3D;\mu _ p(x)\mathbf{id_p}(x)$。</p>
 <p>或者说理解一下这个意义。。。我也没什么好方法。。。</p>
 <p>点乘的话就是对应 $x^i$ 的系数相乘即可，很好理解。可惜没有什么贝尔级数上的初等运算可以对应。</p>
-<p>一种特殊的点乘是数论函数 $f$ 点乘上 $\mathbf{id^k}$，这种情况下我们是可以求出其贝尔级数的：</p>
-<p>$$(f\cdot \mathbf{id^k})<em>p(x)&#x3D;\sum</em>{i&#x3D;0}^{\infty}f(p^i)p^{ki}x^{i}&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)(p^kx)^i$$</p>
+<p>一种特殊的点乘是数论函数 $f$ 点乘上 $\mathbf{id} ^ k $，这种情况下我们是可以求出其贝尔级数的：</p>
+<p>$$<br>(f\cdot \mathbf{id} ^ k)_ p(x)&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)p^{ki}x^{i}&#x3D;\sum_{i&#x3D;0}^{\infty}f(p^i)(p^kx)^i<br>$$</p>
 <p>这个时候将 $p^kx$ 视作整体，代入 $f_p(x)$ 就好了。</p>
-<p>比如：$(\varphi\cdot \mathbf{id^2})_p(x)&#x3D;\dfrac{1-p^2x}{1-p^3x}$。</p>
+<p>比如：$(\varphi\cdot \mathbf{id} ^ 2)_p(x)&#x3D;\dfrac{1-p^2x}{1-p^3x}$。</p>
 <p>然后 <a href="https://onlypath.github.io/2022/04/21/P3768/">P3768</a> 简单的数学题 就可以做了。</p>
 <p>有关这个的习题似乎很难找（？）。</p>
 <p>所以我自己造了一道：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/U214268">U214268</a> 不老不死的竹林引路人。或许用狄利克雷生成函数会更简洁，但我不会。</p>
@@ -616,11 +618,11 @@
 </ol>
 <h1 id="七、附录"><a href="#七、附录" class="headerlink" title="七、附录"></a>七、附录</h1><p>$\LaTeX$ 使用表：</p>
 <ol>
-<li><p><code>\mathbf&#123;id^2&#125;</code> $\rightarrow \mathbf{id^2}$</p>
+<li><p><code>\mathbf&#123;id&#125; ^ 2</code> $\rightarrow \mathbf{id} ^ 2$</p>
 </li>
 <li><p><code>\zeta</code> $\rightarrow \zeta$</p>
 </li>
-<li><p><code>\sigma_0</code> $\rightarrow \sigma_0$</p>
+<li><p><code>\sigma _ 0</code> $\rightarrow \sigma _ 0$</p>
 </li>
 <li><p><code>\varphi</code> $\rightarrow \varphi$</p>
 </li>
