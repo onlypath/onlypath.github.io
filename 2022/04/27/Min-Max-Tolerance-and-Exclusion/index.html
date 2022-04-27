@@ -20,25 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":false,"post_header":false,"post_body":false,"coll_header":false,"sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="onlypath&#39;s Blog">
-<meta property="og:url" content="git://onlypath.github.io/tags/数学/page/3/index.html">
+<meta name="description" content="Min-Max 容斥">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Min_Max_Tolerance_and_Exclusion">
+<meta property="og:url" content="git://onlypath.github.io/2022/04/27/Min-Max-Tolerance-and-Exclusion/index.html">
 <meta property="og:site_name" content="onlypath&#39;s Blog">
-<meta property="og:description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+<meta property="og:description" content="Min-Max 容斥">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-27T04:53:58.000Z">
+<meta property="article:modified_time" content="2022-04-27T05:08:00.838Z">
 <meta property="article:author" content="onlypath">
+<meta property="article:tag" content="Min-Max 容斥">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="git://onlypath.github.io/tags/数学/page/3/">
+<link rel="canonical" href="git://onlypath.github.io/2022/04/27/Min-Max-Tolerance-and-Exclusion/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/数学/page/3/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/04/27/Min-Max-Tolerance-and-Exclusion/","path":"2022/04/27/Min-Max-Tolerance-and-Exclusion/","title":"Min_Max_Tolerance_and_Exclusion"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: 数学 | onlypath's Blog</title>
+<title>Min_Max_Tolerance_and_Exclusion | onlypath's Blog</title>
   
 
 
@@ -169,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">165</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -180,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">94</span>
+        <span class="site-state-item-count">98</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -222,55 +225,110 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">数学
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/27/Min-Max-Tolerance-and-Exclusion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Min_Max_Tolerance_and_Exclusion
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2022-04-27 12:53:58 / 修改时间：13:08:00" itemprop="dateCreated datePublished" datetime="2022-04-27T12:53:58+08:00">2022-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Min-Max 容斥</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>设全集 $U&#x3D; \{ a _ 1 , a _ 2 , \cdots , a _ n \} $。</p>
+<p>设 $\min ( S ) &#x3D; \min _ {a _ i \in S} a _ i$，$\max ( S ) &#x3D; \max _ {a _ i \in S} a _ i$。</p>
+<p>我们有反演结论：</p>
+<p>$$\max ( S ) &#x3D; \sum _ {T \subseteq S} ( - 1 ) ^ { | T | + 1} \min ( T )$$</p>
+<p>反过来也是同理。</p>
+<p>严谨证明略（咕咕咕）。</p>
+<p>简单来说只包含最大值的集合 $T$ 最后的累积容斥系数是 1，其余的 $\min ( T ) \ne \max ( S )$ 的集合其累积容斥系数都为 0，因此最后留下的之后 $\max ( S )$。</p>
+<p>该结论在期望下仍然成立，即：</p>
+<p>$$E ( \max ( S ) ) &#x3D; \sum _ { T \subseteq S} ( - 1 ) ^ { | T | + 1 } E ( \min ( T ) )$$</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-12-04T17:45:07+08:00"
-              content="2021-12-04">
-          12-04
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/12/04/P1017/" itemprop="url">
-            <span itemprop="name">P1017</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Min-Max-%E5%AE%B9%E6%96%A5/" rel="tag"># Min-Max 容斥</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/25/P5339/" rel="prev" title="P5339">
+                  <i class="fa fa-chevron-left"></i> P5339
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/27/Stirling-Inversion/" rel="next" title="Stirling_Inversion">
+                  Stirling_Inversion <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/%E6%95%B0%E5%AD%A6/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/tags/%E6%95%B0%E5%AD%A6/">1</a><a class="page-number" href="/tags/%E6%95%B0%E5%AD%A6/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
-  <div id="gitalk-container"></div>
+
+
+
+
+    <div class="comments gitalk-container"></div>
 
 </div>
   </main>
@@ -321,7 +379,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"715620eabfc157e69ce30dfd64e7035c"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"e6e5b23da6a56727f85ef82e3064612f"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
