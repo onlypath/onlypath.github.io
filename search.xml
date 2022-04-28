@@ -7174,7 +7174,15 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>反演后做 Whk 数列题</li>
 </ul>
-<p>例题三：<a href="">UOJ408</a> 复读机</p>
+<hr>
+<p>例题三：<a href="https://onlypath.github.io/2022/04/28/UOJ450/">UOJ408</a> 复读机</p>
+<ul>
+<li>涉及到一点 EGF</li>
+<li>反演只有最开始的一步</li>
+</ul>
+<hr>
+<p>据说还有 Bluestein 算法。</p>
+<p>咕了。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
@@ -7229,12 +7237,10 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>数据范围：$ n \le 10 ^ { 1 2 }$。</p>
 <hr>
 <p>暴力枚举 $\min \ge 2 $ 的数，Wky 大师说只要暴力搜索就可以了，我才反应过来。。。</p>
-<p>我具体的爆搜想法是筛出 $\sqrt{n}$ 内的质数，暴力枚举质数指数的所有排列组合，并且保证没有一个数的指数为 1，很容易证明，这个复杂度是 $O(\sqrt{n}\log n)$ 的，这一部分的答案就这么解决了。</p>
-<p>对于剩下所有 $\min &#x3D; 1$ 的数，类似上面的思路，我们先从 $\max \ge 2$ 的数因子开始记，然后一路把这些数的记完，时间复杂度是 $O ( \sqrt { n }  \log n ) $ 的。</p>
+<p>筛出 $\sqrt{n}$ 内的质数，暴力枚举质数指数的所有排列组合，并且保证没有一个数的指数为 1，很容易证明，这个复杂度是 $O(\sqrt{n}\log n)$ 的，这一部分的答案就这么解决了。</p>
+<p>对于剩下所有 $\min &#x3D; 1$ 的数，把 $\max \ge 2$ 的数记完，时间复杂度是 $O ( \sqrt { n }  \log n ) $ 的。</p>
 <p>最后剩下来的没有被记的数的个数直接累加到答案即可，因为它们的 $\min &#x3D; \max &#x3D; 1$。</p>
 <p>至于拓展到二元函数（不仅仅是乘法，任何复杂度较低的运算）情况，也都是如此。</p>
-<p>这个问题能够解决的本质就在于 $\min &#x3D; \max &#x3D; 1$ 的数非常多，应该说就是 $O(n)$ 的，而其余的数只有 $O(\sqrt{n} \log n)$，我们只要想办法解决其余即可容斥解决该问题。</p>
-<p>至于那个块筛 $O( n ^ { 2 &#x2F; 3 } \log n)$？不明白！摆烂！</p>
 <p>代码什么不写了。我也不太想翻造这个题的数据。丢个口胡算了。</p>
 ]]></content>
       <categories>
@@ -7242,6 +7248,49 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>UOJ450</title>
+    <url>/2022/04/28/UOJ450/</url>
+    <content><![CDATA[<p>【集训队作业2018】复读机</p>
+<p>如果不看数据范围的话，这是一个经典问题。</p>
+<p>令 $\hat{F} ( x ) &#x3D; \sum _ {i&#x3D;0} ^ {\infty} [ d \mid i ] x ^ {i} &#x2F; i!$，我们要求的答案就是：</p>
+<p>$$ Ans &#x3D; n! \left[ \dfrac { x ^ n } { n ! } \right] \hat{F} ( x ) ^ k $$</p>
+<p>但是 $\hat{F} ( x ) $ 的封闭形式不太好找，这个答案根本没法算。</p>
+<p>考虑变换 $ \hat {F} ( x )$，使用单位根反演。</p>
+<p>$$<br>\begin{aligned}<br>\hat{F} ( x ) &#x3D; &amp; \sum _ { i &#x3D; 0 } ^ {\infty} \dfrac { x ^ i } { i ! } [ d \mid i ]<br>\\<br>&#x3D; &amp; \dfrac {1} {d} \sum _ { i &#x3D; 0 } ^ {\infty} \dfrac { x ^ i } { i ! } \sum _ { j &#x3D; 0 } ^ { d - 1 } \omega _ {d} ^ {ij}<br>\\<br>&#x3D; &amp; \dfrac {1} {d} \sum _ { j &#x3D; 0 } ^ { d - 1 } \sum _ { i &#x3D; 0 } ^ {\infty}  \dfrac {(x \omega _ {d} ^ {j}) ^ i } { i ! }<br>\\<br>&#x3D; &amp; \dfrac {1} {d} \sum _ { j &#x3D; 0 } ^ { d - 1 } e ^ { x \omega _ {d} ^ {j} }<br>\end{aligned}<br>$$</p>
+<p>注意到这个特殊的数据范围，分类讨论 $d$：</p>
+<ol>
+<li><p>若 $d&#x3D;1$，则有：</p>
+<p> $$\hat{F} ( x ) &#x3D; e ^ x$$</p>
+<p> 那么答案就是：</p>
+<p> $$Ans &#x3D; n! \left[ \dfrac{x^n}{n!} \right] e ^ {kx} &#x3D; k ^ n $$</p>
+</li>
+<li><p>若 $d&#x3D;2$，则有：</p>
+<p> $$\hat{F}(x)&#x3D; \dfrac {e ^ x + e ^ { - x }} { 2 }$$</p>
+<p> 代入答案的时候使用二项式定理展开：</p>
+<p> $$<br> \begin{aligned}<br> Ans &#x3D; &amp; n! \left[ \dfrac { x ^ n } { n ! } \right] \left( \dfrac {e ^ x + e ^ { - x }} { 2 } \right) ^ k<br> \\<br> &#x3D; &amp; \dfrac { n! } { 2 ^ k } \left[ \dfrac { x ^ n } { n ! } \right] \sum _ { i &#x3D; 0 } ^ { k } \binom { k } { i } e ^ {ix} e ^ {- ( k - i ) x}<br> \\<br> &#x3D; &amp; \dfrac { n! } { 2 ^ k } \left[ \dfrac { x ^ n } { n ! } \right] \sum _ { i &#x3D; 0 } ^ { k } \binom { k } { i } e ^ { ( 2 i - k ) x}<br> \\<br> &#x3D; &amp; \dfrac { 1 } { 2 ^ k } \sum _ { i &#x3D; 0 } ^ { k } \binom { k } { i } ( 2 i - k ) ^ n<br> \end{aligned}<br> $$</p>
+<p> 爆算的时间复杂度是 $ O ( k \log n ) $ 的，直接莽。</p>
+</li>
+<li><p>若 $ d &#x3D; 3$，则：</p>
+<p> $$ \hat { F } ( x ) &#x3D; \dfrac { e ^ x + e ^ { \omega _ 3 ^ 1 x} +  e ^ {\omega _ 3 ^ 2 x}} { 3 }$$</p>
+<p> 两次二项式定理把这玩意暴力展开：</p>
+<p> $$<br> \begin{aligned}<br> Ans &#x3D; &amp; n! \left[ \dfrac { x ^ n } { n ! } \right] \left( \dfrac { e ^ x + e ^ { \omega _ 3 ^ 1 x} +  e ^ {\omega _ 3 ^ 2 x}} { 3 } \right) ^ k<br> \\<br> &#x3D; &amp; \dfrac {n!} {3 ^ k} \left[ \dfrac { x ^ n } { n ! } \right] \sum _ { i &#x3D; 0 } ^ { k } \binom { k } { i } e ^ {\omega _ {3} ^ {2 } x i } \sum _ { j&#x3D;  0 } ^ { k - i } \binom { k-i } { j } e ^ { x j } e ^ { \omega _ {3} ^ {1} x ( k - i - j )}<br> \\<br> &#x3D; &amp; \dfrac {n!} {3 ^ k} \left[ \dfrac { x ^ n } { n ! } \right] \sum _ { i &#x3D; 0 } ^ { k } \binom { k } { i } \sum _ { j&#x3D;  0 } ^ { k - i } \binom { k-i } { j } e ^ {(\omega _ {3} ^ {2} i + j + \omega _ {3} ^ {1} ( k - i - j ))}<br> \\<br> &#x3D; &amp; \dfrac { 1 } {3 ^ k} \sum _ { i &#x3D; 0 } ^ { k } \binom { k } { i } \sum _ { j&#x3D;  0 } ^ { k - i } \binom { k-i } { j } \left ( \omega _ {3} ^ {2} i + j + \omega _ {3} ^ {1} ( k - i - j ) \right) ^ {n}<br> \end{aligned}<br> $$</p>
+<p> 看起来应该是 $O(k ^ 2 \log n)$ 可算，不过要求一下单位根。</p>
+<p> 可以直接再写一个求三次单位根的程序，也可以凭借你的聪明才智发现它的原根是 7，然后用 Python 算一下 $7 ^ { \varphi (19491001)&#x2F;3}$ 即可。</p>
+<p> 这里我就直接给出 $\omega _ {3} ^ 1 &#x3D; 663067$。</p>
+</li>
+</ol>
+<p>然后做完了。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e6</span>,mo=<span class="number">19491001</span>;</span><br><span class="line"></span><br><span class="line">ll n,k,d,w1,w2;</span><br><span class="line">ll fac[N+<span class="number">5</span>],invfac[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(ll b,ll p)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) r=r*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">C</span><span class="params">(ll n,ll m)</span> </span>&#123;<span class="keyword">return</span> (fac[n]*invfac[m]%mo)*invfac[n-m]%mo;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init_2</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">  fac[<span class="number">0</span>]=<span class="number">1</span>;<span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) fac[i]=fac[i<span class="number">-1</span>]*i%mo;</span><br><span class="line">  invfac[<span class="number">0</span>]=<span class="number">1</span>;invfac[n]=<span class="built_in">Pow</span>(fac[n],mo<span class="number">-2</span>);</span><br><span class="line">  <span class="keyword">for</span>(ll i=n<span class="number">-1</span>;i&gt;=<span class="number">1</span>;i--) invfac[i]=invfac[i+<span class="number">1</span>]*(i+<span class="number">1</span>)%mo;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">F</span><span class="params">(ll i,ll j)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Pow</span>(((w2*i%mo+j)%mo+w1*(k-i-j)%mo)%mo,n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();k=<span class="built_in">read</span>();d=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(d==<span class="number">1</span>) &#123;<span class="built_in">write</span>(<span class="built_in">Pow</span>(k,n));&#125;</span><br><span class="line">  <span class="keyword">if</span>(d==<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">Init_2</span>(k);</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=k;i++) &#123;ans=(ans+<span class="built_in">C</span>(k,i)*<span class="built_in">Pow</span>((<span class="number">2</span>*i-k+mo)%mo,n)%mo)%mo;&#125;</span><br><span class="line">    ans=ans*<span class="built_in">Pow</span>(<span class="built_in">Pow</span>(<span class="number">2</span>,k),mo<span class="number">-2</span>)%mo;</span><br><span class="line">    <span class="built_in">write</span>(ans);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(d==<span class="number">3</span>) &#123;</span><br><span class="line">    <span class="built_in">Init_2</span>(k);</span><br><span class="line">    ll tmp=<span class="number">0</span>;w1=<span class="number">663067</span>;w2=w1*w1;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;=k;i++) &#123;</span><br><span class="line">      ll tmpp=<span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span>(ll j=<span class="number">0</span>;j&lt;=k-i;j++) &#123;</span><br><span class="line">        tmpp=(tmpp+<span class="built_in">C</span>(k-i,j)*<span class="built_in">F</span>(i,j)%mo)%mo;</span><br><span class="line">      &#125;</span><br><span class="line">      tmp=(tmp+tmpp*<span class="built_in">C</span>(k,i)%mo)%mo;</span><br><span class="line">    &#125;</span><br><span class="line">    tmp=tmp*<span class="built_in">Pow</span>(<span class="built_in">Pow</span>(<span class="number">3</span>,k),mo<span class="number">-2</span>)%mo;</span><br><span class="line">    <span class="built_in">write</span>(tmp);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>生成函数</tag>
+        <tag>单位根反演</tag>
       </tags>
   </entry>
 </search>
