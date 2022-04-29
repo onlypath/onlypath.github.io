@@ -3386,7 +3386,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>P4717</title>
     <url>/2022/02/04/P4717/</url>
     <content><![CDATA[<p>【模板】快速莫比乌斯&#x2F;沃尔什变换 (FMT&#x2F;FWT)</p>
-<p><del>废物躺</del>我决定直接记掉代码加结论走人。</p>
+<p>我决定直接记掉代码加结论走人。</p>
 <p>这个东西是计算：</p>
 <p>$$h_i&#x3D;\sum_{j\oplus k&#x3D;i}f_j\times g_k$$</p>
 <p>这种卷积的。</p>
@@ -3748,7 +3748,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>废物着实是我，我确也是废物。</p>
 <p>除了原题，我连联赛题做出来的可能都没有。</p>
 <p>这就更废物了。</p>
-<p>所以我直接废物躺 <del>FWT</del> 了。</p>
+<p>所以我直接废物躺了。</p>
 <p>因为从来没有见过类似的 DP 题，考场上我只用 naive 的思路去想这个题。</p>
 <p>结果回来一复盘，哦豁，这个状态怎么还能这样定，还有这状态的转移怎么这么怪。。。</p>
 <p>回过头来一想，才发现自己考场上想的思路全都是按自己的做题经验想的，根本不可能想到这种转移。。。</p>
@@ -7291,6 +7291,65 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       <tags>
         <tag>生成函数</tag>
         <tag>单位根反演</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P4718</title>
+    <url>/2022/04/29/P4718/</url>
+    <content><![CDATA[<p>【模板】Pollard-Rho算法</p>
+<p>实际上是 Pollard-Rho 和 Miller-Rabin 的缝合模板题。</p>
+<hr>
+<p>首先关于 Miller-Rabin 素性测试。</p>
+<p>很多关于这方面的数学上的解释我现在做不来，所以只能记录一下使用。。。</p>
+<blockquote>
+<p>费马素性测试：如果对于 $a \in ( 1 , p ) $，存在 $a ^ { p - 1 } \not \equiv 1 \pmod { p } $，则 $p$ 一定不是一个素数；反之，若有若干个 $a$ 满足 $a ^ { p - 1 } \equiv 1 \pmod{p}$，则 $p$ 大概率是素数。</p>
+</blockquote>
+<p>因此我们随机几个 $a$ 来测试素性。</p>
+<p>这是个很玄学的方法，正确性的保证不高。</p>
+<p>有的合数也能满足 $\forall a \in (1,p) , a ^ { p - 1 } \equiv 1 \pmod {p}$，被称为卡迈尔数，或者费马伪素数。</p>
+<p>$561 &#x3D; 3 \times 11 \times 17$ 就是一个卡迈尔数，并且若 $n$ 是一个卡迈尔数，则 $m &#x3D; 2 ^ n - 1$ 也是一个卡迈尔数，即其个数是无穷的。最重要的是在 $10 ^ 9$ 内，这样的合数有 $646$ 个，想拿这个混作正经素性测试还是省省吧。</p>
+<p>于是我们需要考虑优化这个素性测试。</p>
+<blockquote>
+<p>二次探测定理：若 $p$ 为奇素数，则 $x ^ 2 \equiv 1 \pmod { p }$ 的解为 $x \equiv \pm 1 \pmod{ p }$。</p>
+</blockquote>
+<p>我们以原本的费马素性测试作为依托，如果 $a ^ { p - 1 } \equiv 1 \pmod{p}$ 不成立的话，直接判为合数即可；反之我们尝试使用二次探测定理继续判断。</p>
+<p>至于如何使用二次探测定理继续判断，我们先将 $p-1$ 分解为 $p - 1 &#x3D; d \times 2 ^ {r}$，其中 $d$ 是一个奇数。</p>
+<p>首先如果 $a ^ d \equiv \pm 1 \pmod { p }$，这是满足二次探测定理的，我们认为其通过了这次子测试。</p>
+<p>反之我们尝试将 $d$ 不断乘 $2$（实际操作中将 $a ^ d$ 进行平方），最多乘 $r - 1$ 次，如果说存在 $a ^ d \equiv - 1 \pmod { p }$，我们也认为其通过了这次子测试（不可能等于 $1$ 的，不然最开始的 $a ^ d$ 一定是 $1$）。</p>
+<p>反之说明其没有通过本次子测试，一定是个合数。</p>
+<p>我们设 $x &#x3D; a ^ { ( p - 1) &#x2F; 2 } $，实际上这个过程就是说明 $x ^ 2 \equiv 1 \pmod { p }$ 的解是 $x \equiv \pm 1 \pmod { p }$，满足二次探测定理，而如果没有通过子测试，说明 $x \not \equiv \pm 1 \pmod { p }$，这是违背二次探测定理的，说明 $p$ 一定不是奇素数。</p>
+<p>这种通过二次探测定理优化的素性测试即 Miller-Rabin 素性测试。</p>
+<p>实际操作中，我们随机不少于 8 次 $a$，比如 10 次。这样既保证正确率比较高，也不会过于影响效率。</p>
+<p>当然，在 OI 的环境下，数字一般是 $2 ^ { 6 4 }$ 以内的，我们实际上可以通过选取固定的 $a$ 来实现快速的<strong>确定性判素</strong>。</p>
+<ul>
+<li>对于 $2 ^ { 3 2 }$ 以内判素，选取 $2,7,61$ 三个数即可。</li>
+<li>对于 $2 ^ { 6 4 }$ 以内判素，选取 $2,325,9375,28178,450775,9780504,1795265022$ 七个数即可。</li>
+<li>在考场上，出于这些数字的背诵没什么必要，我们用前十二个质数（到 $37$）即可实现 $2 ^ { 7 8 }$ 确定性判素。</li>
+</ul>
+<p>至于原理，我完全不知道，但是感性理解应该并不难吧？</p>
+<p>测试一次的复杂度是 $O( k \log ^ 3 p)$ 的。其中 $k$ 是测试轮数。</p>
+<hr>
+<p>Pollard-Rho 是一个更玄学的东西，可以在期望 $O( n ^ {1 &#x2F; 4})$ 的复杂度下求出 $n$ 的一个非平凡因子。所谓非平凡因子，就是 $( 1 , n )$ 内的一个 $n$ 的因子。</p>
+<p>我们先构造伪随机数：令 $f(x)&#x3D; (x ^ 2 + c ) \bmod n$，其中 $c$ 是一个随机常数。</p>
+<p>然后初始随机取一个 $x _ 1$，其后每次 $x _ i &#x3D; f ( x _ { i - 1 })$。</p>
+<p>这个伪随机数是有循环节的，类似下面的图。</p>
+<p><img src="https://oi-wiki.org/math/number-theory/images/Pollard-rho1.png" alt="rho"></p>
+<p>长得很像 $\rho$，所以叫做 Pollard-Rho（所以按理说这个 Rho 应该小写吗？）。</p>
+<p>根据生日悖论，这个环和尾的期望长度都是 $O( \sqrt {n})$ 的。</p>
+<p>在这一堆随机数中，我们尝试选取 $x _ i $ 和 $x _ j $ 构造 $| x _ i - x _ j |$，通过 $\gcd ( | x _ i - x _ j | , n)$ 来找到 $n$ 的一个非平凡因子。由于某些神奇的原因，在这种优秀的随机数列下，我们能在期望下 $O( n ^ {1 &#x2F; 4})$ 的复杂度下找到这样的因子。</p>
+<p>有一种 Floyd 判环的方法，其方法就是使 $a &#x3D; f ( a )$ 单次迭代，而 $ b &#x3D; f ( f ( b ))$ 二重迭代，造成二者的差距，从而构造出 $x _ i $ 和 $x _ j$。其间若发现成环（就是 $a$ 和 $b$ 相等了），直接退出即可。反之若发现平凡因子，直接返回即可。</p>
+<p>但是这种实现下，$\gcd$ 的调用次数很多，因此我们通过倍增优化来减少调用 $\gcd$ 的次数。</p>
+<p>具体来说，我们每次固定下 $x _ i$，然后倍增式多次迭代 $x _ j$（第一次迭代 1 次，第二次 2 次，第三次 4 次，以此类推），并令 $s &#x3D; \prod | x _ i - x _ j | $，一旦 $s &#x3D; 0$ 说明分解失败，返回 $n$（下一次再用 Pollard-Rho 尝试分解，直到分解出来，因为经过 Miller-Rabin 之后我们判断这个数肯定不是素数）。</p>
+<p>过程中，每隔 $2 ^ k - 1$ 个数就查询一次 $\gcd$。这里取 $k&#x3D;7$。</p>
+<p>对于本题找最大质因子的需求，不断分解并判素即可。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line">ll T,max_factor,n;</span><br><span class="line">ll test_mr[<span class="number">13</span>]=&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">37</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span> </span>&#123;<span class="keyword">return</span> b==<span class="number">0</span>?a:<span class="built_in">gcd</span>(b,a%b);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(ll b,ll p,ll mo)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) r=r*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Abs</span><span class="params">(ll x)</span> </span>&#123;<span class="keyword">return</span> x&gt;=<span class="number">0</span>?x:-x;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">Miller_Rabin</span><span class="params">(ll p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(p&lt;<span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="keyword">if</span>(p==<span class="number">2</span>||p==<span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  ll d=p<span class="number">-1</span>,r=<span class="number">0</span>;<span class="keyword">while</span>(!(d&amp;<span class="number">1</span>)) &#123;r++;d&gt;&gt;=<span class="number">1</span>;&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll k=<span class="number">0</span>;k&lt;<span class="number">12</span>;k++) &#123;</span><br><span class="line">    ll a=test_mr[k]%p;<span class="keyword">if</span>(a==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">    ll x=<span class="built_in">Pow</span>(a,d,p);<span class="keyword">if</span>(x==<span class="number">1</span>||x==p<span class="number">-1</span>) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;r<span class="number">-1</span>;i++) &#123;x=x*x%p;<span class="keyword">if</span>(x==p<span class="number">-1</span>) <span class="keyword">break</span>;&#125;</span><br><span class="line">    <span class="keyword">if</span>(x!=p<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pollard_Rho</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  ll s=<span class="number">0</span>,t=<span class="number">0</span>;ll c=<span class="built_in">rand</span>()%(x<span class="number">-1</span>)+<span class="number">1</span>;ll step=<span class="number">0</span>,goal=<span class="number">1</span>;ll val=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(goal=<span class="number">1</span>;;goal&lt;&lt;=<span class="number">1</span>,s=t,val=<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span>(step=<span class="number">1</span>;step&lt;=goal;step++) &#123;</span><br><span class="line">      t=(t*t+c)%x;val=val*<span class="built_in">Abs</span>(t-s)%x;</span><br><span class="line">      <span class="keyword">if</span>(step%<span class="number">127</span>==<span class="number">0</span>) &#123;ll d=<span class="built_in">gcd</span>(val,x);<span class="keyword">if</span>(d&gt;<span class="number">1</span>) <span class="keyword">return</span> d;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll d=<span class="built_in">gcd</span>(val,x);<span class="keyword">if</span>(d&gt;<span class="number">1</span>) <span class="keyword">return</span> d;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Fac</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=max_factor||x&lt;<span class="number">2</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">Miller_Rabin</span>(x)) &#123;max_factor=<span class="built_in">max</span>(max_factor,x);<span class="keyword">return</span>;&#125;</span><br><span class="line">  ll p=x;<span class="keyword">while</span>(p&gt;=x) p=<span class="built_in">Pollard_Rho</span>(x);</span><br><span class="line">  <span class="keyword">while</span>(x%p==<span class="number">0</span>) x/=p;<span class="built_in">Fac</span>(x);<span class="built_in">Fac</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line">    max_factor=<span class="number">0</span>;n=<span class="built_in">read</span>();<span class="built_in">Fac</span>(n);</span><br><span class="line">    <span class="keyword">if</span>(max_factor==n) <span class="built_in">printf</span>(<span class="string">&quot;Prime\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">writeln</span>(max_factor);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>Pollard-Rho</tag>
+        <tag>Miller-Rabin</tag>
       </tags>
   </entry>
 </search>
