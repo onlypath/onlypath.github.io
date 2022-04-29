@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images__/za.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images__/32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images__/16.png">
+  <link rel="mask-icon" href="/images__/za.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":false,"post_header":false,"post_body":false,"coll_header":false,"sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Fox And Jumping">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF510D">
+<meta property="og:url" content="git://onlypath.github.io/2022/04/29/CF510D/index.html">
+<meta property="og:site_name" content="onlypath&#39;s Blog">
+<meta property="og:description" content="Fox And Jumping">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-29T14:10:02.000Z">
+<meta property="article:modified_time" content="2022-04-29T14:16:06.642Z">
+<meta property="article:author" content="onlypath">
+<meta property="article:tag" content="裴蜀定理">
+<meta property="article:tag" content="状压 DP">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="git://onlypath.github.io/2022/04/29/CF510D/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/04/29/CF510D/","path":"2022/04/29/CF510D/","title":"CF510D"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CF510D | onlypath's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">onlypath's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blossom, Wind, & You.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-导航"><a href="/guide/" rel="section"><i class="fa fa-location-arrow fa-fw"></i>导航</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=270 height=320 src="//music.163.com/outchain/player?type=0&id=7346261760&auto=0&height=430">
+      </iframe>
+    </div>
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="onlypath"
+      src="/images/avator.jpg">
+  <p class="site-author-name" itemprop="name">onlypath</p>
+  <div class="site-description" itemprop="description">因为抛弃了世间所有的美好，才会比任何人都更加温柔。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">169</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/onlypath" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;onlypath" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2558992311@qq.com" title="E-Mail → mailto:2558992311@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/154279" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;154279" rel="noopener" target="_blank">Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/2558992311" title="QQ → 2558992311"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/29/CF510D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CF510D
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-29 22:10:02 / 修改时间：22:16:06" itemprop="dateCreated datePublished" datetime="2022-04-29T22:10:02+08:00">2022-04-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTS/" itemprop="url" rel="index"><span itemprop="name">PTS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Fox And Jumping</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Fox And Jumping</p>
+<p>首先是裴蜀定理，据此很容易判断，此题要求我们取若干个数的 $\gcd$ 为 1，然后使代价最小。</p>
+<p>考虑 DP。</p>
+<figure class="highlight plaintext"><figcaption><span>那玩意的复杂度完全没办法证明。。。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">状压这种方式还是稳妥一些。</span><br><span class="line"></span><br><span class="line">令 $S$ 的每一位表示 $l _ i$ 的第 $j$ 小质因数是否存在，这样就能很好的表示我们需要的数了，因为一个数的质因数最多只有 9 个。</span><br><span class="line"></span><br><span class="line">转移当然就是随便搞搞，取公共质因数的交集之类的。。。</span><br><span class="line"></span><br><span class="line">然后我们每次用 $f(i,0)$ 与答案比较，取最小值即可。</span><br><span class="line"></span><br><span class="line">时间复杂度 $O( n ^ 3 \log ^ 3 n)$。</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line">```cpp</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#define ll long long</span><br><span class="line">using namespace std;</span><br><span class="line">namespace Ehnaev&#123;</span><br><span class="line">  inline ll read() &#123;</span><br><span class="line">    ll ret=0,f=1;char ch=getchar();</span><br><span class="line">    while(ch&lt;48||ch&gt;57) &#123;if(ch==45) f=-f;ch=getchar();&#125;</span><br><span class="line">    while(ch&gt;=48&amp;&amp;ch&lt;=57) &#123;ret=(ret&lt;&lt;3)+(ret&lt;&lt;1)+ch-48;ch=getchar();&#125;</span><br><span class="line">    return ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  inline void write(ll x) &#123;</span><br><span class="line">    static char buf[22];static ll len=-1;</span><br><span class="line">    if(x&gt;=0) &#123;do&#123;buf[++len]=x%10+48;x/=10;&#125;while(x);&#125;</span><br><span class="line">    else &#123;putchar(45);do&#123;buf[++len]=-(x%10)+48;x/=10;&#125;while(x);&#125;</span><br><span class="line">    while(len&gt;=0) putchar(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;using Ehnaev::read;using Ehnaev::write;</span><br><span class="line">inline void writeln(ll x) &#123;write(x);putchar(10);&#125;</span><br><span class="line"></span><br><span class="line">const ll N=3e2,M=1e3;</span><br><span class="line"></span><br><span class="line">ll n;</span><br><span class="line">ll a[N+5],c[N+5],f[N+5][M+5],cnt[N+5],fac[N+5][15];</span><br><span class="line"></span><br><span class="line">inline ll gcd(ll a,ll b) &#123;return b==0?a:gcd(b,a%b);&#125;</span><br><span class="line"></span><br><span class="line">inline void Solve(ll i,ll j,ll Si,ll Sj) &#123;</span><br><span class="line">  ll tmpS=0;</span><br><span class="line">  for(ll x=0;x&lt;cnt[i];x++) &#123;</span><br><span class="line">    ll flg=0;</span><br><span class="line">    for(ll y=0;y&lt;cnt[j];y++) &#123;</span><br><span class="line">      if(!((Sj&gt;&gt;y)&amp;1)) continue;</span><br><span class="line">      if(fac[i][x]==fac[j][y]) &#123;flg=1;break;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(flg) tmpS|=(1&lt;&lt;x);</span><br><span class="line">  &#125;</span><br><span class="line">  f[i][tmpS]=min(f[i][tmpS],f[j][Sj]+c[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline ll Init(ll x,ll id) &#123;</span><br><span class="line">  ll amt=0;</span><br><span class="line">  for(ll i=2;i*i&lt;=x;i++) &#123;</span><br><span class="line">    if(x%i==0) &#123;</span><br><span class="line">      fac[id][amt++]=i;</span><br><span class="line">      while(x%i==0) x/=i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if(x&gt;1) fac[id][amt++]=x;</span><br><span class="line">  return amt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">  n=read();</span><br><span class="line"></span><br><span class="line">  ll tmp=0;</span><br><span class="line">  for(ll i=1;i&lt;=n;i++) &#123;</span><br><span class="line">    a[i]=read();if(a[i]&lt;0) a[i]=-a[i];</span><br><span class="line">    if(a[i]!=0) tmp=gcd(a[i],tmp);</span><br><span class="line">  &#125;</span><br><span class="line">  for(ll i=1;i&lt;=n;i++) &#123;c[i]=read();&#125;</span><br><span class="line">  </span><br><span class="line">  if(tmp!=1) writeln(-1);</span><br><span class="line">  else &#123;</span><br><span class="line">    memset(f,0x3f,sizeof(f));</span><br><span class="line">    ll ans=f[0][0];</span><br><span class="line">    for(ll i=1;i&lt;=n;i++) &#123;</span><br><span class="line">      cnt[i]=Init(a[i],i);</span><br><span class="line">      ll tmp=(1&lt;&lt;cnt[i])-1;</span><br><span class="line">      f[i][tmp]=c[i];</span><br><span class="line">      for(ll j=1;j&lt;i;j++) &#123;</span><br><span class="line">        for(ll p=0;p&lt;(1&lt;&lt;cnt[j]);p++) &#123;</span><br><span class="line">          Solve(i,j,tmp,p);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      ans=min(ans,f[i][0]);</span><br><span class="line">    &#125;</span><br><span class="line">    write(ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%A3%B4%E8%9C%80%E5%AE%9A%E7%90%86/" rel="tag"># 裴蜀定理</a>
+              <a href="/tags/%E7%8A%B6%E5%8E%8B-DP/" rel="tag"># 状压 DP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/29/P4718/" rel="prev" title="P4718">
+                  <i class="fa fa-chevron-left"></i> P4718
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/29/Euclidean-like-Algorithm/" rel="next" title="Euclidean-like_Algorithm">
+                  Euclidean-like_Algorithm <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-feather-alt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">onlypath</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"55fedf8f96857f5f1a67f927bab62d76"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

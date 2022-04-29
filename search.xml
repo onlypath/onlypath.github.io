@@ -7352,4 +7352,70 @@ But I finally decided to walk ahead and sing the life as the brightest light.
         <tag>Miller-Rabin</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CF510D</title>
+    <url>/2022/04/29/CF510D/</url>
+    <content><![CDATA[<p>Fox And Jumping</p>
+<p>首先是裴蜀定理，据此很容易判断，此题要求我们取若干个数的 $\gcd$ 为 1，然后使代价最小。</p>
+<p>考虑 DP。</p>
+<figure class="highlight plaintext"><figcaption><span>那玩意的复杂度完全没办法证明。。。</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">状压这种方式还是稳妥一些。</span><br><span class="line"></span><br><span class="line">令 $S$ 的每一位表示 $l _ i$ 的第 $j$ 小质因数是否存在，这样就能很好的表示我们需要的数了，因为一个数的质因数最多只有 9 个。</span><br><span class="line"></span><br><span class="line">转移当然就是随便搞搞，取公共质因数的交集之类的。。。</span><br><span class="line"></span><br><span class="line">然后我们每次用 $f(i,0)$ 与答案比较，取最小值即可。</span><br><span class="line"></span><br><span class="line">时间复杂度 $O( n ^ 3 \log ^ 3 n)$。</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line">```cpp</span><br><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#define ll long long</span><br><span class="line">using namespace std;</span><br><span class="line">namespace Ehnaev&#123;</span><br><span class="line">  inline ll read() &#123;</span><br><span class="line">    ll ret=0,f=1;char ch=getchar();</span><br><span class="line">    while(ch&lt;48||ch&gt;57) &#123;if(ch==45) f=-f;ch=getchar();&#125;</span><br><span class="line">    while(ch&gt;=48&amp;&amp;ch&lt;=57) &#123;ret=(ret&lt;&lt;3)+(ret&lt;&lt;1)+ch-48;ch=getchar();&#125;</span><br><span class="line">    return ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  inline void write(ll x) &#123;</span><br><span class="line">    static char buf[22];static ll len=-1;</span><br><span class="line">    if(x&gt;=0) &#123;do&#123;buf[++len]=x%10+48;x/=10;&#125;while(x);&#125;</span><br><span class="line">    else &#123;putchar(45);do&#123;buf[++len]=-(x%10)+48;x/=10;&#125;while(x);&#125;</span><br><span class="line">    while(len&gt;=0) putchar(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;using Ehnaev::read;using Ehnaev::write;</span><br><span class="line">inline void writeln(ll x) &#123;write(x);putchar(10);&#125;</span><br><span class="line"></span><br><span class="line">const ll N=3e2,M=1e3;</span><br><span class="line"></span><br><span class="line">ll n;</span><br><span class="line">ll a[N+5],c[N+5],f[N+5][M+5],cnt[N+5],fac[N+5][15];</span><br><span class="line"></span><br><span class="line">inline ll gcd(ll a,ll b) &#123;return b==0?a:gcd(b,a%b);&#125;</span><br><span class="line"></span><br><span class="line">inline void Solve(ll i,ll j,ll Si,ll Sj) &#123;</span><br><span class="line">  ll tmpS=0;</span><br><span class="line">  for(ll x=0;x&lt;cnt[i];x++) &#123;</span><br><span class="line">    ll flg=0;</span><br><span class="line">    for(ll y=0;y&lt;cnt[j];y++) &#123;</span><br><span class="line">      if(!((Sj&gt;&gt;y)&amp;1)) continue;</span><br><span class="line">      if(fac[i][x]==fac[j][y]) &#123;flg=1;break;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(flg) tmpS|=(1&lt;&lt;x);</span><br><span class="line">  &#125;</span><br><span class="line">  f[i][tmpS]=min(f[i][tmpS],f[j][Sj]+c[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inline ll Init(ll x,ll id) &#123;</span><br><span class="line">  ll amt=0;</span><br><span class="line">  for(ll i=2;i*i&lt;=x;i++) &#123;</span><br><span class="line">    if(x%i==0) &#123;</span><br><span class="line">      fac[id][amt++]=i;</span><br><span class="line">      while(x%i==0) x/=i;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if(x&gt;1) fac[id][amt++]=x;</span><br><span class="line">  return amt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">  n=read();</span><br><span class="line"></span><br><span class="line">  ll tmp=0;</span><br><span class="line">  for(ll i=1;i&lt;=n;i++) &#123;</span><br><span class="line">    a[i]=read();if(a[i]&lt;0) a[i]=-a[i];</span><br><span class="line">    if(a[i]!=0) tmp=gcd(a[i],tmp);</span><br><span class="line">  &#125;</span><br><span class="line">  for(ll i=1;i&lt;=n;i++) &#123;c[i]=read();&#125;</span><br><span class="line">  </span><br><span class="line">  if(tmp!=1) writeln(-1);</span><br><span class="line">  else &#123;</span><br><span class="line">    memset(f,0x3f,sizeof(f));</span><br><span class="line">    ll ans=f[0][0];</span><br><span class="line">    for(ll i=1;i&lt;=n;i++) &#123;</span><br><span class="line">      cnt[i]=Init(a[i],i);</span><br><span class="line">      ll tmp=(1&lt;&lt;cnt[i])-1;</span><br><span class="line">      f[i][tmp]=c[i];</span><br><span class="line">      for(ll j=1;j&lt;i;j++) &#123;</span><br><span class="line">        for(ll p=0;p&lt;(1&lt;&lt;cnt[j]);p++) &#123;</span><br><span class="line">          Solve(i,j,tmp,p);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      ans=min(ans,f[i][0]);</span><br><span class="line">    &#125;</span><br><span class="line">    write(ans);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>裴蜀定理</tag>
+        <tag>状压 DP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Euclidean-like_Algorithm</title>
+    <url>/2022/04/29/Euclidean-like-Algorithm/</url>
+    <content><![CDATA[<p>实际上这个名字很钓鱼啊。</p>
+<blockquote>
+<p>试以 $O(\log n)$ 计算：<br>$$f( a , b ,c ,n ) &#x3D; \sum _ { i &#x3D; 0 } ^ { n } \left \lfloor \dfrac { a i + b } { c } \right \rfloor$$</p>
+</blockquote>
+<p>尝试简化问题：</p>
+<p>$$<br>\begin{aligned}<br>f ( a , b , c , n ) &#x3D; &amp; \sum _ { i  &#x3D; 0 } ^ { n } \left \lfloor \dfrac { a i + b } { c } \right \rfloor<br>\\<br>&#x3D; &amp; \sum _ { i &#x3D; 0 } ^ { n } \left \lfloor \dfrac { (\lfloor  a &#x2F; c \rfloor c + a \bmod c) i + ( \lfloor b &#x2F; c \rfloor c + b \bmod c ) } { c } \right \rfloor<br>\\<br>&#x3D; &amp; \dfrac { n ( n + 1 )} { 2 } \left\lfloor \dfrac { a } { c } \right\rfloor + ( n + 1 ) \left\lfloor \dfrac { b } { c } \right\rfloor + \sum _ { i &#x3D; 0 } ^ { n } \left \lfloor \dfrac { ( a \bmod c ) i + ( b \bmod c)} { c } \right \rfloor<br>\\<br>&#x3D; &amp; \dfrac { n ( n + 1 )} { 2 } \left\lfloor \dfrac { a } { c } \right\rfloor + ( n + 1 ) \left\lfloor \dfrac { b } { c } \right\rfloor + f ( a \bmod c , b \bmod c , c , n)<br>\end{aligned}<br>$$</p>
+<p>这样问题就只要解决 $a , b &lt; c$ 情况的快速求和了。</p>
+<p>尝试变换和式：</p>
+<p>$$<br>\begin{aligned}<br>f( a,  b ,c , n) &#x3D; &amp; \sum _ { i  &#x3D; 0 } ^ { n } \left \lfloor \dfrac { a i + b } { c } \right \rfloor<br>\\<br>&#x3D; &amp; \sum _ { i &#x3D; 0 } ^ { n } \sum _ { j &#x3D; 0 } ^ { \lfloor ( a i + b ) &#x2F; c \rfloor - 1 } 1<br>\\<br>&#x3D; &amp; \sum _ { j &#x3D; 0 } ^ { \lfloor ( a n + b ) &#x2F; c \rfloor - 1 } \sum _ { i &#x3D; 0 } ^ { n } \left[ j &lt; \left \lfloor \dfrac { a i + b } { c } \right \rfloor \right]<br>\end{aligned}<br>$$</p>
+<p>考虑变换艾弗森括号内的命题。</p>
+<p>$$<br>j &lt; \left \lfloor \dfrac { a i + b } { c } \right \rfloor<br>$$</p>
+<p>该命题等价于：</p>
+<p>$$<br>j + 1 \le \left \lfloor \dfrac { a i + b } { c } \right \rfloor<br>$$</p>
+<p>等价于：</p>
+<p>$$<br>j + 1 \le \dfrac { a i + b } { c }<br>$$</p>
+<p>等价于：</p>
+<p>$$<br>j c + c \le a i + b<br>$$</p>
+<p>等价于：</p>
+<p>$$<br>j c + c - b - 1 &lt; a i<br>$$</p>
+<p>等价于：</p>
+<p>$$<br>i &gt; \left \lfloor \dfrac {j c + c - b - 1 } { a } \right \rfloor<br>$$</p>
+<p>现在考虑代进原式吧，令 $ m &#x3D; \lfloor ( a n + b ) &#x2F; c \rfloor$：</p>
+<p>$$<br>\begin{aligned}<br>f ( a , b , c ,n) &#x3D; &amp; \sum _ { j &#x3D; 0 } ^ { m - 1 } \sum _ { i &#x3D; 0 } ^ { n } \left[ i &gt; \left \lfloor \dfrac {j c + c - b - 1 } { a } \right \rfloor \right]<br>\\<br>&#x3D; &amp; \sum _ { j &#x3D; 0 } ^ { m - 1 } \left ( n - \left \lfloor \dfrac {j c + c - b - 1 } { a } \right \rfloor \right )<br>\\<br>&#x3D; &amp; nm - f ( c , c - b - 1 , a , m - 1 )<br>\end{aligned}<br>$$</p>
+<p>先取模再递归，非常像欧几里得算法，也容易发现该算法的复杂度是 $ O (\log n ) $ 的。</p>
+<hr>
+<p>上面是最简单的一个问题。</p>
+<p>下面是两个变种：</p>
+<blockquote>
+<p>$$ g ( a , b ,c , n) &#x3D; \sum _ { i &#x3D; 0 } ^ { n } i \left \lfloor \dfrac { a i + b } { c } \right \rfloor$$<br>$$ h ( a , b ,c , n) &#x3D; \sum _ { i &#x3D; 0 } ^ { n } \left \lfloor \dfrac { a i + b } { c } \right \rfloor ^ 2 $$</p>
+</blockquote>
+<hr>
+<p>对于函数 $g$：</p>
+<p>$$<br>\begin{aligned}<br>g ( a , b ,c ,n) &#x3D; &amp; g ( a \bmod c, b \bmod c , c ,n)<br>\\<br>&amp; + \dfrac { n ( n + 1 ) ( 2 n + 1 ) } { 6 } \left\lfloor \dfrac{ a } { c } \right \rfloor + \dfrac { n ( n + 1 ) } { 2 } \left \lfloor \dfrac { b } { c } \right \rfloor<br>\end{aligned}<br>$$</p>
+<p>只需要考虑 $a, b &lt; c$ 的情况。令 $ m &#x3D; \lfloor ( a n + b ) &#x2F; c \rfloor$：</p>
+<p>$$<br>\begin{aligned}<br>g ( a, b , c ,n ) &#x3D; &amp; \sum _ { i &#x3D; 0 } ^ { n } i \left \lfloor \dfrac { a i + b } { c } \right \rfloor<br>\\<br>&#x3D; &amp; \sum _ { j &#x3D; 0 } ^ { m - 1 } \sum _ { i &#x3D; 0 } ^ { n } \left[ j &lt; \left \lfloor \dfrac { a i + b } { c } \right \rfloor \right] i<br>\end{aligned}<br>$$</p>
+<p>设 $t &#x3D; \lfloor ( j c + c - b - 1 ) &#x2F; a \rfloor$，我们能得到：</p>
+<p>$$<br>\begin{aligned}<br>g ( a , b , c , n ) &#x3D; &amp; \sum _ { j &#x3D; 0 } ^ { m - 1 } \sum _ { i &#x3D; 0 } ^ { n } [ i &gt; t ] i<br>\\<br>&#x3D; &amp; \sum _ { j &#x3D; 0 } ^ { m - 1 } \dfrac { ( t + n + 1 ) ( n - t ) } { 2 }<br>\\<br>&#x3D; &amp; \dfrac { 1 } { 2 } \left ( m n ( n +  1 ) - \sum _ { j &#x3D; 0 } ^ { m - 1 } t ^ 2 - \sum _ { j &#x3D; 0 }^ { m - 1  } t \right )<br>\\<br>&#x3D; &amp; \dfrac { 1 } { 2 } \left ( m n ( n +  1 ) - h ( c , c - b - 1 , a , m - 1 ) - f ( c , c - b -1 , a , m - 1 ) \right )<br>\end{aligned}<br>$$</p>
+<hr>
+<p>对于函数 $h$：</p>
+<p>$$<br>\begin{aligned}<br>h (a ,b , c ,n) &#x3D; &amp; h ( a \bmod c, b \bmod c, c ,n)<br>\\<br>&amp; + 2 \left \lfloor \dfrac{ b } { c } \right \rfloor f( a \bmod c, b \bmod c, c ,n) + 2 \left \lfloor \dfrac{ a } { c } \right \rfloor g( a \bmod c, b \bmod c, c ,n)<br>\\<br>&amp; + \left \lfloor \dfrac { a } { c } \right \rfloor ^ 2 \dfrac { n ( n + 1 ) ( 2 n + 1 ) } { 6 } + \left \lfloor \dfrac { b } { c } \right \rfloor ^ 2 ( n + 1 ) + \left \lfloor \dfrac { a } { c } \right \rfloor \left \lfloor \dfrac { b } { c } \right \rfloor n ( n + 1 )<br>\end{aligned}<br>$$</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+      </tags>
+  </entry>
 </search>
