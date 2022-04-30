@@ -20,28 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":false,"post_header":false,"post_body":false,"coll_header":false,"sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="类欧几里得算法">
+<meta name="description" content="【模板】类欧几里得算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Euclidean-like_Algorithm">
-<meta property="og:url" content="git://onlypath.github.io/2022/04/29/Euclidean-like-Algorithm/index.html">
+<meta property="og:title" content="P5170">
+<meta property="og:url" content="git://onlypath.github.io/2022/04/29/P5170/index.html">
 <meta property="og:site_name" content="onlypath&#39;s Blog">
-<meta property="og:description" content="类欧几里得算法">
+<meta property="og:description" content="【模板】类欧几里得算法">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-29T14:19:32.000Z">
-<meta property="article:modified_time" content="2022-04-29T15:40:56.495Z">
+<meta property="article:modified_time" content="2022-04-30T03:12:56.407Z">
 <meta property="article:author" content="onlypath">
-<meta property="article:tag" content="数论">
+<meta property="article:tag" content="类欧几里得算法">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="git://onlypath.github.io/2022/04/29/Euclidean-like-Algorithm/">
+<link rel="canonical" href="git://onlypath.github.io/2022/04/29/P5170/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/04/29/Euclidean-like-Algorithm/","path":"2022/04/29/Euclidean-like-Algorithm/","title":"Euclidean-like_Algorithm"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/04/29/P5170/","path":"2022/04/29/P5170/","title":"P5170"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Euclidean-like_Algorithm | onlypath's Blog</title>
+<title>P5170 | onlypath's Blog</title>
   
 
 
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">102</span>
+        <span class="site-state-item-count">103</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -236,7 +236,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/29/Euclidean-like-Algorithm/">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/04/29/P5170/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avator.jpg">
@@ -249,7 +249,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Euclidean-like_Algorithm
+          P5170
         </h1>
 
         <div class="post-meta-container">
@@ -259,24 +259,30 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-04-29 22:19:32 / 修改时间：23:40:56" itemprop="dateCreated datePublished" datetime="2022-04-29T22:19:32+08:00">2022-04-29</time>
+      <time title="创建时间：2022-04-29 22:19:32" itemprop="dateCreated datePublished" datetime="2022-04-29T22:19:32+08:00">2022-04-29</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-04-30 11:12:56" itemprop="dateModified" datetime="2022-04-30T11:12:56+08:00">2022-04-30</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+          <a href="/categories/%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index"><span itemprop="name">模板</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">类欧几里得算法</div>
+            <div class="post-description">【模板】类欧几里得算法</div>
         </div>
       </header>
 
@@ -324,7 +330,15 @@
 <hr>
 <p>对于函数 $h$：</p>
 <p>$$<br>\begin{aligned}<br>h (a ,b , c ,n) &#x3D; &amp; h ( a \bmod c, b \bmod c, c ,n)<br>\\<br>&amp; + 2 \left \lfloor \dfrac{ b } { c } \right \rfloor f( a \bmod c, b \bmod c, c ,n) + 2 \left \lfloor \dfrac{ a } { c } \right \rfloor g( a \bmod c, b \bmod c, c ,n)<br>\\<br>&amp; + \left \lfloor \dfrac { a } { c } \right \rfloor ^ 2 \dfrac { n ( n + 1 ) ( 2 n + 1 ) } { 6 } + \left \lfloor \dfrac { b } { c } \right \rfloor ^ 2 ( n + 1 ) + \left \lfloor \dfrac { a } { c } \right \rfloor \left \lfloor \dfrac { b } { c } \right \rfloor n ( n + 1 )<br>\end{aligned}<br>$$</p>
-
+<p>现在也只需要考虑 $a , b &lt; c$ 的情况了。</p>
+<p>同样，我们设 $ m &#x3D; \lfloor ( a n + b ) &#x2F; c \rfloor$，$ t &#x3D; \lfloor  ( j c + c - b - 1 ) &#x2F; a \rfloor$。</p>
+<p>然后我们换一种平方的处理方式：</p>
+<p>$$<br>n ^ 2 &#x3D; 2 \dfrac { n ( n + 1 ) } { 2 } - n &#x3D; \left( 2 \sum _ { i &#x3D; 1 } ^ { n }  i \right) - n<br>$$</p>
+<p>于是就有：</p>
+<p>$$<br>\begin{aligned}<br>h ( a,  b,  c,  n ) &#x3D; &amp; \sum _ { i &#x3D; 0 } ^ { n  } \left\lfloor \dfrac {a i + b } { c }  \right\rfloor ^ 2<br>\\<br>&#x3D; &amp; \sum _ { i &#x3D; 0 } ^ { n } \left[ \left ( 2 \sum _ { j &#x3D; 1 } ^ { \lfloor ( a i + b ) &#x2F; c \rfloor} j\right )  - \left \lfloor \dfrac { a i + b } { c } \right \rfloor\right]<br>\\<br>&#x3D; &amp; \left( 2 \sum  _ { i &#x3D; 0 } ^ { n } \sum _ { j &#x3D; 1 } ^ { \lfloor ( a i + b) &#x2F; c \rfloor} j\right) - f ( a , b , c , n )<br>\\<br>&#x3D; &amp; \left( 2 \sum  _ { i &#x3D; 0 } ^ { n } \sum _ { j &#x3D; 0 } ^ { \lfloor ( a i + b) &#x2F; c \rfloor - 1 } ( j + 1 )\right) - f ( a , b , c , n )<br>\\<br>&#x3D; &amp; \left( 2 \sum _ { j &#x3D; 0 } ^ { m - 1 } ( j + 1 ) \sum _ { i &#x3D; 0 } ^ { n } \left[ j &lt; \left \lfloor \dfrac {a i + b} { c } \right\rfloor \right] \right) - f ( a , b , c , n )<br>\\<br>&#x3D; &amp; \left( 2 \sum _ { j &#x3D; 0 } ^ { m - 1 } ( j + 1 ) \sum _ { i &#x3D; 0 } ^ { n } \left[ i &gt; t \right] \right) - f ( a , b , c , n )<br>\\<br>&#x3D; &amp; \left( 2 \sum _ { j &#x3D; 0 } ^ { m - 1 } ( j + 1 ) ( n - t ) \right) - f ( a , b , c , n )<br>\\<br>&#x3D; &amp; \left ( n m ( m +1 ) - 2 \sum _ { j &#x3D; 0 } ^ { m - 1 } ( j + 1 ) \left\lfloor \dfrac {j c + c - b - 1 } { a } \right\rfloor \right ) - f( a ,b, c , n)<br>\\<br>&#x3D; &amp;  n m ( m +1 ) - 2 g ( c, c - b - 1 ,a ,m -1  )<br>\\<br>&amp; - 2 f ( c, c - b - 1 , a , m - 1 ) - f( a ,b, c , n)<br>\end{aligned}<br>$$</p>
+<p>具体实现的时候采用整体递归。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writes</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">32</span>);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll mo=<span class="number">998244353</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(ll b,ll p)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) r=r*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ll T,inv2,inv6;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span><span class="function"><span class="keyword">inline</span> <span class="title">node</span><span class="params">(ll x=<span class="number">0</span>,ll y=<span class="number">0</span>,ll z=<span class="number">0</span>)</span> </span>&#123;f=x;g=y;h=z;&#125;;ll f,g,h;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> node <span class="title">Solve</span><span class="params">(ll a,ll b,ll c,ll n)</span> </span>&#123;</span><br><span class="line">  ll s1=(n*(n+<span class="number">1</span>)%mo)*inv2%mo,s2=(n*(n+<span class="number">1</span>)%mo)*((<span class="number">2</span>*n+<span class="number">1</span>)*inv6%mo)%mo;</span><br><span class="line">  <span class="keyword">if</span>(a==<span class="number">0</span>) &#123;</span><br><span class="line">    node res;</span><br><span class="line">    res.f=(b/c)*(n+<span class="number">1</span>)%mo;</span><br><span class="line">    res.g=(b/c)*s1%mo;</span><br><span class="line">    res.h=((b/c)*(b/c)%mo)*(n+<span class="number">1</span>)%mo;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br><span class="line">  node res;</span><br><span class="line">  <span class="keyword">if</span>(a&lt;c&amp;&amp;b&lt;c) &#123;</span><br><span class="line">    ll m=(a*n+b)/c;node tmp=<span class="built_in">Solve</span>(c,c-b<span class="number">-1</span>,a,m<span class="number">-1</span>);</span><br><span class="line">    res.f=(n*m%mo-tmp.f+mo)%mo;</span><br><span class="line">    res.g=(m*n%mo)*(n+<span class="number">1</span>)%mo;res.g=(res.g-tmp.h+mo)%mo;</span><br><span class="line">    res.g=(res.g-tmp.f+mo)%mo;res.g=res.g*inv2%mo;</span><br><span class="line">    res.h=(n*m%mo)*(m+<span class="number">1</span>)%mo;</span><br><span class="line">    res.h=(res.h-tmp.g-tmp.g+mo+mo)%mo;</span><br><span class="line">    res.h=(res.h-tmp.f-tmp.f+mo+mo)%mo;</span><br><span class="line">    res.h=(res.h-res.f+mo)%mo;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    node tmp=<span class="built_in">Solve</span>(a%c,b%c,c,n);</span><br><span class="line">    res.f=s1*(a/c)%mo;</span><br><span class="line">    res.f=(res.f+(n+<span class="number">1</span>)*(b/c)%mo)%mo;res.f=(res.f+tmp.f)%mo;</span><br><span class="line">    res.g=(s2*(a/c))%mo;</span><br><span class="line">    res.g=(res.g+(s1*(b/c))%mo)%mo;</span><br><span class="line">    res.g=(res.g+tmp.g)%mo;</span><br><span class="line">    res.h=tmp.h;</span><br><span class="line">    res.h=(res.h+<span class="number">2</span>*(b/c)*tmp.f%mo)%mo;</span><br><span class="line">    res.h=(res.h+<span class="number">2</span>*(a/c)*tmp.g%mo)%mo;</span><br><span class="line">    res.h=(res.h+((a/c)*(a/c)%mo)*s2%mo)%mo;</span><br><span class="line">    res.h=(res.h+((b/c)*(b/c)%mo)*(n+<span class="number">1</span>)%mo)%mo;</span><br><span class="line">    res.h=(res.h+((a/c)*(b/c)%mo)*(n*(n+<span class="number">1</span>)%mo)%mo)%mo;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  inv2=<span class="built_in">Pow</span>(<span class="number">2</span>,mo<span class="number">-2</span>);inv6=<span class="built_in">Pow</span>(<span class="number">6</span>,mo<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();<span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    ll n,a,b,c;</span><br><span class="line">    n=<span class="built_in">read</span>();a=<span class="built_in">read</span>();b=<span class="built_in">read</span>();c=<span class="built_in">read</span>();</span><br><span class="line">    node tmp=<span class="built_in">Solve</span>(a,b,c,n);</span><br><span class="line">    <span class="built_in">writes</span>(tmp.f);<span class="built_in">writes</span>(tmp.h);<span class="built_in">writeln</span>(tmp.g);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -333,7 +347,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"># 数论</a>
+              <a href="/tags/%E7%B1%BB%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/" rel="tag"># 类欧几里得算法</a>
           </div>
 
         
@@ -345,6 +359,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/05/08/Farewell/" rel="next" title="Farewell">
+                  Farewell <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -407,7 +424,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"f5e1ba981f57331e879c2f766bcf76c6"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"b1f7813f5183757a536242d2968959b9"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
