@@ -5668,7 +5668,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>Tex_Problem</title>
     <url>/2022/03/28/Tex-Problem/</url>
     <content><![CDATA[<p>什么玩意？？？</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">为了保证文章安全只能放在代码框里了/kk。。。</span><br><span class="line"></span><br><span class="line">本来这个博客我是想用 $MathJax$ 这类东西的。。。</span><br><span class="line"></span><br><span class="line">但奈何一用 $MathJax$ 博客就崩，退而求其次就用了稍微差一些的 $\KaTeX$。。。</span><br><span class="line"></span><br><span class="line">但是这个东西真的锅巨多。。。</span><br><span class="line"></span><br><span class="line">稍微罗列一下，方便以后书写公式：</span><br><span class="line"></span><br><span class="line">0. 这个是最常见的问题，就是公式之间不加空格，很多渲染崩溃问题只要在公式之间加空格就能解决。。。反正很神奇。</span><br><span class="line"></span><br><span class="line">1. 在 $$ 中使用 \\\\ 换行，而不是 \\。（猜测原因：会把 \\ 识别成 \）</span><br><span class="line"></span><br><span class="line">2. \&#123; 要写成 \\&#123;。（原因：大概同上）</span><br><span class="line"></span><br><span class="line">3. B_*^2 无法渲染，但是 B^2_* 可以。（原因：* 在 Markdown 中功用较多，谨慎使用，一般使用 \ast 来代替，实在不行就往里面加空格，有奇效，比如 B _ \ast ^ 2 这种写法）</span><br><span class="line"></span><br><span class="line">4. (f*g)_i 这类公式无法渲染。（同上，使用 \ast，并加入空格 (f\ast g) _ i）</span><br><span class="line"></span><br><span class="line">5. 公式会被空白遮挡。（原因：猜测是 $\KaTeX$ 对公式的高度计算出现问题；</span><br><span class="line">解决方案：行内尽量避免使用分数一类有高度的公式，而一致压到行内）</span><br><span class="line"></span><br><span class="line">6. Markdown 对不齐。。。（应该不是 $\KaTeX$ 的问题。。。解决方案：使用 4 空格缩进）</span><br><span class="line"></span><br><span class="line">7. \not = 在一定条件下渲染会崩。（解决方案：使用 \ne；原因：未知）</span><br><span class="line"></span><br><span class="line">8. \mathscr 有时候渲染会崩掉。。。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">9. 字体内使用上下标。。。否则渲染会崩。示例：\mathbf&#123;f^x&#125;(x)。（原因：未知）</span><br><span class="line"></span><br><span class="line">10. 建议使用 \ast 来代替 *（。。。）</span><br><span class="line"></span><br><span class="line">11. 建议行内（比较紧凑的文字），不要使用 \dfrac 一类特意巨化字符的命令，直接用 / 实际上也很美观。</span><br><span class="line"></span><br><span class="line">12. 建议非行内的强调模式使用括号一定要用 \left(\right) 这种形式。</span><br><span class="line"></span><br><span class="line">13. 建议空集使用 \varnothing 而不是 \emptyset</span><br><span class="line"></span><br><span class="line">14. 建议积分中的 \delta x 和式子之间加入 \,，</span><br><span class="line">多元积分尽量在 \delta x 和 \delta y 之间加入 \\,。</span><br><span class="line">（作者书写公式时更喜欢使用 \delta x 而不是 \mathrm&#123;d&#125; x，</span><br><span class="line">主要是受具体数学的写法影响，还有一个就是长短上更好一些。。。）</span><br><span class="line"></span><br><span class="line">15. 建议多重积分使用 \iiint 这种形式。</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">为了保证文章安全只能放在代码框里了/kk。。。</span><br><span class="line"></span><br><span class="line">本来这个博客我是想用 $MathJax$ 这类东西的。。。</span><br><span class="line"></span><br><span class="line">但奈何一用 $MathJax$ 博客就崩，退而求其次就用了稍微差一些的 $\KaTeX$。。。</span><br><span class="line"></span><br><span class="line">但是这个东西真的锅巨多。。。</span><br><span class="line"></span><br><span class="line">稍微罗列一下，方便以后书写公式：</span><br><span class="line"></span><br><span class="line">0. 这个是最常见的问题，就是公式之间不加空格，</span><br><span class="line">很多渲染崩溃问题只要在公式之间加空格就能解决。。。</span><br><span class="line">反正很神奇。</span><br><span class="line"></span><br><span class="line">1. 在 $$ 中使用 \\\\ 换行，而不是 \\。（猜测原因：会把 \\ 识别成 \）</span><br><span class="line"></span><br><span class="line">2. \&#123; 要写成 \\&#123;。（原因：大概同上）</span><br><span class="line"></span><br><span class="line">3. B_*^2 无法渲染，但是 B^2_* 可以。</span><br><span class="line">（原因：* 在 Markdown 中功用较多，谨慎使用，</span><br><span class="line">一般使用 \ast 来代替，实在不行就往里面加空格，</span><br><span class="line">有奇效，比如 B _ \ast ^ 2 这种写法）</span><br><span class="line"></span><br><span class="line">4. (f*g)_i 这类公式无法渲染。（同上，使用 \ast，并加入空格 (f\ast g) _ i）</span><br><span class="line"></span><br><span class="line">5. 公式会被空白遮挡。（原因：猜测是 $\KaTeX$ 对公式的高度计算出现问题；</span><br><span class="line">解决方案：行内尽量避免使用分数一类有高度的公式，而一致压到行内）</span><br><span class="line"></span><br><span class="line">6. Markdown 对不齐。。。</span><br><span class="line">（应该不是 $\KaTeX$ 的问题。。。</span><br><span class="line">解决方案：使用 4 空格缩进）</span><br><span class="line"></span><br><span class="line">7. \not = 在一定条件下渲染会崩。（解决方案：使用 \ne；原因：未知）</span><br><span class="line"></span><br><span class="line">8. \mathscr 有时候渲染会崩掉。。。（尚无解决方案，原因：未知）</span><br><span class="line"></span><br><span class="line">9. 字体内使用上下标。。。否则渲染会崩。</span><br><span class="line">示例：\mathbf&#123;f^x&#125;(x)。（原因：未知）</span><br><span class="line"></span><br><span class="line">10. 建议使用 \ast 来代替 *（。。。）</span><br><span class="line"></span><br><span class="line">11. 建议行内（比较紧凑的文字），</span><br><span class="line">不要使用 \dfrac 一类特意巨化字符的命令，</span><br><span class="line">直接用 / 实际上也很美观。</span><br><span class="line"></span><br><span class="line">12. 建议非行内的强调模式使用括号一定要用 \left(\right) 这种形式。</span><br><span class="line"></span><br><span class="line">13. 建议空集使用 \varnothing 而不是 \emptyset</span><br><span class="line"></span><br><span class="line">14. 建议积分中的 \delta x 和式子之间加入 \,，</span><br><span class="line">多元积分尽量在 \delta x 和 \delta y 之间加入 \\,。</span><br><span class="line">（作者书写公式时更喜欢使用 \delta x 而不是 \mathrm&#123;d&#125; x，</span><br><span class="line">主要是受具体数学的写法影响，还有一个就是长短上更好一些。。。）</span><br><span class="line"></span><br><span class="line">15. 建议多重积分使用 \iiint 这种形式。</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术</category>
       </categories>
@@ -5710,7 +5710,112 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p><del>我为什么要写这种 sb 的东西。。。</del></p>
 <p><del>我为什么这么 sb。</del></p>
 <p><del>不要怀疑我为什么起这种名字，我就是在钓鱼。</del></p>
-<ol>
+<p><del>实际上就是方便背结论把一堆东西扔到一起。</del></p>
+<h1 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h1><ol>
+<li><p>反素数：$p _ 1 &#x3D; 2$，质数连续，指数不增，用就爆搜。</p>
+</li>
+<li><p>欧拉定理及扩展降低指数：</p>
+<p> 对于 $a \perp n$，有 $a ^ { p } \equiv a ^ { p \bmod \varphi ( n )} \pmod{n}$。</p>
+<p> 反之，若 $p \ge \varphi(n)$，有 $a ^ {p} \equiv a ^ {p\bmod \varphi (n)+\varphi(n)} \pmod {n}$</p>
+</li>
+<li><p>裴蜀定理：</p>
+<p> $a _ 1 , a _ 2 , \cdots , a _ n$ 是不全为 $0$ 的整数。</p>
+<p> 则存在解 $x _ 1 , x _ 2 ,\cdots ,x _ n$ 使得：</p>
+<p> $$\sum _ { i &#x3D; 1 } ^ {n} a _ i x _ i &#x3D; \gcd( a _ 1 , a _ 2,\cdots , a _ n )$$</p>
+</li>
+<li><p>类欧几里得：<a href="https://onlypath.github.io/2022/04/29/P5170/">P5170</a></p>
+<p> 推导过程都是类似的（而且有些长）。</p>
+</li>
+<li><p>欧拉定理与费马小定理：</p>
+<p> $$\forall a\perp n, a ^ {\varphi (n)} \equiv 1\pmod{n}$$</p>
+<p> $$\forall a \perp n, n \in \mathcal {P}, a ^ n\equiv a \pmod {n}$$</p>
+</li>
+<li><p>线性求逆元：</p>
+<p> $$i ^ {-1} \equiv - \lfloor p &#x2F; i \rfloor ( p \bmod i ) ^ {-1} \pmod {p}$$</p>
+</li>
+<li><p>线性求任意 $n$ 个数的逆元：</p>
+<p> 前缀积这 $n$ 个数，记为 $s_n$，求其逆元，记为 $v_n$。由 $v _ n $ 可推得 $ v _ 1 , \cdots , v _ {n-1}$。</p>
+<p> 易知 $a _ i ^ {-1} &#x3D;s _ { i - 1} v _ i$。</p>
+</li>
+<li><p>中国剩余定理：</p>
+<p> 对于 $m _ 1 ,\cdots , m _ k$ 两两互质，线性同余方程组：</p>
+<p> $$<br> \begin{cases}<br> x \equiv a _ 1 \pmod { m _ 1 }<br> \\<br> \cdots<br> \\<br> x \equiv a _ k \pmod { m _ k }<br> \end{cases}<br> $$</p>
+<p> 有解，且解可以构造出来。</p>
+<p> 令 $m&#x3D;\prod _{ i &#x3D; 1 } ^ { k } m _ i , M _ i &#x3D; m &#x2F; m _ i$，并求出 $M _ i$ 模 $m _ i $ 下的逆元 $ t _ i$。</p>
+<p> 则 $x &#x3D; \sum _ {i &#x3D; 1 } ^ {k} a _ i M _ i t _ i$ 是一个合法的解。该解可以在模 $m$ 的意义下任意变换。</p>
+</li>
+<li><p>扩展中国剩余定理：</p>
+<p> 只讨论两个方程的情况：</p>
+<p> $$<br> \begin{cases}<br> x\equiv a _ 1 \pmod { m _ 1 }<br> \\<br> x \equiv a _ 2 \pmod { m _ 2 }<br> \end{cases}<br> $$</p>
+<p> 求解方程 $ m _ 1 p - m _ 2 q &#x3D; a _ 2 - a _ 1 $，则最后方程组的解是：</p>
+<p> $$x \equiv m _ 1 p + a _ 1 \pmod { \operatorname{lcm} ( m _1 ,m _2 ) }$$</p>
+</li>
+<li><p>威尔逊定理：</p>
+<p> $$\forall p \in \mathcal{P} , ( p - 1 ) ! \equiv -1 \pmod { p }$$</p>
+<p> 规定 $( n ! ) _ p &#x3D; n ! &#x2F; ( \lfloor n &#x2F; p \rfloor ! p ^ { \lfloor n &#x2F; p \rfloor})$。</p>
+<blockquote>
+<p>推论：$\forall p \in \mathcal { P }, q \in { \mathbb{ N } _ +} , ( p ^ q ! ) _ p \equiv \pm 1 \pmod { p ^ q }$，当且仅当 $p &#x3D; 2$ 且 $q \ge 3$ 时取正。</p>
+</blockquote>
+<blockquote>
+<p>推论：$\forall p \in \mathcal {P}, q \in \mathbb{ N } _ + , N _ 0 &#x3D; n \bmod p ^ q, ( n ! ) _ p \equiv ( \pm 1 ) ^ { \lfloor n &#x2F; p ^ q \rfloor} ( N _ 0 ! ) _ p \pmod {p ^ q}$。</p>
+</blockquote>
+</li>
+<li><p>升幂定理：</p>
+<p> 记 $v _ p ( n ) $ 为素数 $p$ 在 $n$ 中出现的次数，即 $p ^ { v _ p (n)}$ 恰好整除 $p$，而 $ p ^ { v _ p ( n ) + 1}$ 不行。</p>
+<p> 对于模为奇素数：$n \in \mathbb { N } _ +$，$p \nmid a , b$，$a \equiv b \pmod {p }$，有：</p>
+<p> $$ v _ p ( a ^ n - b ^ n ) &#x3D; v _ p ( a - b ) + v _ p ( n )$$</p>
+<p> 对于模为二：$n \in \mathbb{ N } _ + $，$a , b$ 都是奇数，有：</p>
+<p> 若 $n$ 为奇数：</p>
+<p> $$v _ 2 ( a ^ n - b ^ n ) &#x3D; v _ 2 ( a - b ) $$</p>
+<p> 若 $n$ 为偶数：</p>
+<p> $$v _ 2 ( a ^ n - b ^ n ) &#x3D; v _ 2 ( a - b ) + v _ 2 ( a + b ) + v _ 2 ( n ) - 1 $$</p>
+</li>
+<li><p>卢卡斯定理：</p>
+<p> 对于所有 $p \in \mathcal{P}$，有：</p>
+<p> $$\binom { n } { m } \equiv \binom {\lfloor n &#x2F; p \rfloor} {\lfloor m &#x2F; p \rfloor} \binom {n \bmod p} {m \bmod p} \pmod{p}$$</p>
+</li>
+<li><p>拉格朗日定理：</p>
+<p> 设 $p$ 为素数，对于模 $p$ 意义下的整系数多项式</p>
+<p> $$\begin{matrix} f ( x ) &#x3D; a _ n x ^ { n } + \cdots + a _ 0 &amp; (p \nmid a _ n) \end{matrix}$$</p>
+<p> 的同余方程 $f ( x ) \equiv 0 \pmod {p}$ 在模 $p$ 意义下至多有 $n$ 个不同解。</p>
+</li>
+<li><p>阶：</p>
+<p> 称满足同余式 $a ^ n \equiv 1 \pmod {m}$ 的最小正整数 $n$ 为 $a$ 模 $m$ 的阶，记作 $\delta _ m (a )$。</p>
+<blockquote>
+<p>性质 1：$a , a ^ 2, \cdots , a ^ { \delta _ m ( a )}$ 模 $m$ 两两不同余。</p>
+</blockquote>
+<blockquote>
+<p>性质 2：若 $a ^ n \equiv 1 \pmod {m}$，则 $ \delta _ m ( a ) \mid n$。</p>
+</blockquote>
+<blockquote>
+<p>性质 3：若 $a ^ p \equiv a ^ q \pmod {m}$，则 $p \equiv q \pmod {\delta _ m ( a )}$。</p>
+</blockquote>
+<blockquote>
+<p>性质 4：若 $m \in \mathbb{ N } _ +$，$ a , b \in \mathbb{Z}$，$\gcd (a ,m ) &#x3D; \gcd ( b ,m ) &#x3D; 1$，则：</p>
+<p>$$\delta _ m ( a b ) &#x3D; \delta _ m ( a ) \delta _ m ( b ) \Leftrightarrow \gcd (\delta _ m ( a ) , \delta _ m ( b )) &#x3D; 1$$</p>
+</blockquote>
+<blockquote>
+<p>性质 5：设 $k \in \mathbb{ N }$，$ m \in \mathbb{ N } _ +$，$a \in \mathbb{ Z }$，$\gcd( a , m ) &#x3D; 1$，则：</p>
+<p>$$\delta _ m ( a ^ k ) &#x3D; \dfrac {\delta _ m ( a )} { \gcd ( \delta _ m ( a ), k)}$$</p>
+</blockquote>
+</li>
+<li><p>原根：</p>
+<p> 设 $m \in \mathbb{ N } _ + $，$a \in \mathbb{ Z }$，若 $\gcd ( a , m ) &#x3D; 1$，且 $\delta _ m ( a ) &#x3D; \varphi ( m )$，则称 $a$ 为模 $m$ 的原根。</p>
+<blockquote>
+<p>原根判定定理：设 $m \ge 3$，$\gcd ( a , m ) &#x3D; 1$，则 $a$ 是模 $m$ 的原根的充要条件是，对于 $\varphi ( m )$ 的每个素因数 $p$，都有 $a ^ { \varphi ( m ) &#x2F; p} \not\equiv 1 \pmod {m}$。</p>
+</blockquote>
+<blockquote>
+<p>若一个数有原根，则它的原根个数为 $\varphi ( \varphi ( m ) )$。</p>
+</blockquote>
+<blockquote>
+<p>原根存在定理：$m$ 存在原根当且仅当 $m &#x3D; 2 , 4 , p ^ { \alpha } , 2 p ^ { \alpha }$，其中 $p$ 为奇素数，$\alpha \in \mathbb{ N } _ +$。</p>
+</blockquote>
+<blockquote>
+<p>若 $m$ 有原根，则其最小原根是不多于 $m ^ { 1 &#x2F; 4 }$ 级别的。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1><ol>
 <li><p>《具 体 数 学》</p>
 </li>
 <li><p>有 手 就 行：</p>
@@ -6010,7 +6115,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Farewell</title>
     <url>/2022/05/08/Farewell/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>已经做好最坏的打算了。。。</p>
+]]></content>
       <categories>
         <category>杂记</category>
       </categories>
@@ -7234,13 +7340,20 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>$$ \sum _ { i &#x3D; 1 } ^ { n } f ( i )$$</p>
 <p>数据范围：$ n \le 10 ^ { 1 2 }$。</p>
 <hr>
-<p>暴力枚举 $\min \ge 2 $ 的数，Wky 大师说只要暴力搜索就可以了，我才反应过来。。。</p>
-<p>筛出 $\sqrt{n}$ 内的质数，暴力枚举质数指数的所有排列组合，并且保证没有一个数的指数为 1，很容易证明，这个复杂度是 $O(\sqrt{n}\log n)$ 的，这一部分的答案就这么解决了。</p>
-<p>对于剩下所有 $\min &#x3D; 1$ 的数，把 $\max \ge 2$ 的数记完，时间复杂度是 $O ( \sqrt { n }  \log n ) $ 的。</p>
-<p>最后剩下来的没有被记的数的个数直接累加到答案即可，因为它们的 $\min &#x3D; \max &#x3D; 1$。</p>
+<p>设满足 $\max \{ a _ 1 , \cdots , a _ k\} &#x3D; v$ 的数 $x$ 的个数为 $f(v)$。</p>
+<p>设满足 $\max \{ a _ 1 , \cdots , a _ k\} \le v$ 的数 $x$ 的个数为 $g(v)$。</p>
+<p>可以知道 $f ( v )&#x3D; g ( v ) - g( v - 1 )$。</p>
+<p>然后我们的 $g ( v ) $ 可以容斥计算：</p>
+<p>$$g ( v ) &#x3D; \sum _ { d &#x3D; 1 } \mu ( d ) \left\lfloor \dfrac {n} {d ^ { v + 1 }} \right\rfloor$$</p>
+<p>意义不解释。。。</p>
+<p>然后就有了 $f(v)$。</p>
+<p>接着暴力枚举 $\min \ge 2 $ 的数。</p>
+<p>具体做法是筛出 $\sqrt{n}$ 内的质数，暴力枚举质数指数的所有排列组合，并且保证没有一个数的指数为 1，很容易证明，这个复杂度是 $O(\sqrt{n}\log n)$ 的，这一部分的答案就这么解决了。并且记得在过程中把统计过的 $f( \max )$ 给减掉。</p>
+<p>剩下的全都是 $\min &#x3D; 1 $ 的数，那么只和 $\max$ 有关了，直接统计即可。</p>
 <p>至于拓展到二元函数（不仅仅是乘法，任何复杂度较低的运算）情况，也都是如此。</p>
-<p>代码什么不写了。我也不太想翻造这个题的数据。丢个口胡算了。</p>
-]]></content>
+<p>时间复杂度是 $O(\sqrt { n} \log n)$ 的。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">2e6</span>,inf=<span class="number">3200</span>;</span><br><span class="line"></span><br><span class="line">ll n,cnt,ans;</span><br><span class="line">ll prime[N+<span class="number">5</span>],mu[N+<span class="number">5</span>],g[N+<span class="number">5</span>],f[N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> ff[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  ff[<span class="number">1</span>]=<span class="number">1</span>;mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=N;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!ff[i]) &#123;prime[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prime[j]*i&lt;=N;j++) &#123;</span><br><span class="line">      ff[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;mu[i*prime[j]]=<span class="number">0</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">      mu[i*prime[j]]=-mu[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Dfs</span><span class="params">(ll x,ll step,ll ma,ll mi)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// printf(&quot;step=&quot;);write(step);putchar(10);</span></span><br><span class="line">  <span class="keyword">if</span>(x*prime[step]*prime[step]&gt;n) <span class="keyword">return</span>;</span><br><span class="line">  <span class="built_in">Dfs</span>(x,step+<span class="number">1</span>,ma,mi);x=x*prime[step];<span class="keyword">if</span>(x&gt;n) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;x&lt;=n;i++) &#123;</span><br><span class="line">    x=x*prime[step];<span class="keyword">if</span>(x&gt;n) <span class="keyword">return</span>;</span><br><span class="line">    ll tmpma=<span class="built_in">max</span>(ma,i),tmpmi=<span class="built_in">min</span>(mi,i);</span><br><span class="line">    ans+=tmpma*tmpmi;f[tmpma]--;</span><br><span class="line">    <span class="built_in">Dfs</span>(x,step+<span class="number">1</span>,<span class="built_in">max</span>(ma,i),<span class="built_in">min</span>(mi,i));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(ll b,ll p)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) r=r*b;b=b*b;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();<span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  g[<span class="number">0</span>]=<span class="number">1</span>;f[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll v=<span class="number">1</span>;v&lt;=<span class="number">40</span>;v++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">      ll tmp=<span class="built_in">Pow</span>(i,v+<span class="number">1</span>);<span class="keyword">if</span>(tmp&gt;n) <span class="keyword">break</span>;</span><br><span class="line">      g[v]+=mu[i]*(n/tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    f[v]=g[v]-g[v<span class="number">-1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Dfs</span>(<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,inf);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=<span class="number">40</span>;i++) ans+=f[i]*i;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>PTS</category>
       </categories>
@@ -7429,6 +7542,94 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>类欧几里得算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CF27E</title>
+    <url>/2022/04/30/CF27E/</url>
+    <content><![CDATA[<p>Number With The Given Amount Of Divisors</p>
+<p>根据一些反素数的结论，这题就可以直接上爆搜了。</p>
+<p>对于含有 $n$ 个正因子的最小数 $x &#x3D; \prod _ { i &#x3D; 1 } ^ { k } p _ i ^ { c _ i }$，一定满足：</p>
+<ul>
+<li>$p_1 &#x3D; 2$。</li>
+<li>质数是连续的。</li>
+<li>$c _ { i + 1 } \le c _ i$。</li>
+</ul>
+<p>搜就完了。</p>
+<p>时间复杂度玄学。</p>
+<p>开了 <code>__int128</code>，CF 上要 C++20 才能正确提交。。。</p>
+<p>反过来如果要求 $n$ 以内因子最多的。。。反过来搜不就完了。。。</p>
+<p>反素数不爆搜还能干什么？</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line">ll n,ans=<span class="number">1e18</span>+<span class="number">1</span>;</span><br><span class="line">ll prime[<span class="number">20</span>]=&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">13</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">37</span>,<span class="number">41</span>,<span class="number">43</span>,<span class="number">47</span>,<span class="number">53</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Dfs</span><span class="params">(ll x,ll step,ll lst,ll cnt)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(cnt&gt;n) <span class="keyword">return</span>;<span class="keyword">if</span>(x&gt;ans) <span class="keyword">return</span>;<span class="keyword">if</span>(step&gt;<span class="number">16</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="keyword">if</span>(cnt==n) &#123;ans=<span class="built_in">min</span>(ans,x);<span class="keyword">return</span>;&#125;</span><br><span class="line">  ll tmp=x;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=lst;i++) &#123;</span><br><span class="line">    tmp*=prime[step];<span class="built_in">Dfs</span>(tmp,step+<span class="number">1</span>,i,cnt*(i+<span class="number">1</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Dfs</span>(<span class="number">1</span>,<span class="number">0</span>,<span class="number">64</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P4777</title>
+    <url>/2022/04/30/P4777/</url>
+    <content><![CDATA[<p>【模板】扩展中国剩余定理（EXCRT）</p>
+<p>只需要考虑合并两个方程的情况即可。</p>
+<p>$$<br>\begin{cases}<br>x \equiv a _ 1 \pmod { m _ 1 }<br>\\<br>x \equiv a _ 2 \pmod { m _ 2 }<br>\end{cases}<br>$$</p>
+<p>对于这样的方程组，我们设：</p>
+<p>$$ x &#x3D; m _ 1 p + a _ 1 &#x3D; m _ 2 q + a _ 2 $$</p>
+<p>那么就会有二元不定方程：</p>
+<p>$$ m _ 1 p - m _ 2 q &#x3D; a _ 2 - a _ 1 $$</p>
+<p>那么显然，在 $\gcd ( m _ 1 , m _ 2 ) \nmid ( a _ 2 - a _ 1 )$ 的时候是无解的。</p>
+<p>反之我们能解出来对应的 $p , q $。</p>
+<p>那么显然得到的解是 $x \equiv b \pmod { M }$。</p>
+<p>其中的 $b &#x3D; m _ 1 p + a _ 1 , M &#x3D; \operatorname{lcm} (m _ 1 , m _ 2 )$。</p>
+<p>时间复杂度 $O( n \log a)$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll __int128</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">10</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e5</span>;</span><br><span class="line"></span><br><span class="line">ll n,M,b;</span><br><span class="line">ll a[N+<span class="number">5</span>],m[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Exgcd</span><span class="params">(ll a,ll b,ll &amp;x,ll &amp;y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(b==<span class="number">0</span>) &#123;x=<span class="number">1</span>;y=<span class="number">0</span>;<span class="keyword">return</span> a;&#125;ll r=<span class="built_in">Exgcd</span>(b,a%b,y,x);y-=a/b*x;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    m[i]=<span class="built_in">read</span>();a[i]=<span class="built_in">read</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  M=m[<span class="number">1</span>];b=a[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    ll m1,m2;m1=M;m2=m[i];</span><br><span class="line">    ll d,x0,y0;d=<span class="built_in">Exgcd</span>(m1,m2,x0,y0);</span><br><span class="line">    x0=x0*(a[i]-b)/d;y0=y0*(a[i]-b)/d;</span><br><span class="line">    b=m1*x0+b;M=m1/d*m2;</span><br><span class="line">    <span class="keyword">if</span>(b&lt;<span class="number">0</span>) &#123;b=(b+(-b/M+<span class="number">1</span>)*M)%M;&#125;</span><br><span class="line">    b%=M;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(b);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>中国剩余定理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P5491</title>
+    <url>/2022/04/30/P5491/</url>
+    <content><![CDATA[<p>【模板】二次剩余</p>
+<p>一个数 $a$，如果不是 $p$ 的倍数，且模 $p$ 同余某个数的平方，则称 $a$ 为模 $p$ 的二次剩余。</p>
+<p>而一个不是 $p$ 的倍数 $b$，不同余任何数的平方，则称 $b$ 为模 $p$ 的二次非剩余。</p>
+<p>对二次剩余求解，也就是对常数 $a$ 求解：</p>
+<p>$$x ^ 2 \equiv a \pmod { p }$$</p>
+<p>只讨论 $p$ 为奇素数下的情况。</p>
+<p>定义 Legendre 符号：</p>
+<p>$$<br>\left( \dfrac {a} {p} \right)<br>$$</p>
+<p>当 $a$ 是模 $p$ 的二次剩余时，该值为 $1$；当 $a$ 是模 $p$ 的二次非剩余时，该值为 $-1$；当 $a$ 是 $p$ 的倍数时，该值为 $0$。</p>
+<p>该符号满足完全积性。</p>
+<blockquote>
+<p>欧拉判别准则：对于奇素数 $p$ 和 $p \nmid a$ 有：</p>
+<p>$$a ^ { ( p - 1 ) &#x2F; 2 } \equiv \left( \dfrac {a} {p}\right)$$</p>
+</blockquote>
+<blockquote>
+<p>在 $1 , \cdots , p-1$ 中，恰有 $( p - 1 ) &#x2F; 2 $ 个二次剩余。</p>
+<p>设 $g$ 为 $\mathbb { F } _ p$ 的原根，则二次剩余恰好为：</p>
+<p>$$1 , g ^ 2, g ^ 4 , \cdots , g ^ { p - 3 }$$</p>
+</blockquote>
+<blockquote>
+<p>$x,y$ 都是二次剩余当且仅当 $x,y$ 都是或都不是二次剩余。</p>
+</blockquote>
+<blockquote>
+<p>二次互反律：若 $q$ 是另一个奇素数，则有：</p>
+<p>$$\left( \dfrac { q } { p } \right) \left( \dfrac { p } { q } \right) &#x3D; ( - 1 ) ^ { ( p - 1 ) ( q - 1 ) &#x2F; 4 } $$</p>
+</blockquote>
+<p>现引入 Cipolla 算法。</p>
+<p>找到 $r$ 满足 $r ^ 2 - a$ 为二次非剩余，$ ( r - x ) ^ { ( p + 1 ) &#x2F; 2} \bmod (x ^ 2 - (r ^ 2 - a ))$ 为一个解。</p>
+]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>二次剩余</tag>
       </tags>
   </entry>
 </search>
