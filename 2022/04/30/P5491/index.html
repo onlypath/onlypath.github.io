@@ -28,7 +28,7 @@
 <meta property="og:description" content="【模板】二次剩余">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-30T12:22:44.000Z">
-<meta property="article:modified_time" content="2022-04-30T15:35:34.626Z">
+<meta property="article:modified_time" content="2022-05-01T02:56:26.894Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="二次剩余">
 <meta name="twitter:card" content="summary">
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">172</span>
+          <span class="site-state-item-count">175</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -183,7 +183,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">105</span>
+        <span class="site-state-item-count">108</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -259,10 +259,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-04-30 20:22:44 / 修改时间：23:35:34" itemprop="dateCreated datePublished" datetime="2022-04-30T20:22:44+08:00">2022-04-30</time>
+      <time title="创建时间：2022-04-30 20:22:44" itemprop="dateCreated datePublished" datetime="2022-04-30T20:22:44+08:00">2022-04-30</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-05-01 10:56:26" itemprop="dateModified" datetime="2022-05-01T10:56:26+08:00">2022-05-01</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -304,15 +310,38 @@
 <p>$$1 , g ^ 2, g ^ 4 , \cdots , g ^ { p - 3 }$$</p>
 </blockquote>
 <blockquote>
-<p>$x,y$ 都是二次剩余当且仅当 $x,y$ 都是或都不是二次剩余。</p>
+<p>$xy$ 是二次剩余当且仅当 $x,y$ 都是或都不是二次剩余。</p>
 </blockquote>
 <blockquote>
 <p>二次互反律：若 $q$ 是另一个奇素数，则有：</p>
 <p>$$\left( \dfrac { q } { p } \right) \left( \dfrac { p } { q } \right) &#x3D; ( - 1 ) ^ { ( p - 1 ) ( q - 1 ) &#x2F; 4 } $$</p>
 </blockquote>
-<p>现引入 Cipolla 算法。</p>
-<p>找到 $r$ 满足 $r ^ 2 - a$ 为二次非剩余，$ ( r - x ) ^ { ( p + 1 ) &#x2F; 2} \bmod (x ^ 2 - (r ^ 2 - a ))$ 为一个解。</p>
-
+<p>为了快速求得一个 $x$ 满足 $x ^ 2 \equiv n \pmod { p }$，现引入 Cipolla 算法。</p>
+<p>首先找到 $r \in \mathbb{ Z } _ p$，使得 $r ^ 2 - n $ 不是二次剩余。</p>
+<p>可以证明满足条件的 $r$ 有 $( p - 1 ) &#x2F; 2 $ 个，所以期望下 $2$ 次就能找到复合条件的 $r$。</p>
+<p>考虑扩域 $\mathbb{ F } _ p [\sqrt { r ^ 2 - n } ]$。</p>
+<p>也就是所有形如 $u + v \sqrt {r ^ 2 - n}$ 的数，其中 $u,v \in \mathbb{ F } _ p$。</p>
+<p>我们记 $\alpha &#x3D; \sqrt { r ^ 2 - n }$，那么域中的数即为 $u + v \alpha$。</p>
+<p>在扩域中，有如下性质：</p>
+<blockquote>
+<p>$( x + y ) ^ p &#x3D; x ^ p + y ^ p$，可以通过二项式定理展开来说明。</p>
+</blockquote>
+<blockquote>
+<p>$\alpha ^ p &#x3D; - \alpha$，因为 $\alpha ^ p &#x3D; ( r ^ 2 - n ) ^ { ( p - 1 ) &#x2F; 2 } \alpha &#x3D; - \alpha$。</p>
+</blockquote>
+<blockquote>
+<p>如果 $x \in \mathbb { F } _ p$，那么仍然有 $x ^ p &#x3D; x $。</p>
+</blockquote>
+<p>现在令：</p>
+<p>$$x &#x3D; ( r + \alpha ) ^ { (p + 1 ) &#x2F; 2 }$$</p>
+<p>那么：</p>
+<p>$$<br>\begin{aligned}<br>x ^ 2 &#x3D; &amp; ( r + \alpha ) ^ { p + 1 }<br>\\<br>&#x3D; &amp; ( r + \alpha ) ^ p ( r + \alpha )<br>\\<br>&#x3D; &amp; ( r - \alpha ) ( r + \alpha )<br>\\<br>&#x3D; &amp; r ^ 2 - \alpha ^ 2<br>\\<br>&#x3D; &amp; n<br>\end{aligned}<br>$$</p>
+<p>也就是说此时我们在 $\mathbb { F } _ p [ \sqrt { r ^ 2 - n} ] $ 中求得了 $x ^ 2 &#x3D; n$ 的一个解，可以证明 $x \in \mathbb{ F } _ p$，从而我们找到了解。</p>
+<p>在选好 $r$ 之后，可以用数对 $( u , v )$ 表示 $u + v\alpha$。</p>
+<p>其满足乘法规则：</p>
+<p>$$( u _ 1 , v _ 1 ) ( u _ 2 , v _ 2 ) &#x3D; ( u _ 1 u _ 2 + ( r ^ 2 - n) v _ 1 v _ 2, u _ 1 v _ 2 + u _ 2 v _ 1 )$$</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">10</span>);&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writes</span><span class="params">(ll x)</span> </span>&#123;<span class="built_in">write</span>(x);<span class="built_in">putchar</span>(<span class="number">32</span>);&#125;</span><br><span class="line"></span><br><span class="line">ll T,n,p,l;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">  ll u,v;<span class="function"><span class="keyword">inline</span> <span class="title">node</span><span class="params">(ll u=<span class="number">0</span>,ll v=<span class="number">0</span>)</span>:u(u),v(v)&#123;</span>&#125;</span><br><span class="line">  <span class="keyword">inline</span> node <span class="keyword">operator</span>*(<span class="keyword">const</span> node &amp;rhs) <span class="keyword">const</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">node</span>((u*rhs.u%p+(v*rhs.v%p)*l%p)%p</span><br><span class="line">    ,(u*rhs.v%p+v*rhs.u%p)%p);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> node <span class="title">Pow2</span><span class="params">(node b,ll p)</span> </span>&#123;</span><br><span class="line">  <span class="function">node <span class="title">r</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>)</span></span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) r=r*b;b=b*b;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pow</span><span class="params">(ll b,ll p,ll mo)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">1</span>;<span class="keyword">while</span>(p) &#123;<span class="keyword">if</span>(p&amp;<span class="number">1</span>) r=r*b%mo;b=b*b%mo;p&gt;&gt;=<span class="number">1</span>;&#125;<span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">rdm</span><span class="params">(ll p)</span> </span>&#123;<span class="keyword">return</span> <span class="built_in">rand</span>()%p;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Cipolla</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">  ll r=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">Pow</span>((r*r-n+p)%p,(p<span class="number">-1</span>)/<span class="number">2</span>,p)!=p<span class="number">-1</span>) r=<span class="built_in">rdm</span>(p);</span><br><span class="line">  l=(r*r-n+p)%p;</span><br><span class="line">  <span class="keyword">if</span>(!l) <span class="keyword">return</span> r;</span><br><span class="line">  <span class="keyword">else</span> <span class="built_in"><span class="keyword">return</span></span> (<span class="built_in">Pow2</span>(<span class="built_in">node</span>(r,<span class="number">1</span>),(p+<span class="number">1</span>)/<span class="number">2</span>).u+p)%p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  T=<span class="built_in">read</span>();<span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">    n=<span class="built_in">read</span>();p=<span class="built_in">read</span>();</span><br><span class="line">    ll legendre=<span class="built_in">Pow</span>(n,(p<span class="number">-1</span>)/<span class="number">2</span>,p);</span><br><span class="line">    <span class="keyword">if</span>(legendre==p<span class="number">-1</span>) &#123;<span class="built_in">printf</span>(<span class="string">&quot;Hola!\n&quot;</span>);&#125;</span><br><span class="line">    <span class="keyword">if</span>(legendre==<span class="number">0</span>) &#123;<span class="built_in">writeln</span>(<span class="number">0</span>);&#125;</span><br><span class="line">    <span class="keyword">if</span>(legendre==<span class="number">1</span>) &#123;</span><br><span class="line">      ll x1,x2;x1=<span class="built_in">Cipolla</span>(n);x2=p-x1;</span><br><span class="line">      <span class="keyword">if</span>(x1&gt;x2) <span class="built_in">swap</span>(x1,x2);<span class="built_in">writes</span>(x1);<span class="built_in">writeln</span>(x2);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -333,8 +362,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/05/08/Farewell/" rel="next" title="Farewell">
-                  Farewell <i class="fa fa-chevron-right"></i>
+                <a href="/2022/05/01/P3846/" rel="next" title="P3846">
+                  P3846 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
