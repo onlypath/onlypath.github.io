@@ -1265,6 +1265,29 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>Mobius_and_Dirichlet</title>
     <url>/2022/01/28/Mobius-and-Dirichlet/</url>
     <content><![CDATA[<p>Orz _rqy , An_account , negiizhao , Elegia, Wkywkywky.</p>
+<p>在这里添加一点杂乱的东西，这一块以后需要大修。。。</p>
+<p>关于 $\operatorname{lcm}$ 卷积：</p>
+<p>$$<br>h ( n ) &#x3D; \sum _ { i &#x3D; 1 } ^ { n } \sum _ { j &#x3D; 1 } ^ { n } f ( i ) g ( j ) [ \operatorname {lcm} ( i , j ) &#x3D; n ]<br>$$</p>
+<p>这个卷积等价于：</p>
+<p>$$<br>h \ast \mathbf{1} &#x3D; ( f \ast \mathbf { 1 } ) \cdot ( g \ast \mathbf{1} )<br>$$</p>
+<p>实际上只要知道：</p>
+<p>$$ [\operatorname{lcm} ( i ,j ) \mid n ] &#x3D; [ i \mid n ] [ j \mid n ]$$</p>
+<p>就可以推导了。。。</p>
+<p>这里 $\gcd$ 卷积没有太大的推导价值。。。因为大部分情况是会产生无限求和的状况的。。。</p>
+<p>然后再说一点可能大家都知道不过没有那么敏感的东西，一个数论函数的 $\mu$ 变换和 $\zeta$ 变换都是可以 $O( n \ln n )$ 求出前 $n$ 个函数值的（埃氏筛）。。。</p>
+<p>顺便补充一个 Wky 大师送我的 rqy 题。。。</p>
+<p>对于 $ n &#x3D; \prod _ { i &#x3D; 1 } ^ { k } p _ i ^ { c _ i }$，有关于 $\max c _ i$ 和 $\min c _ i$ 的二元函数 $f ( n )$。</p>
+<p>我们存在 $O(\sqrt{n} \log n)$ 的方法求出 $\sum _ { i &#x3D; 1 } ^ { n } f ( i )$。</p>
+<p>这个方法用到了一点 PN 筛的技巧，同时还有一个容斥（我根本想不到）。</p>
+<p>但介于这个题本身属于去年省选计划的题，实际上这样公开不太好（虽然这是一道团队公开题并且所有人都能提交）。。。</p>
+<p>不过像我这种没几个人知道的 OIer 把这玩意贴到博客里也没什么问题吧。。。</p>
+<p>可能会存在狄利克雷生成函数能做而贝尔级数做不了的东西（只要出现一个非积性数论函数，并且这个东西需要有神奇的方法求值）（我会考虑在之后尝试造一道这样的入门题）。。。</p>
+<p>会补充到下面的（咕咕咕）。</p>
+<p>还有一些是我想继续学习后补充到下面的，实际上就是几个高级筛法，但是复杂度会比较优秀。</p>
+<p>有所耳闻的就是 PN 筛，Min-25 筛，zzt 筛。。。</p>
+<p>把 negiizhao 的博客贴在 <a href="https://negiizhao.blog.uoj.ac/blog/7165">这里</a> 备忘一下。</p>
+<p>实话说数论这一块的水确实很深。。。光是莫反这一块能挖掘的东西就不少。。。</p>
+<p>数学的话更不用说了，我感觉我现在快要在数学之海里溺死了。。。</p>
 <h1 id="一、基本定义"><a href="#一、基本定义" class="headerlink" title="一、基本定义"></a>一、基本定义</h1><p>我们先定义数论函数：定义域为正整数，值域为一个数集的函数。</p>
 <p>定义两个数论函数的狄利克雷卷积：</p>
 <ul>
@@ -6115,7 +6138,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Farewell</title>
     <url>/2022/05/08/Farewell/</url>
-    <content><![CDATA[<p>已经做好最坏的打算了。。。</p>
+    <content><![CDATA[<p>咕。</p>
 ]]></content>
       <categories>
         <category>杂记</category>
@@ -7751,13 +7774,95 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>时间复杂度 $O( \sqrt {n} \log n)$，空间复杂度 $O( \sqrt {n} )$。</p>
 <p>如果求 $g$ 的前缀和需要杜教筛，则主要瓶颈在这个 $O(n ^ { 2 &#x2F; 3 })$。</p>
 <p>现在尝试用这个来把 Min-25 的模板干掉。</p>
-<p>咕咕咕。</p>
+<p>例题：P5325 【模板】Min_25筛</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>PN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P1587</title>
+    <url>/2022/05/02/P1587/</url>
+    <content><![CDATA[<p>[NOI2016] 循环之美</p>
+<p>首先是这个小结论，满足什么条件这个小数才是纯循环的？</p>
+<p>我们设循环节长度为 $z$，那么我们有如下结论：</p>
+<p>$$<br>\dfrac {x k ^  z }  { y } - \left\lfloor \dfrac { x k ^ z } { y } \right\rfloor &#x3D; \dfrac { x } { y } - \left\lfloor \dfrac { x } { y } \right\rfloor<br>$$</p>
+<p>意思就是，这两个数的小数部分是相同的。</p>
+<p>换句话说，上面的式子实际上使 $x k ^ z $ 满足了：</p>
+<p>$$ x k ^ z \equiv  x \pmod { y }$$</p>
+<p>首先题目要求我们求的是最简分数，所以说必然有 $x \perp y$，因此我们这个式子可以两边同时乘上 $x ^ { - 1 }$。</p>
+<p>好，现在我们就有了条件：</p>
+<p>$$ k ^ z \equiv 1 \pmod {y}$$</p>
+<p>我来 yy 一种奇怪的解释。</p>
+<p>上式说明，我们必然存在一个 $x$ 使得：</p>
+<p>$$k ^ z x \equiv 1 \pmod { y }$$</p>
+<p>根据同余方程的那一套理论，我们可以知道当且仅当 $k ^ z \perp y$ 的时候方程有解。</p>
+<p>因此必然会有 $y \perp k$，实际上这就是纯循环的充要条件。</p>
+<p>现在我们找到两个条件，不难发现我们答案实际上就是：</p>
+<p>$$<br>\begin{aligned}<br>&amp; \sum _ { x &#x3D; 1 } ^ { n } \sum _{ y &#x3D;1 } ^ { m } [ x \perp y ] [ y \perp k ]<br>\\<br>&#x3D; &amp; \sum _ { x &#x3D; 1 } ^ { n } \sum _{ y &#x3D;1 } ^ { m } \sum _{ d \mid y , d \mid x} \mu (d) [ y \perp k ]<br>\\<br>&#x3D; &amp; \sum _ { d &#x3D; 1 } ^ { \min \{ n , m \} } \mu ( d ) \sum _{ x &#x3D; 1 } ^ { \lfloor n &#x2F; d \rfloor} \sum _ { y &#x3D; 1 } ^ { \lfloor m &#x2F; d \rfloor} [ yd \perp k ]<br>\\<br>&#x3D; &amp; \sum _ { d &#x3D; 1 } ^ { \min \{ n , m \} } \mu ( d ) [ d \perp k ] \left \lfloor \dfrac { n } { d } \right \rfloor \sum _ { y &#x3D; 1 } ^ { \lfloor m &#x2F; d \rfloor} [ y \perp k ]<br>\end{aligned}<br>$$</p>
+<p>现在这个东西就可以数论分块 $d$ 这一维，然后尝试快速处理后面的 $y$ 的求和。</p>
+<p>尝试抽象出两个函数：</p>
+<p>$$g ( n , k ) &#x3D; \sum _ { d &#x3D; 1 } ^ { n } \mu ( d ) [ d \perp k ]$$</p>
+<p>$$f ( n , k ) &#x3D; \sum _ { d &#x3D; 1 } ^ { n } [ d \perp k ]$$</p>
+<p>我们发现 $ f ( n , 1 )$ 是易求的，而 $g ( n , 1 )$ 通过杜教筛也是易求的。</p>
+<p>考虑类似 Min-25 筛的方法，通过素数来递归求值。</p>
+<p>发现我们的 $k$ 的平方因子在互质条件中都是多余的，因此我们把 $k$ 化简素数幂都为 1 的形式。</p>
+<p>这样我们考虑一个素数 $p \mid k$，先从 $f$ 开始：</p>
+<p>$$<br>\begin{aligned}<br>f ( n , k ) &#x3D; &amp; \sum _ {d &#x3D; 1 } ^ { n } [ d \mid k ]<br>\\<br>&#x3D; &amp; \sum _ { d &#x3D; 1 } ^ { n } [ d \mid ( k &#x2F; p )] - \sum _ { d &#x3D; 1 } ^ { n } [ d \mid (k&#x2F;p) ] [ p \mid d]<br>\\<br>&#x3D; &amp; f ( n , k&#x2F;p) - \sum _ {d &#x3D; 1 } ^ {\lfloor n&#x2F;p \rfloor} [ dp \mid ( k &#x2F; p ) ]<br>\\<br>&#x3D; &amp; f ( n , k&#x2F;p) - \sum _ {d &#x3D; 1 } ^ {\lfloor n&#x2F;p \rfloor} [ d \mid ( k &#x2F; p ) ]<br>\\<br>&#x3D; &amp; f ( n , k &#x2F; p ) - f ( \lfloor n &#x2F; p \rfloor , k &#x2F; p )<br>\end{aligned}<br>$$</p>
+<p>然后再来看 $g$ 的推导：</p>
+<p>$$<br>\begin{aligned}<br>g ( n , k ) &#x3D; &amp; \sum _ { d &#x3D; 1 } ^ { n } \mu ( d ) [ d \perp k]<br>\\<br>&#x3D; &amp; \sum _ { d &#x3D; 1 } ^ { n } \mu ( d ) [ d \perp ( k &#x2F; p ) ] - \sum _ { d &#x3D; 1 } ^ { n } \mu ( d ) [ d \perp ( k &#x2F; p ) ] [ p \perp d ]<br>\\<br>&#x3D; &amp; g ( n , k &#x2F; p ) - \sum _ { d &#x3D; 1 } ^ { \lfloor n &#x2F; p \rfloor} \mu ( d p ) [ d p \perp ( k &#x2F; p ) ]<br>\\<br>&#x3D; &amp; g ( n , k &#x2F; p ) - \mu ( p ) \sum _ { d &#x3D; 1 } ^ { \lfloor n &#x2F; p \rfloor} \mu ( d ) [ d \perp p] [ d \perp ( k &#x2F; p ) ]<br>\\<br>&#x3D; &amp; g ( n , k &#x2F; p ) + \sum _ { d &#x3D; 1 } ^ { \lfloor n &#x2F; p \rfloor} \mu ( d ) [ d \perp k ]<br>\\<br>&#x3D; &amp; g (n , k &#x2F; p ) + g ( \lfloor n &#x2F; p \rfloor , k)<br>\end{aligned}<br>$$</p>
+<p>然后这玩意就可以递归计算了。</p>
+<p>关于这个复杂度。</p>
+<p>每次递推是 $ O( 1 ) $ 的（虽然我写的只是近似 $ O( 1 ) $）。</p>
+<p>考虑到 $f,g$ 的第一位实际上是被数论分块过的，所以说仅仅只有 $O(\sqrt{n})$ 个起始递推。</p>
+<p>然后这个递推的层数是 $k$ 的素因子个数，其级别为 $O(\log k &#x2F; \log \log k)$。</p>
+<p>因此递推的复杂度是 $ O(\sqrt {n} \log k &#x2F; \log \log k)$ 的。</p>
+<p>然后这个杜教筛的总复杂度是 $ O( n ^ {2 &#x2F; 3 })$ 的，因为上界没变。。。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e6</span>,M=<span class="number">2e3</span>;</span><br><span class="line"></span><br><span class="line">ll n,m,k,cnt,amt;</span><br><span class="line">ll mu[N+<span class="number">5</span>],smu1[N+<span class="number">5</span>],prime[N+<span class="number">5</span>],pk[M+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> f[N+<span class="number">5</span>];</span><br><span class="line">map&lt;ll,ll&gt; smu2,remf[M+<span class="number">5</span>],remg[M+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Smu</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x&lt;=N) <span class="keyword">return</span> smu1[x];</span><br><span class="line">  <span class="keyword">if</span>(smu2.<span class="built_in">find</span>(x)!=smu2.<span class="built_in">end</span>()) <span class="keyword">return</span> smu2[x];</span><br><span class="line">  ll tmp=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>,j;i&lt;=x;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=x/(x/i);tmp-=(j-i+<span class="number">1</span>)*<span class="built_in">Smu</span>(x/i);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> smu2[x]=tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  f[<span class="number">1</span>]=<span class="number">1</span>;mu[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=N;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!f[i]) &#123;prime[++cnt]=i;mu[i]=<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=cnt&amp;&amp;prime[j]*i&lt;=N;j++) &#123;</span><br><span class="line">      f[i*prime[j]]=<span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span>(i%prime[j]==<span class="number">0</span>) &#123;mu[i*prime[j]]=<span class="number">0</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">      mu[i*prime[j]]=-mu[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=N;i++) &#123;smu1[i]=smu1[i<span class="number">-1</span>]+mu[i];&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">2</span>;i*i&lt;=k;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(k%i==<span class="number">0</span>) &#123;pk[++amt]=i;<span class="keyword">while</span>(k%i==<span class="number">0</span>) k/=i;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(k&gt;<span class="number">1</span>) pk[++amt]=k;k=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=amt;i++) k=k*pk[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">F</span><span class="params">(ll n,ll k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(k==<span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">  <span class="keyword">if</span>(remf[k].<span class="built_in">find</span>(n)!=remf[k].<span class="built_in">end</span>()) <span class="keyword">return</span> remf[k][n];</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=amt;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(k%pk[i]==<span class="number">0</span>) &#123;<span class="keyword">return</span> remf[k][n]=<span class="built_in">F</span>(n,k/pk[i])-<span class="built_in">F</span>(n/pk[i],k/pk[i]);&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">G</span><span class="params">(ll n,ll k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(k==<span class="number">1</span>) <span class="keyword">return</span> <span class="built_in">Smu</span>(n);</span><br><span class="line">  <span class="keyword">if</span>(remg[k].<span class="built_in">find</span>(n)!=remg[k].<span class="built_in">end</span>()) <span class="keyword">return</span> remg[k][n];</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=amt;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(k%pk[i]==<span class="number">0</span>) &#123;<span class="keyword">return</span> remg[k][n]=<span class="built_in">G</span>(n,k/pk[i])+<span class="built_in">G</span>(n/pk[i],k);&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();k=<span class="built_in">read</span>();<span class="built_in">Init</span>();</span><br><span class="line"></span><br><span class="line">  ll ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=n&amp;&amp;i&lt;=m;i=j+<span class="number">1</span>) &#123;</span><br><span class="line">    j=<span class="built_in">min</span>(n/(n/i),m/(m/i));</span><br><span class="line">    ll tmp=<span class="built_in">G</span>(j,k)-<span class="built_in">G</span>(i<span class="number">-1</span>,k);<span class="keyword">if</span>(tmp==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">    ans+=tmp*(n/i)*<span class="built_in">F</span>(m/i,k);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>莫比乌斯反演</tag>
+        <tag>杜教筛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P1989</title>
+    <url>/2022/05/02/P1989/</url>
+    <content><![CDATA[<p>无向图三元环计数</p>
+<p>计算每个点的度数，后将无向边变为有向边，从度数大的点连向度数小的点，如果度数相同则从编号大的点连向编号小的点。</p>
+<p>然后我们需要统计的环变成了如下的形式：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190926144617240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2FfZm9yZXZlcl9kcmVhbQ==,size_16,color_FFFFFF,t_70" alt="三元环"></p>
+<p>每个三元环当且仅当统计到红点时被统计上。</p>
+<p>现在算法步骤如下：</p>
+<ol>
+<li><p>枚举每个点 $v$。</p>
+</li>
+<li><p>对于点 $v$，将其出边所连的点打上临时标记。</p>
+</li>
+<li><p>枚举 $v$ 的每个出点的出点，如果该点亦被打上标记，说明找到三元环，直接累积答案即可。</p>
+</li>
+</ol>
+<p>关于这个算法的时间复杂度。</p>
+<p>对于每一条边 $x \rightarrow y$，改边被遍历的次数为 $\deg _ { in} (x)$，那么时间复杂度就是 $ O(\sum _ {(x , y) \in E} \deg _ { in } (x)) $。</p>
+<p>因为每个连向 $x$ 的点的度数都大于 $\deg _ { in } (x)$，也就是说至少有 $\deg _ {in} (x)$ 个点的点度大于 $\deg _ {in} (x)$，那么就至少存在 $\deg _ { in } (x) ^ 2$ 条边。</p>
+<p>而我们又知道必然有 $\deg _ { in } (x) ^ 2 \le m$，所以说 $\deg _ { in } (x) \le \sqrt{m}$。</p>
+<p>所以我们最后的复杂度就是 $O(m\sqrt{m})$ 的。</p>
+<p>对于四元环计数，我们采取类似的方法，先变成有向图，然后再把四元环分为两类来计数。</p>
+<p>不过是多了一些讨论的枚举。</p>
+<p>复杂度玄学，只会口胡&#x2F;qd。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e5</span>,M=<span class="number">2e5</span>;</span><br><span class="line"></span><br><span class="line">ll n,m,tot;</span><br><span class="line">ll deg[N+<span class="number">5</span>],u[M+<span class="number">5</span>],v[M+<span class="number">5</span>],flg[N+<span class="number">5</span>];</span><br><span class="line">ll head[N+<span class="number">5</span>],nxt[M+<span class="number">5</span>],ver[M+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Addedge</span><span class="params">(ll u,ll v)</span> </span>&#123;</span><br><span class="line">  ver[++tot]=v;nxt[tot]=head[u];head[u]=tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=m;i++) &#123;</span><br><span class="line">    u[i]=<span class="built_in">read</span>();v[i]=<span class="built_in">read</span>();<span class="keyword">if</span>(u[i]&lt;v[i]) <span class="built_in">swap</span>(u[i],v[i]);</span><br><span class="line">    deg[v[i]]++;deg[u[i]]++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=m;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(deg[v[i]]&gt;deg[u[i]]) <span class="built_in">Addedge</span>(v[i],u[i]);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">Addedge</span>(u[i],v[i]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ll ans=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll v=<span class="number">1</span>;v&lt;=n;v++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll i=head[v];i;i=nxt[i]) &#123;flg[ver[i]]=<span class="number">1</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(ll i=head[v];i;i=nxt[i]) &#123;</span><br><span class="line">      <span class="keyword">for</span>(ll j=head[ver[i]];j;j=nxt[j]) &#123;<span class="keyword">if</span>(flg[ver[j]]) ans++;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(ll i=head[v];i;i=nxt[i]) &#123;flg[ver[i]]=<span class="number">0</span>;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(ans);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>三元环计数</tag>
       </tags>
   </entry>
 </search>
