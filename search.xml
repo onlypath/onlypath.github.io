@@ -1751,12 +1751,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>Outline</title>
     <url>/2022/01/23/Outline/</url>
     <content><![CDATA[<p>随便列一下吧。</p>
-<p>众所周知，吃掉 NOI 大纲的正是 CCF 自己。</p>
-<p>所以 NOI 大纲有和没有是一样的，不影响它们出题。。。</p>
-<p>标 * 的是我觉得确实没什么学的必要的。。。</p>
-<p>看着东西很多，实际上还没有 Jwz 学的 $\dfrac{1}{10^{114514}}$ 多。。。</p>
-<p>贾队&#x2F;bx&#x2F;bx&#x2F;bx&#x2F;崇拜&#x2F;崇拜&#x2F;崇拜。</p>
-<p>当然实际上我在给自己留坑。</p>
 <h1 id="一、数据结构"><a href="#一、数据结构" class="headerlink" title="一、数据结构"></a>一、数据结构</h1><ol>
 <li><p>基础数据结构</p>
 <ul>
@@ -1793,11 +1787,11 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>可持久化线段树与主席树（可持久化权值线段树）<a href="https://www.luogu.com.cn/blog/154279/p3834-post">P3834</a></li>
 <li>可持久化Trie</li>
 <li>可持久化可并堆（左偏树）</li>
-<li>可持久化平衡树（FHQ-Treap）</li>
+<li>可持久化平衡树（FHQ-Treap）<a href="https://onlypath.github.io/2022/04/06/P3835/">P3835</a></li>
 </ul>
 </li>
 <li>树套树<ul>
-<li>线段树套线段树</li>
+<li>线段树套线段树 <a href="https://onlypath.github.io/2022/04/05/P3380/">P3380</a></li>
 <li>线段树套平衡树</li>
 <li>树状数组套主席树</li>
 </ul>
@@ -1806,7 +1800,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>LCT <a href="https://onlypath.github.io/2022/01/24/P3690/">P3390</a></li>
 </ul>
 </li>
-<li>K-D 树</li>
+<li>K-D 树 <a href="https://onlypath.github.io/2022/04/03/P4357/">P4357</a></li>
 </ul>
 </li>
 <li><p>根号算法</p>
@@ -1847,15 +1841,19 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </ul>
 </li>
 <li>线性求逆元 <a href="https://www.luogu.com.cn/blog/154279/p3811-post">P3811</a></li>
-<li>Miller-Rabin</li>
-<li>Pollard’s rho</li>
-<li>BSGS</li>
-<li>指数与原根</li>
+<li>Miller-Rabin（同在 P4718）</li>
+<li>Pollard-rho <a href="https://onlypath.github.io/2022/04/29/P4718/">P4718</a></li>
+<li>BSGS <a href="https://onlypath.github.io/2022/05/01/P3846/">P3846</a> <a href="https://onlypath.github.io/2022/05/01/P4195/">P4195</a></li>
+<li>阶与原根（见本博客 Basis 一文）</li>
 <li>数论分块 <a href="https://onlypath.github.io/2021/12/13/UVA11526/">UVA11526</a> <a href="https://onlypath.github.io/2021/12/14/P2261/">P2261</a></li>
 <li>狄利克雷卷积与莫比乌斯反演 <a href="https://onlypath.github.io/2022/01/28/Mobius-and-Dirichlet/">自己写的一点东西</a></li>
 <li>杜教筛 <a href="https://onlypath.github.io/2022/01/30/P4213/">P4213</a></li>
-<li>*贝尔级数 <a href="https://onlypath.github.io/2022/04/23/U214268/">U214268</a></li>
-<li>二次剩余</li>
+<li>贝尔级数 <a href="https://onlypath.github.io/2022/04/23/U214268/">U214268</a></li>
+<li>狄利克雷生成函数（DGF）</li>
+<li>PN 筛 <a href="https://onlypath.github.io/2022/05/01/Powerful-Number/">PN</a></li>
+<li>Min_25 筛（下划线不要打错。。。）</li>
+<li>whzzt 筛</li>
+<li>二次剩余 <a href="https://onlypath.github.io/2022/04/30/P5491/">P5491</a></li>
 </ul>
 </li>
 <li><p>组合计数 <a href="https://onlypath.github.io/2022/03/18/Polynomial-Count/">。。。</a></p>
@@ -1865,7 +1863,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>斯特林数</li>
 <li>容斥</li>
 <li>生成函数<ul>
-<li>OGF，EGF，DGF</li>
+<li>OGF，EGF</li>
 <li>多元生成函数</li>
 </ul>
 </li>
@@ -2094,7 +2092,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <ul>
 <li>基础类<ul>
 <li>边带权、扩展域、可撤销（并查集技巧）</li>
-<li>三元环计数、四元环计数</li>
+<li>三元环计数 <a href="https://onlypath.github.io/2022/05/02/P1989/">P1989</a></li>
 <li>指针动态分配内存（可以参照长链剖分的代码）</li>
 <li>动态 DP</li>
 <li>贪心。。。</li>
@@ -2133,7 +2131,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <li>树链剖分 <a href="https://www.luogu.com.cn/blog/154279/p3384-post">P3384</a></li>
 <li>启发式合并 <a href="https://onlypath.github.io/2022/01/21/CF741D/">CF741D</a></li>
 <li>长链剖分 <a href="https://onlypath.github.io/2022/01/22/CF1009F/">CF1009F</a></li>
-<li>虚树</li>
+<li>虚树 <a href="https://onlypath.github.io/2022/05/03/P2495/">P2495</a></li>
 </ul>
 </li>
 <li>倍增类<ul>
@@ -4217,8 +4215,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>P3805</title>
     <url>/2022/02/28/P3805/</url>
     <content><![CDATA[<p>【模板】manacher 算法</p>
-<p>按 Jwz 大巨佬的讲法，Manacher 的实质就是暴力优化。</p>
-<p>然而 Jwz 只用了 $10^{-114514}$ 秒就学会了，<del>我学了 114514 年还没有学会。</del></p>
+<p>按 Jwz 的讲法，Manacher 的实质就是暴力优化。</p>
 <p>首先我们压缩一下回文的性质和信息。</p>
 <p>定义一个 $d(i)$ 表示以第 $i$ 个位置为中心的一个回文串，它的长度的一半是多少。</p>
 <p>比如说 $\texttt{jwzakioi}$ 这个字符串，第 6 个字符是 $\texttt{o}$，则有 $d(6)&#x3D;2$。因为这个回文串是 $\texttt{ioi}$，$\texttt{o}$ 的左边有 1 个字符，加上它自己就是 2 了。</p>
@@ -4294,8 +4291,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>P3804</title>
     <url>/2022/03/11/P3804/</url>
     <content><![CDATA[<p>【模板】后缀自动机 (SAM)</p>
-<p>我又学了 114514 个小时。</p>
-<p>Jwz 说他只用 $10^{-114514}$ s 就学会了 SAM。</p>
 <p>首先我们知道 SAM 是个自动机，字符串 $s$ 的 SAM 满足如下几个条件：</p>
 <ol>
 <li><p>有一个初始状态 $t_0$。</p>
