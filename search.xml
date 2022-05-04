@@ -914,7 +914,7 @@
 </code></pre>
 <p>想来自己最初邂逅《莉兹与青鸟》，大概要到 2020 年的 12 月份了。</p>
 <p>近乎是第一眼就喜欢上了这部作品。</p>
-<p>看完之后我的头像就换成了伞木希美的那张“昂首雀过图”。（原因是当时的希美正在做数论）</p>
+<p>看完之后我的头像就换成了伞木希美的那张“昂首雀过图”。（原因是当时的希美正在做数论，没错，真的是数论）</p>
 <p>记得当时看着 唯风Wephon 老师的青鸟解读，反复翻阅和观看之后越来越觉得神妙。当时甚至还把这个故事写成了作文，语文老师似乎评价还不错，为此还修改了好几次（最重要的是我的中考作文就是把这篇作文改编后直接套上的，想来大概为此多扣了不少分吧）。</p>
 <p>后来尝试从几个不同的角度分析了这部作品，但因为最后的成品都不太满意，所以还是封在了博客里。</p>
 <p>感觉自己正在 Enjoying 这部作品，来来回回又翻阅了许多解读的资料、赏析、MAD&#x2F;AMV 等等。大概形成了自己的一种认知观念。</p>
@@ -943,7 +943,7 @@ behind the starry city lights.
 <p>虽然圈子很小，但是大家都是很不错的人。</p>
 <p>尝试与某些大佬交流的时候也收获了不少。</p>
 <p>喜欢这份静谧的美好。我是这样想的。</p>
-<p>不过后来人就越来越少了。因为各种各样的原因。最后等到唯风老师也离开的时候，我才恍然发现，自己早已是孤身一人了。</p>
+<p>不过后来人就越来越少了。因为各种各样的原因。最后等到唯风老师也离开的时候（考研去啦），我才恍然发现，自己早已是孤身一人了。</p>
 <p>我突然反应过来，2018 年，早已经是三、四年前了。</p>
 <pre><code>曲终人散尽，
 回首只孤影。
@@ -952,7 +952,7 @@ behind the starry city lights.
 </code></pre>
 <p>难以释然罢。</p>
 <p>但我仍然喜欢着这份美好。</p>
-<p>即便所有的美好终将逝去。</p>
+<p><strong>即便所有的美好终将逝去。</strong></p>
 <p>$\Large\color{CornflowerBlue}神明啊，为什么要教会我打开鸟笼的方法？$</p>
 <p>$\color{CadetBlue}あぁ、神様、どうして私にカゴの開け方を教えたのですか？$</p>
 <p>$–\mathscr{Liz}\space \mathscr{und}\space \mathscr{ein}\space \mathscr{Blauer}\space \mathscr{Vogel}$</p>
@@ -1604,8 +1604,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>NOI_Linux</title>
     <url>/2021/11/27/NOI-Linux/</url>
-    <content><![CDATA[<p>如果你觉得很 sb 可以不用。。。</p>
-<p>因为确实很 sb。。。</p>
+    <content><![CDATA[<p>干货向。。。</p>
 <h1 id="0x01-基础使用"><a href="#0x01-基础使用" class="headerlink" title="0x01 基础使用"></a>0x01 基础使用</h1><p><code>Ctrl+Alt+T</code> 召唤终端。</p>
 <p>新建文件的指令是 <code>touch+文件名</code> 。</p>
 <h1 id="0x02-VSCode-的使用技巧"><a href="#0x02-VSCode-的使用技巧" class="headerlink" title="0x02 VSCode 的使用技巧"></a>0x02 VSCode 的使用技巧</h1><p>现在给一些在英文环境下使用 VSC 的指北。</p>
@@ -1644,7 +1643,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p> 切换编辑器视图：<code>Alt+数字</code>。</p>
 <p> 切换组：<code>Ctrl+数字</code>。</p>
 <p> 切换视图的水平&#x2F;垂直布局：<code>Shift+Alt+0</code>。</p>
-<p> 放大和缩小（好像很智障）：<code>Ctrl+ +/-</code>。</p>
+<p> 放大和缩小：<code>Ctrl+ +/-</code>。</p>
 </li>
 <li><p>查找搜索相关：</p>
 <p> 替换：<code>Ctrl+H</code>，退出的话点 <code>Esc</code>。</p>
@@ -4327,15 +4326,15 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <url>/2022/03/15/Geometry/</url>
     <content><![CDATA[<p>这里把大部分板子都放过来了。</p>
 <p>除了三维计算几何和圆反演的内容（这两块恐怕要等我上大学之后）。。。</p>
-<p>一部分讲的会比较简略，另一部分会讲的比较弱智，可能会把 Whk 的内容搬过来。</p>
+<p>讲的会比较简略，可能会把 Whk 的内容搬过来。</p>
 <p>然后告诫一句：这个东西 OI 基本考不到，花太多时间在上面是不值得的。。。</p>
 <p>为什么我会写这个东西？无聊而已。。。而且我想多学一点东西，不仅仅是为了做题。</p>
 <p>这些东西都是《算法竞赛入门到进阶》上的，一部分是杜老师的，反正都是干货（毕竟在 OI 里似乎没有什么讲头，而且非常码农）。</p>
 <p>那张闵可夫斯基和的图片是 shadowice1984 的。</p>
 <p>要注明的话东西比较多，又不是写论文，所以我就懒了 QAQ。</p>
-<p>非常抱歉的是这里没有任何例题。。。</p>
 <p>Luogu 只有三道模板，二维凸包、旋转卡壳和半平面交。三维的还有一部分模板但我不会。。。想要测模板可以自己去交。。。</p>
 <p>一个事情就是这里的大部分模板没有测过（除了上述模板题以及其相关的函数），所以很有可能有锅 QAQ，但我也懒得对拍了，所以非常抱歉，对拍就咕了。</p>
+<p>例题会补上的（咕咕咕）。</p>
 <h1 id="一、常数定义"><a href="#一、常数定义" class="headerlink" title="一、常数定义"></a>一、常数定义</h1><p>eps 用来保证精度，Pi 后面会用。</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Some cosntant.</span></span><br><span class="line"><span class="keyword">const</span> ld Pi=<span class="built_in">acos</span>(<span class="number">-1</span>),eps=<span class="number">1e-10</span>;</span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e5</span>,inf=<span class="number">1e15</span>;</span><br></pre></td></tr></table></figure>
@@ -4553,10 +4552,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
   <entry>
     <title>Polynomial_Count</title>
     <url>/2022/03/18/Polynomial-Count/</url>
-    <content><![CDATA[<p>但都不会。。。</p>
-<hr>
-<p>基本是复读某巨神的博客。。。因为这玩意我一点不会。。。所以大概算是学习笔记。。。</p>
-<p>虽然贾队和我说这玩意不太可能考，但我可能这辈子就学这么一次。。。</p>
+    <content><![CDATA[<p>基本是复读 cmd 的博客。。。因为这玩意我一点不会。。。所以大概算是学习笔记。。。</p>
+<p>虽然 Jwz 和我说这玩意不太可能考，但我可能这辈子就学这么一次。。。</p>
 <p>前置：<a href="https://onlypath.github.io/2022/03/20/Polynomial-Industry/">基础基础基础多项式基础工业</a>（这是一篇连 MTT 都没有的屑工业博文）。</p>
 <p>深必的东西：</p>
 <ol>
@@ -4989,9 +4986,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>  $$A^k(x)&#x3D;\exp(k\ln A(x))$$</p>
 <p>方便粘板子直接把全家桶放 <a href="https://www.luogu.com.cn/paste/9b4j3uzo">这里</a> 了。</p>
 <hr>
-<p>基本是复读某巨神博客的。</p>
+<p>基本是复读 cmd 博客的。</p>
 <p>模板题洛谷上基本都有。</p>
-<p>占时没有 MTT 的东西。。。</p>
+<p>占时没有 MTT 的东西（因为写不对）。。。</p>
 <p>工业基础：<a href="https://onlypath.github.io/2022/02/02/P3803/">NTT &amp; FFT</a>。</p>
 <p>学完 NTT 后就可以来看这些操作了。</p>
 <p>我们先把基本的模板贴在这里：</p>
@@ -5684,8 +5681,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <url>/2022/03/29/Basis/</url>
     <content><![CDATA[<p><del>琪露诺的完美小学数学教室。</del></p>
 <p><del>バカバカ。</del></p>
-<p><del>我为什么要写这种 sb 的东西。。。</del></p>
-<p><del>我为什么这么 sb。</del></p>
 <p><del>不要怀疑我为什么起这种名字，我就是在钓鱼。</del></p>
 <p><del>实际上就是方便背结论把一堆东西扔到一起。</del></p>
 <h1 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h1><ol>
@@ -6266,7 +6261,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>代码（分治）：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e6</span>,inf=<span class="number">1e15</span>;</span><br><span class="line"></span><br><span class="line">ll n;</span><br><span class="line">ll tmp[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span>ll x,y;&#125;a[N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">bool</span> _Cmp(ll x,ll y) &#123;<span class="keyword">return</span> a[x].y&lt;a[y].y;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Dis</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (a[x].x-a[y].x)*(a[x].x-a[y].x)+(a[x].y-a[y].y)*(a[x].y-a[y].y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Msort</span><span class="params">(ll l,ll r)</span> </span>&#123;</span><br><span class="line">  ll d=inf;</span><br><span class="line">  <span class="keyword">if</span>(l==r) <span class="keyword">return</span> d;<span class="keyword">if</span>(l+<span class="number">1</span>==r) <span class="keyword">return</span> <span class="built_in">Dis</span>(l,r);</span><br><span class="line">  ll mid=(l+r)&gt;&gt;<span class="number">1</span>;ll d1=<span class="built_in">Msort</span>(l,mid),d2=<span class="built_in">Msort</span>(mid+<span class="number">1</span>,r);</span><br><span class="line">  d=<span class="built_in">min</span>(d1,d2);ll cnt=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=l;i&lt;=r;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>((a[mid].x-a[i].x)*(a[mid].x-a[i].x)&lt;d) &#123;tmp[++cnt]=i;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">sort</span>(tmp+<span class="number">1</span>,tmp+cnt+<span class="number">1</span>,_Cmp);</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=cnt;i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll j=i+<span class="number">1</span>;j&lt;=cnt</span><br><span class="line">    &amp;&amp;(a[tmp[j]].y-a[tmp[i]].y)*(a[tmp[j]].y-a[tmp[i]].y)&lt;d;j++) &#123;</span><br><span class="line">      ll d3=<span class="built_in">Dis</span>(tmp[i],tmp[j]);<span class="keyword">if</span>(d&gt;d3) &#123;d=d3;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">Cmp</span><span class="params">(node x,node y)</span> </span>&#123;<span class="keyword">return</span> x.x==y.x?x.y&lt;y.y:x.x&lt;y.x;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">  n=<span class="built_in">read</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;a[i].x=<span class="built_in">read</span>();a[i].y=<span class="built_in">read</span>();&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">sort</span>(a+<span class="number">1</span>,a+n+<span class="number">1</span>,Cmp);</span><br><span class="line">  </span><br><span class="line">  <span class="built_in">write</span>(<span class="built_in">Msort</span>(<span class="number">1</span>,n));</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>因为想以此作为 K-D 树基础的记录，所以会讲得比较 sb。。。</p>
+<p>以此作为 K-D 树基础的记录。。。</p>
 <p>我们将平面使用 K-D 树的方法划分。</p>
 <p>OI wiki 上给出的 K-D 树的划分是这样的：</p>
 <ol>
@@ -7905,6 +7900,416 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>虚树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bipartite_Graph_and_Network_Flow</title>
+    <url>/2022/05/04/Bipartite-Graph-and-Network-Flow/</url>
+    <content><![CDATA[<h1 id="一、二分图相关"><a href="#一、二分图相关" class="headerlink" title="一、二分图相关"></a>一、二分图相关</h1><p>二分图判定</p>
+<blockquote>
+<p>定理：一张无向图是二分图，当且仅当图中无奇环。</p>
+</blockquote>
+<p>实现上，黑白染色，$O(n)$ 即可完成判定。</p>
+<hr>
+<p>二分图最大匹配</p>
+<blockquote>
+<p>定义：二分图中，包含边数最多的一组匹配被称为二分图的最大匹配。</p>
+</blockquote>
+<blockquote>
+<p>增广路：连接两个非匹配点的路径，匹配边与非匹配边在该路径上交替出现。</p>
+<p>性质相关：</p>
+<ol>
+<li>长度为奇数。</li>
+<li>奇数边是非匹配边，偶数边是匹配边。</li>
+<li>路径上匹配边与非匹配边状态取反，新边集仍然是一组合法匹配，且边数增加一。</li>
+</ol>
+</blockquote>
+<p>匈牙利算法：</p>
+<ol>
+<li>初始全部非匹配。</li>
+<li>寻找增广路并取反，得到更大匹配 $S ^ {\prime}$。</li>
+<li>重复步骤 2，直到没有增广路。</li>
+</ol>
+<p>具体地，依次尝试给每一个左部点 $x$ 寻找一个右部点 $y$。</p>
+<p>$y$ 与 $x$ 匹配需要满足下列条件之一：</p>
+<ol>
+<li>$y$ 是非匹配点。</li>
+<li>$y$ 与 $x ^ {\prime}$ 匹配，但是 $x ^ {\prime}$ 出发能找到另一个 $y ^ {\prime}$ 与之匹配。</li>
+</ol>
+<p>时间复杂度 $O(nm)$。</p>
+<p>代码：<a href="https://www.luogu.com.cn/blog/154279/p3386-post">P3386</a>（Dinic 的板子好像忘记粘了）。</p>
+<hr>
+<p>二分图匹配模型</p>
+<blockquote>
+<p>两个要素：</p>
+<ol>
+<li>点能分成两个集合，集合内部有 $0$ 条边，简称 $0$ 要素。</li>
+<li>每个点只能与 $1$ 条匹配边相连，简称 $1$ 要素。</li>
+</ol>
+</blockquote>
+<p>例题：<a href="">U64949</a> 棋盘覆盖</p>
+<ul>
+<li>被同一骨牌覆盖的两点可以称作被一条边相连，满足 $1$ 要素。</li>
+<li>黑白相间染色整个棋盘后，颜色相同的格子不可能连边，即点可分为两部分，满足 $0$ 要素。</li>
+<li>剩下就是建图跑最大匹配。</li>
+</ul>
+<p>例题：<a href="">U64970</a> 車的放置</p>
+<ul>
+<li>每行每列只能有一个車，因此行与列是满足匹配关系，即满足 $1$ 要素。</li>
+<li>行与行直接不存在匹配关系，列与列之间也不存在匹配关系，即满足 $0$ 要素。</li>
+</ul>
+<hr>
+<p>特殊二分图匹配</p>
+<blockquote>
+<p>完备匹配：对于一张二分图 $( ( A, B ) , E )$，设其最大匹配为 $E ^ {\prime} $，若 $ | A | &#x3D; | B | &#x3D; | E ^ {\prime} |$，则称这张二分图具有完备匹配。</p>
+</blockquote>
+<blockquote>
+<p>多重匹配：对于一张二分图 $( ( A , B ) , E )$，使 $x \in A$ 最多与 $l _ x $ 条选出的边相连，$y \in B$ 最多与 $r _ y$ 条选出的边相连，则称选出的边为二分图的多重匹配。</p>
+<p>求解方法一个是拆点求二分图最大匹配，另一个是网络流。</p>
+</blockquote>
+<blockquote>
+<p>最优匹配：对于一张二分图，边有边权，所有最大匹配中边权和最大的，被称为最优匹配。</p>
+<p>求解方法一般是费用流。</p>
+</blockquote>
+<hr>
+<p>二分图最小点覆盖</p>
+<blockquote>
+<p>图的点覆盖：对于一张无向图 $( V ,E )$，若存在一个点集 $V ^ {\prime} \subseteq V$，且对于任意 $e \in E$，$e$ 至少有一个端点属于 $V ^ {\prime}$，则称 $V ^ {\prime}$ 为这张无向图的一组点覆盖。</p>
+</blockquote>
+<blockquote>
+<p>二分图最小点覆盖：在二分图中，包含点数最少的一组点覆盖被称为二分图的最小点覆盖。</p>
+</blockquote>
+<blockquote>
+<p>定理：最小点覆盖包含的点数，等于最大匹配包含的边数。</p>
+</blockquote>
+<blockquote>
+<p>一个要素：每条边有两个端点，二者至少选择一个。简称 $2$ 要素。</p>
+</blockquote>
+<p>例题：<a href="">UVA1194</a> Machine Schedule</p>
+<ul>
+<li>满足 $2$ 要素，求最小点覆盖即可。</li>
+</ul>
+<p>例题：<a href="">POJ2226</a> Muddy Fields</p>
+<ul>
+<li>分为行泥泞块和列泥泞块，然后就能分为左部点和右部点。</li>
+<li>然后每一块泥地对应一个行块和一个列快，连边。</li>
+<li>最后就是求最小点覆盖。</li>
+</ul>
+<hr>
+<p>二分图最大独立集</p>
+<blockquote>
+<p>图的独立集：对于一张无向图 $( V , E )$，若存在一个点集 $V ^ {\prime}$，满足 $V ^ {\prime} \subseteq V$，且对于任意 $p , q \in V ^ {\prime}$，都有 $ ( p , q ) \notin E$，则称 $ V ^ {\prime}$ 为这张无向图的一组独立集，包含点数最多的独立集被称为图的最大独立集。</p>
+</blockquote>
+<blockquote>
+<p>图的团：对于一张无向图 $( V , E )$，若存在一个点集 $ V ^ {\prime}$，满足 $V ^ {\prime} \subseteq V$，且对于任意 $p , q \in V ^ {\prime}$，都有 $ ( p , q ) \in E$，则称 $ V ^ {\prime}$ 为这张无向图的一组团，包含点数最多的团被称为图的最大团。</p>
+</blockquote>
+<blockquote>
+<p>定理：无向图 $G$ 的最大团，等于补图 $G ^ {\prime}$ 的最大独立集。</p>
+<p>对于一般无向图，最大团和最大独立集都是 NPC 问题。</p>
+</blockquote>
+<blockquote>
+<p>定理：对于一张 $n$ 个点的二分图，设其最小点覆盖数（最大匹配边数）为 $v$，则其最大独立集大小 $u &#x3D;  n - v$。</p>
+</blockquote>
+<p>例题：<a href="">P3355</a> 骑士共存问题</p>
+<ul>
+<li>将棋盘黑白相间染色后，容易发现日字的对角颜色必然相异，即格子可以分为两个点集，满足 $0$ 要素。</li>
+<li>将所有日字对角连边之后，求出二分图的最大独立集即可。</li>
+</ul>
+<p>例题：<a href="">P2423</a> [HEOI2012]朋友圈</p>
+<ul>
+<li>原图很难处理，补图很特殊。</li>
+<li>图的最大团等于补图的最大独立集。</li>
+<li>在补图中，$A$ 的奇数、偶数权值点分别构成完全图，$B$ 的奇数偶数权值点变为二分图的左右两部。</li>
+<li>因此 $A$ 中最多选两个点，枚举选出的点 $x,y$（或者不选），然后把 $B$ 中与 $x,y$ 有连边的点删去，在 $B$ 中剩余的点里求最大独立集即可。</li>
+</ul>
+<hr>
+<p>有向无环图的最小路径点覆盖</p>
+<blockquote>
+<p>定义：给定一张 DAG，用尽量少的不相交的简单路径覆盖所有点（也就是每个点恰被覆盖一次），这样的路径集合被称为最小路径点覆盖。</p>
+</blockquote>
+<blockquote>
+<p>拆点二分图：</p>
+<p>把每个点拆成编号 $x$ 和 $x + n$ 两个点。</p>
+<p>建立一张新的二分图，$1 \sim n$ 是左部点，$ n + 1 \sim 2n$ 是右部点。</p>
+<p>对原图的每条有向边 $( x , y )$，在二分图的左部点 $x$ 与右部点 $y + n$ 之间连边。</p>
+<p>最终得到的二分图被称为原图的拆点二分图。</p>
+</blockquote>
+<blockquote>
+<p>定理：设 DAG 的拆点二分图的最大匹配边数为 $v$，则 DAG 的最小点覆盖包含的路径条数 $u &#x3D; n - v$。</p>
+</blockquote>
+<p>模板：<a href="">P2764</a> 最小路径覆盖问题</p>
+<hr>
+<p>有向无环图的最小可重复路径点覆盖</p>
+<blockquote>
+<p>给定一张 DAG，用尽量少的可相交的简单路径覆盖所有点（也就是每个顶点可以被覆盖多次），这样的路径集合被称为有向无环图的最小可重复路径点覆盖。</p>
+</blockquote>
+<p>处理方法：将原图传递闭包，按最小路径点覆盖的处理方法处理即可。</p>
+<hr>
+<h1 id="二、网络流相关"><a href="#二、网络流相关" class="headerlink" title="二、网络流相关"></a>二、网络流相关</h1><blockquote>
+<p>一个网络 $G &#x3D; ( V ,E )$ 是一张有向图，图中的每条有向边 $( x , y ) \in E$ 都有一个给定的权值 $c ( x ,y )$，称为边的容量。特别地，若 $( x , y ) \notin E$，则 $c ( x , y ) &#x3D; 0$。图中还有两个指定的特殊节点 $S,T(S \ne T)$，分别被称为原点和汇点。</p>
+</blockquote>
+<blockquote>
+<p>设 $f( x , y )$ 是定义在节点二元组 $( x , y )$ 上的实数函数，且满足：</p>
+<ol>
+<li>容量限制：$f ( x , y ) \le c ( x , y )$。</li>
+<li>斜对称：$f ( x , y ) &#x3D; - f ( y , x )$。</li>
+<li>流量守恒：对于任意 $x \notin S, x \notin T$，都有 $\sum _ {( u , x ) \in E} f ( u , x ) &#x3D; \sum _{ ( x , v ) \in E } f( x ,v )$。</li>
+</ol>
+<p>则 $f$ 称为网络的流函数。</p>
+</blockquote>
+<blockquote>
+<p>对于 $( x , y ) \in E$，$f ( x , y)$ 称为边的流量，$c ( x , y ) - f ( x , y )$ 称为边的剩余流量。</p>
+</blockquote>
+<blockquote>
+<p>$\sum _ {( S , v ) \in E} f ( S , v )$ 称为整个网络的流量。</p>
+</blockquote>
+<hr>
+<p>最大流</p>
+<blockquote>
+<p>对于一个给定的网络，是整个网络的流量最大的合法的流函数被称为网络的最大流，此时的流量被称为网络的最大流量。</p>
+</blockquote>
+<hr>
+<p>EK 增广路算法</p>
+<blockquote>
+<p>增广路是指从 $S$ 到 $T$ 的一条路径，流过这条路径，使得当前的流量可以增加。</p>
+</blockquote>
+<p>那么求最大流问题可以转换为不断找增广路的问题，并且图中不存在增广路时就达到了最大流。</p>
+<p>找增广路时，直接暴力从 $S$ 到 $T$ 广搜即可，从 $S$ 开始不断向外广搜，通过剩余流量大于 $0$ 的边，直到找到 $T$ 为止。</p>
+<p>找到增广路之后，记增广路上的最小剩余流量为 $f$，则最大流加上 $f$，增广路上的每一条边的剩余流量减去 $f$，增广路上的每一条边的反向边的剩余流量加上 $f$。</p>
+<p>时间复杂度 $O(n m ^ 2)$，实际运用中远远达不到。</p>
+<p>一般 $10 ^ 3 \sim 10 ^ 4$ 的数据都是可以处理的。</p>
+<hr>
+<p>Dinic 算法</p>
+<blockquote>
+<p>残量网络：在任意时刻，网络中所有节点，以及剩余容量大于 $0$ 的边构成的子图被称为残量网络。</p>
+</blockquote>
+<p>EK 每轮可能会遍历整个残量网络，但是只能找出一条增广路，很浪费。</p>
+<blockquote>
+<p>分层图：将图分层，节点深度 $d _ x$ 表示 $S$ 到 $x$ 最少需要经过的边数。</p>
+<p>在残量网络中，满足 $d _ y &#x3D; d _ x + 1 $ 的边 $( x, y )$ 构成的子图被称为分层图。</p>
+</blockquote>
+<p>显然，分层图是一张 DAG。</p>
+<p>算法流程</p>
+<p>不断重复下面的步骤，直到残量网络中 $S$ 不能到达 $T$：</p>
+<ol>
+<li>在残量网络上 BFS 求出节点层次，构造分层图。</li>
+<li>在分层图上 DFS 寻找增广路，在回溯时实时更新剩余容量。另外，每个点可以流向多条出边，同时还加入若干剪枝和优化。</li>
+</ol>
+<p>时间复杂度 $O( n ^ 2 m )$，不加剪枝和优化的复杂度是错的。</p>
+<p>一般 $10 ^ 4 \sim 10 ^ 5$ 的数据都是可以处理的。</p>
+<p>模板：<a href="https://www.luogu.com.cn/blog/154279/p3376-post">P3376</a>。</p>
+<hr>
+<p>最大流解决二分图多重匹配</p>
+<p>新建一个源点 $S$ 和一个汇点 $T$，从 $S$ 向每一个左部点 $x$ 连一条容量为 $l _ x$ 的边，从每个右部点 $y$ 向 $T$ 连一条容量为 $r _ y $ 的边。</p>
+<p>把原二分图的每条边看作从左部点到右部点连的一条容量为 $1$ 的边。</p>
+<p>那么二分图的最大多重匹配就等于该网络的最大流。</p>
+<p>Dinic 在由二分图通过上述方法构造出来的网络中时间复杂度为 $O( m \sqrt{n } )$，比匈牙利算法快，实际表现更优。</p>
+<hr>
+<p>二分图最大匹配的必须边与可行边</p>
+<blockquote>
+<p>必须边即最大匹配中必然出现该边。</p>
+<p>可行边即最大匹配中可能出现该边。</p>
+</blockquote>
+<p>下面是这两种边的判定方法。</p>
+<ol>
+<li><p>最大匹配是完备匹配</p>
+<blockquote>
+<p>把二分图中的非匹配边看作从左部向右部的有向边，匹配边看作从右部到左部的有向边，构成一张新的有向图：</p>
+<ul>
+<li>必须边 $( x, y )$：$( x , y )$ 是当前二分图的匹配边，且 $ x , y $ 在新的有向图中属于不同的强连通分量。</li>
+<li>可行边 $( x , y )$：$( x , y )$ 是当前二分图的匹配边，或 $x , y$ 在新的有向图中属于同一个强连通分量。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>最大匹配不一定是完备匹配</p>
+<blockquote>
+<ul>
+<li>必须边 $( x, y )$：$( x , y )$ 的流量为 $1$，且 $x , y$ 在残量网络上属于不同的强连通分量。</li>
+<li>可行边 $( x , y )$：$( x , y )$ 的流量为 $1$，或 $x , y$ 在残量网络上属于同一个强连通分量。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<hr>
+<p>最小割</p>
+<blockquote>
+<p>给定一个网络 $ G &#x3D; ( V , E )$，源点为 $S$，汇点为 $T$。</p>
+<p>若一个边集被删去之后，$S$ 与 $T$ 不再连通，则称该边集为网络的割。</p>
+<p>边的容量之和最小的割被称为网络的最小割。</p>
+</blockquote>
+<blockquote>
+<p>最大流最小割定理：最大流等于最小割。</p>
+</blockquote>
+<hr>
+<p>相关模型梳理</p>
+<p>点边转化</p>
+<p>例题：<a href="">UVA1660</a> 电视网络 Cable TV Network</p>
+<ul>
+<li>枚举 $S$ 与 $T$，求在剩余 $n - 2 $ 个点中最少去掉多少个点可以使 $S$ 和 $T$ 不连通，所有答案的最小值就是答案。</li>
+<li>考虑点边转化，把原来无向图中的每个点 $x$ 拆成入点 $x$ 和出点 $x ^ {\prime}$，这样在无向图中删去一个点，就相当于在网络中断开 $( x , x ^ {\prime})$。</li>
+<li>对于任意 $x \ne S,T$ 的点 $x$，连起的有向边 $( x , x ^ {\prime})$ 的容量为 $1$。</li>
+<li>对于原图中的每条边 $(x,y)$，连有向边 $( x ^ {\prime} , y)$ 和 $( y ^ {\prime} , x)$，容量为 $\infty$，即防止割断。</li>
+<li>对该图求最小割即可。</li>
+</ul>
+<p>对于点边转化，也可以将一条边截成两半，中间插入一个点，把边的各种信息反映在这个点上。</p>
+<hr>
+<p>集合划分模型</p>
+<blockquote>
+<p>有 $n$ 个物品放入两个集合 $S,T$，将物品 $i$ 放入 $S$ 会花费 $ a _ i $，放入 $T$ 会花费 $ b _ i $。</p>
+<p>同时还有若干形如 $u,v,w$ 的限制条件，表示如果 $u$ 和 $v$ 同时不在一个集合中会花费 $w$。</p>
+<p>每个物品必须且只能属于其中一个集合，求最小代价。</p>
+</blockquote>
+<p>设置源点和汇点 $S,T$，由 $S$ 连上向 $i$ 的一条边，容量为 $b _ i$（割掉改边等于划入 $T$ 集合），由 $i$ 向 $T$ 连上一条容量为 $a _ i$ 的边。</p>
+<p>对于 $u,v,w$，连容量为 $w$ 的双向边即可。</p>
+<p>最后最小割就是最小代价。</p>
+<p>例题：<a href="">P2057</a> [SHOI2007]善意的投票 &#x2F; [JLOI2010]冠军调查</p>
+<ul>
+<li>同上，不冲突的意愿连边容量为 $0$（省略掉），冲突的意愿连边容量为 $1$。</li>
+<li>$i,j$ 是朋友的话连容量为 $1$ 的双向边。</li>
+<li>求最小割即可。</li>
+</ul>
+<hr>
+<p>最小割的必须边与可行边</p>
+<p>首先求最大流，那么最小割的必须边和可行边都必须是满流。</p>
+<ul>
+<li>可行边 $( x , y )$：在残量网络中不存在 $x \to y$ 的路径。</li>
+<li>必须边 $( x , y )$：在残量网络中 $S$ 能到 $x$ 且 $y$ 能到 $T$。</li>
+</ul>
+<p>具体的算法体现，能否到达实际上就对应这是否在同一个 SCC 中。</p>
+<p>模板：<a href="">P4126</a> [AHOI2009]最小割</p>
+<ul>
+<li>第一问是询问该边是否为可行边。</li>
+<li>第二问是询问该边是否为必须边。</li>
+</ul>
+<hr>
+<p>平面图最小割</p>
+<p>在平面中，边与边可以只在顶点相交的图被称为平面图。</p>
+<p>对于一个平面图，都有其对应的对偶图：</p>
+<ul>
+<li>平面被划分出的每一个区域当作对偶图的一个点。</li>
+<li>对于每一条平面图的边，在其两边的区域对应的点之间连一条边。特别地，若两边为同一区域，加一条回边表示自环。</li>
+</ul>
+<p>这样构成的图即为原平面图的对偶图。</p>
+<p>至于为什么要这么做：</p>
+<p>平面图最小割等于对偶图最短路。</p>
+<p>模板：<a href="https://onlypath.github.io/2022/02/21/P4001/">P4001</a> [ICPC-Beijing 2006] 狼抓兔子</p>
+<hr>
+<p>费用流</p>
+<blockquote>
+<p>给定一个网络 $G &#x3D; ( V , E )$，每条边 $( x , y )$ 除了有容量限制 $c ( x , y )$，还有一个单位费用 $w ( x , y )$。</p>
+<p>当边 $( x , y )$ 的流量为 $f ( x , y )$ 的时候，有花费 $f ( x , y ) \times w ( x , y )$。</p>
+<p>该网络中总花费最小的最大流被称为最小费用最大流，总花费最大的最大流被称为最大费用最大流。</p>
+</blockquote>
+<p>Dinic 算法</p>
+<p>在 Dinic 算法求解最大流的基础上，把 BFS 改为 SPFA，把 $w( x , y )$ 当作边权，在残量网络上求最短路，即可求出最小费用最大流。</p>
+<p>需要注意的是，一条反向边的边权应该是正向边边权的相反数。</p>
+<p>此算法的时间复杂度为 $O( n m f )$，其中 $f$ 是最大流，一般不会被卡。</p>
+<p>区别于 EK 费用流的方法，这种 Dinic 求费用流的方法又被称作 Zkw 费用流。</p>
+<p>模板：<a href="">P3381</a>。</p>
+<hr>
+<p>相关模型梳理</p>
+<p>最大费用最大流解决二分图带权最大匹配</p>
+<p>类似最大流解决二分图多重匹配，每条边的权值就是它的单位费用。</p>
+<p>例题：<a href="https://onlypath.github.io/2022/02/21/P2045/">P2045</a> 方格取数加强版</p>
+<ul>
+<li>点边转化：把每个格子 $( i , j )$ 拆成一个入点，一个出点。</li>
+<li>从每个入点向对应的出点连两条有向边：一条容量为 $1$，费用为 $a _ { i , j}$；另一条容量为 $k - 1$，费用为 $0$。</li>
+<li>从 $( i , j )$ 的出点向 $( i + 1 , j ) , ( i , j + 1 )$ 的入点分别连一条容量为 $k$，费用为 $0$ 的有向边。</li>
+<li>以 $( 1 , 1 )$ 的入点为源点，$( n , n )$ 的出点为汇点，求最大费用最大流。</li>
+</ul>
+<hr>
+<p>费用提前计算</p>
+<p>例题：<a href="">P2053</a> [SCOI2007]修车</p>
+<ul>
+<li>注意到每位车主的等待时间除了和自己车的维修时间相关，还和同一位技术人员之前维修所花的时间有关，很难直观建模。</li>
+<li>但是我们发现，确定了一个人维修所在的排名，其对之后维修时间造成的影响是可以计算且固定的。</li>
+<li>考虑将费用提前计算。第 $i$ 位车主由第 $j$ 位维修人员倒数第 $k$ 个维修所花的时间作为 $k \times t _ { i , j }$。</li>
+<li>从源点向每位车主连边，容量为 $1$，费用为 $0$。</li>
+<li>每位维修人员拆成 $n$ 个点，向汇点连边，容量为 $1$，费用为 $0$。</li>
+<li>第 $i$ 位车主向第 $j$ 位维修人员拆成的第 $k$ 个点连边，容量为 $1$，费用为 $k \times t _ { i , j }$（表示倒数第 $k$ 个维修）。</li>
+<li>最后求最小费用最大流即可。</li>
+</ul>
+<hr>
+<p>动态开点</p>
+<p>例题：<a href="">P2050</a> [NOI2012] 美食节</p>
+<ul>
+<li>和上一题建图一样，但直接硬做只有 60pts。</li>
+<li>考虑动态开点，起初每人只拆一个点，每次增广的时候拆出一个新点。</li>
+</ul>
+<hr>
+<p>上下界网络流</p>
+<p>无源汇上下界可行流</p>
+<p>模板：<a href="">LOJ115</a> 无源汇有上下界可行流</p>
+<blockquote>
+<p>给定一张 $n$ 个点，$m$ 条边的网络，求一个可行解，使得第 $i$ 条边 $( x _ i , y _ i )$ 的流量介于 $[ l _ i , r _ i ]$ 之间，并且整个网络满足流量守恒。</p>
+</blockquote>
+<p>把 $r - l$ 作为容量上界，$0$ 作为容量下界，就是一般的网络流模型。</p>
+<p>然而求出实际流量是 $f _ i + l _ i$ 不一定满足流量守恒，需要调整。</p>
+<p>设 $d _ { in } (u) &#x3D; \sum _ { y _ i &#x3D; u } l _ i$，$d _ { out } ( u ) &#x3D; \sum _ { x _ i &#x3D; u } l _ i $，$d _ { u } &#x3D; d _ { in } ( u ) - d _ {out} ( u )$。</p>
+<p>新建源汇 $S,T$，$S$ 向 $d &gt; 0 $ 连边，$d &lt; 0 $ 的点向 $T$ 连边，容量为相应的 $d$。</p>
+<p>设 $s$ 为 $S$ 向外连边的流量和，显然 $s$ 也是向 $T$ 连边的流量和。</p>
+<p>在该网络上求最大流，若最大流为 $s$，则每条边的流量加下界就是原网络的一个可行流。否则无解。</p>
+<p>具体实现的时候直接在数组 $d$ 上修改。</p>
+<hr>
+<p>有源汇上下界可行流</p>
+<p>从 $T$ 到 $S$ 连一条下界为 $0$，上界为 $\infty$ 的边，把汇流入的流量转移给源流出的流量，转化为无源汇的网络。然后求解无源汇上下界可行流即可。</p>
+<hr>
+<p>有源汇上下界最大流</p>
+<p>模板：<a href="">LOJ116</a> 有源汇有上下界最大流</p>
+<p>两个方法：</p>
+<ol>
+<li><p>二分答案 $ans$，从 $T$ 到 $S$ 连一条下界为 $ans$，上界为 $\infty$ 的边，转化为无源汇网络。找到最大的 $ans$，使得该无源汇上下界网络有可行流。</p>
+</li>
+<li><p>从 $T$ 到 $S$ 连一条下界为 $0$，上界为 $\infty$ 的边，转化为无源汇网络，按照无源汇上下界可行流的做法求一次无源汇上下界超级源到超级汇的最大流。回到原网络，在上一步残量网络的基础上，求一次 $S$ 到 $T$ 的最大流。</p>
+</li>
+</ol>
+<hr>
+<p>有源汇上下界最小流</p>
+<p>模板：<a href="">LOJ117</a> 有源汇有上下界最小流</p>
+<p>咕咕咕。</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>二分图</tag>
+        <tag>网络流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>U64949</title>
+    <url>/2022/05/04/U64949/</url>
+    <content><![CDATA[<p>棋盘覆盖</p>
+<p>把棋盘黑白相间染色，然后又障碍的点当作没有。</p>
+<p>然后黑点向四周白点连边，整张图是一张二分图。</p>
+<p>我们的答案就是二分图的最大匹配。</p>
+<p>直接建立源点汇点跑最大流就好了。</p>
+<p>时间复杂度 $O( n ^ 4 )$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e6</span>,inf=(<span class="number">1ll</span>&lt;&lt;<span class="number">31</span>)<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">ll n,m,tot,s,t;</span><br><span class="line">ll ver[N+<span class="number">5</span>],nxt[N+<span class="number">5</span>],head[N+<span class="number">5</span>],ct[N+<span class="number">5</span>];</span><br><span class="line">ll d[N+<span class="number">5</span>],now[N+<span class="number">5</span>],flg[N+<span class="number">5</span>];</span><br><span class="line">ll dx[]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;,dy[]=&#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">queue&lt;ll&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">Bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(d));<span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) q.<span class="built_in">pop</span>();</span><br><span class="line">  d[s]=<span class="number">1</span>;q.<span class="built_in">push</span>(s);now[s]=head[s];</span><br><span class="line">  <span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    ll h=q.<span class="built_in">front</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">for</span>(ll i=head[h];i;i=nxt[i]) &#123;</span><br><span class="line">      <span class="keyword">if</span>(!ct[i]||d[ver[i]]) <span class="keyword">continue</span>;</span><br><span class="line">      d[ver[i]]=d[h]+<span class="number">1</span>;q.<span class="built_in">push</span>(ver[i]);now[ver[i]]=head[ver[i]];</span><br><span class="line">      <span class="keyword">if</span>(ver[i]==t) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Dinic</span><span class="params">(ll p,ll flw)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(p==t) <span class="keyword">return</span> flw;ll rst=flw,k,i;</span><br><span class="line">  <span class="keyword">for</span>(i=now[p];i&amp;&amp;rst;i=nxt[i]) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!ct[i]||d[ver[i]]!=d[p]+<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">    k=<span class="built_in">Dinic</span>(ver[i],<span class="built_in">min</span>(rst,ct[i]));</span><br><span class="line">    <span class="keyword">if</span>(!k) d[ver[i]]=<span class="number">0</span>;</span><br><span class="line">    ct[i]-=k;ct[i^<span class="number">1</span>]+=k;rst-=k;</span><br><span class="line">    <span class="keyword">if</span>(rst==<span class="number">0</span>) <span class="keyword">return</span> flw-rst;</span><br><span class="line">  &#125;</span><br><span class="line">  now[p]=i;<span class="keyword">return</span> flw-rst;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Pos</span><span class="params">(ll x,ll y)</span> </span>&#123;<span class="keyword">return</span> (x<span class="number">-1</span>)*n+y;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Addedge</span><span class="params">(ll u,ll v,ll w)</span> </span>&#123;</span><br><span class="line">  ver[++tot]=v;nxt[tot]=head[u];ct[tot]=w;head[u]=tot;</span><br><span class="line">  ver[++tot]=u;nxt[tot]=head[v];ct[tot]=<span class="number">0</span>;head[v]=tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Func_Add</span><span class="params">(ll x,ll y)</span> </span>&#123;</span><br><span class="line">  ll tmp1=<span class="built_in">Pos</span>(x,y);</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++) &#123;</span><br><span class="line">    ll xx=x+dx[i],yy=y+dy[i];ll tmp2=<span class="built_in">Pos</span>(xx,yy);</span><br><span class="line">    <span class="keyword">if</span>(xx&lt;<span class="number">1</span>||xx&gt;n||yy&lt;<span class="number">1</span>||yy&gt;n||flg[tmp2]) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="built_in">Addedge</span>(tmp1,tmp2,<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">Check</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(n&amp;<span class="number">1</span>) <span class="keyword">return</span> (x&amp;<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(((x+n<span class="number">-1</span>)/n)&amp;<span class="number">1</span>) <span class="built_in"><span class="keyword">return</span></span> (((x<span class="number">-1</span>)%n+<span class="number">1</span>)&amp;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> !(((x<span class="number">-1</span>)%n+<span class="number">1</span>)&amp;<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();s=n*n+<span class="number">1</span>;t=n*n+<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=m;i++) &#123;</span><br><span class="line">    ll x,y;x=<span class="built_in">read</span>();y=<span class="built_in">read</span>();</span><br><span class="line">    ll tmp=<span class="built_in">Pos</span>(x,y);flg[tmp]=<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  tot=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=n;j++) &#123;</span><br><span class="line">      ll tmp=<span class="built_in">Pos</span>(i,j);<span class="keyword">if</span>(<span class="built_in">Check</span>(tmp)&amp;&amp;!flg[tmp]) <span class="built_in">Func_Add</span>(i,j);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n*n;i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">Check</span>(i)&amp;&amp;!flg[i]) <span class="built_in">Addedge</span>(s,i,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(!flg[i]) <span class="built_in">Addedge</span>(i,t,<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ll maxflow=<span class="number">0</span>,flow=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">Bfs</span>()) &#123;<span class="keyword">while</span>(flow=<span class="built_in">Dinic</span>(s,inf)) maxflow+=flow;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(maxflow);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>二分图</tag>
+        <tag>网络流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>U64970</title>
+    <url>/2022/05/04/U64970/</url>
+    <content><![CDATA[<p>車的放置</p>
+<p>行与列分别作为左部和右部，某个点不能放说明该点对应的行和列不能连边。</p>
+<p>然后建好二分图之后就是跑最大流了。</p>
+<p>时间复杂度 $O(n ^ 4)$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e6</span>,inf=(<span class="number">1ll</span>&lt;&lt;<span class="number">31</span>)<span class="number">-1</span>,M=<span class="number">2e3</span>;</span><br><span class="line"></span><br><span class="line">ll n,m,s,t,T,tot;</span><br><span class="line">ll ver[N+<span class="number">5</span>],nxt[N+<span class="number">5</span>],head[N+<span class="number">5</span>],ct[N+<span class="number">5</span>];</span><br><span class="line">ll d[N+<span class="number">5</span>],now[N+<span class="number">5</span>],flg[M+<span class="number">5</span>][M+<span class="number">5</span>];</span><br><span class="line">queue&lt;ll&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">Bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(d,<span class="number">0</span>,<span class="built_in"><span class="keyword">sizeof</span></span>(d));<span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) q.<span class="built_in">pop</span>();</span><br><span class="line">  d[s]=<span class="number">1</span>;q.<span class="built_in">push</span>(s);now[s]=head[s];</span><br><span class="line">  <span class="keyword">while</span>(!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">    ll h=q.<span class="built_in">front</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="keyword">for</span>(ll i=head[h];i;i=nxt[i]) &#123;</span><br><span class="line">      <span class="keyword">if</span>(!ct[i]||d[ver[i]]) <span class="keyword">continue</span>;</span><br><span class="line">      d[ver[i]]=d[h]+<span class="number">1</span>;q.<span class="built_in">push</span>(ver[i]);now[ver[i]]=head[ver[i]];</span><br><span class="line">      <span class="keyword">if</span>(ver[i]==t) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Dinic</span><span class="params">(ll p,ll flw)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(p==t) <span class="keyword">return</span> flw;ll rst=flw,k,i;</span><br><span class="line">  <span class="keyword">for</span>(i=now[p];i&amp;&amp;rst;i=nxt[i]) &#123;</span><br><span class="line">    <span class="keyword">if</span>(!ct[i]||d[ver[i]]!=d[p]+<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">    k=<span class="built_in">Dinic</span>(ver[i],<span class="built_in">min</span>(rst,ct[i]));</span><br><span class="line">    <span class="keyword">if</span>(!k) d[ver[i]]=<span class="number">0</span>;</span><br><span class="line">    ct[i]-=k;ct[i^<span class="number">1</span>]+=k;rst-=k;</span><br><span class="line">    <span class="keyword">if</span>(rst==<span class="number">0</span>) <span class="keyword">return</span> flw-rst;</span><br><span class="line">  &#125;</span><br><span class="line">  now[p]=i;<span class="keyword">return</span> flw-rst;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Addedge</span><span class="params">(ll u,ll v,ll w)</span> </span>&#123;</span><br><span class="line">  ver[++tot]=v;nxt[tot]=head[u];ct[tot]=w;head[u]=tot;</span><br><span class="line">  ver[++tot]=u;nxt[tot]=head[v];ct[tot]=<span class="number">0</span>;head[v]=tot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  n=<span class="built_in">read</span>();m=<span class="built_in">read</span>();T=<span class="built_in">read</span>();s=n+m+<span class="number">1</span>;t=n+m+<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=T;i++) &#123;</span><br><span class="line">    ll u,v;u=<span class="built_in">read</span>();v=<span class="built_in">read</span>();flg[u][v]=<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  tot=<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(ll j=<span class="number">1</span>;j&lt;=m;j++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(!flg[i][j]) &#123;<span class="built_in">Addedge</span>(i,j+n,<span class="number">1</span>);&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=n;i++) &#123;<span class="built_in">Addedge</span>(s,i,<span class="number">1</span>);&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=m;i++) &#123;<span class="built_in">Addedge</span>(i+n,t,<span class="number">1</span>);&#125;</span><br><span class="line"></span><br><span class="line">  ll maxflow=<span class="number">0</span>,flow=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">Bfs</span>()) &#123;<span class="keyword">while</span>(flow=<span class="built_in">Dinic</span>(s,inf)) maxflow+=flow;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">write</span>(maxflow);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>二分图</tag>
+        <tag>网络流</tag>
       </tags>
   </entry>
 </search>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images__/za.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images__/32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images__/16.png">
+  <link rel="mask-icon" href="/images__/za.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"onlypath.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":false,"post_header":false,"post_body":false,"coll_header":false,"sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="二分图与网络流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bipartite_Graph_and_Network_Flow">
+<meta property="og:url" content="git://onlypath.github.io/2022/05/04/Bipartite-Graph-and-Network-Flow/index.html">
+<meta property="og:site_name" content="onlypath&#39;s Blog">
+<meta property="og:description" content="二分图与网络流">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-04T01:50:25.000Z">
+<meta property="article:modified_time" content="2022-05-04T16:05:48.149Z">
+<meta property="article:author" content="onlypath">
+<meta property="article:tag" content="二分图">
+<meta property="article:tag" content="网络流">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="git://onlypath.github.io/2022/05/04/Bipartite-Graph-and-Network-Flow/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"git://onlypath.github.io/2022/05/04/Bipartite-Graph-and-Network-Flow/","path":"2022/05/04/Bipartite-Graph-and-Network-Flow/","title":"Bipartite_Graph_and_Network_Flow"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Bipartite_Graph_and_Network_Flow | onlypath's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">onlypath's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Blossom, Wind, & You.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-导航"><a href="/guide/" rel="section"><i class="fa fa-location-arrow fa-fw"></i>导航</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div id="music163player">
+      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=270 height=320 src="//music.163.com/outchain/player?type=0&id=7346261760&auto=0&height=430">
+      </iframe>
+    </div>
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BA%8C%E5%88%86%E5%9B%BE%E7%9B%B8%E5%85%B3"><span class="nav-number">1.</span> <span class="nav-text">一、二分图相关</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%BD%91%E7%BB%9C%E6%B5%81%E7%9B%B8%E5%85%B3"><span class="nav-number">2.</span> <span class="nav-text">二、网络流相关</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="onlypath"
+      src="/images/avator.jpg">
+  <p class="site-author-name" itemprop="name">onlypath</p>
+  <div class="site-description" itemprop="description">因为抛弃了世间所有的美好，才会比任何人都更加温柔。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">182</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">112</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/onlypath" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;onlypath" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2558992311@qq.com" title="E-Mail → mailto:2558992311@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/154279" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;154279" rel="noopener" target="_blank">Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/2558992311" title="QQ → 2558992311"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="git://onlypath.github.io/2022/05/04/Bipartite-Graph-and-Network-Flow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avator.jpg">
+      <meta itemprop="name" content="onlypath">
+      <meta itemprop="description" content="因为抛弃了世间所有的美好，才会比任何人都更加温柔。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="onlypath's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Bipartite_Graph_and_Network_Flow
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-04 09:50:25" itemprop="dateCreated datePublished" datetime="2022-05-04T09:50:25+08:00">2022-05-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-05-05 00:05:48" itemprop="dateModified" datetime="2022-05-05T00:05:48+08:00">2022-05-05</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">二分图与网络流</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="一、二分图相关"><a href="#一、二分图相关" class="headerlink" title="一、二分图相关"></a>一、二分图相关</h1><p>二分图判定</p>
+<blockquote>
+<p>定理：一张无向图是二分图，当且仅当图中无奇环。</p>
+</blockquote>
+<p>实现上，黑白染色，$O(n)$ 即可完成判定。</p>
+<hr>
+<p>二分图最大匹配</p>
+<blockquote>
+<p>定义：二分图中，包含边数最多的一组匹配被称为二分图的最大匹配。</p>
+</blockquote>
+<blockquote>
+<p>增广路：连接两个非匹配点的路径，匹配边与非匹配边在该路径上交替出现。</p>
+<p>性质相关：</p>
+<ol>
+<li>长度为奇数。</li>
+<li>奇数边是非匹配边，偶数边是匹配边。</li>
+<li>路径上匹配边与非匹配边状态取反，新边集仍然是一组合法匹配，且边数增加一。</li>
+</ol>
+</blockquote>
+<p>匈牙利算法：</p>
+<ol>
+<li>初始全部非匹配。</li>
+<li>寻找增广路并取反，得到更大匹配 $S ^ {\prime}$。</li>
+<li>重复步骤 2，直到没有增广路。</li>
+</ol>
+<p>具体地，依次尝试给每一个左部点 $x$ 寻找一个右部点 $y$。</p>
+<p>$y$ 与 $x$ 匹配需要满足下列条件之一：</p>
+<ol>
+<li>$y$ 是非匹配点。</li>
+<li>$y$ 与 $x ^ {\prime}$ 匹配，但是 $x ^ {\prime}$ 出发能找到另一个 $y ^ {\prime}$ 与之匹配。</li>
+</ol>
+<p>时间复杂度 $O(nm)$。</p>
+<p>代码：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/154279/p3386-post">P3386</a>（Dinic 的板子好像忘记粘了）。</p>
+<hr>
+<p>二分图匹配模型</p>
+<blockquote>
+<p>两个要素：</p>
+<ol>
+<li>点能分成两个集合，集合内部有 $0$ 条边，简称 $0$ 要素。</li>
+<li>每个点只能与 $1$ 条匹配边相连，简称 $1$ 要素。</li>
+</ol>
+</blockquote>
+<p>例题：<a href="">U64949</a> 棋盘覆盖</p>
+<ul>
+<li>被同一骨牌覆盖的两点可以称作被一条边相连，满足 $1$ 要素。</li>
+<li>黑白相间染色整个棋盘后，颜色相同的格子不可能连边，即点可分为两部分，满足 $0$ 要素。</li>
+<li>剩下就是建图跑最大匹配。</li>
+</ul>
+<p>例题：<a href="">U64970</a> 車的放置</p>
+<ul>
+<li>每行每列只能有一个車，因此行与列是满足匹配关系，即满足 $1$ 要素。</li>
+<li>行与行直接不存在匹配关系，列与列之间也不存在匹配关系，即满足 $0$ 要素。</li>
+</ul>
+<hr>
+<p>特殊二分图匹配</p>
+<blockquote>
+<p>完备匹配：对于一张二分图 $( ( A, B ) , E )$，设其最大匹配为 $E ^ {\prime} $，若 $ | A | &#x3D; | B | &#x3D; | E ^ {\prime} |$，则称这张二分图具有完备匹配。</p>
+</blockquote>
+<blockquote>
+<p>多重匹配：对于一张二分图 $( ( A , B ) , E )$，使 $x \in A$ 最多与 $l _ x $ 条选出的边相连，$y \in B$ 最多与 $r _ y$ 条选出的边相连，则称选出的边为二分图的多重匹配。</p>
+<p>求解方法一个是拆点求二分图最大匹配，另一个是网络流。</p>
+</blockquote>
+<blockquote>
+<p>最优匹配：对于一张二分图，边有边权，所有最大匹配中边权和最大的，被称为最优匹配。</p>
+<p>求解方法一般是费用流。</p>
+</blockquote>
+<hr>
+<p>二分图最小点覆盖</p>
+<blockquote>
+<p>图的点覆盖：对于一张无向图 $( V ,E )$，若存在一个点集 $V ^ {\prime} \subseteq V$，且对于任意 $e \in E$，$e$ 至少有一个端点属于 $V ^ {\prime}$，则称 $V ^ {\prime}$ 为这张无向图的一组点覆盖。</p>
+</blockquote>
+<blockquote>
+<p>二分图最小点覆盖：在二分图中，包含点数最少的一组点覆盖被称为二分图的最小点覆盖。</p>
+</blockquote>
+<blockquote>
+<p>定理：最小点覆盖包含的点数，等于最大匹配包含的边数。</p>
+</blockquote>
+<blockquote>
+<p>一个要素：每条边有两个端点，二者至少选择一个。简称 $2$ 要素。</p>
+</blockquote>
+<p>例题：<a href="">UVA1194</a> Machine Schedule</p>
+<ul>
+<li>满足 $2$ 要素，求最小点覆盖即可。</li>
+</ul>
+<p>例题：<a href="">POJ2226</a> Muddy Fields</p>
+<ul>
+<li>分为行泥泞块和列泥泞块，然后就能分为左部点和右部点。</li>
+<li>然后每一块泥地对应一个行块和一个列快，连边。</li>
+<li>最后就是求最小点覆盖。</li>
+</ul>
+<hr>
+<p>二分图最大独立集</p>
+<blockquote>
+<p>图的独立集：对于一张无向图 $( V , E )$，若存在一个点集 $V ^ {\prime}$，满足 $V ^ {\prime} \subseteq V$，且对于任意 $p , q \in V ^ {\prime}$，都有 $ ( p , q ) \notin E$，则称 $ V ^ {\prime}$ 为这张无向图的一组独立集，包含点数最多的独立集被称为图的最大独立集。</p>
+</blockquote>
+<blockquote>
+<p>图的团：对于一张无向图 $( V , E )$，若存在一个点集 $ V ^ {\prime}$，满足 $V ^ {\prime} \subseteq V$，且对于任意 $p , q \in V ^ {\prime}$，都有 $ ( p , q ) \in E$，则称 $ V ^ {\prime}$ 为这张无向图的一组团，包含点数最多的团被称为图的最大团。</p>
+</blockquote>
+<blockquote>
+<p>定理：无向图 $G$ 的最大团，等于补图 $G ^ {\prime}$ 的最大独立集。</p>
+<p>对于一般无向图，最大团和最大独立集都是 NPC 问题。</p>
+</blockquote>
+<blockquote>
+<p>定理：对于一张 $n$ 个点的二分图，设其最小点覆盖数（最大匹配边数）为 $v$，则其最大独立集大小 $u &#x3D;  n - v$。</p>
+</blockquote>
+<p>例题：<a href="">P3355</a> 骑士共存问题</p>
+<ul>
+<li>将棋盘黑白相间染色后，容易发现日字的对角颜色必然相异，即格子可以分为两个点集，满足 $0$ 要素。</li>
+<li>将所有日字对角连边之后，求出二分图的最大独立集即可。</li>
+</ul>
+<p>例题：<a href="">P2423</a> [HEOI2012]朋友圈</p>
+<ul>
+<li>原图很难处理，补图很特殊。</li>
+<li>图的最大团等于补图的最大独立集。</li>
+<li>在补图中，$A$ 的奇数、偶数权值点分别构成完全图，$B$ 的奇数偶数权值点变为二分图的左右两部。</li>
+<li>因此 $A$ 中最多选两个点，枚举选出的点 $x,y$（或者不选），然后把 $B$ 中与 $x,y$ 有连边的点删去，在 $B$ 中剩余的点里求最大独立集即可。</li>
+</ul>
+<hr>
+<p>有向无环图的最小路径点覆盖</p>
+<blockquote>
+<p>定义：给定一张 DAG，用尽量少的不相交的简单路径覆盖所有点（也就是每个点恰被覆盖一次），这样的路径集合被称为最小路径点覆盖。</p>
+</blockquote>
+<blockquote>
+<p>拆点二分图：</p>
+<p>把每个点拆成编号 $x$ 和 $x + n$ 两个点。</p>
+<p>建立一张新的二分图，$1 \sim n$ 是左部点，$ n + 1 \sim 2n$ 是右部点。</p>
+<p>对原图的每条有向边 $( x , y )$，在二分图的左部点 $x$ 与右部点 $y + n$ 之间连边。</p>
+<p>最终得到的二分图被称为原图的拆点二分图。</p>
+</blockquote>
+<blockquote>
+<p>定理：设 DAG 的拆点二分图的最大匹配边数为 $v$，则 DAG 的最小点覆盖包含的路径条数 $u &#x3D; n - v$。</p>
+</blockquote>
+<p>模板：<a href="">P2764</a> 最小路径覆盖问题</p>
+<hr>
+<p>有向无环图的最小可重复路径点覆盖</p>
+<blockquote>
+<p>给定一张 DAG，用尽量少的可相交的简单路径覆盖所有点（也就是每个顶点可以被覆盖多次），这样的路径集合被称为有向无环图的最小可重复路径点覆盖。</p>
+</blockquote>
+<p>处理方法：将原图传递闭包，按最小路径点覆盖的处理方法处理即可。</p>
+<hr>
+<h1 id="二、网络流相关"><a href="#二、网络流相关" class="headerlink" title="二、网络流相关"></a>二、网络流相关</h1><blockquote>
+<p>一个网络 $G &#x3D; ( V ,E )$ 是一张有向图，图中的每条有向边 $( x , y ) \in E$ 都有一个给定的权值 $c ( x ,y )$，称为边的容量。特别地，若 $( x , y ) \notin E$，则 $c ( x , y ) &#x3D; 0$。图中还有两个指定的特殊节点 $S,T(S \ne T)$，分别被称为原点和汇点。</p>
+</blockquote>
+<blockquote>
+<p>设 $f( x , y )$ 是定义在节点二元组 $( x , y )$ 上的实数函数，且满足：</p>
+<ol>
+<li>容量限制：$f ( x , y ) \le c ( x , y )$。</li>
+<li>斜对称：$f ( x , y ) &#x3D; - f ( y , x )$。</li>
+<li>流量守恒：对于任意 $x \notin S, x \notin T$，都有 $\sum _ {( u , x ) \in E} f ( u , x ) &#x3D; \sum _{ ( x , v ) \in E } f( x ,v )$。</li>
+</ol>
+<p>则 $f$ 称为网络的流函数。</p>
+</blockquote>
+<blockquote>
+<p>对于 $( x , y ) \in E$，$f ( x , y)$ 称为边的流量，$c ( x , y ) - f ( x , y )$ 称为边的剩余流量。</p>
+</blockquote>
+<blockquote>
+<p>$\sum _ {( S , v ) \in E} f ( S , v )$ 称为整个网络的流量。</p>
+</blockquote>
+<hr>
+<p>最大流</p>
+<blockquote>
+<p>对于一个给定的网络，是整个网络的流量最大的合法的流函数被称为网络的最大流，此时的流量被称为网络的最大流量。</p>
+</blockquote>
+<hr>
+<p>EK 增广路算法</p>
+<blockquote>
+<p>增广路是指从 $S$ 到 $T$ 的一条路径，流过这条路径，使得当前的流量可以增加。</p>
+</blockquote>
+<p>那么求最大流问题可以转换为不断找增广路的问题，并且图中不存在增广路时就达到了最大流。</p>
+<p>找增广路时，直接暴力从 $S$ 到 $T$ 广搜即可，从 $S$ 开始不断向外广搜，通过剩余流量大于 $0$ 的边，直到找到 $T$ 为止。</p>
+<p>找到增广路之后，记增广路上的最小剩余流量为 $f$，则最大流加上 $f$，增广路上的每一条边的剩余流量减去 $f$，增广路上的每一条边的反向边的剩余流量加上 $f$。</p>
+<p>时间复杂度 $O(n m ^ 2)$，实际运用中远远达不到。</p>
+<p>一般 $10 ^ 3 \sim 10 ^ 4$ 的数据都是可以处理的。</p>
+<hr>
+<p>Dinic 算法</p>
+<blockquote>
+<p>残量网络：在任意时刻，网络中所有节点，以及剩余容量大于 $0$ 的边构成的子图被称为残量网络。</p>
+</blockquote>
+<p>EK 每轮可能会遍历整个残量网络，但是只能找出一条增广路，很浪费。</p>
+<blockquote>
+<p>分层图：将图分层，节点深度 $d _ x$ 表示 $S$ 到 $x$ 最少需要经过的边数。</p>
+<p>在残量网络中，满足 $d _ y &#x3D; d _ x + 1 $ 的边 $( x, y )$ 构成的子图被称为分层图。</p>
+</blockquote>
+<p>显然，分层图是一张 DAG。</p>
+<p>算法流程</p>
+<p>不断重复下面的步骤，直到残量网络中 $S$ 不能到达 $T$：</p>
+<ol>
+<li>在残量网络上 BFS 求出节点层次，构造分层图。</li>
+<li>在分层图上 DFS 寻找增广路，在回溯时实时更新剩余容量。另外，每个点可以流向多条出边，同时还加入若干剪枝和优化。</li>
+</ol>
+<p>时间复杂度 $O( n ^ 2 m )$，不加剪枝和优化的复杂度是错的。</p>
+<p>一般 $10 ^ 4 \sim 10 ^ 5$ 的数据都是可以处理的。</p>
+<p>模板：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/154279/p3376-post">P3376</a>。</p>
+<hr>
+<p>最大流解决二分图多重匹配</p>
+<p>新建一个源点 $S$ 和一个汇点 $T$，从 $S$ 向每一个左部点 $x$ 连一条容量为 $l _ x$ 的边，从每个右部点 $y$ 向 $T$ 连一条容量为 $r _ y $ 的边。</p>
+<p>把原二分图的每条边看作从左部点到右部点连的一条容量为 $1$ 的边。</p>
+<p>那么二分图的最大多重匹配就等于该网络的最大流。</p>
+<p>Dinic 在由二分图通过上述方法构造出来的网络中时间复杂度为 $O( m \sqrt{n } )$，比匈牙利算法快，实际表现更优。</p>
+<hr>
+<p>二分图最大匹配的必须边与可行边</p>
+<blockquote>
+<p>必须边即最大匹配中必然出现该边。</p>
+<p>可行边即最大匹配中可能出现该边。</p>
+</blockquote>
+<p>下面是这两种边的判定方法。</p>
+<ol>
+<li><p>最大匹配是完备匹配</p>
+<blockquote>
+<p>把二分图中的非匹配边看作从左部向右部的有向边，匹配边看作从右部到左部的有向边，构成一张新的有向图：</p>
+<ul>
+<li>必须边 $( x, y )$：$( x , y )$ 是当前二分图的匹配边，且 $ x , y $ 在新的有向图中属于不同的强连通分量。</li>
+<li>可行边 $( x , y )$：$( x , y )$ 是当前二分图的匹配边，或 $x , y$ 在新的有向图中属于同一个强连通分量。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>最大匹配不一定是完备匹配</p>
+<blockquote>
+<ul>
+<li>必须边 $( x, y )$：$( x , y )$ 的流量为 $1$，且 $x , y$ 在残量网络上属于不同的强连通分量。</li>
+<li>可行边 $( x , y )$：$( x , y )$ 的流量为 $1$，或 $x , y$ 在残量网络上属于同一个强连通分量。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<hr>
+<p>最小割</p>
+<blockquote>
+<p>给定一个网络 $ G &#x3D; ( V , E )$，源点为 $S$，汇点为 $T$。</p>
+<p>若一个边集被删去之后，$S$ 与 $T$ 不再连通，则称该边集为网络的割。</p>
+<p>边的容量之和最小的割被称为网络的最小割。</p>
+</blockquote>
+<blockquote>
+<p>最大流最小割定理：最大流等于最小割。</p>
+</blockquote>
+<hr>
+<p>相关模型梳理</p>
+<p>点边转化</p>
+<p>例题：<a href="">UVA1660</a> 电视网络 Cable TV Network</p>
+<ul>
+<li>枚举 $S$ 与 $T$，求在剩余 $n - 2 $ 个点中最少去掉多少个点可以使 $S$ 和 $T$ 不连通，所有答案的最小值就是答案。</li>
+<li>考虑点边转化，把原来无向图中的每个点 $x$ 拆成入点 $x$ 和出点 $x ^ {\prime}$，这样在无向图中删去一个点，就相当于在网络中断开 $( x , x ^ {\prime})$。</li>
+<li>对于任意 $x \ne S,T$ 的点 $x$，连起的有向边 $( x , x ^ {\prime})$ 的容量为 $1$。</li>
+<li>对于原图中的每条边 $(x,y)$，连有向边 $( x ^ {\prime} , y)$ 和 $( y ^ {\prime} , x)$，容量为 $\infty$，即防止割断。</li>
+<li>对该图求最小割即可。</li>
+</ul>
+<p>对于点边转化，也可以将一条边截成两半，中间插入一个点，把边的各种信息反映在这个点上。</p>
+<hr>
+<p>集合划分模型</p>
+<blockquote>
+<p>有 $n$ 个物品放入两个集合 $S,T$，将物品 $i$ 放入 $S$ 会花费 $ a _ i $，放入 $T$ 会花费 $ b _ i $。</p>
+<p>同时还有若干形如 $u,v,w$ 的限制条件，表示如果 $u$ 和 $v$ 同时不在一个集合中会花费 $w$。</p>
+<p>每个物品必须且只能属于其中一个集合，求最小代价。</p>
+</blockquote>
+<p>设置源点和汇点 $S,T$，由 $S$ 连上向 $i$ 的一条边，容量为 $b _ i$（割掉改边等于划入 $T$ 集合），由 $i$ 向 $T$ 连上一条容量为 $a _ i$ 的边。</p>
+<p>对于 $u,v,w$，连容量为 $w$ 的双向边即可。</p>
+<p>最后最小割就是最小代价。</p>
+<p>例题：<a href="">P2057</a> [SHOI2007]善意的投票 &#x2F; [JLOI2010]冠军调查</p>
+<ul>
+<li>同上，不冲突的意愿连边容量为 $0$（省略掉），冲突的意愿连边容量为 $1$。</li>
+<li>$i,j$ 是朋友的话连容量为 $1$ 的双向边。</li>
+<li>求最小割即可。</li>
+</ul>
+<hr>
+<p>最小割的必须边与可行边</p>
+<p>首先求最大流，那么最小割的必须边和可行边都必须是满流。</p>
+<ul>
+<li>可行边 $( x , y )$：在残量网络中不存在 $x \to y$ 的路径。</li>
+<li>必须边 $( x , y )$：在残量网络中 $S$ 能到 $x$ 且 $y$ 能到 $T$。</li>
+</ul>
+<p>具体的算法体现，能否到达实际上就对应这是否在同一个 SCC 中。</p>
+<p>模板：<a href="">P4126</a> [AHOI2009]最小割</p>
+<ul>
+<li>第一问是询问该边是否为可行边。</li>
+<li>第二问是询问该边是否为必须边。</li>
+</ul>
+<hr>
+<p>平面图最小割</p>
+<p>在平面中，边与边可以只在顶点相交的图被称为平面图。</p>
+<p>对于一个平面图，都有其对应的对偶图：</p>
+<ul>
+<li>平面被划分出的每一个区域当作对偶图的一个点。</li>
+<li>对于每一条平面图的边，在其两边的区域对应的点之间连一条边。特别地，若两边为同一区域，加一条回边表示自环。</li>
+</ul>
+<p>这样构成的图即为原平面图的对偶图。</p>
+<p>至于为什么要这么做：</p>
+<p>平面图最小割等于对偶图最短路。</p>
+<p>模板：<a href="https://onlypath.github.io/2022/02/21/P4001/">P4001</a> [ICPC-Beijing 2006] 狼抓兔子</p>
+<hr>
+<p>费用流</p>
+<blockquote>
+<p>给定一个网络 $G &#x3D; ( V , E )$，每条边 $( x , y )$ 除了有容量限制 $c ( x , y )$，还有一个单位费用 $w ( x , y )$。</p>
+<p>当边 $( x , y )$ 的流量为 $f ( x , y )$ 的时候，有花费 $f ( x , y ) \times w ( x , y )$。</p>
+<p>该网络中总花费最小的最大流被称为最小费用最大流，总花费最大的最大流被称为最大费用最大流。</p>
+</blockquote>
+<p>Dinic 算法</p>
+<p>在 Dinic 算法求解最大流的基础上，把 BFS 改为 SPFA，把 $w( x , y )$ 当作边权，在残量网络上求最短路，即可求出最小费用最大流。</p>
+<p>需要注意的是，一条反向边的边权应该是正向边边权的相反数。</p>
+<p>此算法的时间复杂度为 $O( n m f )$，其中 $f$ 是最大流，一般不会被卡。</p>
+<p>区别于 EK 费用流的方法，这种 Dinic 求费用流的方法又被称作 Zkw 费用流。</p>
+<p>模板：<a href="">P3381</a>。</p>
+<hr>
+<p>相关模型梳理</p>
+<p>最大费用最大流解决二分图带权最大匹配</p>
+<p>类似最大流解决二分图多重匹配，每条边的权值就是它的单位费用。</p>
+<p>例题：<a href="https://onlypath.github.io/2022/02/21/P2045/">P2045</a> 方格取数加强版</p>
+<ul>
+<li>点边转化：把每个格子 $( i , j )$ 拆成一个入点，一个出点。</li>
+<li>从每个入点向对应的出点连两条有向边：一条容量为 $1$，费用为 $a _ { i , j}$；另一条容量为 $k - 1$，费用为 $0$。</li>
+<li>从 $( i , j )$ 的出点向 $( i + 1 , j ) , ( i , j + 1 )$ 的入点分别连一条容量为 $k$，费用为 $0$ 的有向边。</li>
+<li>以 $( 1 , 1 )$ 的入点为源点，$( n , n )$ 的出点为汇点，求最大费用最大流。</li>
+</ul>
+<hr>
+<p>费用提前计算</p>
+<p>例题：<a href="">P2053</a> [SCOI2007]修车</p>
+<ul>
+<li>注意到每位车主的等待时间除了和自己车的维修时间相关，还和同一位技术人员之前维修所花的时间有关，很难直观建模。</li>
+<li>但是我们发现，确定了一个人维修所在的排名，其对之后维修时间造成的影响是可以计算且固定的。</li>
+<li>考虑将费用提前计算。第 $i$ 位车主由第 $j$ 位维修人员倒数第 $k$ 个维修所花的时间作为 $k \times t _ { i , j }$。</li>
+<li>从源点向每位车主连边，容量为 $1$，费用为 $0$。</li>
+<li>每位维修人员拆成 $n$ 个点，向汇点连边，容量为 $1$，费用为 $0$。</li>
+<li>第 $i$ 位车主向第 $j$ 位维修人员拆成的第 $k$ 个点连边，容量为 $1$，费用为 $k \times t _ { i , j }$（表示倒数第 $k$ 个维修）。</li>
+<li>最后求最小费用最大流即可。</li>
+</ul>
+<hr>
+<p>动态开点</p>
+<p>例题：<a href="">P2050</a> [NOI2012] 美食节</p>
+<ul>
+<li>和上一题建图一样，但直接硬做只有 60pts。</li>
+<li>考虑动态开点，起初每人只拆一个点，每次增广的时候拆出一个新点。</li>
+</ul>
+<hr>
+<p>上下界网络流</p>
+<p>无源汇上下界可行流</p>
+<p>模板：<a href="">LOJ115</a> 无源汇有上下界可行流</p>
+<blockquote>
+<p>给定一张 $n$ 个点，$m$ 条边的网络，求一个可行解，使得第 $i$ 条边 $( x _ i , y _ i )$ 的流量介于 $[ l _ i , r _ i ]$ 之间，并且整个网络满足流量守恒。</p>
+</blockquote>
+<p>把 $r - l$ 作为容量上界，$0$ 作为容量下界，就是一般的网络流模型。</p>
+<p>然而求出实际流量是 $f _ i + l _ i$ 不一定满足流量守恒，需要调整。</p>
+<p>设 $d _ { in } (u) &#x3D; \sum _ { y _ i &#x3D; u } l _ i$，$d _ { out } ( u ) &#x3D; \sum _ { x _ i &#x3D; u } l _ i $，$d _ { u } &#x3D; d _ { in } ( u ) - d _ {out} ( u )$。</p>
+<p>新建源汇 $S,T$，$S$ 向 $d &gt; 0 $ 连边，$d &lt; 0 $ 的点向 $T$ 连边，容量为相应的 $d$。</p>
+<p>设 $s$ 为 $S$ 向外连边的流量和，显然 $s$ 也是向 $T$ 连边的流量和。</p>
+<p>在该网络上求最大流，若最大流为 $s$，则每条边的流量加下界就是原网络的一个可行流。否则无解。</p>
+<p>具体实现的时候直接在数组 $d$ 上修改。</p>
+<hr>
+<p>有源汇上下界可行流</p>
+<p>从 $T$ 到 $S$ 连一条下界为 $0$，上界为 $\infty$ 的边，把汇流入的流量转移给源流出的流量，转化为无源汇的网络。然后求解无源汇上下界可行流即可。</p>
+<hr>
+<p>有源汇上下界最大流</p>
+<p>模板：<a href="">LOJ116</a> 有源汇有上下界最大流</p>
+<p>两个方法：</p>
+<ol>
+<li><p>二分答案 $ans$，从 $T$ 到 $S$ 连一条下界为 $ans$，上界为 $\infty$ 的边，转化为无源汇网络。找到最大的 $ans$，使得该无源汇上下界网络有可行流。</p>
+</li>
+<li><p>从 $T$ 到 $S$ 连一条下界为 $0$，上界为 $\infty$ 的边，转化为无源汇网络，按照无源汇上下界可行流的做法求一次无源汇上下界超级源到超级汇的最大流。回到原网络，在上一步残量网络的基础上，求一次 $S$ 到 $T$ 的最大流。</p>
+</li>
+</ol>
+<hr>
+<p>有源汇上下界最小流</p>
+<p>模板：<a href="">LOJ117</a> 有源汇有上下界最小流</p>
+<p>咕咕咕。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/" rel="tag"># 二分图</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" rel="tag"># 网络流</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/03/P4103/" rel="prev" title="P4103">
+                  <i class="fa fa-chevron-left"></i> P4103
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/04/U64949/" rel="next" title="U64949">
+                  U64949 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2021 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-feather-alt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">onlypath</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"onlypath","repo":"BlogComments","client_id":"d64c0e8e1fb20c2a422b","client_secret":"76356a52c5e53ad7fa5664e78d7519547fbd9b9c","admin_user":["onlypath"],"distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"405b3452ba2d01204fc22ff67683d573"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
