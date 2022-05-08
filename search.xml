@@ -2308,6 +2308,33 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <title>Farewell</title>
     <url>/2022/05/08/Farewell/</url>
     <content><![CDATA[<p>不想说太多话。</p>
+<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>失眠了。</p>
+<p>早上随便选了一场 Div2 尝试 vp，做到 D 之后就弃了。</p>
+<p>下午到一中试机，敲了个 NTT 和 SA 的板子。</p>
+<p>因为太长时间没有用 Linux，试机的时候出了点小问题，不过好在最后自己解决掉了。</p>
+<p>从试机结束到晚上一直在摸鱼——打东方，看动画片，水知乎。。。</p>
+<p>一直摸到第二天的零点多。。。</p>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>睡觉的时候比昨天舒服多了。</p>
+<p>摸鱼就像给自己打了一剂麻醉针，把乱七八糟的事忘得干干净净。</p>
+<p>毕竟满脑子都是游戏和动画的时候，根本没有多余的思考空间用来精神内耗，很快就能睡着。。。</p>
+<p>起来的时候感觉精神状态好多了（虽然在旁人眼里还是有些松松垮垮吧）。</p>
+<p>不知道为什么，或许是由于过度摸鱼之后精神的放空，或许是由于过度内耗后短暂的虚无。</p>
+<p>我莫名地得到了那三个问题的答案。</p>
+<p>其实，我想要的可能并不是答案本身。</p>
+<p>我想要的，不过是一个精神的依靠罢了。</p>
+<p>下午开始考试。</p>
+<p>看第一题，感觉很怪异，大概想到是若干个环，然后求和一个关于 $\operatorname{lcm}$ 的式子。</p>
+<p>复杂度大概能控制在 $O(m^2n\log n)$ 这个样子，但是发现 $\operatorname{lcm}$ 好像会很大，感觉不稳，但是不会其他方法，开了个 <code>__int128</code>。。。</p>
+<p>然后第二题一看感觉可能是个树上倍增之类的题。但感觉想不出来，写了个 $O(nm)$ 的暴力就走了。</p>
+<p>第三题不知道怎么计数。写了个搜索走了。</p>
+<p>第四题感觉很不可做，时间也不是很多了。然后我看 C 性质比较可做，就尝试冲这个。</p>
+<p>大概是把深度为 $2$ 的节点分一分什么的，然后排序再求一求和。</p>
+<p>大部分输出都是对的，但是一部分比答案大很多不知道为什么。</p>
+<p>最后一分钟没调出来，无所谓了。</p>
+<p>出考场之后看到源代码，发现第三题文件名打错了。</p>
+<p>然后说是不能改，我也没办法，算了吧。</p>
+<p>题都是好题，就是把我区分下去了。</p>
+<p>回去学文化课了。</p>
 ]]></content>
       <categories>
         <category>杂记</category>
@@ -2929,6 +2956,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <content><![CDATA[<p>干货向。。。</p>
 <h1 id="0x01-基础使用"><a href="#0x01-基础使用" class="headerlink" title="0x01 基础使用"></a>0x01 基础使用</h1><p><code>Ctrl+Alt+T</code> 召唤终端。</p>
 <p>新建文件的指令是 <code>touch+文件名</code> 。</p>
+<p><code>time ./code</code> 可以在运行的同时显示运行所需的时间。</p>
+<p>请注意，这个功能只能在 Linux 下使用。</p>
+<p>而且要注意 Linux 下有特殊意义的不是 <code>\</code> 而是 <code>/</code>。</p>
 <h1 id="0x02-VSCode-的使用技巧"><a href="#0x02-VSCode-的使用技巧" class="headerlink" title="0x02 VSCode 的使用技巧"></a>0x02 VSCode 的使用技巧</h1><p>现在给一些在英文环境下使用 VSC 的指北。</p>
 <ol>
 <li><p>预先配置：</p>
@@ -2945,7 +2975,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 <li><p>终端打开：</p>
 <p> 有两种方法，一种是 <code>Ctrl+~</code> 可以打开 VSC 内的一个控制系统的终端，不好的地方在于需要 <code>cd</code> 文件夹，除非考场上直接把选手文件夹建在主文件夹，这个东西有一点费事。</p>
-<p> 还有一种是直接 <code>Ctrl+Shift+C</code>，直接打开一个文件下的终端，比较爽。</p>
+<p> 还有一种是直接 <code>Ctrl+Shift+C</code>，直接打开一个文件下的终端，比较爽（很可惜 Linux 下没法使用）。</p>
 </li>
 <li><p>行内操作：</p>
 <p> 删除当前行：<code>Ctrl+Shift+K</code>。</p>
@@ -2987,7 +3017,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 </ol>
 <h1 id="0x03-gdb-的相关使用"><a href="#0x03-gdb-的相关使用" class="headerlink" title="0x03 gdb 的相关使用"></a>0x03 gdb 的相关使用</h1><p>然后再补充一些指令，以及 gdb 的使用。</p>
-<p><code>time ./code</code> 可以在运行的同时显示运行所需的时间。</p>
 <p>gdb 最强大的地方在于可以快速找到段错误（除 0，数组越界，爆栈等），我们可以直接在 gdb 下运行，然后就可以直接给你返回出错的地方。</p>
 <p>然后还有一些它的调试功能。</p>
 <p>在编译时使用该指令：</p>
@@ -3439,7 +3468,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 </li>
 </ul>
 </li>
-<li><p>特殊题型（看到 yjp 的时候，基本就无人生还了）</p>
+<li><p>特殊题型</p>
 <ul>
 <li>提交答案题</li>
 <li>交互题</li>
@@ -8426,6 +8455,30 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>思维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CF540D</title>
+    <url>/2022/05/07/CF540D/</url>
+    <content><![CDATA[<p>Bad Luck Island</p>
+<p>如果把问题看作简单抽球，算出来的概率方程会把 $f( i , j , k )$ 消掉。。。</p>
+<p>并不知道是为什么，这题好像要把抽到相同种类的球的概率去掉才能正常计算。</p>
+<p>定义 $f ( i , j ,  k )$ 表示最后剩下 $i$ 个石头，$j$ 个剪刀，$k$ 个布的概率。</p>
+<p>显然 $f ( r , s , p ) &#x3D; 1 $，$i,j,k$ 中任意数目大于其对应上限的概率都是 $0$。</p>
+<p>然后直接转移就好了：</p>
+<h1 id="f-i-j-k"><a href="#f-i-j-k" class="headerlink" title="$$ f( i , j , k ) "></a>$$ f( i , j , k ) </h1><p>\dfrac {2( i + 1 ) k } { t + 2 j + 2 k } f ( i + 1 , j , k )</p>
+<ul>
+<li>\dfrac{ 2 ( j + 1 ) i } { t + 2 i + 2 k } f ( i , j + 1 , k ) + \dfrac { 2 ( k + 1 ) j } { t + 2 i + 2 j } f ( i , j , k + 1 )<br>$$</li>
+</ul>
+<p>这里直接记忆化就行了，最后把单个物种能存活的概率累加起来就是答案。</p>
+<p>时间复杂度 $O( n ^ 3 )$。</p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ld long double</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e2</span>;</span><br><span class="line"></span><br><span class="line">ll r,s,p;</span><br><span class="line">ld ansr,anss,ansp;</span><br><span class="line">ld f[N+<span class="number">5</span>][N+<span class="number">5</span>][N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[N+<span class="number">5</span>][N+<span class="number">5</span>][N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ld <span class="title">DP</span><span class="params">(ll i,ll j,ll k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(i&gt;r||j&gt;s||k&gt;p) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span>(vis[i][j][k]) <span class="keyword">return</span> f[i][j][k];vis[i][j][k]=<span class="number">1</span>;</span><br><span class="line">  ll t=<span class="number">2</span>*(i*j+j*k+i*k);ld res=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span>(t+<span class="number">2</span>*(j+k)&gt;<span class="number">0</span>) res+=(<span class="number">2</span>*i*k+<span class="number">2</span>*k)/(ld)(t+<span class="number">2</span>*(j+k))*<span class="built_in">DP</span>(i+<span class="number">1</span>,j,k);</span><br><span class="line">  <span class="keyword">if</span>(t+<span class="number">2</span>*(i+k)&gt;<span class="number">0</span>) res+=(<span class="number">2</span>*i*j+<span class="number">2</span>*i)/(ld)(t+<span class="number">2</span>*(i+k))*<span class="built_in">DP</span>(i,j+<span class="number">1</span>,k);</span><br><span class="line">  <span class="keyword">if</span>(t+<span class="number">2</span>*(i+j)&gt;<span class="number">0</span>) res+=(<span class="number">2</span>*k*j+<span class="number">2</span>*j)/(ld)(t+<span class="number">2</span>*(i+j))*<span class="built_in">DP</span>(i,j,k+<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> f[i][j][k]=res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  r=<span class="built_in">read</span>();s=<span class="built_in">read</span>();p=<span class="built_in">read</span>();</span><br><span class="line">  f[r][s][p]=<span class="number">1</span>;vis[r][s][p]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=r;i++) &#123;ansr+=<span class="built_in">DP</span>(i,<span class="number">0</span>,<span class="number">0</span>);&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=s;i++) &#123;anss+=<span class="built_in">DP</span>(<span class="number">0</span>,i,<span class="number">0</span>);&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=p;i++) &#123;ansp+=<span class="built_in">DP</span>(<span class="number">0</span>,<span class="number">0</span>,i);&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%.12Lf %.12Lf %.12Lf&quot;</span>,ansr,anss,ansp);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>PTS</category>
+      </categories>
+      <tags>
+        <tag>DP</tag>
       </tags>
   </entry>
 </search>

@@ -28,7 +28,7 @@
 <meta property="og:description" content="关于 NOI Linux 的一些个人配置和使用技巧（掺杂了 Windows 下环境变量的设置之类的东西）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-27T14:43:12.000Z">
-<meta property="article:modified_time" content="2022-05-04T13:53:19.479Z">
+<meta property="article:modified_time" content="2022-05-07T09:53:06.488Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="NOI-Linux">
 <meta property="article:tag" content="VScode">
@@ -176,7 +176,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">188</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -271,7 +271,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-05-04 21:53:19" itemprop="dateModified" datetime="2022-05-04T21:53:19+08:00">2022-05-04</time>
+        <time title="修改时间：2022-05-07 17:53:06" itemprop="dateModified" datetime="2022-05-07T17:53:06+08:00">2022-05-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -297,6 +297,9 @@
         <p>干货向。。。</p>
 <h1 id="0x01-基础使用"><a href="#0x01-基础使用" class="headerlink" title="0x01 基础使用"></a>0x01 基础使用</h1><p><code>Ctrl+Alt+T</code> 召唤终端。</p>
 <p>新建文件的指令是 <code>touch+文件名</code> 。</p>
+<p><code>time ./code</code> 可以在运行的同时显示运行所需的时间。</p>
+<p>请注意，这个功能只能在 Linux 下使用。</p>
+<p>而且要注意 Linux 下有特殊意义的不是 <code>\</code> 而是 <code>/</code>。</p>
 <h1 id="0x02-VSCode-的使用技巧"><a href="#0x02-VSCode-的使用技巧" class="headerlink" title="0x02 VSCode 的使用技巧"></a>0x02 VSCode 的使用技巧</h1><p>现在给一些在英文环境下使用 VSC 的指北。</p>
 <ol>
 <li><p>预先配置：</p>
@@ -313,7 +316,7 @@
 </li>
 <li><p>终端打开：</p>
 <p> 有两种方法，一种是 <code>Ctrl+~</code> 可以打开 VSC 内的一个控制系统的终端，不好的地方在于需要 <code>cd</code> 文件夹，除非考场上直接把选手文件夹建在主文件夹，这个东西有一点费事。</p>
-<p> 还有一种是直接 <code>Ctrl+Shift+C</code>，直接打开一个文件下的终端，比较爽。</p>
+<p> 还有一种是直接 <code>Ctrl+Shift+C</code>，直接打开一个文件下的终端，比较爽（很可惜 Linux 下没法使用）。</p>
 </li>
 <li><p>行内操作：</p>
 <p> 删除当前行：<code>Ctrl+Shift+K</code>。</p>
@@ -355,7 +358,6 @@
 </li>
 </ol>
 <h1 id="0x03-gdb-的相关使用"><a href="#0x03-gdb-的相关使用" class="headerlink" title="0x03 gdb 的相关使用"></a>0x03 gdb 的相关使用</h1><p>然后再补充一些指令，以及 gdb 的使用。</p>
-<p><code>time ./code</code> 可以在运行的同时显示运行所需的时间。</p>
 <p>gdb 最强大的地方在于可以快速找到段错误（除 0，数组越界，爆栈等），我们可以直接在 gdb 下运行，然后就可以直接给你返回出错的地方。</p>
 <p>然后还有一些它的调试功能。</p>
 <p>在编译时使用该指令：</p>

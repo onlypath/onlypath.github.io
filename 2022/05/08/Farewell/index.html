@@ -28,7 +28,7 @@
 <meta property="og:description" content="AHOI2022 游记">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-08T10:00:00.000Z">
-<meta property="article:modified_time" content="2022-05-05T15:37:43.627Z">
+<meta property="article:modified_time" content="2022-05-08T10:34:59.258Z">
 <meta property="article:author" content="onlypath">
 <meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@
       </iframe>
     </div>
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -158,6 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-0"><span class="nav-number">1.</span> <span class="nav-text">Day 0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Day-1"><span class="nav-number">2.</span> <span class="nav-text">Day 1</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -172,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">188</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -259,16 +260,10 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-05-08 18:00:00" itemprop="dateCreated datePublished" datetime="2022-05-08T18:00:00+08:00">2022-05-08</time>
+      <time title="创建时间：2022-05-08 18:00:00 / 修改时间：18:34:59" itemprop="dateCreated datePublished" datetime="2022-05-08T18:00:00+08:00">2022-05-08</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-05-05 23:37:43" itemprop="dateModified" datetime="2022-05-05T23:37:43+08:00">2022-05-05</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -291,6 +286,33 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>不想说太多话。</p>
+<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>失眠了。</p>
+<p>早上随便选了一场 Div2 尝试 vp，做到 D 之后就弃了。</p>
+<p>下午到一中试机，敲了个 NTT 和 SA 的板子。</p>
+<p>因为太长时间没有用 Linux，试机的时候出了点小问题，不过好在最后自己解决掉了。</p>
+<p>从试机结束到晚上一直在摸鱼——打东方，看动画片，水知乎。。。</p>
+<p>一直摸到第二天的零点多。。。</p>
+<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>睡觉的时候比昨天舒服多了。</p>
+<p>摸鱼就像给自己打了一剂麻醉针，把乱七八糟的事忘得干干净净。</p>
+<p>毕竟满脑子都是游戏和动画的时候，根本没有多余的思考空间用来精神内耗，很快就能睡着。。。</p>
+<p>起来的时候感觉精神状态好多了（虽然在旁人眼里还是有些松松垮垮吧）。</p>
+<p>不知道为什么，或许是由于过度摸鱼之后精神的放空，或许是由于过度内耗后短暂的虚无。</p>
+<p>我莫名地得到了那三个问题的答案。</p>
+<p>其实，我想要的可能并不是答案本身。</p>
+<p>我想要的，不过是一个精神的依靠罢了。</p>
+<p>下午开始考试。</p>
+<p>看第一题，感觉很怪异，大概想到是若干个环，然后求和一个关于 $\operatorname{lcm}$ 的式子。</p>
+<p>复杂度大概能控制在 $O(m^2n\log n)$ 这个样子，但是发现 $\operatorname{lcm}$ 好像会很大，感觉不稳，但是不会其他方法，开了个 <code>__int128</code>。。。</p>
+<p>然后第二题一看感觉可能是个树上倍增之类的题。但感觉想不出来，写了个 $O(nm)$ 的暴力就走了。</p>
+<p>第三题不知道怎么计数。写了个搜索走了。</p>
+<p>第四题感觉很不可做，时间也不是很多了。然后我看 C 性质比较可做，就尝试冲这个。</p>
+<p>大概是把深度为 $2$ 的节点分一分什么的，然后排序再求一求和。</p>
+<p>大部分输出都是对的，但是一部分比答案大很多不知道为什么。</p>
+<p>最后一分钟没调出来，无所谓了。</p>
+<p>出考场之后看到源代码，发现第三题文件名打错了。</p>
+<p>然后说是不能改，我也没办法，算了吧。</p>
+<p>题都是好题，就是把我区分下去了。</p>
+<p>回去学文化课了。</p>
 
     </div>
 
@@ -307,8 +329,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/05/06/CF796D/" rel="prev" title="CF796D">
-                  <i class="fa fa-chevron-left"></i> CF796D
+                <a href="/2022/05/07/CF540D/" rel="prev" title="CF540D">
+                  <i class="fa fa-chevron-left"></i> CF540D
                 </a>
             </div>
             <div class="post-nav-item">
