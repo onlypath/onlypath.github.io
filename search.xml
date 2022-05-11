@@ -2309,7 +2309,7 @@ But I finally decided to walk ahead and sing the life as the brightest light.
     <url>/2022/05/08/Farewell/</url>
     <content><![CDATA[<p>不想说太多话。</p>
 <h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>失眠了。</p>
-<p>早上随便选了一场 Div2 尝试 vp，做到 D 之后就弃了。</p>
+<p>早上随便选了一场 Div2 尝试 vp，做完 D 之后就弃了。</p>
 <p>下午到一中试机，敲了个 NTT 和 SA 的板子。</p>
 <p>因为太长时间没有用 Linux，试机的时候出了点小问题，不过好在最后自己解决掉了。</p>
 <p>从试机结束到晚上一直在摸鱼——打东方，看动画片，水知乎。。。</p>
@@ -2317,11 +2317,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>睡觉的时候比昨天舒服多了。</p>
 <p>摸鱼就像给自己打了一剂麻醉针，把乱七八糟的事忘得干干净净。</p>
 <p>毕竟满脑子都是游戏和动画的时候，根本没有多余的思考空间用来精神内耗，很快就能睡着。。。</p>
-<p>起来的时候感觉精神状态好多了（虽然在旁人眼里还是有些松松垮垮吧）。</p>
-<p>不知道为什么，或许是由于过度摸鱼之后精神的放空，或许是由于过度内耗后短暂的虚无。</p>
-<p>我莫名地得到了那三个问题的答案。</p>
-<p>其实，我想要的可能并不是答案本身。</p>
-<p>我想要的，不过是一个精神的依靠罢了。</p>
 <p>下午开始考试。</p>
 <p>看第一题，感觉很怪异，大概想到是若干个环，然后求和一个关于 $\operatorname{lcm}$ 的式子。</p>
 <p>复杂度大概能控制在 $O(m^2n\log n)$ 这个样子，但是发现 $\operatorname{lcm}$ 好像会很大，感觉不稳，但是不会其他方法，开了个 <code>__int128</code>。。。</p>
@@ -2334,7 +2329,16 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>出考场之后看到源代码，发现第三题文件名打错了。</p>
 <p>然后说是不能改，我也没办法，算了吧。</p>
 <p>题都是好题，就是把我区分下去了。</p>
-<p>回去学文化课了。</p>
+<p>要滚回去学文化课了。</p>
+<p>UPD：省队变 ASDFZ 校队了，真是可喜可贺可喜可贺。</p>
+<p>祝 ASDFZ 全员集训队，力争取得 AH 历年团体最好成绩。</p>
+<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>代码什么的发下来，晚自习的时候 Jwz 和我说 A 题做法根号，一下子发现自己寄了。</p>
+<p>当时分析复杂度的时候实际上隐约想到了这个根号的结论，但是没有更深入地去想。。。</p>
+<p>实际上估计再用个 $5$ 到 $10$ 分钟就能切 A 了。。。</p>
+<p>顺便还能把 C 的文件名改对。。。</p>
+<p>当时考场上冲 D 题 C 性质真的失误。。。</p>
+<p>后来想想暴力状压实际上也都还比这个好冲一点，更何况还因为冲这个题把前面的 60pts 丢光了。。。</p>
+<p>总之寄飞了。。。</p>
 ]]></content>
       <categories>
         <category>杂记</category>
