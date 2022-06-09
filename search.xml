@@ -2338,14 +2338,8 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>顺便还能把 C 的文件名改对。。。</p>
 <p>当时考场上冲 D 题 C 性质真的很失误。。。</p>
 <p>后来想想暴力状压实际上也都还比这个好冲一点，更何况还因为冲这个题把前面的 60pts 丢光了。。。</p>
-<blockquote>
-<p>满纸荒唐言，一把辛酸泪。</p>
-<p>谁言作者痴，不解其中味。</p>
-</blockquote>
 <hr>
-<p>很可惜当我在这里写下 AFO 的时候我的博客属实是没有办法 deliver。</p>
-<p>以至于我怀疑是不是什么神明不想让我退役然后上不上学。</p>
-<p>多少还是不能就这样放弃吧。</p>
+<p>AFO.</p>
 ]]></content>
       <categories>
         <category>杂记</category>
@@ -8477,12 +8471,9 @@ But I finally decided to walk ahead and sing the life as the brightest light.
 <p>定义 $f ( i , j ,  k )$ 表示最后剩下 $i$ 个石头，$j$ 个剪刀，$k$ 个布的概率。</p>
 <p>显然 $f ( r , s , p ) &#x3D; 1 $，$i,j,k$ 中任意数目大于其对应上限的概率都是 $0$。</p>
 <p>然后直接转移就好了：</p>
-<h1 id="f-i-j-k"><a href="#f-i-j-k" class="headerlink" title="$$ f( i , j , k ) "></a>$$ f( i , j , k ) </h1><p>\dfrac {2( i + 1 ) k } { t + 2 j + 2 k } f ( i + 1 , j , k )</p>
-<ul>
-<li>\dfrac{ 2 ( j + 1 ) i } { t + 2 i + 2 k } f ( i , j + 1 , k ) + \dfrac { 2 ( k + 1 ) j } { t + 2 i + 2 j } f ( i , j , k + 1 )<br>$$</li>
-</ul>
+<p>$$<br>\begin{aligned}<br>f ( i , j , k )<br>&#x3D; &amp;<br>\dfrac { 2 ( i + 1 ) k } { t + 2 j + 2 k } f ( i + 1 , j , k ) +<br>\\<br>&amp; \dfrac{ 2 ( j + 1 ) i } { t + 2 i + 2 k } f ( i , j + 1 , k ) +<br>\\<br>&amp; \dfrac { 2 ( k + 1 ) j } { t + 2 i + 2 j } f ( i , j , k + 1 )<br>\end{aligned}<br>$$</p>
 <p>这里直接记忆化就行了，最后把单个物种能存活的概率累加起来就是答案。</p>
-<p>时间复杂度 $O( n ^ 3 )$。</p>
+<p>时间复杂度 $ O( n ^ 3 ) $。</p>
 <p>代码：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ld long double</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">namespace</span> Ehnaev&#123;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ret=<span class="number">0</span>,f=<span class="number">1</span>;<span class="keyword">char</span> ch=<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="number">48</span>||ch&gt;<span class="number">57</span>) &#123;<span class="keyword">if</span>(ch==<span class="number">45</span>) f=-f;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="number">48</span>&amp;&amp;ch&lt;=<span class="number">57</span>) &#123;ret=(ret&lt;&lt;<span class="number">3</span>)+(ret&lt;&lt;<span class="number">1</span>)+ch<span class="number">-48</span>;ch=<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">return</span> ret*f;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">22</span>];<span class="keyword">static</span> ll len=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;=<span class="number">0</span>) &#123;<span class="keyword">do</span>&#123;buf[++len]=x%<span class="number">10</span>+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;<span class="built_in">putchar</span>(<span class="number">45</span>);<span class="keyword">do</span>&#123;buf[++len]=-(x%<span class="number">10</span>)+<span class="number">48</span>;x/=<span class="number">10</span>;&#125;<span class="keyword">while</span>(x);&#125;</span><br><span class="line">    <span class="keyword">while</span>(len&gt;=<span class="number">0</span>) <span class="built_in">putchar</span>(buf[len--]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;<span class="keyword">using</span> Ehnaev::read;<span class="keyword">using</span> Ehnaev::write;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ll N=<span class="number">1e2</span>;</span><br><span class="line"></span><br><span class="line">ll r,s,p;</span><br><span class="line">ld ansr,anss,ansp;</span><br><span class="line">ld f[N+<span class="number">5</span>][N+<span class="number">5</span>][N+<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[N+<span class="number">5</span>][N+<span class="number">5</span>][N+<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ld <span class="title">DP</span><span class="params">(ll i,ll j,ll k)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(i&gt;r||j&gt;s||k&gt;p) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span>(vis[i][j][k]) <span class="keyword">return</span> f[i][j][k];vis[i][j][k]=<span class="number">1</span>;</span><br><span class="line">  ll t=<span class="number">2</span>*(i*j+j*k+i*k);ld res=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">if</span>(t+<span class="number">2</span>*(j+k)&gt;<span class="number">0</span>) res+=(<span class="number">2</span>*i*k+<span class="number">2</span>*k)/(ld)(t+<span class="number">2</span>*(j+k))*<span class="built_in">DP</span>(i+<span class="number">1</span>,j,k);</span><br><span class="line">  <span class="keyword">if</span>(t+<span class="number">2</span>*(i+k)&gt;<span class="number">0</span>) res+=(<span class="number">2</span>*i*j+<span class="number">2</span>*i)/(ld)(t+<span class="number">2</span>*(i+k))*<span class="built_in">DP</span>(i,j+<span class="number">1</span>,k);</span><br><span class="line">  <span class="keyword">if</span>(t+<span class="number">2</span>*(i+j)&gt;<span class="number">0</span>) res+=(<span class="number">2</span>*k*j+<span class="number">2</span>*j)/(ld)(t+<span class="number">2</span>*(i+j))*<span class="built_in">DP</span>(i,j,k+<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> f[i][j][k]=res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  r=<span class="built_in">read</span>();s=<span class="built_in">read</span>();p=<span class="built_in">read</span>();</span><br><span class="line">  f[r][s][p]=<span class="number">1</span>;vis[r][s][p]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=r;i++) &#123;ansr+=<span class="built_in">DP</span>(i,<span class="number">0</span>,<span class="number">0</span>);&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=s;i++) &#123;anss+=<span class="built_in">DP</span>(<span class="number">0</span>,i,<span class="number">0</span>);&#125;</span><br><span class="line">  <span class="keyword">for</span>(ll i=<span class="number">1</span>;i&lt;=p;i++) &#123;ansp+=<span class="built_in">DP</span>(<span class="number">0</span>,<span class="number">0</span>,i);&#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%.12Lf %.12Lf %.12Lf&quot;</span>,ansr,anss,ansp);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -8490,6 +8481,32 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>DP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bell_Series</title>
+    <url>/2022/05/26/Bell-Series/</url>
+    <content><![CDATA[<h1 id="零、前言"><a href="#零、前言" class="headerlink" title="零、前言"></a>零、前言</h1><p>本文纯粹为笔者意淫之物。</p>
+<p>以此言之，仅因此物过于无聊琐碎，以致 OI 中基本不会过度强调此物，又因此物于解析数论中的功用远不及狄利克雷级数等物，仅能作为积性函数的研究工具，功能有限，在一般的解析数论学中很少应用。</p>
+<p>但笔者仍然被贝尔级数对积性函数简洁而优美的表达所吸引，并且很多多项式上的处理技巧都能够迁移过来，于是笔者决定浅谈这些迁移，让贝尔级数能够比较工具化的应用在筛法相关的问题上。</p>
+<p>本文的阅读难度不高，想必即使是一般人也能轻松写出与本文类似甚至远超本文的东西，笔者不过作一总结之事，权当玩乐看罢，诸君见笑。</p>
+<h1 id="一、引入"><a href="#一、引入" class="headerlink" title="一、引入"></a>一、引入</h1><p>定义积性函数 $f$ 的贝尔级数：</p>
+<p>$$<br>f _ p ( x ) &#x3D; \sum  _ { c &#x3D; 0 } ^ { \infty } f ( p ^ c ) x ^ c<br>$$</p>
+<p>在这里需要注意的是，由于是积性函数，我们的贝尔级数存在实际意义当且仅当 $ [ x ^ 0 ] f _ p ( x ) &#x3D; 1 $。</p>
+<p>但是不必过于死板，因为即便贝尔级数表达的函数没有意义，仍然可以作为一个简单的运算过程中产物存在，这也给我们的先 $\ln$ 后 $\exp$ 提供了可能，从而衍生出更多的技巧。</p>
+<p>我们先介绍最简单的运算，来初步认识贝尔级数的功用：</p>
+<ol>
+<li><p>乘法，其对应为积性函数的狄利克雷卷积：</p>
+<p> $$<br> f _ p ( x ) g _ p ( x ) &#x3D; h _ p ( x ) \Leftrightarrow f \ast g &#x3D; h<br> $$</p>
+<p> 这个很好理解，因为两个积性函数的卷积仍然是积性函数，决定了素数幂的取值能决定整个函数，因此这里通过仅仅考虑素数幂处的取值使原本的狄利克雷卷积变成了多项式的一般乘法卷积。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>贝尔级数</tag>
       </tags>
   </entry>
 </search>
