@@ -2305,50 +2305,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </tags>
   </entry>
   <entry>
-    <title>Farewell</title>
-    <url>/2022/05/08/Farewell/</url>
-    <content><![CDATA[<p>不想说太多话。</p>
-<h1 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h1><p>失眠了。</p>
-<p>早上随便选了一场 Div2 尝试 vp，做完 D 之后就弃了。</p>
-<p>下午到一中试机，敲了个 NTT 和 SA 的板子。</p>
-<p>因为太长时间没有用 Linux，试机的时候出了点小问题，不过好在最后自己解决掉了。</p>
-<p>从试机结束到晚上一直在摸鱼——打东方，看动画片，水知乎。。。</p>
-<p>一直摸到第二天的零点多。。。</p>
-<h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h1><p>睡觉的时候比昨天舒服多了。</p>
-<p>摸鱼就像给自己打了一剂麻醉针，把乱七八糟的事忘得干干净净。</p>
-<p>毕竟满脑子都是游戏和动画的时候，根本没有多余的思考空间用来精神内耗，很快就能睡着。。。</p>
-<p>下午开始考试。</p>
-<p>看第一题，感觉很怪异，大概想到是若干个环，然后求和一个关于 $\operatorname{lcm}$ 的式子。</p>
-<p>复杂度大概能控制在 $O(m^2n\log n)$ 这个样子，但是发现 $\operatorname{lcm}$ 好像会很大，感觉不稳，但是不会其他方法，开了个 <code>__int128</code>。。。</p>
-<p>然后第二题一看感觉可能是个树上倍增之类的题。但感觉想不出来，写了个 $O(nm)$ 的暴力就走了。</p>
-<p>第三题不知道怎么计数。写了个搜索走了。</p>
-<p>第四题感觉很不可做，时间也不是很多了。然后我看 C 性质比较可做，就尝试冲这个。</p>
-<p>大概是把深度为 $2$ 的节点分一分什么的，然后排序再求一求和。</p>
-<p>大部分输出都是对的，但是一部分比答案大很多不知道为什么。</p>
-<p>最后一分钟没调出来，无所谓了。</p>
-<p>出考场之后看到源代码，发现第三题文件名打错了。</p>
-<p>然后说是不能改，我也没办法，算了吧。</p>
-<p>题都是好题，就是把我区分下去了。</p>
-<p>要滚回去学文化课了。</p>
-<p>UPD：省队变 ASDFZ 校队了，真是可喜可贺可喜可贺。</p>
-<p>祝 ASDFZ 全员集训队，力争取得 AH 历年团体最好成绩。</p>
-<h1 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h1><p>代码什么的发下来，晚自习的时候 Jwz 和我说 A 题做法根号，一下子发现自己寄了。</p>
-<p>当时分析复杂度的时候实际上隐约想到了这个根号的结论，但是没有更深入地去想。。。</p>
-<p>实际上估计再用个 $5$ 到 $10$ 分钟就能切 A 了。。。</p>
-<p>顺便还能把 C 的文件名改对。。。</p>
-<p>当时考场上冲 D 题 C 性质真的很失误。。。</p>
-<p>后来想想暴力状压实际上也都还比这个好冲一点，更何况还因为冲这个题把前面的 60pts 丢光了。。。</p>
-<hr>
-<p>AFO.</p>
-]]></content>
-      <categories>
-        <category>杂记</category>
-      </categories>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>EssayAD20220223</title>
     <url>/2022/02/23/EssayAD20220223/</url>
     <content><![CDATA[<p>“空”？</p>
@@ -8481,32 +8437,6 @@ But I finally decided to walk ahead and sing the life as the brightest light.
       </categories>
       <tags>
         <tag>DP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bell_Series</title>
-    <url>/2022/05/26/Bell-Series/</url>
-    <content><![CDATA[<h1 id="零、前言"><a href="#零、前言" class="headerlink" title="零、前言"></a>零、前言</h1><p>本文纯粹为笔者意淫之物。</p>
-<p>以此言之，仅因此物过于无聊琐碎，以致 OI 中基本不会过度强调此物，又因此物于解析数论中的功用远不及狄利克雷级数等物，仅能作为积性函数的研究工具，功能有限，在一般的解析数论学中很少应用。</p>
-<p>但笔者仍然被贝尔级数对积性函数简洁而优美的表达所吸引，并且很多多项式上的处理技巧都能够迁移过来，于是笔者决定浅谈这些迁移，让贝尔级数能够比较工具化的应用在筛法相关的问题上。</p>
-<p>本文的阅读难度不高，想必即使是一般人也能轻松写出与本文类似甚至远超本文的东西，笔者不过作一总结之事，权当玩乐看罢，诸君见笑。</p>
-<h1 id="一、引入"><a href="#一、引入" class="headerlink" title="一、引入"></a>一、引入</h1><p>定义积性函数 $f$ 的贝尔级数：</p>
-<p>$$<br>f _ p ( x ) &#x3D; \sum  _ { c &#x3D; 0 } ^ { \infty } f ( p ^ c ) x ^ c<br>$$</p>
-<p>在这里需要注意的是，由于是积性函数，我们的贝尔级数存在实际意义当且仅当 $ [ x ^ 0 ] f _ p ( x ) &#x3D; 1 $。</p>
-<p>但是不必过于死板，因为即便贝尔级数表达的函数没有意义，仍然可以作为一个简单的运算过程中产物存在，这也给我们的先 $\ln$ 后 $\exp$ 提供了可能，从而衍生出更多的技巧。</p>
-<p>我们先介绍最简单的运算，来初步认识贝尔级数的功用：</p>
-<ol>
-<li><p>乘法，其对应为积性函数的狄利克雷卷积：</p>
-<p> $$<br> f _ p ( x ) g _ p ( x ) &#x3D; h _ p ( x ) \Leftrightarrow f \ast g &#x3D; h<br> $$</p>
-<p> 这个很好理解，因为两个积性函数的卷积仍然是积性函数，决定了素数幂的取值能决定整个函数，因此这里通过仅仅考虑素数幂处的取值使原本的狄利克雷卷积变成了多项式的一般乘法卷积。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>贝尔级数</tag>
       </tags>
   </entry>
 </search>
